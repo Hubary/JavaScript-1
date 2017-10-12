@@ -3,17 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <title>day09-动态生成表格</title>
+    <style>
+        table {
+            border: 1px solid #000000;
+        }
+    </style>
 </head>
 <body>
-<input type="text" id="txt1" placeholder="请输入行数:">
-<input type="text" id="txt2" placeholder="请输入列数:">
-<button id="btn">生成表格</button>
 
-<table id="tb">
-    <!--动态生成 tr td-->
-</table>
+    <!--行列获取-->
+    <input type="text" id="txt1" placeholder="请输入行数:">
+    <input type="text" id="txt2" placeholder="请输入列数:">
+    <button id="btn">生成表格</button>
 
 
+    <div id="createTable">
+        <!--动态生成表格-->
+    </div>
 
 </body>
 </html>
@@ -24,67 +30,110 @@
          * 动态生成表格
          */
 
-        //获取输入框值
-        document.getElementById("btn").onclick = function () {
-            //行
-            row = Number(document.getElementById("txt1"));
-            //列
-            column = Number(document.getElementById("txt2"));
-        };
-
         function dynamicTable(row, column) {
-            //获取table
-            var oTable = document.getElementById("tb");
-//            var oTrow = null;
-//            var oTcol = null;
-
-            /*//
+            //创建table
+            var oTable = document.createElement("table");
+            //生成行
             for (var i = 1; i <= row; i++) {
-                oTrow = document.createElement("tr");
-                oTable.appendChild(oTrow);
-            }
-            //
-            for (var i = 1; i <= column; i++) {
-                oTcol = document.createElement("td");
-                oTrow.appendChild(oTcol);
-
-            }
-            //
-            for (var i = 1; i <= row * column; i++) {
-                var aTd = document.getElementsByTagName("td");
-                aTd[i].innerHTML = randomNumM_N(0 - 100);
-                aTd[i].style.background = "randomColorByRGB(randomNumM_N(0-255),randomNumM_N(0-255),randomNumM_N(0-255))";
-
-            }*/
-
-            for(var i=1;i<=row;i++){
+                //创建tr
                 var oTrow = document.createElement("tr");
-                oTable.appendChild(oTrow);
-                for (var j=1;j<=column;j++){
-                   var oTcol = document.createElement("td");
+                //生成列
+                for (var j = 1; j <= column; j++) {
+                    //创建 td
+                    var oTcol = document.createElement("td");
+                    //追加到 tr 里
                     oTrow.appendChild(oTcol);
-
-
                 }
+                //追加到 table 里
+                oTable.appendChild(oTrow);
+            }
+            //在 div 中输出
+            document.getElementById("createTable").appendChild(oTable);
 
+            //给每个 td 赋值
+            for (var i = 0; i < row * column; i++) {
+                //获取所有 td
+                var aTd = document.getElementsByTagName("td");
+                //
+                //aTd[i].style.background = "randomColorByRGB(randomNumM_N(0,255),randomNumM_N(0,255),randomNumM_N(0,255))";
+                //随机赋值
+                aTd[i].innerHTML = randomNumM_N(0, 100);
             }
 
-            var arrTD= document.getElementsByName("td");
-            for(var i in arrTD){
-                arrTD[i].innerHTML=randomNumM_N(0,100);
-
-            }
 
         }
 
         //测试
-        dynamicTable(row, column);
-
-
-
-
+        document.getElementById("btn").onclick = function () {
+            //获取行
+            var row = Number(document.getElementById("txt1").value);
+            //获取列
+            var column = Number(document.getElementById("txt2").value);
+            //调用
+            dynamicTable(row, column);
+        };
 
     }
 
+</script>
+<script>
+
+    /**
+     * 功能: 生成m-n之间的随机整数
+     * @param m 起始数字
+     * @param n 终止数字
+     * @returns {Number}
+     */
+    function randomNumM_N(m,n) {
+        //判断m,n是否为非负数
+        if(m<0||n<=0){
+            //提示信息
+            return "请重新输入m,n";
+        }
+        //判断m和n的关系
+        if(m>n){
+            //如果m>n,则交换m和n的值
+            var temp=m;
+            m=n;
+            n=temp;
+        }
+        //返回值
+        return parseInt(m+Math.random()*(n-m+1));
+    }
+
+
+
+    /**
+     * 功能: 颜色值转换为16进制,不足前置补0
+     * @param R 0-255
+     * @param G 0-255
+     * @param B 0-255
+     * @returns {string}
+     */
+    function stringToNum(R,G,B) {
+        R=R.toString(16).length<2?"0"+R.toString(16):R.toString(16);
+        G=G.toString(16).length<2?"0"+G.toString(16):G.toString(16);
+        B=B.toString(16).length<2?"0"+B.toString(16):B.toString(16);
+        return R+G+B;
+    }
+
+
+    /**
+     * 功能: 随机颜色
+     * @param R 0-255
+     * @param G 0-255
+     * @param B 0-255
+     * @returns {string}
+     */
+    function randomColorByRGB() {
+        R=randomNumM_N(0,255);
+        G=randomNumM_N(0,255);
+        B=randomNumM_N(0,255);
+        return "#"+stringToNum(R,G,B);
+    }
+
+    var a =randomColorByRGB();
+    document.body.style=a;
+    console.log(a)
 
 </script>
