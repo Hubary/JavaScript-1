@@ -10,7 +10,7 @@
 /**
  * 功能: 不足位数时前置补0
  * @param num 待补位的数
- * @param length 制定的位数
+ * @param length 指定的位数
  * @returns {string}
  */
 function addPrefixZero(num, length) {
