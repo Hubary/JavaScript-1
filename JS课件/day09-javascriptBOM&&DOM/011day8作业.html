@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+</html>
+<script>
+//2、倒计时
+    /* 商品截止时间为：2017年03月31日 00时00分00秒
+     在页面上显示倒计时（格式为：xx天xx时xx分xx秒）*/
+     var oBox = document.getElementById('box')
+setInterval(function(){
+
+	var now = new Date("2017-11-11 00:00:00")
+	var time = now.getTime();
+	var d = new Date();
+	var time1 = d.getTime();
+	var time2 = time-time1;
+	var day = 0;
+	var h = 0;
+	var m = 0;
+	var s = 0;
+
+	day = Math.floor(time2/(3600*1000*24))
+	h = Math.floor((time2%(3600*1000*24))/(3600*1000))
+	m = Math.floor(((time2%(3600*1000*24))%(3600*1000))/(60*1000))
+	s = Math.floor((((time2%(3600*1000*24))%(3600*1000))%(60*1000))/1000)
+	oBox.innerHTML ="剩余"+day+"天"+h+"时"+m+"分"+s+"秒"
+},1000)
+//5、写一个时钟  详情请看作业视频
+
+
+
+//6、数码时钟    详情请看作业自带的图片
+</script>

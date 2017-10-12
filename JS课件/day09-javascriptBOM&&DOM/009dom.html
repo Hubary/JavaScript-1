@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	
+	</style>
+</head>
+<body>
+		<ul id="list">
+			<li class="ab">1</li>
+			<li class="aa">2</li>
+			<li class="ac">3</li>
+			<li class="ad">4</li>
+			<li>5</li>
+		</ul>
+</body>
+</html>
+<script>
+//一个标签元素肯定会有的三样东西：1、属性   2、标签名   3、文本
+//
+//
+//增  删  改  查
+
+//查
+//		 页面     获取  元素 通过 
+//id查找 document.getElementById()  id名称
+//
+//var oList = document.getElementById('list')
+
+
+//标签名
+//document.getElmentsByTagName()  标签名  返回来是一个伪数组  
+//禁止直接使用获取到的这个对象
+/*var aLi  = document.getElementsByTagName('li');
+aLi[0].innerHTML = "aa"*/
+
+
+//className
+//document.getElementsByClassName()  class名 返回来也是一个伪数组
+//禁止直接使用   有兼容性问题  尽量少用  IE8以下不兼容
+//var aA = document.getElementsByClassName('a');
+//console.log(aA)
+
+
+//name  几乎不用
+//document.getElementsByName()  name的名称
+//var ofrom = document.getElementsByName('list');
+//console.log(ofrom)
+
+//ES5新增的获取元素
+//document.querySelector()  获取单个元素  类名  IE8以下 不包含IE8
+//var oAb = document.querySelector("#list>.ab");
+//console.log(oAb)
+
+
+//获取多个元素
+//document.querySelectorAll()  获取全部元素  返回结果是一个数组
+//var aA = document.querySelectorAll('#list>.ab')
+//console.log(aA)
+
+/*var oList = document.getElementById("list");
+var aLi = oList.getElementsByTagName('li');
+console.log(aLi)*/
+
+
+
+//增   插入：appendChild()   语法：父级元素.appendChild()  括号里面是要插入的标签   插入的位置是元素的末尾
+//document.createElement(); 括号里面写的是你需要增加的元素名称
+var li6 = document.createElement("li");
+var oList = document.getElementById('list');
+oList.appendChild(li6)
+var aLi = oList.getElementsByTagName('li');
+//删  removeChild()  父级元素.removeChild()  子集元素
+aLi[4].style.listStyle="none";
+//oList.removeChild(aLi[4])
+
+
+//改
+
+aLi[0].innerHTML = "增删改查讲完了"
+</script>

@@ -1,0 +1,1 @@
+动态创建表格  10  10  随机数   背景颜色   禁止用字符串拼接    createElement  appendChidl()

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script>
+//3、aabccd统计每个字符出现的次数，结果显示 a 2、b 1、c 2、d1，去掉重复的字符，使结果显示 abcd
+
+var str = "aabbcc";
+var obj = {};
+/*var str1 = "";
+for(var i=0;i<str.length;i++){
+	if(str1.indexOf(str[i])==-1){
+		str1+=str[i]
+	}
+}
+
+
+for(var i=0;i<str1.length;i++){
+	var count=0;
+	for(var j=0;j<str.length;j++){
+		if(str1[i]==str[j]){
+			count++;
+		}
+	}
+	console.log(str1[i]+"出现了"+count+"次")
+}*/
+
+for(var i=0;i<str.length;i++){
+	var ch = str[i];
+	//obj[hc]=1
+	//count = obj[ch]
+	//     值      键
+	//    obj={a:,b:,}
+	var count = obj[ch];
+	if(!count){
+		count=0;
+	}
+	count++;
+	obj[ch]=count;
+}
+/*for(var i in obj){
+	console.log(i+"出现了"+obj[i])
+}*/
+</script>

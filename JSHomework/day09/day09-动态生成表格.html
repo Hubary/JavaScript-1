@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>day09-动态生成表格</title>
+</head>
+<body>
+<input type="text" id="txt1" placeholder="请输入行数:">
+<input type="text" id="txt2" placeholder="请输入列数:">
+<button id="btn">生成表格</button>
+
+<table id="tb">
+    <!--动态生成 tr td-->
+</table>
+
+
+
+</body>
+</html>
+<script src="../../Encapsulation/encap.js"></script>
+<script>
+    window.onload = function () {
+        /**
+         * 动态生成表格
+         */
+
+        //获取输入框值
+        document.getElementById("btn").onclick = function () {
+            //行
+            row = Number(document.getElementById("txt1"));
+            //列
+            column = Number(document.getElementById("txt2"));
+        };
+
+        function dynamicTable(row, column) {
+            //获取table
+            var oTable = document.getElementById("tb");
+//            var oTrow = null;
+//            var oTcol = null;
+
+            /*//
+            for (var i = 1; i <= row; i++) {
+                oTrow = document.createElement("tr");
+                oTable.appendChild(oTrow);
+            }
+            //
+            for (var i = 1; i <= column; i++) {
+                oTcol = document.createElement("td");
+                oTrow.appendChild(oTcol);
+
+            }
+            //
+            for (var i = 1; i <= row * column; i++) {
+                var aTd = document.getElementsByTagName("td");
+                aTd[i].innerHTML = randomNumM_N(0 - 100);
+                aTd[i].style.background = "randomColorByRGB(randomNumM_N(0-255),randomNumM_N(0-255),randomNumM_N(0-255))";
+
+            }*/
+
+            for(var i=1;i<=row;i++){
+                var oTrow = document.createElement("tr");
+                oTable.appendChild(oTrow);
+                for (var j=1;j<=column;j++){
+                   var oTcol = document.createElement("td");
+                    oTrow.appendChild(oTcol);
+
+
+                }
+
+            }
+
+            var arrTD= document.getElementsByName("td");
+            for(var i in arrTD){
+                arrTD[i].innerHTML=randomNumM_N(0,100);
+
+            }
+
+        }
+
+        //测试
+        dynamicTable(row, column);
+
+
+
+
+
+    }
+
+
+</script>

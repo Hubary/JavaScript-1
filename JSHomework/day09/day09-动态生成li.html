@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>day09-动态生成li</title>
+</head>
+<body>
+
+<button id="btn">停止</button>
+
+
+<ul id="list">
+    <!--动态生成li-->
+</ul>
+
+</body>
+</html>
+<script src="../../Encapsulation/encap.js"></script>
+<script>
+    window.onload = function () {
+
+        function dynamicLi() {
+
+            timer = setInterval(function () {
+                var oUL = document.getElementById("list");
+                var oList = document.createElement("li");
+
+                oUL.appendChild(oList);
+
+
+            }, 1000)
+
+
+        }
+
+
+        //测试
+        dynamicLi();
+
+        document.getElementById('btn').onclick=function () {
+            clearInterval(timer);
+           var arrLi= document.getElementsByName("li");
+           for(var i in arrLi){
+               arrLi[i].style.width=100+"px";
+               arrLi[i].style.height=20+"px";
+               arrLi[i].style.background="#9f9";
+           }
+        }
+
+    }
+
+
+</script>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>day08-数码时钟</title>
+</head>
+<body>
+
+<img src="images/0.png">
+<img src="images/0.png">
+时
+<img src="images/0.png">
+<img src="images/0.png">
+分
+<img src="images/0.png">
+<img src="images/0.png">
+秒
+</body>
+</html>
+
+<script>
+    var timer5 = null;
+
+    function digitalWatch() {
+        clearInterval(timer5);
+        timer5 = setInterval(function () {
+            //获取当前时间
+            var date = new Date();
+            //获取时分秒
+            var hour = date.getHours();
+            var minute = date.getMinutes();
+            var second = date.getSeconds();
+            //获取所有img标签
+            var oImg = document.getElementsByTagName("img");
+            //将hour minute second 方便按2个字符串长度放入数组中
+            var arr = [parseInt(hour / 10), hour % 10, parseInt(minute / 10), minute % 10, parseInt(second / 10), second % 10];
+            //遍历
+            for (var i = 0; i < oImg.length; i++) {
+                oImg[i].src = "images/" + arr[i] + ".png";
+            }
+        }, 1000);
+    }
+
+    //测试
+    digitalWatch();
+</script>

@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>day08-Date作业</title>
+    <style>
+        div {
+            margin: 10px 0;
+        }
+
+        #localTime {
+            width: 300px;
+            box-shadow: 0 0 5px #f00;
+        }
+
+        #localTime2 {
+            width: 300px;
+            box-shadow: 0 0 5px #0f0;
+        }
+
+        #localTime3 {
+            width: 300px;
+            box-shadow: 0 0 5px #f99;
+        }
+
+        /*时钟样式*/
+        .circle {
+            position: relative;
+            margin: 50px 0 20px 30px;
+            width: 200px;
+            height: 200px;
+            border: 1px solid #ff7700;
+            border-radius: 100px;
+        }
+
+        /*时*/
+        #hour {
+            position: absolute;
+            top: 97px;
+            left: 97px;
+            width: 6px;
+            height: 60px;
+            background-color: #444444;
+            transform-origin: 50% 0%;
+        }
+
+        /*分*/
+        #min {
+            position: absolute;
+            top: 98px;
+            left: 98px;
+            width: 4px;
+            height: 80px;
+            background-color: #ff9999;
+            transform-origin: 50% 0%;
+        }
+
+        /*秒*/
+        #sec {
+            position: absolute;
+            top: 99px;
+            left: 99px;
+            width: 2px;
+            height: 90px;
+            background-color: #00ff00;
+            transform-origin: 50% 0%;
+        }
+
+        /*钟表中心圆点*/
+        #point {
+            position: absolute;
+            z-index: 1;
+            top: 90px;
+            left: 90px;
+            width: 20px;
+            height: 20px;
+            background-color: #ff0000;
+            border-radius: 10px;
+        }
+
+        /*钟表刻度*/
+        ul li {
+            list-style: none;
+            position: absolute;
+            top: 100px;
+            left: 99px;
+            width: 2px;
+            height: 97px;
+            border-bottom: 4px solid #9999ff;
+            transform-origin: 50% 0%;
+        }
+
+        /*钟表小时刻度*/
+        ul li.lang {
+            height: 93px;
+            border-bottom: 8px solid #444;
+        }
+
+    </style>
+</head>
+<body>
+<div id="localTime"></div>
+<div id="localTime2"></div>
+<div id="localTime3"></div>
+
+<div class="circle">
+    <div id="point"></div>
+    <div id="hour"></div>
+    <div id="min"></div>
+    <div id="sec"></div>
+    <!--每小格-->
+    <ul></ul>
+</div>
+
+<div>
+    <img src="images/0.png">
+    <img src="images/0.png">
+    时
+    <img src="images/0.png">
+    <img src="images/0.png">
+    分
+    <img src="images/0.png">
+    <img src="images/0.png">
+    秒
+</div>
+</body>
+</html>
+<script src="../../Encapsulation/encap.js"></script>
+<script>
+    /**
+     * 1.动态显示当前时间
+     * 格式:xxxx年xx月xx日 xx时xx分xx秒
+     */
+        //定时器1
+    var Timer = null;
+
+    function timeNow() {
+        //关闭
+        clearInterval(Timer);
+        //
+        Timer = setInterval(function () {
+            //输出
+            localTime.innerHTML = "北京时间: " + dateToString(new Date(), ":", 2);
+        }, 1000);
+    }
+
+    //测试
+    timeNow();
+
+    /**
+     * 方法2
+     */
+
+        //定时器2
+    var Timer2 = null;
+
+    function timeNow2() {
+        //
+        clearInterval(Timer2);
+        //
+        Timer2 = setInterval(function () {
+            var date = new Date();
+            //月日时分秒,按2位前置补0并拼接
+            localTime2.innerHTML = "北京时间: " + date.getFullYear() + "年" + addPrefixZero((date.getMonth() + 1), 2) + "月" + addPrefixZero(date.getDay(), 2) + "日" + " " + addPrefixZero(date.getHours(), 2) + "时" + addPrefixZero(date.getMinutes(), 2) + "分" + addPrefixZero(date.getSeconds(), 2) + "秒";
+        }, 1000);
+    }
+
+    //测试
+    timeNow2();
+
+
+    /**
+     * 2.倒计时
+     * 商品截止时间为：2017年03月31日 00时00分00秒
+     * 在页面上显示倒计时（格式为：xx天xx时xx分xx秒）
+     */
+
+        //定时器3
+    var Timer3 = null;
+
+    function reverseDate() {
+        //
+        clearInterval(Timer3);
+        //
+        Timer3 = setInterval(function () {
+            //设置截止时间
+            var date1 = new Date("2017-11-11 00:00:00");
+            //获取当前时间
+            var date2 = new Date();
+            //获取时间戳差值
+            var val = Math.abs(date1.getTime() - date2.getTime());
+            //相差的天数
+            var day = parseInt(val / 1000 / 60 / 60 / 24);
+            //小时数
+            var hour = parseInt(val / 1000 / 60 / 60 % 24);
+            //分
+            var minutes = parseInt(val / 1000 / 60 % 60);
+            //秒
+            var second = parseInt(val / 1000 % 60);
+            //
+            localTime3.innerHTML = "距离光棍节还有: " + addPrefixZero(day, 2) + "天" + addPrefixZero(hour, 2) + "时" + addPrefixZero(minutes, 2) + "分" + addPrefixZero(second, 2) + "秒";
+        }, 1000);
+    }
+
+    //测试
+    reverseDate();
+
+
+    /**
+     * 3.计算两个日期时间差值(天数)
+     */
+    function valueOfTwoDate(date1, date2) {
+        return parseInt(Math.abs(date1.getTime() - date2.getTime()) / 1000 / 3600 / 24);
+    }
+
+    //测试
+    var date1 = new Date("2017-11-11 00:00:00");
+    var date2 = new Date("2017-10-12 00:00:00");
+    console.log(valueOfTwoDate(date1, date2));
+
+    /**
+     * 4.计时器
+     */
+    //详见另附页面
+
+    /**
+     * 6.数码时钟
+     * 详情请看作业自带的图片
+     */
+
+    var timer5 = null;
+
+    function digitalWatch() {
+        clearInterval(timer5);
+        timer5 = setInterval(function () {
+            //获取当前时间
+            var date = new Date();
+            //获取时分秒
+            var hour = date.getHours();
+            var minute = date.getMinutes();
+            var second = date.getSeconds();
+            //获取所有img标签
+            var oImg = document.getElementsByTagName("img");
+            //将hour minute second 方便按2个字符串长度放入数组中
+            var arr = [parseInt(hour / 10), hour % 10, parseInt(minute / 10), minute % 10, parseInt(second / 10), second % 10];
+            //遍历
+            for (var i = 0; i < oImg.length; i++) {
+                oImg[i].src = "images/" + arr[i] + ".png";
+            }
+        }, 1000);
+    }
+
+    //测试
+    digitalWatch();
+
+
+</script>
+<script>
+    /**
+     * 5.写一个时钟
+     */
+
+        //分别获取时针，分针，秒针和刻度的父元素ul
+    var hour = document.getElementById("hour");
+    var min = document.getElementById("min");
+    var sec = document.getElementById("sec");
+    var oul = document.getElementsByTagName("ul")[0];
+
+    //动态创建60个li表示钟表刻度并添加到父元素ul内
+    var olis = "";
+    for (var i = 0; i < 60; i++) {
+        olis += "<li></li>";
+    }
+    oul.innerHTML = olis;
+    //获取创建好的每一个li
+    var oLis = document.getElementsByTagName("li");
+    //循环获取lang样式
+    for (var i = 0; i < 60; i++) {
+        //每隔五个就有一个小时刻度，让它获取lang这个样式
+        if (i % 5 == 0) {
+            oLis[i].className = "lang";
+        }
+        //整圆360度，每一个刻度是6度，让第i个li旋转6i度
+        oLis[i].style.transform = "rotateZ(" + i * 6 + "deg)";
+    }
+
+    //定时器4
+    var timer4 = null;
+
+    function run() {
+
+        //每次执行前关闭并清除之前的定时器，节约性能
+        clearTimeout(timer4);
+        timer4 = null;
+
+        var nowDate = new Date();
+        //处理时针突跳
+        var s = nowDate.getSeconds();
+        sec.style.transform = "rotateZ(" + (s * 6 + 180) + "deg)";
+
+        //得到每一秒的旋转角度（每一秒是走6度）
+        var m = nowDate.getMinutes() + s / 60;
+        min.style.transform = "rotateZ(" + (m * 6 + 180) + "deg)";
+
+        //得到每一分钟走的角度 每一小时之间是30 / 一小时中间有5个格 =30/5=6度
+        //每小时走360/12=30度
+        var h = nowDate.getHours() + m / 60;
+        hour.style.transform = "rotateZ(" + (h * 30 + 180) + "deg)";
+
+        //开启定时器，每一秒自动走
+        var timer4 = window.setTimeout(run, 1000);
+    }
+
+    //测试
+    run();
+</script>

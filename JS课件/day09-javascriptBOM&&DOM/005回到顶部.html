@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin:0;padding:0;}
+		#box{width:100px;height: 100px;background: red;right: 0;position: absolute;top:0;display: none;}
+	</style>
+</head>
+<body style="height:3000px;">
+	<div id="box"></div>
+</body>
+</html>
+<script>
+/*
+	当滚动的距离低于多少的时候是隐藏
+	高于多少的时候是显示
+
+
+	滚动的距离
+		document.body.scrollTop
+	可视区的高度
+		document.documentElement.clientHeight
+
+ */
+
+window.onload = function(){
+	window.onscroll = function(){
+		//document.body.scrollTop
+		//document.documentElement.scrollTop
+		var scrollTop = document.body.scrollTop||document.documentElement.scrollTop;
+		var h = document.documentElement.clientHeight;
+		box.style.top = scrollTop+h-100-100+'px';
+		//box.style.top = scrollTop+h/2-50+'px'
+		if(scrollTop>=400){
+			box.style.display="block";
+		}
+		if(scrollTop>=2300){
+			//box.style.top = scrollTop+680+'px'
+		}
+
+	}
+
+	box.onclick = function(){
+		document.body.scrollTop=document.documentElement.scrollTop = 0;
+		box.style.display="none"
+	}
+}
+</script>

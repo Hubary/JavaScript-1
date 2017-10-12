@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script>
+/*
+	ASCII码    -----uniCode    -----GBK   -----UTF-8
+	ASCII转换：
+		如何让ASCII转换成字符：String.fromCharCode()
+		如何让字符转换成ASCII码 对象.charCodeAt() 下标
+	对象：存储特殊的数据
+		对象的创建方式
+			var obj = new Object()  构造函数
+			var obj = Object()
+			var obj = {}
+
+		可以添加属性和方法  只有对象才可以点
+			obj.name = "董琦";   属性就相当于键   属性值就相当于值
+			obj.fn = function(){   添加方法
+				
+			}
+
+			var obj = {
+				"name":"董琦",
+				fn:function(){
+					
+				}
+			}
+
+			delete obj.属性
+			delete obj.方法
+
+
+		数学上的一些方法  Math 属于内置对象
+			Math.random()
+			Math.pow()
+			Math.sqrt()
+			Math.ceil()
+			Math.floor()
+			Math.abs()
+			Math.round()
+			Math.PI
+			Math.sin(x)
+			Math.cos(x)
+			Math.tan(x)
+			
+			数学上的一些概念
+				三角函数: 振幅*sin(2*Math.PI/360*已知度数)
+
+				勾股定理：Math.pow(a,2)+Math.pow(b,2)=Math.pow(c,2)
+
+				抛物线：y = a*Math.pow(x,2)+b*x+c
+
+		随机颜色
+			1、如何改不足2位的数字补0
+			2、toString()可以进行进制转换  在括号里面可以写上8 进制  16 进制
+
+		引用数据类型：Object  function new Array  new String new Date new RegExp
+		
+		时间对象
+			获取和设置时间
+
+			如何获取事件对象
+				var d = new Date()
+			如何获取未来时间和过去时间
+
+				var d = new Date()  在括号里面写未来时间和过去时间  经常用到的地方就是倒计时
+
+			如何获取事件戳
+			var d = new Date()
+			d.getTime()
+
+			时间对象的API
+			年  getFullYear()
+			月  getMonth()  月份是从0开始的  所以使用的时候要加1
+			日  getDate()
+			时  getHours()
+			分  getMinutes()
+			秒  getSeconds()  都是可以设置和获取
+			星期 getDay()   只能获取
+
+			如何让事件对象转换成字符串
+
+
+			如何让字符串转换为时间对象
+
+			var d = new Date()
+
+			Date.parse()   
+
+			后者是不可以放时间戳
+
+
+			定时器
+				多少秒执行一次内部代码
+			语法：setInterval(function(){}) 两个参数  第一个参数是回调函数   第二个参数是时间
+			setInterval的返回值是定时器的个数
+
+			如何关闭定时器:clearInterval()  里面的参数是定时器的返回值
+			如果今后要使用定时器一定要先关闭定时器
+
+
+			扩展：凡是想要让物体运动起来 这个物体必定是一个定位元素
+		
+
+
+
+ */
+</script>

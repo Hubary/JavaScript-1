@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin:0;padding:0;}
+		#box{width: 100px;height: 100px;background: red;}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+</html>
+<script>
+	/*
+		js的三大组成部分
+			ECMAscript :是一种规范
+
+			BOM：Browser Object Model   浏览器对象模型   兼容性问题特别大解决不了
+
+			DOM：document  页面   dom树
+			通过js来操控don树
+
+
+
+		浏览器最大的大佬就是window
+
+
+		location:
+
+			url的组成部分：http     域名          端口号    资源库    页面   
+					       https://www.baidu.com/  80  
+		方法：location.href: 跳转链接 
+			  location.reload()  刷新   第一种如果括号里面什么都没有加的话是正常的刷新
+			  如果里面加了true那么就是清除缓存刷新   ajax的时候会用到清除缓存
+
+		什么是浏览器的缓存？    
+			浏览器在第一次加载某一个页面的时候第一次加载特别慢   但是二次加载的时候就特别快
+
+
+			浏览器第一次加载的时候把页面上一些  js  css  html  img   提前加载到了你的本地
+
+
+			垃圾回收机制
+				定时的清理
+
+
+			如何减少HTTP的请求次数
+				1、图片整合
+
+			当你在页面上输入www.baidu.com的时候按下回车发生了事情？
+				1、域名解析
+
+					10.09.10.28
+
+			history.go()  如果里面的值是-1则是后退  如果是正1则是前进  0代表刷新
+
+			history.back() 函数---后退一页
+
+    		history.forward()函数--前进一页
+
+		navigator：获取浏览器相应的信息
+	 */
+	
+	//window.alert(1)
+	box.onclick = function(){
+		location.href="http://www.baidu.com"
+	}
+</script>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style="margin: 0;padding: 0;height: 2000px;position: relative;">
+<div id="box" style="width: 50px;height: 40px;background-color: #99ff99;position: absolute;right: 0;text-align: center;font: 12px/40px '';display: none">顶部</div>
+
+</body>
+</html>
+<script>
+
+    //获取鼠标滚动高度
+    //document.body.scrollTop;
+    //IE8以下用: document.documentElement.scrollTop;
+
+    window.onload = function () {
+        //可视窗口滚轮事件
+        window.onscroll = function () {
+            //获取鼠标滚动距离
+            var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+            //获取当前可视窗口高度
+            var viewTop = document.documentElement.clientHeight;
+            //
+            if (scrollTop >= 500) {
+                document.getElementById("box").style.display = "block";
+            }
+            //设置box的top值
+            //document.getElementById("box").style.top = scrollTop + viewTop - 40+ "px";//底部贴边
+            document.getElementById("box").style.top = scrollTop + viewTop - 40 - 50 + "px";//距离底部有50px
+
+            //点击事件
+            document.getElementById("box").onclick = function () {
+                //将鼠标滚动距离清零
+                document.body.scrollTop = document.documentElement.scrollTop = 0;
+                //将box隐藏
+                document.getElementById("box").style.display = "none";
+            };
+        };
+    };
+</script>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>day09-BOM/DOM作业</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            height: 2000px;
+            position: relative;
+        }
+
+        #load {
+            margin: 10px 10px;
+            width: 200px;
+            height: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px #000;
+            background: #99ff99;
+            overflow: hidden;
+        }
+
+        #percent {
+            display: block;
+            width: 0;
+            height: 20px;
+            font: 12px/20px "";
+            background: #ff7700;
+            text-align: right;
+        }
+
+        /*站酷*/
+        #box {
+            width: 50px;
+            height: 40px;
+            background-color: #99ff99;
+            position: absolute;
+            right: 0;
+            text-align: center;
+            font: 12px/40px '';
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<!--进度条-->
+<div id="load">
+    <span id="percent"></span>
+</div>
+
+<!--回到顶部-->
+<div id="box">顶部</div>
+
+<!--动态生成表格-->
+
+
+</body>
+</html>
+<script>
+    window.onload = function () {
+        /**
+         * 1.进度条
+         */
+            //定时器
+        var timer = null;
+        //初始点
+        var num = 0;
+
+        //
+        function onLoad() {
+            //关闭
+            clearInterval(timer);
+            //启动
+            timer = setInterval(function () {
+                //累加
+                num += parseInt(Math.random() * 10);
+                //改变样式
+                percent.style.width = num + "px";
+                //判断是否到底
+                if (num >= 200) {
+                    num = 200;
+                    //关闭定时器
+                    clearInterval(timer);
+                }
+                //输出信息
+                document.getElementById("percent").innerHTML = parseInt(num / 2) + "%";
+            }, 1000);
+        }
+
+        //测试
+        onLoad();
+
+
+        /**
+         * 2.站酷返回顶部按钮
+         */
+
+        //可视窗口滚轮事件
+        window.onscroll = function () {
+            //获取鼠标滚动距离
+            var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+            //获取当前可视窗口高度
+            var viewTop = document.documentElement.clientHeight;
+            //
+            if (scrollTop >= 500) {
+                document.getElementById("box").style.display = "block";
+            }
+            //设置box的top值
+            document.getElementById("box").style.top = scrollTop + viewTop - 40 - 50 + "px";
+            //点击事件
+            document.getElementById("box").onclick = function () {
+                //将鼠标滚动距离清零
+                document.body.scrollTop = document.documentElement.scrollTop = 0;
+                //将box隐藏
+                document.getElementById("box").style.display = "none";
+            };
+        };
+
+        /**
+         * 3.动态创建表格
+         * 格式: 10  10  随机数   背景颜色
+         * 注意:禁止用字符串拼接
+         * 方法:createElement  appendChild()
+         */
+
+
+    };
+</script>

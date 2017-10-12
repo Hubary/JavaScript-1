@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin:0;padding: 0;}
+		.box{width: 400px;height: 60px;background: #ccc;border:1px solid #ccc;border-radius: 10px;}
+		#color{width:0;height: 60px;background: red;display: block;border:1px solid #ccc;border-radius: 10px;}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<span id="color"></span>
+	</div>
+</body>
+</html>
+<script>
+//晚上作业自己加上百分号
+var num = 0;
+var timer = setInterval(function(){
+	var p = parseInt(Math.random()*5);
+	num+=p;
+	color.style.width=num+'px';
+	if(num>=400){
+		clearInterval(timer)
+	}
+},50)
+</script>
