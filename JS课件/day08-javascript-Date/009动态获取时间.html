@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script src="../../pool.js"></script>
+<script>
+var d = new Date()
+var time = date2String(d,"/");
+document.body.innerHTML = time;
+var timer = null;
+timer = setInterval(function(){
+	var d = new Date()
+	var time = date2String(d,"/");
+	document.body.innerHTML = time;
+},1000)
+</script>

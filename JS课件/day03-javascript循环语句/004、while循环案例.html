@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script>
+/*
+	1、alert():阻止代码执行
+
+	2、console.log()
+
+	3、断点调试
+
+ */
+//1、打印100以内7的倍数
+	/*var num = 0;
+	while(num<=100){
+		if(num%7==0){
+			console.log(num)
+		}
+		num+=7;//优化  减少循环的次数
+
+	}*/
+
+//2、打印100以内的奇数
+	/*var num = 0;
+	while(num<=100){
+		if(num%2!=0){
+			console.log(num);
+		}
+		num++;
+	}*/
+
+
+//3、计算100以内所有偶数的和
+	
+	/*var num = 0;
+	var sum = 0;
+
+	while(num<=100){
+		if(num%2==0){
+			sum+=num;
+		}
+		num++;
+	}*/
+
+//4、入职薪水10K，每年涨幅5%，50年后工资多少？
+
+		/*var year = 2;
+		var money = 10000;
+
+		while(year<=50){
+			money*=1.05; 
+			year++;	
+		}
+		console.log(money)*/
+
+//5、打印100-200以内能被3 或 7整除的数字
+/*
+	var num = 100;
+
+	while(num<=200){
+		if(num%3==0||num%7==0){
+			console.log(num)
+		}
+		num++;
+	}*/
+
+//6、生成一个随机概率，要求概率必须大于70%，否则重新生成
+
+	/*var Ran = 0;
+
+	while(Ran<0.7){
+		Ran = Math.random();
+	}
+	console.log(Ran)*/
+
+
+
+//Math.random()  0-1之间的数
+//parseInt(Math.random()*10)
+//
+//5-10之间的数字  parseInt(5+Math.random()*6)  
+//前面第一个数是开始的一个起始数  乘以的这个数是一个范围  
+//
+//20-25
+
+/*var num = 0;
+while(num<=50){
+	console.log(parseInt(20+Math.random()*6))
+	num++;
+}*/
+
+
+
+
+</script>

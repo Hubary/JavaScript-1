@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script>
+/*
+	量词
+
+
+	一根肠    一根烟    一瓶水   
+
+	一堆肠    一车烟    一箱水   一打酒
+
+	var  a = chang
+	var  b = yan
+	var  c = shui
+
+
+	变量只是用来存储一些单个的数据
+
+
+	大学：帮舍友带饭
+	一份炒饭  一份疙瘩汤  一份拉面   一份鸡排
+	第一件事情：如何把这些东西拿到餐桌上？   餐盘   大袋子  服务员  
+
+
+	要把所有的变量保存到一个类型于餐盘中的一个库里面存放起来 数组 
+
+
+	如果我现在想把全班所有的成绩保存下来
+
+
+	数组来把一些散装的变量整合起来
+
+	如何创建数组
+		创建数组有三种方式
+			1、var arr = new Array()
+
+			2、var arr = Array()
+
+			3、var arr = [];
+
+ */
+
+/*
+
+ var arr = new Array(10,20,30,"a","b",true,false)
+	如果只传一个数字的时候那么就代表这个数组的长度
+	如果传的参数不是一个值得话那么就代表数组的参数
+	数组里面不单单是可以存放一种数据类型的，也可以存放多种数据类型
+	(一般情况下我们往数组里面存放的数据都是同一种类型)
+	console.log(arr)
+
+
+	var arr = Array(10,20);
+	console.log(arr)
+	根第一种创建方式使用的方法是一样的
+
+
+
+	var arr = [10,20,30,"a","b"];
+	console.log(arr)
+	//第三种方式如果往方括号里面写一些数据的时候那么一个值不代表长度  而是给这个数组添加值
+ */
+
+
+
+/*
+
+如果看对象自带的一些方法
+	1、console.dir()
+	2、console.log([对象])
+
+
+	var arr = [];
+console.log([arr])
+
+var fn = function(){}
+console.log([fn])
+ */
+
+
+/*
+	数组的下标
+
+	下标：索引  一般情况都是从0开始的   
+	数组的长度：length    数组.length
+
+	var  arr = [10,20,30,40];
+	console.log(arr.length)
+
+ */
+
+
+var arr = [];
+//思考如何动态的添加数据
+//input:value  获取和修改内容
+
+
+//动态添加1-100之间的所有数字放到数组arr里面
+for(var i=1;i<=100;i++){
+	arr[arr.length]=i
+}
+console.log(arr)
+
+
+/*
+	使用数组的时候一般情况下都会进行遍历
+
+	//累加所有偶数之和	
+ */
+var sum=0;
+for(var i=0;i<arr.length;i++){
+	if(arr[i]%2==0){
+		sum+=arr[i]
+	}
+}
+console.log(sum)
+
+
+
+
+
+</script>

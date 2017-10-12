@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>计时器练习</title>
+    <style>
+        #TIMER {
+            width: 220px;
+            height: 300px;
+            background: #99ff99;
+            margin: 100px auto;
+            border: 1px solid #0f0;
+            box-shadow: 0 0 5px #000;
+            text-align: center
+        }
+
+        #TIMER div {
+            background: #9999ff;
+            width: 220px;
+            height: 50px;
+            margin: 40px auto;
+            text-align: center;
+            line-height: 50px;
+            font-size: 24px;
+            color: #fff;
+        }
+
+        #TIMER button {
+            width: 80px;
+            height: 30px;
+            margin: 5px;
+            font-size: 15px;
+            color: #000;
+        }
+
+    </style>
+</head>
+<body>
+<div id="TIMER">
+    <!--计时器输出显示-->
+    <div id="time"></div>
+    <!--三个按钮-->
+    <button onclick="startClick()">Start</button>
+    <button onclick="pauseClick()">Pause</button>
+    <button onclick="resetClick()">Reset</button>
+</div>
+</body>
+</html>
+<script src="../../Encapsulation/encap.js"></script>
+<script>
+    //页面输出
+    time.innerHTML = "00:00:00:000"
+    //声明计时器
+    var timer = null;
+    //声明时分秒以及毫秒
+    var hour = 0;
+    var minute = 0;
+    var second = 0;
+    var msec = 0;
+
+    /**
+     * 开始按钮事件
+     */
+    function startClick() {
+        //先关闭计时器
+        clearInterval(timer);
+        //再开启计时器
+        timer = setInterval(function () {
+            //毫秒自增
+            msec++;
+            //逻辑判断
+            if (msec >= 1000) {
+                //自增
+                second++;
+                //清零
+                msec = 0;
+            }
+            if (second >= 60) {
+                minute++;
+                second = 0;
+            }
+            if (minute >= 60) {
+                hour++;
+                minute = 0;
+            }
+            //前置补0
+            if (msec < 100) {
+                //如果msec小于100,则msec按3位补0,其余按2位补0,并输出
+                time.innerHTML = addPrefixZero(hour, 2) + ":" + addPrefixZero(minute, 2) + ":" + addPrefixZero(second, 2) + ":" + addPrefixZero(msec, 3);
+            } else {
+                //如果msec不小于100,则msec原值输出,其余按2位补0,并输出
+                time.innerHTML = addPrefixZero(hour, 2) + ":" + addPrefixZero(minute, 2) + ":" + addPrefixZero(second, 2) + ":" + msec;
+            }
+        }, 1);
+    }
+
+    /**
+     * 暂停按钮事件
+     */
+    function pauseClick() {
+        //关闭计时器
+        clearInterval(timer);
+    }
+
+    /**
+     * 重置按钮事件
+     */
+    function resetClick() {
+        //
+        clearInterval(timer);
+        //全部清零
+        hour = 0;
+        minute = 0;
+        second = 0;
+        msec = 0;
+        time.innerHTML = "00:00:00:000"
+    }
+</script>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script>
+	/*
+		do{
+			...代码块
+		}while(条件)
+
+		1、初始化循环变量
+
+		2、不管条件成不成立先执行一次   在循环体内改变初始化的循环变量
+
+		3、在去判断条，然后在去执行
+
+		4、while和do...while区别   后者不管成不成立都会去执行一次
+
+		 var num = 10;
+
+		 while(num<10){
+		 	console.log("执行");
+		 	num++;
+		 }
+
+
+		 do{
+		 	console.log("do while 执行");
+		 	num++;
+		 }while(num<10)
+	 */
+	
+	/*
+		for循环
+
+		for(初始化的循环变量;比较条件;改变初始化变量){
+			代码块
+		}
+	
+		1、初始化的循环变量只会执行一次
+
+		2、进行条件的比较  如果条件成立执行相应的代码块
+
+		3、改变初始化的变量
+
+		4、比较条件 如果条件成立执行相应的代码块
+
+		5、改变初始化的变量
+
+		6、每一个条件结尾都必须加一个分号  唯独最后一个条件不需要加分号
+
+		7、如果条件最后不成立了  那么就会跳出循环
+
+
+		一般情况下：遍历数组  json     字符串。。。
+
+
+		for(var i = 0;i<=100;i++){
+			if(i%7==0){
+				console.log(i)
+			}
+		}
+	 */
+	
+//1、打印100以内7的倍数
+	
+
+
+//2、打印100以内的奇数
+/*
+	for(var i=0;i<=100;i++){
+		if(i%2!=0){
+			console.log(i)
+		}
+	}
+*/
+//3、计算100以内所有偶数的和
+	
+	/*var sum = 0;
+	for(var i=0;i<=100;i++){
+		if(i%2==0){
+			sum+=i;
+		}
+	}
+	console.log(sum)*/
+	
+
+//4、入职薪水10K，每年涨幅5%，50年后工资多少？
+	/*var num = 10000;
+	for(var i=2;i<=50;i++){
+		num*=1.05
+	}
+	console.log(num)*/
+	
+
+//5、打印100-200以内能被3 或 7整除的数字
+
+	/*for(var i=100;i<=200;i++){
+		if(i%3==0 || i%7==0){
+			console.log(i)
+		}
+	}*/
+
+//6、生成一个随机概率，要求概率必须大于70%，否则重新生成
+	/*
+	for(var i=0;i<0.7;i=Math.random()){
+
+	}
+	console.log(i)*/
+
+	for(var i=0;i<10000;i++){
+		var num = Math.random();
+		if(num>0.7){
+			console.log(num);
+			break;//可以连for循环一起跳出的
+		}
+	}
+	console.log(i)
+	
+</script>

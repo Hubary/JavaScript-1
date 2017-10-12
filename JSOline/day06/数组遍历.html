@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数组</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /**
+     * 将1-100赋值给数组
+     * @type {Array}
+     */
+    var arr = [];
+    for (var i = 1; i <= 100; i++) {
+        arr[arr.length] = i;
+    }
+    console.log(arr);
+
+    /**
+     * 求上述数组之中的所有偶数和
+     * @type {Array}
+     */
+    var sum = 0;
+    for (var i = 0; i < arr.length; i++) {
+        if (arr[i] % 2 == 0) {
+            sum += arr[i];
+        }
+    }
+    console.log(sum);
+</script>

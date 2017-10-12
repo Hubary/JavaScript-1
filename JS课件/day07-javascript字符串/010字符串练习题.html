@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="text" id="userName">
+</body>
+</html>
+<script>
+//1、判断用户名长是否正确  6-16
+		/*userName.onblur = function(){
+			var val = userName.value;
+			if(val.length>=6&&val.length<=16){
+				alert("用户名可以使用")
+			}else{
+				alert("用户名不可以使用")
+			}
+		}*/
+
+
+//2、判断字符串的首字母是不是大写
+
+	/*userName.onblur = function(){
+		var val = userName.value;
+		var first = val.charAt(0);
+		if(first>="A"&&first<="Z"){
+			alert("大写")
+		}else{
+			alert("小写")
+		}
+	}*/
+
+//3、任意给定的一串字母，统计字符串里面的大写字母和小写字母的个数
+
+	/*userName.onblur = function(){
+		var val = userName.value;
+		var lower = 0;
+		var upper = 0;
+		for(var i=0;i<val.length;i++){
+			if(val.charAt(i)>="A"&&val.charAt(i)<="Z"){
+				upper++
+			}else{
+				lower++
+			}
+		}
+		console.log(upper,lower)
+	}*/
+
+//4、怎么判断字符  a 在str中是不是唯一的
+/*var str = "chen ya qiang";
+
+if(str.indexOf("a")==str.lastIndexOf("a")){
+	alert("唯一")
+}else{
+	alert("不唯一")
+}
+*/
+//5、字符串去重
+
+//字符串是不允许被修改的
+/*var str = "aabbccdd";
+var str1 = '';
+for(var i=0;i<str.length;i++){
+	if(str1.indexOf(str[i])==-1){
+		str1+=str[i]
+	}
+}
+console.log(str1)*/
+
+
+
+</script>

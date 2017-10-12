@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script>
+	/*
+		Math.random();
+		Math.pow();
+		Math.sqrt();
+		Math.abs();
+		Math.ceil()
+		Math.floor();
+		Math.round();
+		Math.PI;
+		Math.sin(x);
+		Math.cos(x);
+		Math.tan(x);
+	 */
+	
+	/*
+	
+		随机数
+
+
+		toSting():进制转换  8   16
+
+	 */
+	function random1Num(n,m){
+		return parseInt(n+Math.random()*(m-n+1))
+	}
+
+	function randomColor(){
+		var R = random1Num(0,255)
+		var G = random1Num(0,255)
+		var B = random1Num(0,255)
+		return "#"+string2Num(R,G,B);
+	}
+
+	function string2Num(r,g,b){
+		r = r.toString(16).length<2?"0"+r.toString(16):r.toString(16);
+		g = g.toString(16).length<2?"0"+g.toString(16):g.toString(16);
+		b = b.toString(16).length<2?"0"+b.toString(16):b.toString(16);
+		return r+g+b;
+	}
+
+	var color = randomColor();
+	document.body.style.background = color;
+</script>

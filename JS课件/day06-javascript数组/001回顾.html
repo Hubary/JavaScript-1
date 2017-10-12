@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script>
+	/*
+		day1 
+			什么是js？
+				1、早期主要是用来验证表单的正确性
+				2、现在可以用来实现页面的交互效果
+				3、是一个跨平台的脚本语言
+				4、网景公司开发的  作者是布兰登 艾奇
+			变量：存储一些固定的值或者表达式
+
+			js中的数据类型
+				基本数据类型：number string  undefined  null  boolean
+				引用数据类型：object{function  new Array }
+
+			隐式类型转换和强制类型转换
+			隐式：==  !=  - * / % -= *= /= %=
+			强制类型转换：number  parseInt   parseFloat
+
+			运算符
+				算数运算符
+				赋值运算符
+				关系运算符
+				逻辑运算符
+				一元运算符
+
+			js中转换为fasle的值有哪些？
+				false ''  0 undefined  null  NaN
+
+			js中转换为true的值有哪些？
+				true  非0的数字  非空的字符串  obj  function
+
+			加号里面的大坑
+				1、任何字符串与数字相加都是拼接
+				2、undefined与任何数字相加都是NaN
+				3、true带表的是1   false带表的是0 
+
+			NaN
+				什么是NaN:  not a Number
+					NaN!=NaN
+				NaN的数据类型是Number
+				如何判断NaN  Number.isNaN()
+
+
+
+
+			day2选择流程语句
+
+				三大流程语句
+					顺序执行
+					选择执行
+					循环执行
+			选择流程语句
+				单分支语句
+					if(){}
+				在()里面写的是条件  {}里面写的是代码块
+
+				多分支语句
+					if(){}else{}
+
+				多分支选择语句
+					if(){
+	
+					}else if(){
+			
+					}
+
+			if语句的优化：
+				将几率大的放在最前面减少无用的判断
+				if语句可以进行嵌套嵌套最多不要超过三层
+
+			switch语句
+				if语句和switch语句的使用场景
+					if：区间的判断
+						判断的条件是boolean
+
+					switch：固定值的判断
+							判断的条件是与case匹配的值
+
+					case:穿透功能  所以使用case的时候一定要加上break
+
+					defalut:当判断的条件全部不成立的时候将执行这条语句
+
+			day3  循环
+
+			while()
+				1、初始化变量
+				2、循环条件
+				3、执行代码块
+				4、改变初始化条件
+
+			do...while()
+				前者不管正确与否都会执行一次  后者会进行判断在进行执行
+
+			for循环
+				1、初始化变量
+				2、循环条件
+				4、改变初始化变量
+				5、执行代码块
+
+
+				循环的顺序：1、初始化变量   2、循环条件  3、执行代码块
+				4、改变初始化变量   5、循环条件   6、执行代码块
+
+
+			break:终止循环   判断和循环
+
+			continue：跳出本次循环 继续执行下一次循环  循环
+
+			return:当想拿到函数的返回结果的时候必须用return  函数
+			当reture执行完毕以后后面的代码就不在执行了
+
+			三元运算符：
+				条件？代码1：代码2
+
+			Math方法
+				Math.random()
+				Math.pow()
+				Math.ceil()
+				Math.floor()
+				Math.sqrt()
+				Math.abs()
+				Math.round()
+				Math.PI   
+
+
+
+			day4 函数上
+
+				工具的好处：	
+					可以重复使用
+					随时使用
+					不许知道内部结构
+
+				函数创建的几种方式
+					关键字
+						function 函数名(){
+						
+						}
+
+					字面量
+						命名函数var fn = function 函数名(){}
+						匿名函数var fn = function(){};
+
+
+						什么时候使用匿名函数？
+							1、闭包
+							2、事件
+
+							btn.onclick = function(){
+	
+							}
+
+
+
+						立即执行函数
+							(function fn(){
+	
+							})()
+
+					构造函数
+						var 变量名 = new Function("参数","函数体")
+						第二个参数这个引号要注意一点不是一般的引号 这个引号会进行代码解析
+
+			
+				常见的一些事件
+					鼠标事件
+						onclick
+						dblclick
+						onmouseover
+						onmouseout 
+						onmousemove
+						onmousedown
+						onmouseup
+						onmousewheel
+
+					键盘事件
+						onkeydown
+						onkeyup
+						onkeypress
+
+					输入框事件
+						onfocus
+						onblur
+						onchange
+						oninput
+						onsubmit 提交事件
+
+
+					参数
+						形参  虚拟的参数  
+						实参  实际传入的参数
+
+					形参都相当于局部变量
+					如何形参没有赋值那么就是undefined
+
+
+					作用域：变量起作用的范围
+						全局变量：在函数外部的参数
+						局部变量：在函数内部的参数
+
+					作用域链：作用域的集合
+
+					在函数内部如果没有用var 定义的变量是全局变量
+
+					变量的声明提升
+						预编译和执行
+						预编译：将变量名和关键字函数提升到script最顶部
+						赋值语句不进行提升
+
+						var  a = 10
+
+
+						fn()
+
+						function fn(){
+							alert(1)
+						}
+			
+						fn()
+
+
+						var fn = function(){
+	
+						}
+
+
+						栈和堆
+							栈：先进后出 基本数据类型都是存放在栈中
+							堆：
+
+						arguments:
+							形参的集合
+							形参的个数 ：arguments.length
+							下标：下表一般都是从0开始的  而长度都是从1开始的
+
+						构造函数：
+							打包一系列信息
+
+
+						递归：自己玩自己    函数自身调用自身
+
+						3个条件
+							1、返回条件   调用自身
+							2、终止条件   跳出递归的条件
+							3、项目需求的规律
+
+						
+
+
+
+	 */
+</script>

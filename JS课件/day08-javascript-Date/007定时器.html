@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin:0;padding: 0}
+		#box{width:100px;height: 100px;background: red;position: absolute;left: 0;top:40px;}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+	<button id="btn1">开始</button>
+	<button id="btn2">暂停</button>
+</body>
+</html>
+<script src="../../pool.js"></script>
+<script>
+/*var d = new Date()
+var time = date2String(d,"/");
+document.body.innerHTML = time;*/
+
+//定时器:多长时间执行一次
+//setInterval()第一个参数是回调函数   执行时间是毫秒
+//返回值是定时器的个数
+/*setInterval(function(){
+	....代码块
+},执行时间)*/
+/*var i = 0;
+setInterval(function(){
+	i++;
+	document.body.innerHTML =i;
+},1000)*/
+
+//关闭定时器：clearInterval()  括号里面就下写着定时器的名字
+//如果想让一个物体运动那么这个物体肯定是一个定位元素
+var l = 2;
+
+var timer=null;
+var timer1 = null; 
+btn1.onclick = function(){
+	clearInterval(timer)
+	timer = setInterval(function(){
+		box.style.left = l+'px';
+		l++;
+	},100)
+	console.log(timer)
+}
+
+
+btn2.onclick = function(){
+	clearInterval(timer)
+}
+
+document.body.onclick = function(){
+	timer1 = setInterval(function(){},10)
+	console.log(timer1)
+}
+</script>

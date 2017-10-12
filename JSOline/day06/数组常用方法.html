@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数组常用方法</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //原数组
+    var arr = [3, 6, 10, 15, 22, 30];
+    console.log("原数组:");
+    console.log(arr);
+    //测试数组
+    var arr1 = [1, 2, 4, 7];
+    //测试信息
+    console.log("以下为测试信息");
+
+    /**
+     * 数组拼接
+     * @type {Array.<number>}
+     */
+    var newArr = arr.concat(arr1);//返回值是一个数组
+    console.log(newArr);
+    //是否改变原数组
+    console.log(arr);//不改变原数组
+    console.log(arr1);//不改变原数组
+
+    /**
+     * 数组转换成字符串
+     * join()可以传递参数,数组元素会以传递的参数进行分隔
+     * @type {string}
+     */
+    //无参数传递(默认以逗号隔开)
+    var newArr2=arr.join();
+    console.log(newArr2);
+    //传递参数
+    var newArr3=arr.join("-");
+    console.log(newArr3);
+    //是否改变原数组
+    console.log(arr);//不改变原数组
+
+    /**
+     * 数组转换成字符串
+     * 无法进行参数传递,只能以逗号分隔数组中的每个元素
+     * @type {string}
+     */
+    var newArr4=arr.toString();
+    console.log(newArr4);
+    //是否改变原数组
+    console.log(arr);//不改变原数组
+
+    /**
+     * 数组元素的截取
+     * slice(start, end)
+     * start和end都是指数组下标,其中[start, end)
+     * 如果没有end,则默认截取到末尾
+     * @type {Array.<number>}
+     */
+    //无end
+    var newArr5=arr.slice(2);
+    console.log(newArr5);
+    //有end
+    var newArr6=arr.slice(1,4);
+    console.log(newArr6);
+    //是否改变原数组
+    console.log(arr);//不改变原数组
+
+    /**
+     *
+     * @type {Array.<number>}
+     */
+    var newArr7=arr.splice();
+    
+    
+</script>

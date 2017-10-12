@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="text" id="txt">
+	<button id="btn">点击</button>
+</body>
+</html>
+<script>
+	/*
+		switch(变量){
+			case 1:
+				代码
+			case 2:
+			case 3:
+		}
+		
+		注意的地方：
+			switch括号里面写的是变量
+
+			变量要与每一个case值进行比较  如果相等那么就会执行相应的代码
+
+			switch里面的比较不会进行隐式类型转换而是进行了恒等比较
+
+			case的值是写在冒号的左边
+
+			case:穿透效果,有的时候穿透效果有特别好的好处(详情请看下一个案例)，有的时候会给我们带来不便
+
+			解决：case的穿透 break
+
+			为了方便代码的维护以及更好的用户体验  我们要在switch语句的最后面一定要加上一个default
+
+	 */
+	
+	 btn.onclick = function(){
+	 	var Tval = Number(txt.value);
+	 	
+	 	switch(Tval){
+	 		case 1:
+	 			alert("星期一");
+	 			break;
+	 		case 2:
+	 			alert("星期二");
+	 			break;
+	 		case 3:
+	 			alert("星期三");
+	 			break;
+	 		case 4:
+	 			alert("星期四");
+	 			break;
+	 		case 5:
+	 			alert("星期五");
+	 			break;
+	 		case 6:
+	 			alert("星期六");
+	 			break;
+	 		case 7:
+	 			alert("星期日");
+	 			break;
+	 		default:
+	 			alert("请正确输入");
+	 	}
+	 }
+</script>

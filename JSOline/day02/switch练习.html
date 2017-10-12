@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>switch练习</title>
+</head>
+<body>
+    <input type="text" id="txt">
+    <button id="btn">点击</button>
+
+    <input type="text" id="txt2">
+    <button id="btn2">click</button>
+
+    <br/>
+
+    <input type="text" id="txt3">
+    <button id="btn3">查询</button>
+</body>
+</html>
+<script>
+    var weekDay = parseInt(txt.value);
+    btn.onclick = function () {
+        switch (weekDay) {
+            case 1:
+                alert("今天礼拜一");
+                break;
+            case 2:
+                alert("今天礼拜二");
+                break;
+            case 3:
+                alert("今天礼拜三");
+                break;
+            case 4:
+                alert("今天礼拜四");
+                break;
+            case 5:
+                alert("今天礼拜五");
+                break;
+            case 6:
+                alert("今天礼拜六");
+                break;
+            case 7:
+                alert("今天礼拜日");
+                break;
+            default:
+                "请输入人1-7的数字,谢谢!"
+        }
+    }
+
+
+    var scole = parseInt(txt2.value);
+    var A;
+    if (scole >= 90) {
+        A = 1;
+    } else if (scole >= 80) {
+        A = 2;
+    } else if (scole >= 70) {
+        A = 3;
+    } else if (scole >= 60) {
+        A = 4;
+    } else {
+        A = 5;
+    }
+    btn2.onclick = function () {
+        switch (A) {
+            case  1:
+                alert("棒棒哒~");
+                break;
+            case  2:
+                alert("不错哦~");
+                break;
+            case  3:
+                alert("还可以~");
+                break;
+            case  4:
+                alert("勉强吧~");
+                break;
+            default:
+                alert("报警了");
+        }
+    }
+
+    /* 根据一个数字日期，判断这个日期是这一年的第几天
+     例如： 20160211，计算后结果为42
+     提示闰年条件： 四年一闰，百年不闰，四百年再闰*/
+
+    //获取数字日期
+    var d = parseInt(txt3.value);
+    //   年份
+    var y = parseInt(d / 10000);
+    console.log("年份" + y);
+    //   月份
+    var temp = d % 10000;
+    var mouth = parseInt(temp / 100);
+    console.log("月份:" + mouth);
+    //日
+    var day = d % 100;
+    console.log("天数:" + day);
+
+    //二月份天数
+    var m;
+
+    if (y % 400 == 0 || y % 100 != 0 && y % 4 == 0) {
+        console.log("这一年是闰年,二月份为29天");
+        m = 29;
+    } else {
+        console.log("这一年是平年,二月份为28天");
+        m = 28;
+    }
+    //总天数
+    var sum = 0;
+
+    btn3.onclick = function () {
+        switch (mouth) {
+            case 1:
+                console.log(sum = day);
+                break;
+            case 2:
+                console.log(sum = 31 + day);
+                break;
+            case 3:
+                console.log(sum = 31 + m + day);
+                break;
+            case 4:
+                console.log(sum = 31 + m + 31 + day);
+                break;
+            case 5:
+                console.log(sum = 31 + m + 31 + 30 + day);
+                break;
+            case 6:
+                console.log(sum = 31 + m + 31 + 30 + 31 + day);
+                break;
+            case 7:
+                console.log(sum = 31 + m + 31 + 30 + 31 + 30 + day);
+                break;
+            case 8:
+                console.log(sum = 31 + m + 31 + 30 + 31 + 30 + 31 + day);
+                break;
+            case 9:
+                console.log(sum = 31 + m + 31 + 30 + 31 + 30 + 31 + 31 + day);
+                break;
+            case 10:
+                console.log(sum = 31 + m + 31 + 30 + 31 + 30 + 31 + 31 + 30 + day);
+                break;
+            case 11:
+                console.log(sum = 31 + m + 31 + 30 + 31 + 30 + 31 + 31 + 30 + 31 + day);
+                break;
+            case 12:
+                console.log(sum = 31 + m + 31 + 30 + 31 + 30 + 31 + 31 + 30 + 31 + 30 + day);
+                break;
+
+        }
+    }
+
+
+</script>

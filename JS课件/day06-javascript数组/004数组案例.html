@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script>
+//1、用数组定义自己10天的消费，并计算总和
+
+	var arr = [50,30,40,80,100,80,10,40,80,70];
+	var sum = 0;
+	for(var i in arr){
+		sum+=arr[i]
+	}
+
+
+
+//2、求平均成绩
+
+	var dongqi = [80,60,59,60,90];
+	var sum = 0;
+	for(var i in dongqi){
+		sum+=dongqi[i]
+	}
+	//alert(sum/dongqi.length)
+
+//3、定义一个含有30个整型元素的数组，按顺序分别赋予从2开始的偶数；然后按顺序每五个数求出一个平均值，放在另一个数组中并输出。试编程。
+	var arr = [];
+	var arr1 = [];
+	var sum = 0;
+	var count=0;
+	for(var i=2;i<=60;i+=2){
+		arr[arr.length]=i;
+	}
+
+	for(var i=0;i<arr.length;i++){
+		sum+=arr[i];
+		count++;
+		if(count%5==0){
+			arr1[arr1.length]=sum/5;
+			sum=0;
+		}
+	}
+
+
+</script>

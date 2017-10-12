@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="text" id="txt"> 
+	<button id="btn">点击</button>
+</body>
+</html>
+<script>
+/*   50%  80    30% 90    10%  70       10%  60*/
+
+btn.onclick = function(){
+
+	var num = txt.value;
+
+	/*if(num<90&&num>=80){
+		console.log("B");
+	}else if(num>90){
+		console.log("A");
+	}else{
+			console.log("C");
+	}*/
+
+
+	if(num>=60){
+		if(num<90&&num>=80){
+			console.log("B");	
+		}else if(num>90){
+			console.log("A");	
+		}else{
+			console.log("C");	
+		}
+	}else{
+		alert("不及格")
+	}
+}
+
+/*   
+	将几率大的条件放在前面减少无用的判断
+	if语句可以进行嵌套 把几率大的放到前面 几率小的放在后面
+	但是if语句最好不要嵌套三次
+
+*/
+</script>

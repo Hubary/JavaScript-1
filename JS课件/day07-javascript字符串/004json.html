@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		html,body{background: #f1f1f1;}
+		#content{width: 800px;margin:20px auto;}
+		dl{
+			width: 210px;
+			border-radius: 10px;
+			border: 1px solid #fff;
+			float: left;
+			margin-right: 10px;
+		}
+		dl dt img{width: 100%;}
+		dl ul li{font-size: 12px;color: #c3c3c3;list-style: none}
+		ul {background: #fff;height: 150px;}
+		ul li{line-height: 30px;margin-left: 10px;}
+	</style>
+</head>
+<body>
+	<div id = "content"></div>
+	<!-- <dl>
+		<dt>
+			<img src="images/1.jpg">
+		</dt>
+		<ul>
+			<li>PART-03 Minimalist illu</li>
+			<li>插画-插画习作</li>
+			<li>长得像冬瓜的冬瓜</li>
+		</ul>
+	</dl> -->
+</body>
+</html>
+<script>
+	/*
+		什么是json?
+			轻量级的数据交换格式
+			xml:用来存储和传输数据
+
+
+
+	 */
+	/*
+	var obj = [{"banji":"h51","董琦":"男","王春晖":"女"},{"banji":"h52","董琦":"妖","王春晖":"受"}]
+	for(var i=0;i<obj.length;i++){
+		document.write(obj[i].banji+","+obj[i].董琦+","+obj[i].王春晖)
+	}*/
+
+
+/*	var obj = [
+		{	
+			"img":"../images/1.jpg",
+			"author":"赵亚华",
+			"time":"2017-09-09"
+		}
+	]
+
+	document.write(obj[0].img+","+obj[0].author+","+obj[0].time)*/
+
+
+
+	//站酷
+	var obj = [
+		{
+			"img":"images/1.jpg",
+			"title":"这是一幅很美丽的画",
+			"type":"插画",
+			"Visits":"333",
+			"message":"666",
+			"like":"555",
+			"author":"赵亚华"
+		},
+		{
+			"img":"images/2.jpg",
+			"title":"这是一幅很美丽的画",
+			"type":"插画",
+			"Visits":"345",
+			"message":"999",
+			"like":"222",
+			"author":"帅哥"
+		}
+	]
+	var str = '';
+	for(var i=0;i<obj.length;i++){
+		str+="<dl><dt><img src="+obj[i].img+"></dt><ul><li>"+obj[i].title+"</li><li>"+obj[i].type+"</li><li>"+obj[i].author+"</li></ul></dl>"
+	}
+	content.innerHTML=str;
+</script>

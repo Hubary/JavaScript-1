@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script>
+var arr = [1,2,3,4,5];
+var len = arr.length
+/*for(var i=0;i<len;i++){
+
+	document.write(arr[i])
+}*/
+
+//数组的长度减去一就等于下标的长度
+
+//for in 循环
+for(var i in arr){
+	document.write(arr[i])
+}
+
+
+//如何判断一个对象是不是数组
+  //instanceof
+  //检测这个对象是不是Array创建出来的
+  function fn(){}
+ console.log(arr instanceof Array)
+ console.log(typeof arr)
+ console.log(typeof fn())
+ //如果返回是一个true就是一个数组  如果返回出来是一个fasle那就不是一个数组
+ 
+var arr1 = [];
+console.log(arr1)
+
+ function fn(){
+ 	console.log(typeof arguments)
+
+ }
+
+//有些对象具有数组的方法，但是不是由Array创建出来的 这样的对象叫做伪数组
+</script>

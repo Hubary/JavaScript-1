@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        body {
+            width: 100%
+        }
+
+        img {
+            width: 7.5%;
+        }
+    </style>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //第二个for循环里面的变量禁止跟第一个循环变量名字一样
+    /*
+        扑克牌
+        1、输出四次  因为有4种花色
+        2、每一种花色输出13次
+        循环的花色
+        */
+    for (var i = 1; i <= 4; i++) {
+        for (var j = 1; j <= 13; j++) {
+            document.write("<img src=puke/" + i + "/" + j + ".jpg>")
+        }
+    }
+
+
+    /*
+        99乘法表
+        //行
+         for(var i=1;i<=9;i++){
+            for(var j=1;j<=i;j++){
+                document.write(i+"*"+j+"="+i*j+"&ensp;")
+            }
+            document.write("<br/>")
+        }
+     */
+
+
+    /*
+
+    打印三角形
+
+    for(var i=1;i<6;i++){
+        for(var j=1;j<=i;j++){
+            document.write("#");
+        }
+        document.write("<br/>")
+    }
+
+     */
+
+
+    /*
+    0000#
+    000##
+    00###
+    0####
+    #####
+    for(var i=1;i<6;i++){
+        //打印空格
+        for(var k=1;k<6-i;k++){
+            document.write("&ensp;")
+        }
+        //打印*号
+        for(var j=1;j<=i;j++){
+            document.write("#")
+        }
+        //每一行换行
+        document.write("<br/>")
+    }
+     */
+
+
+
+    /*
+
+    4、打印等腰三角形
+    000*
+    00***
+    0*****
+    *******
+
+     */
+    /*for(var i=1;i<5;i++){
+
+        for(var k=1;k<5-i;k++){
+            document.write("&ensp;")
+        }
+
+        //打印*号
+        for(var j=1;j<2*i;j++){
+            document.write("*")
+        }
+        //换行
+        document.write("<br/>");
+    }*/
+
+
+</script>

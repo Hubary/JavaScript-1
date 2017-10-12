@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script>
+//通过循环按行顺序为一个5×5的二维数组a赋1到25的自然数，然后输出该数组的左下半三角。试编程。
+var arr = [[],[],[],[],[]];
+var num=1;
+for(var i=0;i<5;i++){
+	for(var j=0;j<5;j++){
+		arr[i].push(num);
+		num++;
+	}
+}
+
+
+for(var i=0;i<5;i++){
+
+	for(var j=0;j<=i;j++){
+		document.write(arr[i][j]+"&ensp;")
+	}
+	document.write("<br/>")
+}
+</script>

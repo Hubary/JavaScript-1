@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin: 0;padding: 0}
+		#userName{border:1px solid #c3c3c3;border-radius: 10px;box-shadow: 2px 2px 2px green;margin:30px auto;text-align: center;line-height: 300px;color: red;font-size: 30px;}
+	</style>
+</head>
+<body>
+	<button id="btn1">随机点名</button>
+	<div id="userName"></div>
+	<!-- <img src="puke/1/1.jpg" > -->
+
+	<button id="btn2">创建</button>
+	<button id="btn3">洗牌</button>
+	<button id="btn4">发牌</button>
+</body>
+</html>
+<script>
+//1、扑克牌的创建、洗牌、发牌
+
+
+btn2.onclick = function(){
+	var puke = createPuke();
+	console.log(puke)
+}
+btn3.onclick = function(){
+	var puke = washPuke();
+	console.log(puke)
+}
+btn4.onclick = function(){
+	sendPuke();
+}
+
+
+
+
+function createPuke(){
+	var arr = [];
+	for(var i=1;i<=4;i++){
+		for(var j=1;j<=13;j++){
+			arr.push("<img src=puke/"+i+"/"+j+".jpg>")
+		}
+	}
+
+	return arr;
+}
+
+
+function washPuke(){
+	var arr = createPuke();
+	arr.sort(function(){
+		return 0.5-Math.random();
+	})
+	return arr;
+}
+
+
+var count=0;
+var arr = washPuke();
+function sendPuke(){
+	userName.innerHTML+=arr[count]
+	count++;
+}
+
+
+
+//2、随机点名程序
+//innnerHTML value   一般情况下只有input标签才有value去修改或者设置一些内容
+//innerhHTML是给一些没有value属性的标签设置或者修改内容
+	/*var arr = ["王春晖","张海涛","陈翔","骚气","潘志兵"];
+	btn1.onclick = function(){
+		userName.innerHTML = arr[parseInt(Math.random()*5)]
+	}*/
+</script>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script>
+
+
+/*
+
+ 	参数:提供一些参考的信息
+
+	参数：形参   实参
+
+	形参：虚拟的一些参数  供程序使用
+		形参是写在方法的小括号里面，参数可以多个，每一个参数需要用逗号隔开
+
+	实参：真实的参数
+
+	形参和实参的关系：一一相对应
+
+	如果说传形参  但是没有传实参  那么相对应的形参就是undefined 
+
+
+	参数：使函数变得更加灵活
+	
+ */
+
+/*计算n-m之间所有数之和*/
+
+function add(n,m){
+	var sum = 0;		
+	for(var i=n;i<=m;i++){
+		sum+=i
+	}
+	console.log(sum)
+}
+
+//add(10,20)  //实参：在调用函数的时候传的参数就是实参
+
+//形参需不需要声明：不需要声明，因为函数内部已经帮我们声明好了
+//add();
+//undefined:变量声明了但是没有赋值
+
+
+/*
+声明多个变量的时候
+ var a,b;
+console.log(a,b)
+*/
+
+function fn(n,m){
+	console.log(n)
+	console.log(m)
+}
+
+fn(10)
+</script>

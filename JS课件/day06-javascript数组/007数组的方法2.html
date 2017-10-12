@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script>
+//concat:拼接多个数组 不会改变原数组  而是生成了新的数组
+/*var arr = [1,2,3]
+var arr1 = ["a","b","c"];
+
+var newArr = arr.concat(arr1);
+console.log(newArr)
+console.log(arr)
+console.log(arr1)*/
+
+
+//join:将数组转换为字符串  join里面可以传符号  一般情况下传- | & , _
+/*var arr = [1,2,3,4];
+var newArr = arr.join("");
+console.log(newArr)
+console.log(arr)*/
+
+
+//split:将字符串转换为数组  字符串里面有什么符号split里面才能传什么符号进行分割
+/*var str = "大家好,哈哈";
+var newArr = str.split(",");
+console.log(newArr)*/
+
+
+
+//toString():将数组转换为字符串 根join的区别是一个可以传分割符一个不可以
+/*var arr = [1,2,3,4];
+console.log(arr.toString())//晚上查文档这个toSting除此之外还有什么作用
+console.log(arr)*/
+
+//以上几种方式不会改变原数组
+
+
+//slice:截取数组 当传一个值得时候属于从哪个位置开始截取
+//				 当传2个值得时候第一个值是截取下标的位置，第二个值是截取到哪一块的位置但是不算这个位置
+/*var arr = [1,2,3,4,5];
+console.log(arr.slice(1,3))
+console.log(arr)*/
+
+
+//splice:改变了原数组
+//当什么都不传的时候返回来是一个空的数组
+//当传一个值得时候属于从哪个位置开始截取结尾是这个数组的长度
+//当传2个值得时候第一个值是截取下标的位置，第二个值是长度
+//当传第三个值得时候第一个值是起始位置第二值是截取到的位置  第三个值是替换原数组被截图的位置
+//当第二个值是0的时候是插入插入的位置是第一个值得位置  第三个值是插入的数据
+var arr = [1,2,3,4,5]
+console.log(arr.splice(1,0,"a"))
+console.log(arr)
+</script>

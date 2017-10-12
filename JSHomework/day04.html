@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>return练习</title>
+    <style>
+        button {
+            display: block;
+            background-color: #9999ff;
+            color: #fff;
+            border: none;
+            box-shadow: 0 0 5px #000;
+            margin: 10px 10px;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn_1">计算平方</button>
+    <button id="btn_2">加法</button>
+    <button id="btn_3">随机数1</button>
+    <button id="btn_4">随机数2</button>
+    <button id="btn_5">计算器</button>
+    <button id="btn_6">比较器</button>
+    <button id="btn_7">判断</button>
+    <button id="btn_8">表格生成器</button>
+</body>
+</html>
+<script>
+    //自调用函数
+    (function () {
+        //第一题
+        btn_1.onclick = function () {
+            console.log(square(3));
+        }
+        //第二题
+        btn_2.onclick = function () {
+            console.log(add(20));
+        }
+        //第三题
+        btn_3.onclick = function () {
+            console.log(random_1(3, 9));
+        }
+        //第四题
+        btn_4.onclick = function () {
+            console.log(random_2(9, 6));
+        }
+        //第五题
+        btn_5.onclick = function () {
+            console.log(calculate(4, "*", 7));
+        }
+        //第六题
+        btn_6.onclick = function () {
+            console.log(compare(7, 44, 2));
+        }
+        //第七题
+        btn_7.onclick = function () {
+            console.log(isNumber("12a8"));
+        }
+        //第八题
+        btn_8.onclick = function () {
+            createTable(3, 4);
+        }
+    })()
+
+    /*
+       1、写一个功能，传入一个数字，计算数字的平方。
+   */
+    function square(num) {
+        //返回
+        return Math.pow(num, 2);
+    }
+
+    /*
+    2、定义一个加法功能，传入一个数字，计算从1到该数字整数的和。
+    */
+    function add(num) {
+        var sum = 0;
+        //累加
+        for (var i = 1; i <= num; i++) {
+            sum += i;
+        }
+        return sum;
+    }
+
+    /*
+   3、定义一个功能，传入两个数字m,n(m<n)，随机生成m-n之间的随机数
+   */
+    function random_1(m, n) {
+        //返回
+        return parseInt(m + Math.random() * (n - m + 1));
+    }
+
+    /*
+       4、定义一个功能，传入两个数字m,n，如果m<n,随机生成m-n之间的随机数,如果n<m，随机生成n-m之间的随机数
+   */
+    function random_2(m, n) {
+        //先判断m和n的大小
+        if (m < n) {
+            return parseInt(m + Math.random() * (n - m + 1));
+        } else {
+            return parseInt(n + Math.random() * (m - n + 1));
+        }
+    }
+
+    /*
+        5.编写一个函数,计算两个数的和差积商
+    */
+    function calculate(num_1, sign, num_2) {
+        //switch选择
+        switch (sign) {
+            case "+":
+                return num_1 + num_2;
+                break;
+            case "-":
+                return num_1 - num_2;
+                break;
+            case "*":
+                return num_1 * num_2;
+                break;
+            case "/":
+                return num_1 / num_2;
+                break;
+        }
+    }
+
+
+    /*
+        6.编写一个函数，计算三个数字的大小，按从小到大的顺序输出。
+    */
+    function compare(min, mid, max) {
+        var temp = 0;
+        //如果min>mid,则交换min和mid的值
+        if (min > mid) {
+            temp = mid;
+            mid = min;
+            min = temp;
+        }
+        //如果mid>max,则交换mid和max的值
+        if (mid > max) {
+            temp = max;
+            max = mid;
+            mid = temp;
+        }
+        //此时,mid的值为第二步交换的max,因此再次比较min和mid的大小
+        if (min > mid) {
+            temp = mid;
+            mid = min;
+            min = temp;
+        }
+        //返回
+        return " " + min + "<" + mid + "<" + max;
+    }
+
+    /*
+        7.编写函数，判断输入的内容是不是纯数字
+    */
+    function isNumber(str) {
+        //隐式类型转换
+        str *= 1;
+        //标记开关
+        var mark;
+        //判断
+        //首先判断类型,再判断是否为NaN
+        if (typeof str == "number" && !isNaN(str)) {
+            //如果两者都满足,则为纯数字
+            mark = true;
+        } else {
+            //否则
+            mark = false;
+        }
+        return mark;
+    }
+
+    /*
+        8.编写一个函数，在页面上输出一个N行M列的表格，表格内容填充1~100的随机数字
+    */
+    function createTable(row, col) {
+        //先生成表格
+        document.write("<table border='1'>");
+        //循环
+        for (var i = 1; i <= row; i++) {
+            //生成行
+            document.write("<tr>");
+            //循环生成列
+            for (var j = 1; j <= col; j++) {
+                document.write("<td>");
+                //生成随机数
+                document.write(parseInt(1 + Math.random() * 100));
+                //闭合标签
+                document.write("</td>");
+            }
+            //闭合标签
+            document.write("</tr>");
+        }
+        //闭合标签
+        document.write("</table>");
+    }
+
+</script>

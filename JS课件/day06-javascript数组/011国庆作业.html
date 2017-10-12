@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button id="btn">点击</button>
+	<input type="text" id="txt">
+	<input type="text" id="txt1">
+</body>
+</html>
+<script>
+//5、编写函数digit(num, k)，函数功能是：求整数num从右边开始的第k位数字的值，如果num位数不足k位则返回0。
+	//如果在今后做算数的时候设计到小数的时候一定要把小数取整在计算
+	//123
+	/*function digit(num,k){
+		for(var i=1;i<k;i++){
+			num/=10;
+		}
+
+		console.log(parseInt(num%10));
+	}
+
+	digit(123,2)*/
+
+//6、编写函数计算一个数字的长度
+//
+/*function len1Number(num){
+	var count=0;
+	while(num>1){
+
+		num/=10;
+		count++;
+	}
+	return count;
+}
+var a = len1Number(123);
+console.log(a)*/
+
+
+/*
+
+function  lenGth(n){
+	var num = (""+n).length;
+	if(parseInt(n)==n){
+		return num;
+	}else{
+		return num-1;
+	}
+}
+ */
+//7、编写一个函数，计算任意两个数字之间所能组成的奇数个数，数字必须是个位数。比如：计算0~3之间能组成的奇数是： 01、03、13、21、23、31
+
+/*function len(n,m){
+	var str='';
+	for(var i=n;i<=m;i++){
+		for(var j=n;j<=m;j++){
+			str=''+j+i
+			if(i!=j&&str%2!=0){
+				document.write(str+'&nbsp;')
+			}
+		}
+	}
+}
+ len(0,3)*/
+
+
+
+//8、某个公司采用公用电话传递数据，数据是四位的整数，在传递过程中是加密的，加密规则如下：每位数字都加上5,然后用除以10的余数代替该数字，再将第一位和第四位交换，第二位和第三位交换，请编写一个函数，传入原文，输出密文
+
+function len(num){
+	var str='';
+	var gewei = num%10;
+	var shiwei = parseInt(num/10)%10;
+	var baiwei = parseInt(num/100)%10;
+	var qianwei = parseInt(num/1000);
+
+	gewei = (gewei+5)%10;
+	shiwei = (shiwei+5)%10;
+	baiwei = (baiwei+5)%10;
+	qianwei = (qianwei+5)%10;
+
+	var temp;
+	temp = gewei;
+	gewei = qianwei;
+	qianwei = temp;
+
+	temp = shiwei;
+	shiwei = baiwei;
+	baiwei = temp;
+
+	str = ''+qianwei+baiwei+shiwei+gewei;
+	return str;
+
+
+}
+
+
+
+
+//9、使用函数完成任意数字阶乘的计算要求：页面输入任意数字，点击按钮后计算阶乘
+/*btn.onclick = function(){
+	var num = txt.value;
+	var num1 = factorial(num);
+	txt1.value = num1;
+}
+function factorial(n){
+	var sum=1;
+	for(var i=1;i<=n;i++){
+		sum*=i
+	}
+	return sum;
+}*/
+</script>

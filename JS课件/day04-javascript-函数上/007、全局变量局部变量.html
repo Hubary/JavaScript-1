@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script>
+	/*
+	
+	 
+		全局变量：公共厕所  谁都可以去用的东西就叫做全局变量  写在函数外部的变量都属于全局变量(全局作用域)
+
+		局部变量：私人厕所   只有指定的人可以使用叫做局部变量  写函数内部的变量都是局部变量（局部作用域）
+
+
+		var b = 10;
+
+		function fn(){
+			var a = 10;
+			console.log(b)
+		}
+
+		fn()
+		
+
+		作用域链：作用域的集合就叫做作用域链
+	 */
+	
+	//主卧
+	 function fn(){
+	 	var a = 10;
+	 	fn1()
+
+	 	//次卧
+	 	function fn1(){
+	 		var b = 20;
+	 		console.log(a);//10 undefined  
+	 		fn2()
+
+	 		//小次卧
+	 		function fn2(){
+	 			console.log(a)//10  undefined
+	 		}
+	 	}
+	 }
+
+	 fn()
+</script>

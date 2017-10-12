@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>day06-数组和字符串作业</title>
+</head>
+<body>
+<input type="text" id="userName">
+<div id="content"></div>
+</body>
+</html>
+<script>
+    /**
+     * 数组作业练习
+     */
+
+    /**
+     * 1.编写函数map(arr) 把数组中的每一位数字都增加30%
+     */
+    console.log("数组作业练习1");
+
+    /**
+     * 方法1
+     */
+    function timesPer30(arr) {
+        //数组遍历
+        for (var i in arr) {
+            //数组中的元素重新赋值
+            arr[i] = arr[i] * 13 / 10;
+        }
+        //重新返回 arr
+        return arr;
+    }
+
+    //测试
+    var arr1 = [];
+    for (var i = 0; i < 10; i++) {
+        arr1.push(parseInt(Math.random() * 100));
+    }
+    //原数组
+    console.log("原数组为:");
+    console.log(arr1);
+    //调用函数
+    arr1 = timesPer30(arr1);
+    //扩大后的数组
+    console.log("扩大后的数组为:");
+    console.log(arr1);
+
+    /**
+     * 方法2
+     * 利用 arr.map(function(value,index,Array){ }) 方法
+     * 返回一个新数组
+     *
+     * value: arr[i];
+     * index: arr[i]的 i 值;
+     * Array: arr数组;
+     */
+    function map(arr) {
+        //调用 .map(),并传入 value 参数
+        var newArr = arr.map(function (value) {
+            //返回 value
+            return value * 13 / 10;
+        });
+        //输出
+        console.log(newArr);
+    }
+
+    //测试
+    var arr2 = [];
+    for (var i = 0; i < 10; i++) {
+        arr2.push(parseInt(Math.random() * 100));
+    }
+    //原数组
+    console.log("原数组为:");
+    console.log(arr2);
+    //扩大后的数组
+    console.log("扩大后的数组为:");
+    //调用函数
+    map(arr2);
+
+    /**
+     * 2.编写函数has(arr , 60) 判断数组中是否存在60这个元素，返回布尔类型
+     */
+    console.log("数组作业练习2");
+
+    function has(arr, num) {
+        //遍历
+        for (var i = 0; i < arr.length; i++) {
+            //判断是否和num相等
+            if (arr[i] == num) {
+                //如果相等则返回false
+                return true;
+            }
+        }
+        //都不相等则返回true
+        return false;
+    }
+
+    //测试
+    var arr3 = [10, 50, 44, 60, 32];
+    var bool = has(arr3, 60);
+    console.log(bool);
+    /**
+     * 3.编写函数norepeat(arr) 将数组的重复元素去掉，并返回新的数组
+     */
+    console.log("数组作业练习3");
+
+    /**
+     * 方法1: 使用delete(新数组元素会产生undefined值,但长度与原数组相同)
+     */
+    function noRepeat(arr) {
+        //声明新数组
+        var newArr = [];
+        //遍历原数组
+        for (var i = 0; i < arr.length; i++) {
+            //从i+1处遍历数组
+            for (var j = i + 1; j < arr.length; j++) {
+                //依次比较arr[i]和后面的值
+                if (arr[i] == arr[j]) {
+                    //相同则删除后面那个值
+                    delete arr[j];
+                }
+            }
+            //赋值新数组
+            newArr.push(arr[i]);
+        }
+        //返回新数组
+        return newArr;
+    }
+
+    //测试
+    var arr = [10, 10, 10, 12, 66, 10, 32, 21, 12, 66, 19];
+    var newArr = noRepeat(arr);
+    console.log(newArr);
+
+    /**
+     * 方法2: 使用splice(返回的数组长度改变,但没有undefined)
+     */
+    function deleteRepeatSame(arr) {
+        //遍历数组
+        for (var i = 0; i < arr.length; i++) {
+            for (var j = i + 1; j < arr.length; j++) {
+                if (arr[i] == arr[j]) {
+                    //相同则删除原数组arr[j],并且确保删除的个数为1
+                    arr.splice(j, 1);
+                    //
+                    i -= 1;
+                }
+            }
+        }
+        //返回被splice后的数组
+        return arr;
+    }
+
+    //测试
+    var arr4 = [11, 11, 11, 11, 13, 6, 13, 77, 10, 11, 66, 13];
+    var newArr2 = deleteRepeatSame(arr4);
+    console.log(newArr2);
+
+    /**
+     * 方法3: 使用indexof(),根据value匹配出来的下标进行判断
+     */
+    function delRepValue(arr) {
+        //声明新数组
+        var newArr = [];
+        //遍历原数组
+        for (var i in arr) {
+            //判断新数组是否匹配arr[i]的值
+            if (newArr.indexOf(arr[i]) == -1) {
+                //新数组元素赋值
+                newArr.push(arr[i]);
+            }
+        }
+        //返回新数组
+        return newArr;
+    }
+
+    //测试
+    var arr5 = [10, 12, 66, 10, 32, 21, 12, 66, 19];
+    var newArr3 = delRepValue(arr5);
+    console.log(newArr3);
+
+    /**
+     * 4.有一个从小到大排好序的数组。现输入一个数，要求按原来的规律将它插入数组中。
+     */
+    console.log("数组作业练习4");
+
+    /**
+     * 方法1: 交换值
+     */
+    function sortAfterAddNum(arr, num) {
+        //追加元素
+        arr.push(num);
+        //遍历
+        for (var i in arr) {
+            //判断两个值
+            if (arr[i] > arr[arr.length - 1]) {
+                //交换值
+                var temp = arr[arr.length - 1];
+                arr[arr.length - 1] = arr[i];
+                arr[i] = temp;
+            }
+        }
+        //返回
+        return arr;
+    }
+
+    //测试
+    var arr6 = [2, 3, 5, 8, 10, 22];
+    var newArr4 = sortAfterAddNum(arr6, 3);
+    console.log(newArr4);
+
+    /**
+     * 方法2: 查询出num左右连个相邻值的左边/右边下标
+     */
+    function sortAfterAddNum2(arr, num) {
+        //遍历
+        for (var i = 0; i < arr.length; i++) {
+            //如果arr[arr.length-1]<num
+            if (arr[arr.length - 1] < num) {
+                //直接将num添加到尾部
+                arr.push(num);
+            }
+            //如果有某个值大于num
+            if (arr[i] > num) {
+                //用num替换从该下标起始0个长度
+                arr.splice(i, 0, num);
+                break;
+            }
+        }
+        //返回
+        return arr;
+    }
+
+    //测试
+    var arr7 = [2, 3, 5, 8, 10, 22];
+    var newArr5 = sortAfterAddNum2(arr7, 10);
+    console.log(newArr5);
+
+    /**
+     * 5.以下是某班级一次考试的成绩表。请计算每个学生总成绩，并按总成绩排名。统计各单科成绩第一名，输出其成绩与学号。
+     * 图片课件里面有
+     */
+    console.log("数组作业练习5");
+
+    //数据信息
+    var obj = [
+        {
+            "No": 1,
+            "CN": 105,
+            "Math": 62,
+            "English": 118
+        },
+        {
+            "No": 2,
+            "CN": 90,
+            "Math": 120,
+            "English": 84
+        },
+        {
+            "No": 3,
+            "CN": 78,
+            "Math": 93,
+            "English": 94
+        }
+    ]
+
+    //每人总成绩
+    function totalOfObj(obj) {
+        for (var i = 0; i < obj.length; i++) {
+            obj[i].total = obj[i].CN + obj[i].Math + obj[i].English;
+        }
+        return obj;
+    }
+
+    //测试
+    console.log(totalOfObj(obj));
+
+
+    //按总成绩排名
+    function sortOfTotal(obj) {
+        for (var i = 0; i < obj.length; i++) {
+            for (var j = i + 1; j < obj.length; j++) {
+                var temp;
+                if (obj[i].total < obj[j].total) {
+                    //交换每个obj[i]的值,而不是总成绩
+                    temp = obj[j];
+                    obj[j] = obj[i];
+                    obj[i] = temp;
+                }
+            }
+        }
+        return obj;
+    }
+
+    //测试
+    console.log(sortOfTotal(obj));
+
+    //语文单科成绩排序
+    function sortOfCn(obj) {
+        for (var i = 0; i < obj.length; i++) {
+            for (var j = i + 1; j < obj.length; j++) {
+                var temp;
+                if (obj[i].CN < obj[j].CN) {
+                    //交换每个obj[i]的值
+                    temp = obj[j];
+                    obj[j] = obj[i];
+                    obj[i] = temp;
+                }
+            }
+        }
+        return obj;
+    }
+
+    console.log(sortOfCn(obj));
+
+
+    //数学单科成绩排序
+    function sortOfMath(obj) {
+        for (var i = 0; i < obj.length; i++) {
+            for (var j = i + 1; j < obj.length; j++) {
+                var temp;
+                if (obj[i].Math < obj[j].Math) {
+                    //交换每个obj[i]的值
+                    temp = obj[j];
+                    obj[j] = obj[i];
+                    obj[i] = temp;
+                }
+            }
+        }
+        return obj;
+    }
+
+    console.log(sortOfMath(obj));
+
+    //英语单科成绩排序
+    function sortOfEnglish(obj) {
+        for (var i = 0; i < obj.length; i++) {
+            for (var j = i + 1; j < obj.length; j++) {
+                var temp;
+                if (obj[i].English < obj[j].English) {
+                    //交换每个obj[i]的值
+                    temp = obj[j];
+                    obj[j] = obj[i];
+                    obj[i] = temp;
+                }
+            }
+        }
+        return obj;
+    }
+
+    //输出单科第一的成绩与学号
+    console.log(sortOfEnglish(obj));
+
+
+    /**
+     * 字符串练习题
+     */
+    /**
+     * 1、判断用户名长是否正确  6-16
+     */
+    console.log("字符串练习题1");
+    //失焦事件
+    userName.onblur = function () {
+        //获取input的value值
+        var value = userName.value;
+        //逻辑判断
+        if (value.length >= 6 && value.length <= 16) {
+            console.log("用户名符合规则");
+        } else {
+            console.log("用户名不符合规则");
+        }
+    }
+    /**
+     * 2、判断字符串的首字母是不是大写
+     */
+    console.log("字符串练习题2");
+
+    //
+    function isUpperCase(str) {
+        //判断首字母是否在 A-Z 之间
+        if (str.charAt(0) >= "A" && str.charAt(0) <= "Z") {
+            console.log(str + "的首字母是大写字母");
+        } else {
+            console.log(str + "的首字母是小写字母");
+        }
+    }
+
+    //测试
+    isUpperCase("sdfALffkDD");
+
+    /**
+     * 3、任意给定的一串字母，统计字符串里面的大写字母和小写字母的个数
+     */
+    console.log("字符串练习题3");
+
+    function countUpperAndLower(str) {
+        //统计大写字母
+        var count_upper = 0;
+        //统计小写字母
+        var count_lower = 0;
+        //遍历字符串
+        for (var i = 0; i < str.length; i++) {
+            //判断字符是否在 A-Z 之间
+            if (str.charAt(i) >= "A" && str.charAt(i) <= "Z") {
+                //字符在 A-Z 之间
+                count_upper++;
+            } else {
+                //字符不在 A-Z 之间
+                count_lower++;
+            }
+        }
+        //输出
+        console.log(str + "中的大写字母个数为:" + count_upper);
+        console.log(str + "中的小写字母个数为:" + count_lower);
+    }
+
+    //测试
+    countUpperAndLower("sKuiiOBpt");
+
+    /**
+     * 4、怎么判断字符  o  在str中是不是唯一的
+     */
+    console.log("字符串练习题4");
+
+    /**
+     * indexOf:从下标0开始匹配'o'
+     * lastIndexOf:从下标最后一个开始往前匹配'o'
+     * 如果匹配到返回的下标相同,则说明'o'唯一
+     */
+    function isOnly(str) {
+        //逻辑判断
+        if (str.indexOf("o") == str.lastIndexOf("o")) {
+            console.log(str + "中有唯一字母o");
+        } else {
+            console.log(str + "中至少有两个字母o");
+        }
+    }
+
+    //测试
+    isOnly("ssitoaapo");
+    /**
+     * 5、字符串去重
+     */
+    console.log("字符串练习题5");
+
+    function deleteRepeatStr(str) {
+        //声明新字符串,接受去重后的字符串值
+        var newStr = "";
+        //遍历
+        for (var i = 0; i < str.length; i++) {
+            //逻辑判断:如果newStr中的字符串匹配不到indexOf返回的值,则说明newStr中没有该匹配值
+            if (newStr.indexOf(str[i]) == -1) {
+                //赋值,拼接
+                newStr += str[i];
+            }
+        }
+        //输出信息
+        console.log(newStr);
+    }
+
+    //测试
+    deleteRepeatStr("hello,javascript");
+</script>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script>
+//1、计算10的阶乘  10*9*8*7...*1
+var sum = 1;
+for(var i=1;i<=10;i++){
+	sum*=i
+}
+
+//3、计算1+3+5....99的和
+	var sum = 0;
+	for(var i=1;i<=99;i+=2){
+		sum+=i
+	}
+
+
+//Math.random() 0-1
+//Math.pow(值,次方)
+//4、求100-999直接的水仙花数。1^3 + 5^3+ 3^3 = 153 //数学上面的之和
+
+	/*for(var i=100;i<=999;i++){
+		var gewei = i%10;
+		var shiwei = parseInt(i/10)%10;
+		var baiwei = parseInt(i/100);
+
+		if(Math.pow(gewei,3)+Math.pow(shiwei,3)+Math.pow(baiwei,3)==i){
+			console.log(i)
+		}
+	}*/
+	
+
+//5、求1/1-1/2+1/3-1/4.........1/100的和
+	var sum = 0;
+	for(var i=1;i<=100;i++){
+		if(i%2==0){
+			sum-=1/i;
+		}else{
+			sum+=1/i;
+		}
+	}
+	
+	console.log(sum)
+</script>

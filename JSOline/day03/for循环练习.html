@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>for循环练习</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    1、打印100以内7的倍数
+*/
+    console.log("我是第一题");
+
+    for (var i = 0; i <= 100; i++) {
+        if (i % 7 == 0) {
+            console.log(i);
+        }
+    }
+    /*
+        2、打印100以内的奇数
+    */
+    console.log("我是第二题");
+
+    for (var i = 0; i <= 100; i++) {
+        if (i % 2 != 0) {
+            console.log(i);
+        }
+    }
+    /*
+        3、计算100以内所有偶数的和
+    */
+    console.log("我是第三题");
+
+    var sum = 0;
+    for (var i = 0; i <= 100; i++) {
+        if (i % 2 == 0) {
+            sum += i;
+        }
+    }
+    console.log("100以内的偶数和为:" + sum);
+
+    /*
+        4、入职薪水10K，每年涨幅5%，50年后工资多少？
+    */
+    console.log("我是第四题");
+
+    var salary = 10;
+    for (var i = 2; i <= 50; i++) {
+        salary *= 1.05;
+    }
+    console.log("50年后的工资为:" + salary);
+
+    /*
+    5、打印100-200以内能被3 或 7整除的数字
+    */
+    console.log("我是第五题");
+
+    for (var i = 100; i <= 200; i++) {
+        if (i % 3 == 0 || i % 7 == 0) {
+            console.log(i);
+        }
+    }
+
+    /*
+    6、生成一个随机概率,要求概率必须大于70%,否则重新生成
+     */
+    console.log("我是第六题");
+    var num_6 = Math.random();
+    while (num_6 < 0.7) {
+        num_6 = Math.random();
+    }
+    console.log(num_6);
+
+</script>

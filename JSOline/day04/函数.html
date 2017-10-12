@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>函数练习</title>
+    <style>
+        button {
+            display: block;
+            background-color: #9999ff;
+            color: #fff;
+            border: none;
+            box-shadow: 0 0 5px #000;
+            margin: 10px 10px;
+        }
+    </style>
+</head>
+<body>
+<button id="btn_1">计算平方</button>
+<button id="btn_2">加法</button>
+<button id="btn_3">随机数</button>
+<button id="btn_4">随机数2</button>
+</body>
+</html>
+<script>
+    /*
+        1、写一个功能，传入一个数字，计算数字的平方。
+    */
+    function square(num) {
+        document.write(Math.pow(num, 2));
+    }
+
+    btn_1.onclick = function () {
+        square(5);
+    }
+
+    /*
+    2、定义一个加法功能，传入一个数字，计算从1到该数字整数的和。
+    */
+    function add(num) {
+        var sum = 0;
+        for (var i = 1; i <= num; i++) {
+            sum += i;
+        }
+        document.write(sum);
+    }
+
+    btn_2.onclick = function () {
+        add(10);
+    }
+
+    /*
+    3、定义一个功能，传入两个数字m,n(m<n)，随机生成m-n之间的随机数
+    */
+    function random_1(m, n) {
+        if (m > n) {
+            var temp = 0;
+            temp = m;
+            m = n;
+            n = temp;
+        }
+        document.write(parseInt(m + Math.random() * (n - m + 1)));
+    }
+
+    btn_3.onclick = function () {
+        random_1(3, 10);
+    }
+
+    /*
+        4、定义一个功能，传入两个数字m,n，如果m<n,随机生成m-n之间的随机数,如果n<m，随机生成n-m之间的随机数
+    */
+    function random_2(m, n) {
+        if (m < n) {
+            document.write(parseInt(m + Math.random() * (n - m + 1)));
+        } else {
+            document.write(parseInt(n + Math.random() * (m - n + 1)));
+        }
+    }
+    btn_4.onclick = function () {
+        random_2(8,4);
+    }
+
+</script>

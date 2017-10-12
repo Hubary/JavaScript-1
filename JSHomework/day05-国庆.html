@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>day05-国庆作业</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        h3{
+            margin-top: 10px;
+        }
+
+        button {
+            margin: 10px 5px;
+            padding: 5px;
+            background: #99f;
+            color: #fff;
+            border: none;
+            box-shadow: 0 0 5px #000;
+        }
+
+        #cf1, #cf2, #rs, #ss, #cf3, #cf4, #cf9, #cf7, #cf7_1, #cf7_2, #cf5, #cf5_1, #cf5_2,#cf8 {
+            display: none;
+        }
+
+        input {
+            margin: 10px 5px;
+            padding: 5px;
+            border: none;
+            box-shadow: 0 0 5px #000;
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+    <h3>第一题</h3>
+    <button id="btn1">计算器</button>
+
+    <h3>第二题</h3>
+    <button id="btn2">生成四位数字验证码</button>
+
+    <h3>第三题</h3>
+    <button id="btn3">求m-n之间的数字和</button>
+    <input type="text" id="txt3">
+    <button id="cf1">确定m值</button>
+    <button id="cf2">确定n值</button>
+    <button id="rs">清除</button>
+    <button id="ss">求和</button>
+
+    <h3>第四题</h3>
+    <button id="btn4">面积</button>
+    <input type="text" id="txt4">
+    <button id="cf3">确定</button>
+
+    <h3>第五题</h3>
+    <button id="btn5">求整数num从右至左第k位数字</button>
+    <input type="text" id="txt5">
+    <button id="cf5_1">确定num值</button>
+    <button id="cf5_2">确定k值</button>
+    <button id="cf5">确定</button>
+
+    <h3>第六题</h3>
+    <button id="btn6">计算数字长度</button>
+    <input type="text" id="txt6">
+    <button id="cf4">长度</button>
+
+    <h3>第七题</h3>
+    <button id="btn7">n之间的所有数字组成的奇数</button>
+    <input type="text" id="txt7">
+    <button id="cf7_1">确定m值</button>
+    <button id="cf7_2">确定n值</button>
+    <button id="cf7">奇数如控制台所输出</button>
+
+    <h3>第八题</h3>
+    <button id="btn8">加密电话</button>
+    <input type="text" id="txt8">
+    <button id="cf8">密文</button>
+
+    <h3>第九题</h3>
+    <button id="btn9">计算阶乘积</button>
+    <input type="text" id="txt9">
+    <button id="cf9">确定</button>
+
+</body>
+</html>
+<script>
+
+    /**
+     * 1、计算器
+     */
+
+    /**
+     * 2、编写一个函数，生成4位数字的验证码
+     */
+    function identityCode() {
+        //声明数组
+        var arr = [];
+        //循环生成4个随机数
+        for (var i = 0; i <= 3; i++) {
+            //存放到数组中
+            arr[i] = Math.floor(Math.random() * 10);
+        }
+        //声明变量
+        var temp = "";
+        //取出数组中的值
+        for (var i = 0; i < arr.length; i++) {
+            //存放并拼接到temp中
+            temp += arr[i];
+        }
+        //返回temp值
+        return temp;
+    }
+
+    //测试
+    btn2.onclick=function () {
+        //输出信息
+        console.log("4位随机数验证码为:" + identityCode());
+    };
+
+    /**
+     * 3、求m-n之间数字的和
+     */
+
+    //递归求和
+
+
+    //循环求和
+    function sum(m, n) {
+        //判断m和n的大小
+        //如果m>n,则交换m和n的值
+        if (m > n) {
+            var temp = n;
+            n = m;
+            m = temp;
+        }
+        //定义变量 sum
+        var sum = 0;
+        //累加
+        for (var i = m; i <= n; i++) {
+            sum += i;
+        }
+        //返回sum
+        return sum;
+    }
+
+    //测试
+    var m;
+    var n;
+    var s;
+    //清空输入框
+    rs.onclick = function () {
+        txt3.value = "";
+    };
+
+    btn3.onclick = function () {
+        //显示输入框
+        txt3.style.display = "block";
+        //显示确定按钮
+        cf1.style.display = "block";
+        cf2.style.display = "block";
+        //显示清除按钮
+        rs.style.display = "block";
+        //显示数字和按钮
+        ss.style.display = "block";
+        //获取输入的m值
+        cf1.onclick = function () {
+            m = Number(txt3.value);
+            console.log("起始值m = " + m);
+            //调用
+            rs.onclick();
+        };
+        //获取输入的n值
+        cf2.onclick = function () {
+            n = Number(txt3.value);
+            console.log("终止值n = " + n);
+            //调用
+            rs.onclick();
+        };
+        //点击事件
+        ss.onclick = function () {
+            //调用sum函数
+            s = sum(m, n);
+            //输出结果
+            console.log(s);
+        }
+    };
+
+    /**
+     * 4、求圆的面积
+     */ 
+    
+    function circleArea(r) {
+        return Math.PI * Math.pow(r, 2);
+    }
+
+    //测试
+    var r;
+    btn4.onclick = function () {
+        //显示半径输入框
+        txt4.style.display = "block";
+        //显示确定按钮
+        cf3.style.display = "block";
+        //
+        cf3.onclick=function () {
+            //获取半径
+            r = Number(txt4.value);
+            //调用circleArea函数
+            var s = circleArea(r);
+            //输出
+            console.log("圆的面积s = " + s);
+        };
+    };
+
+    /**
+     *   5、编写函数digit(num, k)
+     *   功能：求整数num从右边开始的第k位数字的值，如果num位数不足k位则返回0。
+     */
+
+    function digit(num,k) {
+        //转行为字符串
+        num = String(Math.abs(num));
+        //定义变量接收字符串长度
+        var count = num.length;
+        //判断count和k的大小
+        if (count < k) {        //如果count没有k大,则第k位为0
+            return 0;
+        } else {        //如果count >= k,则第k位为num的count-k的下标
+            return num.charAt(count - k);
+        }
+    }
+
+    //测试
+    btn5.onclick=function () {
+        //显示输入框
+        txt5.style.display = "block";
+        //显示确定按钮
+        cf5.style.display = "block";
+        cf5_1.style.display = "block";
+        cf5_2.style.display = "block";
+        //
+        var num;
+        var k;
+        //获取num值
+        cf5_1.onclick = function () {
+            num = Number(txt5.value);
+            //清空输入框
+            txt5.value = "";
+        };
+        //获取k值
+        cf5_2.onclick = function () {
+            k = Number(txt5.value);
+            //清空输入框
+            txt5.value = "";
+        };
+        //点击事件
+        cf5.onclick = function () {
+            /**
+             * 判断是否有小数
+             * 优化
+             */
+            //没有小数
+            if (Math.floor(num) == num) {
+                //函数调用
+                var result = digit(num, k);
+                //输出结果
+                console.log(result);
+            } else {
+                //有小数则提示重新输入
+                console.log("你丫不能输入一个整数啊?!");
+            }
+        };
+    };
+
+
+
+    /**
+     * 6、编写函数计算一个数字的长度
+     */
+
+    //先判断是否有小数
+    function pointNum(num) {
+        //Math.floor()识别5位小数
+//        while (Math.floor(num) != num) {
+        //parseInt()识别8位小数
+        while (parseInt(num) != num) {
+            //有小数则不断乘10
+            num *= 10;
+        }
+        //返回一个无小数的整数
+        return num;
+    }
+
+    //定义计数器
+    var c = 0;
+
+    //再计算去除小数后的数字长度
+    function numLength(num) {
+        //取绝对值
+        num = Math.abs(num);
+        //判断对10取整是否为0
+//        if (Math.floor(num / 10) == 0) {
+        if (parseInt(num / 10) == 0) {
+            //对10取整为0 则结束
+            return c + 1;
+        }
+        //对10取整不为0则计数器自增
+        c++;
+        //回调函数
+        return numLength(num / 10);
+    }
+
+    //测试
+    btn6.onclick = function () {
+        //显示输入框
+        txt6.style.display = "block";
+        //显示确定
+        cf4.style.display = "block";
+        //点击事件
+        cf4.onclick = function () {
+            //获取输入框的输入值
+            var num = Number(txt6.value);
+            //去除小数
+            var temp = pointNum(num);
+            //计算数字长度
+            var nl = numLength(temp);
+            //输出原始数字长度信息
+            console.log(num + "的数字长度为:" + nl);
+        };
+    };
+
+
+    /**
+     * 7、编写一个函数，计算任意两个数字之间所能组成的奇数个数，数字必须是个位数。
+     *   比如：计算0~3之间能组成的奇数是： 01、03、13、21、23、31
+     */
+
+    function oddNum(m,n) {
+        //先判断m和n值的大小
+        if (m > n) {
+            //如果m>n,则交换m和n的值
+            var temp = m;
+            m = n;
+            n = temp;
+        }
+        //再判断m和n是否为非负数
+        if (m <= 0) {
+            //如果m<=0
+            m = 0;
+        }
+        if (n <= 0) {
+            //如果n<=0,则提示重新输入n值
+            console.log("请重新输入一个正数的n值!")
+        }
+        //声明数组1,存放m-n之间的奇数
+        var arr1 = [];
+        //声明数组2,存放m-n之间的偶数
+        var arr2 = [];
+        //把m-n之间的奇数和偶数分别存放到对应数组中
+        for (var i = m; i <= n - m; i++) {
+            if (i % 2 != 0) {
+                arr1.push(String(i));
+            } else {
+                arr2.push(String(i));
+            }
+        }
+        //输出两个数组
+        console.log(m+"-"+n+"之间的奇数:"+arr1);
+        console.log(m+"-"+n+"之间的偶数:"+arr2);
+        //定义字符串变量temp
+        var temp = "";
+        //十位数为偶数
+        for (var i = 0; i < arr2.length; i++) {
+            //十位数
+            temp = arr2[i];
+            //提示信息
+            console.log("十位数为:" + temp);
+            //十位数为偶数,个位数为奇数
+            for (var j = 0; j < arr1.length; j++) {
+                //十位数为偶数,个位数为奇数的所以奇数
+                temp = arr2[i] + arr1[j];
+                //输出信息
+                console.log("十位数为" + arr2[i] + "的奇数为:" + temp);
+            }
+        }
+        //十位数为奇数,个位数也为奇数
+        for (var i = 0; i < arr1.length; i++) {
+            //
+            temp=arr1[i];
+            //提示信息
+            console.log("十位数为:" + temp);
+            for(var j=0;j<arr1.length;j++){
+                //判断十位和各位是否相同
+                if(arr1[i]==arr1[j]){
+                    //相同则跳过
+                    continue;
+                }else{
+                    //不相同则输出
+                    temp=arr1[i]+arr1[j];
+                }
+                //输出信息
+                console.log("十位数为" + arr1[i] + "的奇数为:" + temp);
+            }
+        }
+    }
+
+    //测试
+    btn7.onclick=function () {
+        //显示输入框
+        txt7.style.display = "block";
+        //显示确定
+        cf7.style.display = "block";
+        //显示确定
+        cf7_1.style.display = "block";
+        //显示确定
+        cf7_2.style.display = "block";
+        //声明m,n
+        var m;
+        var n;
+        //获取m值
+        cf7_1.onclick = function () {
+            m = Number(txt7.value);
+            txt7.value = "";
+        };
+        //获取n值
+        cf7_2.onclick = function () {
+            n = Number(txt7.value);
+            txt7.value = "";
+        };
+        //点击事件
+        cf7.onclick = function () {
+            //调用oddNum
+            oddNum(m, n);
+        };
+    };
+
+
+    /**
+     * 8、某个公司采用公用电话传递数据，数据是四位的整数，在传递过程中是加密的
+     * 加密规则如下：
+     * 每位数字都加上5,然后用除以10的余数代替该数字，
+     * 再将第一位和第四位交换，第二位和第三位交换，
+     * 请编写一个函数，传入原文，输出密文
+     */
+
+    function ciphony(num) {
+        //声明数组
+        var arr = [];
+        //将数字转化为字符串
+        num = String(num);
+        //遍历字符串
+        for (var i = 0; i < num.length; i++) {
+            //将字符串值存放到数组中
+            arr[i] = num.charAt(i);
+            //输出
+            console.log("原文" + arr[i]);
+            //第一步加密
+            arr[i] = String((Number(arr[i]) + 5) % 10);
+            //
+            console.log("第一步加密后对应的密文" + arr[i]);
+        }
+        //输出第一步加密后的数组
+        console.log("第一步加密后的数组:" + arr);
+        //声明两个临时变量
+        var temp1;
+        var temp2;
+        //交换1/4位
+        temp1 = arr[0];
+        arr[0] = arr[3];
+        arr[3] = temp1;
+        //交换2/3位
+        temp2 = arr[1];
+        arr[1] = arr[2];
+        arr[2] = temp2;
+        //输出第二步加密后的数组
+        console.log("第二步加密后的数组:" + arr);
+        //声明密文变量
+        var temp = "";
+        //遍历第二步加密后数组值
+        for (var i = 0; i < arr.length; i++) {
+            //赋值
+            temp += arr[i];
+        }
+        //返回密文
+        return temp;
+    }     
+
+    //测试
+    btn8.onclick=function () {
+        //显示输入框
+        txt8.style.display = "block";
+        //显示确定
+        cf8.style.display = "block";
+        //点击事件
+        cf8.onclick = function () {
+            //输出密文
+            console.log(txt8.value + "的密文为:" + ciphony(txt8.value));
+        };
+    };
+
+    /**
+     * 9、使用函数完成任意数字阶乘的计算
+     * 要求：页面输入任意数字，点击按钮后计算阶乘
+     */
+
+    function factorial(num) {
+        //如果数字为1(或者跳出条件为 num<2)
+        if (num == 1) {
+            //返回1
+            return 1;
+        }
+        //不为1则回调函数
+        return num* factorial(num - 1);
+    }
+
+    //测试
+    btn9.onclick = function () {
+        //显示输入框
+        txt9.style.display = "block";
+        //显示确定
+        cf9.style.display = "block";
+        //点击事件
+        cf9.onclick = function () {
+            //获取输入框值
+            var num = Number(txt9.value);
+            /**
+             * 考虑优化
+             */
+            //首先判断是否有小数或者为负数
+            if (Math.abs(num) == num && Math.floor(num) == num) {
+                //计算阶乘积
+                var s = factorial(num);
+                //输出信息
+                console.log(num + "的阶乘积为:" + s);
+            } else {
+                if (num < 0) {
+                    //提示输入数字为负数
+                    console.log("你数学老师棺材板压不住了!");
+                } else {
+                    //提示输入数字有小数
+                    console.log("你家阶乘是用小数算的啊?!");
+                }
+            }
+        }
+    }
+
+</script>

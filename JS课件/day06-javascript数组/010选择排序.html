@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script>
+	/*
+		选择排序：打擂台  谁赢了谁在第一位
+
+		9 8 7 6 5
+
+		第一轮比较
+		9 8 7 6 5
+
+		8 9 7 6 5 
+		7 9 8 6 5 
+		6 9 8 7 5 
+		5 9 8 7 6 
+
+		第一轮比较出最小的值放在第一位
+
+		第二轮比较
+		 9 8 7 6 
+
+		 8 9 7 6
+		 7 9 8 6
+		 6 9 8 7
+		 第二轮比较最小的值放在第一位
+
+		 第三轮
+		 9 8 7
+
+		 8 9 7 
+		 7 9 8 
+
+
+
+		 第四轮
+		 9 8
+
+		 8 9
+
+
+		 规律：比较的次数是数组的长度减1
+		 	每一轮中比较的规律是i+1;
+
+	 */
+	var arr = [9,8,7,6,5,4,3,2,1]
+	var temp;
+	for(var i=0;i<arr.length-1;i++){
+		for(var j=i+1;j<arr.length;j++){
+			if(arr[i]>arr[j]){
+				temp = arr[i];
+				arr[i] = arr[j];
+				arr[j] = temp;
+			}
+		}
+	}
+	console.log(arr)
+
+
+	function selectSort(arr){
+		var temp;
+		for(var i=0;i<arr.length-1;i++){
+			for(var j=i+1;j<arr.length;j++){
+				if(arr[i]>arr[j]){
+					temp = arr[i];
+					arr[i] = arr[j];
+					arr[j] = temp;
+				}
+			}
+		}
+		return arr;
+	}
+</script>

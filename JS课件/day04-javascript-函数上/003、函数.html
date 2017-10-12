@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script>
+	/*
+		工具给咱们带来的好处
+			1、省时省力
+			2、随时用随时拿
+			3、不需要知道内部的构造
+
+		函数：
+			1、函数就是一个方法
+			2：通过事件机制来执行的方法
+
+		函数的定义(3种方式)
+
+			1、关键字定义函数
+					function 函数名(){
+						代码块
+					}
+
+			2、字面量定义函数
+					命名函数(很少使用)
+					匿名函数
+
+				var fn = function Fo(){} 命名函数
+				var fn = function(){} 匿名函数
+
+				命名函数是如果关键字后面有名字就是命名函数，没有名字就是匿名函数
+			3、构造函数
+
+				  var fn = new Function("age",alert(1))
+				  						参数   函数体
+	
+
+
+
+
+			function fn(){
+				alert(1)
+			}
+
+			fn();
+
+			var fn1 = function fo(){
+				alert("2")
+			} 
+
+			fn1()
+
+			var fn2 = function(){
+				alert("3")
+			}
+
+			fn2()
+			
+			
+			js是一个基于事件驱动的语言
+	 */
+	
+	 /*
+	 	常用的一些事件
+
+	 		鼠标事件
+	 			onclick:点击
+	 			dblclick:双击
+	 			onmouseover:鼠标移入
+	 			onmouseout:鼠标移除
+	 			onmousemove:鼠标移动
+				onmousedown:鼠标按下
+				onmouseup:鼠标抬起
+
+			键盘事件
+				onkeydown:键盘按下
+				onkeyup:键盘抬起
+				onkeypress:按下并抬起//
+
+			输入框事件
+				onfocus:获取焦点
+				onblur:失去焦点
+				onchange:当输入框发生改变的时候
+				oninput:当输入框发生变化的时候(实时变化)
+
+	  */
+	 
+	 //函数执行的方式  可以分为2大类
+	 /*
+	 	通过事件
+
+	 	btn.onclick = function(){}
+
+		2、自调用
+			函数名加上()就可以自调用
+			fn()
+
+		3、立即执行函数
+
+		(function(){
+			alert(1)
+		})()
+	  */
+
+</script>

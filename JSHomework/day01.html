@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JScript day01作业</title>
+    <style>
+
+
+        #btn3, #btn4{
+            display: inline-block;
+            width: 100px;
+            height: 50px;
+            background: #9f9;
+        }
+
+
+
+        #hehe{
+            box-sizing: border-box;
+            width: 200px;
+            height: 100px;
+            background: #ff7700;
+            font: 50px/50px "";
+            color: #fff;
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 50px;
+        }
+        #btn1, #btn2{
+            display: inline-block;
+            width: 50px;
+            height: 30px;
+            font: 20px/30px "";
+            color: #fff;
+            background: #99f;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <input type="text" value="20" id="btn4">
+    <input type="text" value="32" id="btn3">
+
+    <div id="hehe">呵呵</div>
+    <input type="button" value="大" id="btn1">
+    <input type="button" value="小" id="btn2">
+
+</body>
+</html>
+<script>
+
+    document.write("<br/>");
+    document.write("<br/>");
+    document.write("---------------我是分割线------------------")
+    document.write("<br/>");
+    document.write("<br/>");
+    document.write("<br/>");
+
+    /*
+        1、假设在公司写1行代码可以得到1元钱，1小时自己可以写80行代码，公司规定迟到一次扣除50元，每天上班7个小时，
+        上个月自己迟到了2次，上个月共发工资12100元，问上个月自己工作多少天？（百度 向上取整）
+    */
+    var day = parseInt ((12100 + 50 *2) / 7 / 80) + 1;
+    document.write("上个月工作了" + day + "天");
+
+
+
+    document.write("<br/>");
+    document.write("<br/>");
+    document.write("<br/>");
+    document.write("---------------我是分割线------------------")
+    document.write("<br/>");
+    document.write("<br/>");
+    document.write("<br/>");
+
+
+   /*
+        2、实现两个文本框的和
+   */
+    var num_1 = btn4.value;
+    var num_2 = btn3.value;
+
+    document.write("它们俩的和为: ");
+    document.write( Number(num_1) + Number(num_2));
+
+
+
+//    console.log( Number(num_1) + Number(num_2));
+
+
+
+    document.write("<br/>");
+    document.write("<br/>");
+    document.write("<br/>");
+
+
+    /*
+        3、点击按钮字体变大
+    */
+    btn1.onclick = function () {
+        hehe.style.fontSize = "80px";
+    }
+
+    btn2.onclick = function () {
+        hehe.style.fontSize = "20px";
+    }
+
+
+</script>

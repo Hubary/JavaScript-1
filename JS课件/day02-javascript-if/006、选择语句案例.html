@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	*{margin:0;padding:0;}
+	p{font-size: 12px;}
+	button{width: 80px;height: 40px;font-size: 20px;}
+	</style>
+</head>
+<body>
+	<p id="txt">你们都最棒的！！！</p>
+	<button id="reduce">-</button>
+	<button id="add">+</button>
+</body>
+</html>
+<script>
+	/*
+		3、字体放大时限制最大为32px，最小为12px
+	 */
+	
+	//点击页面的时候
+	var size = 12;
+	add.onclick = function(){
+		//当我每点击一次的时候size就会在原来的基础上+1
+		size+=2;
+
+		//判断
+		if(size>=32){
+			size=32
+		}
+		//执行代码
+		txt.style.fontSize = size+'px';
+
+	}
+
+	reduce.onclick = function(){
+		size-=2;
+
+		//判断
+		
+		if(size<=12){
+			size=12;
+		}
+
+		txt.style.fontSize = size+'px';
+	}
+
+</script>

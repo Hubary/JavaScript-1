@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script>
+	/*
+		递归：当前函数调用自身	
+
+
+		自己玩自己
+		function fn(){
+			console.log(1);
+			fn();
+		}
+
+		fn();
+
+		计算1-100的和;		
+	 */
+	/*
+	
+	var sum = 0;
+	for(var i=0;i<=100;i++){
+		sum+=i
+	}
+
+		var i=0;
+		var sum = 0;
+		while(i<=100){
+			sum+=i;
+			i++
+		}	
+
+	*/
+/*
+	function add(n){
+		if(n==0){
+			return 0;
+		}
+		return n+add(n-1)
+	}
+	var total = add(100);*/
+//关于递归
+/*
+	1、必须函数里面嵌套函数
+
+	2、必须return 出去自己本身(函数)
+
+	3、必须有一个终止条件   要不然会无序循环下去造成死循环
+
+	4、return出去的这个规律
+
+ */
+
+//计算100以内能被3整除的数 相加之和
+/*var sum = 0;
+function add(n){
+
+	if(n==0){
+		return 0;
+	}
+
+	if(n%3==0){
+		return n+add(n-1)
+	}else{
+		return add(n-1)
+	}
+}
+var total = add(10);
+console.log(total)*/
+
+
+//计算10以内的阶乘
+/*
+
+ function add(n){
+	if(n==1){
+		return 1;
+	}
+
+	return n*add(n-1)
+}
+var total = add(10);
+console.log(total)  
+
+*/
+
+//1、1、2、3、5、8、13、21、34、
+
+function add(n){
+	//条件  不能写等于  n<3  这样才能把1月份和2份全部排除掉
+	if(n<3){
+		return 1;
+	}
+	return add(n-1)+add(n-2)
+}
+var total = add(3)
+
+</script>

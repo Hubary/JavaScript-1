@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script>
+//2、定义一个功能getMax，传入任意个数字，返回最大值
+
+	function getMax(){
+		var max = 0;
+		for(var i=0;i<arguments.length;i++){
+			if(max<=arguments[i]){
+				max=arguments[i]
+			}
+		}
+		return max;
+	}	
+//3、定义一个运算功能，参数为(x,y),当传入1个数字时，求x的阶乘，如果传入两个数字，求x的y次方
+
+	function calculate(x,y){
+		var sum = 1;
+		if(arguments.length==1){
+			for(var i=1;i<=arguments[0];i++){
+					sum*=i;
+			}
+			return sum;
+		}else{
+			return Math.pow(arguments[0],arguments[1])
+		}
+	}
+
+</script>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script>
+
+
+
+//1、写一个功能，传入一个数字，计算数字的平方。
+
+	function pw(num){
+		console.log(Math.pow(num,2));
+	}
+
+//2、定义一个加法功能，传入一个数字，计算从1到该数字整数的和。
+
+	function add(num){
+		var sum = 0;
+		for(var i=1;i<=num;i++){
+			sum+=i;
+		}
+		//console.log(sum);
+	}
+
+	console.log(sum)
+
+//3、定义一个功能，传入两个数字m,n(m<n)，随机生成m-n之间的随机数
+
+	function ranDom(m,n){
+		var num = parseInt(m+Math.random()*(n-m+1));
+		console.log(num);
+	}
+
+
+//4、定义一个功能，传入两个数字m,n，如果m<n,随机生成m-n之间的随机数,如果n<m，随机生成n-m之间的随机数
+
+	function ran1dom(m,n){
+		var num = 0;
+		var temp;
+		if(m>n){
+			num = parseInt(n+Math.random()*(m-n+1))
+		}else{
+			num = parseInt(m+Math.random()*(n-m+1))
+		}
+
+	}
+
+
+
+function Calculator(num1,sign,num2){
+      switch(sign){
+          case "+":
+               alert(num1+num2);
+               break;
+          case "-":
+               alert(num1-num2);
+               break;
+          case "/":
+               alert(num1/num2);
+                   break;
+          case "*":
+               alert(num1*num2);
+               break;
+          default:
+               alert("请正确输入")
+     } 
+}
+
+</script>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="text" id="txt">
+	<button id="btn">点击</button>
+</body>
+</html>
+<script>
+/*输入月份判断当前月份的天数*/
+
+btn.onclick = function(){
+	var Tval = Number(txt.value);
+
+	/*switch(Tval){
+			case 1:
+				console.log("31天");
+				break;
+			case 2:
+				console.log("28天");
+				break;
+			case 3:
+				console.log("31天");
+				break;
+			case 4:
+				console.log("30天");
+				break;
+			case 5:
+				console.log("31天");
+				break;
+			case 6:
+				console.log("30天");
+				break;
+			case 7:
+				console.log("31天");
+				break;
+			case 8:
+				console.log("31天");
+				break;
+			case 9:
+				console.log("30天");
+				break;
+			case 10:
+				console.log("31天");
+				break;
+			case 11:
+				console.log("30天");
+				break;
+			case 12:
+				console.log("31天");
+				break;	
+			default:
+				console.log("请重新输入");
+	}*/
+
+	switch(Tval){
+		case 1:
+		case 3:
+		case 5:
+		case 7:
+		case 8:
+		case 10:
+		case 12:
+			console.log('31天');
+			break;
+		case 2:
+			console.log("28天");
+			break;
+		case 4:
+		case 6:
+		case 9:
+		case 11:
+			console.log("30天");
+			break;
+		default:
+			console.log("请重新输入");
+	}
+}
+
+
+
+
+/*
+case的穿透效果：当有相同的返回值得时候我们就可以使用case穿透效果
+
+ 什么时候用if什么时候switch
+
+ if：
+ 	进行区间判断的时候
+ 	boolean 判断的一个结果是true  false
+
+ switch:
+ 	固定值得时候用switch
+ 	固定值得比较
+
+*/
+
+
+</script>

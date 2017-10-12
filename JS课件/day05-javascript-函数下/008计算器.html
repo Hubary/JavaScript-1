@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="text" id="txt">
+	<div>
+		<button>+</button>
+		<button>-</button>
+		<button>*</button>
+		<button>/</button>
+	</div>
+	<button>=</button>
+	<button>CE</button>
+</body>
+</html>
+<script>
+var num1;
+var num2;
+var sign;
+var btn = document.getElementsByTagName("button");
+for(var i=0;i<btn.length;i++){
+	btn[i].onclick = function(){
+		num1 = Number(txt.value);
+		sign = this.innerHTML;
+		txt.value = '';
+	}
+}
+btn[4].onclick = function(){
+	num2 = Number(txt.value);
+	calculator(sign)
+
+}
+
+btn[5].onclick = function(){
+	txt.value="";
+	num1 = '';
+	num2 = '';
+	sign = '';
+}
+
+function calculator(n){
+	switch(n){
+		case "+":
+			alert(num1+num2);
+			break;
+		case "-":
+			alert(num1-num2);
+			break;
+		case "*":
+			alert(num1*num2);
+			break;
+		case "/":
+			alert(num1/num2);
+			break;
+		default:
+			alert("请重新输入");
+	}
+}
+
+</script>

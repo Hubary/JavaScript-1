@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+
+     var timer=null;
+
+     timer = setInterval(function(){
+     	var d1 = new Date("2017-10-12 00:00:00");
+     	var d2 = new Date();
+
+
+     	var time=d1.getTime()-d2.getTime();
+     	var sec =Math.floor(time/1000)%60;
+     	var min =Math.floor(Math.floor(time/1000)/60)%60;
+     	var hour =Math.floor(Math.floor(Math.floor(time/1000)/60)/60)%24;
+     	var day =Math.floor(Math.floor(Math.floor(Math.floor(time/1000)/60)/60)/24);
+
+     			document.body.innerHTML = addzero(day)+"天"+addzero(hour)+"时"+addzero(min)+"分"+addzero(sec)+"秒";
+     		},1000);
+
+
+
+     //当数字不足两位的时候补0  应用于时间对象
+     function addzero(num){
+         var str = ""+num;
+         return str.length<2?"0"+str:str;
+     }
+
+</script>

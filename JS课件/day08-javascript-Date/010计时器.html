@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+
+<style>
+#div1{width: 220px; height: 300px; background: gray; margin: 100px auto; border: 1px solid red; text-align: center}
+#div1 div{background: orange; width: 220px; height: 50px; margin: 40px auto; text-align: center; line-height: 50px; font-size: 24px; color:white;}
+
+#div1 button{width: 80px; height: 30px; margin: 5px; font-size: 15px; color: orange;}
+</style>
+</head>
+
+<body>
+<div id = "div1">
+	<div id="time"></div>
+	<button onclick = "startClick();">开始</button><br />
+	<button onclick = "pauseClick();">暂停</button><br />
+	<button onclick = "stopClick();">重置</button>
+</div>
+</body>
+</html>
+<script src="../../pool.js"></script>
+<script>
+	time.innerHTML = "00:00:00:000";
+	var hours = 0;
+	var min = 0;
+	var sec = 0;
+	var ms = 0;
+	var timer = null;
+	//1秒等于1000毫秒
+	function startClick(){
+		timer = setInterval(function(){
+			ms+=10;
+			if(ms>=1000){
+				sec++;
+				ms=0;
+			}
+
+			if(sec>=60){
+				min++;
+				sec=0;
+			}
+
+			if(min>=60){
+				hours++;
+				min=0;
+			}
+			time.innerHTML = addZero(hours)+":"+addZero(min)+":"+addZero(sec)+":"+addZero(ms);
+		},10)
+	}
+
+
+	//暂停
+	function pauseClick(){
+		clearInterval(timer)
+	}
+
+	//重置
+	function stopClick(){
+		clearInterval(timer);
+		hours = 0;
+		min = 0;
+		sec = 0;
+		ms = 0;
+		time.innerHTML = "00:00:00:000";
+	}
+</script>

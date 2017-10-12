@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>day03作业-函数调用</title>
+    <style>
+        button{
+            display: block;
+            background-color: #9999ff;
+            color: #fff;
+            border: none;
+            box-shadow: 0 0 5px #000;
+            margin: 10px 10px;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn_1">99乘法表</button>
+    <button id="btn_2">闰年输出</button>
+    <button id="btn_3">阶乘和</button>
+</body>
+</html>
+<script>
+    /*
+        99乘法表
+    */
+    function multiplicationTble() {
+        for (var i = 1; i <= 9; i++) {
+            for (var j = 1; j <= i; j++) {
+                document.write(j + "*" + i + "=" + i * j + "&ensp;");
+            }
+            document.write("<br/>");
+        }
+    }
+
+    /*
+        打印1000-2000年中所有得闰年，并以每行4个数形式进行输出
+    */
+    function leapYear() {
+        var count = 0;
+        for (var i = 1000; i <= 2000; i++) {
+            if (i % 400 == 0 || i % 100 != 0 && i % 4 == 0) {
+                count++;
+                document.write(i + "  ");
+            }
+            if (count % 4 == 0) {
+                document.write("<br/>");
+            }
+        }
+
+    }
+
+/*
+    求1!+2!+3!+......20!的和
+*/
+    btn_1.onclick = function () {
+        multiplicationTble();
+    }
+    btn_2.onclick = function () {
+        leapYear();
+    }
+</script>

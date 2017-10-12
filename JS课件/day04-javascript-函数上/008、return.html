@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="text" id="txt">
+</body>
+</html>
+<script>
+	/*
+		return : 
+			1、拿到函数的返回值
+			2、如果return了  那么return后面所以得代码就不在执行了
+			3、如果在函数内部return 在调用这个函数的时候一定要用变量接受一下
+			4、return只能返回一个结果 不能同时返回多个结果
+
+	 */
+	function ranDom(m,n){
+		var num = parseInt(m+Math.random()*(n-m+1));
+		var f = 10;
+		return num;
+	}
+
+	//相当于这个函数运行完以后返回来了一个结果，将这个结果赋值给了a
+	var a = ranDom(0,9);
+	txt.value=a;
+</script>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>计算器</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        dl {
+            display: block;
+            width: 415px;
+            margin: 30px auto;
+            padding: 10px;
+            border: 1px solid #000;
+        }
+
+        dl dt {
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        dl dt input {
+            display: block;
+            width: 100%;
+            font: 50px/80px "";
+            text-align: right;
+            height: 80px;
+            background: #eee;
+            border: none;
+        }
+
+        dl dd {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        dl dd button {
+            font: 30px/50px "";
+        }
+
+        dl dd .left {
+            width: 315px;
+        }
+
+        dl dd .left ul.top {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        dl dd .left ul.top li {
+            width: 150px;
+            height: 50px;
+            border: none;
+            margin-top: 5px;
+            margin-right: 5px;
+        }
+
+        dl dd .left ul.top li button {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        dl dd .left ul.bot {
+            width: 100%;
+            flex-wrap: wrap;
+        }
+
+        dl dd .left ul.bot li {
+            float: left;
+            width: 100px;
+            height: 50px;
+            border: none;
+            margin-top: 5px;
+            margin-right: 5px;
+        }
+
+        dl dd .left ul.bot li button {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        dl dd ul.right {
+            width: 100px;
+            height: 100%;
+        }
+
+        dl dd ul.right li {
+            width: 100px;
+            height: 50px;
+            border: none;
+            margin-top: 5px;
+        }
+
+        dl dd ul.right button {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<dl>
+    <dt><input type="text" id="txt" placeholder="0"></dt>
+    <dd>
+        <div class="left">
+            <ul class="top">
+                <li>
+                    <button>CE</button>
+                </li>
+                <li>
+                    <button>C</button>
+                </li>
+            </ul>
+            <ul class="bot">
+                <li>
+                    <button>7</button>
+                </li>
+                <li>
+                    <button>8</button>
+                </li>
+                <li>
+                    <button>9</button>
+                </li>
+                <li>
+                    <button>4</button>
+                </li>
+                <li>
+                    <button>5</button>
+                </li>
+                <li>
+                    <button>6</button>
+                </li>
+                <li>
+                    <button>1</button>
+                </li>
+                <li>
+                    <button>2</button>
+                </li>
+                <li>
+                    <button>3</button>
+                </li>
+                <li>
+                    <button>±</button>
+                </li>
+                <li>
+                    <button>0</button>
+                </li>
+                <li>
+                    <button>·</button>
+                </li>
+            </ul>
+        </div>
+        <ul class="right">
+            <li>
+                <button>÷</button>
+            </li>
+            <li>
+                <button>×</button>
+            </li>
+            <li>
+                <button>－</button>
+            </li>
+            <li>
+                <button>＋</button>
+            </li>
+            <li>
+                <button>＝</button>
+            </li>
+        </ul>
+    </dd>
+</dl>
+
+</body>
+</html>
+<script>
+
+    /**
+     * 计算器
+     * 实现 + - * / CE 简单基本功能
+     */
+
+    //声明变量
+    var firstNum;
+    var secondNum;
+    //声明符号
+    var sign;
+    //获取button按钮
+    var btn = document.getElementsByTagName("button");
+
+    //给每个按钮添加点击事件
+    for (var i = 0; i < btn.length; i++) {
+        //如果i∈(1,13)之间
+        if (i > 1 && i < 14) {    //此时是数字按钮
+            btn[i].onclick = function () {
+                //获取输入框值,并拼接成字符串
+                firstNum += txt.value;
+            };
+        } else if (i >= 14 && i < 18) {    //此时是运算符号
+            btn[i].onclick = function () {
+                //获取第一次输入值
+                firstNum = Number(txt.value);
+                //获取输入符号
+                sign = this.innerHTML;
+                //情况输入框
+                txt.value = "";
+            };
+        } else if (i = 18) {
+            //添加 = 点击事件
+            btn[i].onclick = function () {
+                //获取secondNum
+                secondNum = Number(txt.value);
+                //调用calculator函数
+                calculator(sign);
+            };
+        } else if (i = 0) {
+            //添加 CE 点击事件
+            btn[i].onclick = function () {
+                //清空输入框
+                txt.value = "";
+                //清空firstNum
+                firstNum = "";
+                //清空secondNum
+                secondNum = "";
+                //清空符号
+                sign = "";
+            };
+        } else {
+            //添加 C 点击事件
+            btn[i].onclick = function () {
+                //清空输入框
+                txt.value = "";
+                //清空secondNum
+                secondNum = "";
+            };
+        }
+    }
+
+    function calculator(sign) {
+        switch (sign) {
+            case "＋":
+                console.log(firstNum + secondNum);
+                break;
+            case "－":
+                console.log(firstNum - secondNum);
+                break;
+            case "×":
+                console.log(firstNum * secondNum);
+                break;
+            case "÷":
+                console.log(firstNum / secondNum);
+                break;
+            default:
+                console.log("重新输入!");
+        }
+    }
+
+    //测试
+
+
+</script>

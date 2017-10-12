@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JSON练习</title>
+</head>
+<body>
+<div id="content">
+ <!--   <dl>
+        <dt><img src="images/1.jpg"></dt>
+        <dd>《与妖记》part34灵感妖~35脱发妖</dd>
+        <dd>动漫-中/长篇漫画</dd>
+        <ul>
+            <li>1298</li>
+            <li>6</li>
+            <li>54</li>
+        </ul>
+        <ul>
+            <li>森雨文化</li>
+            <li>9小时前</li>
+        </ul>
+    </dl>-->
+</div>
+</body>
+</html>
+<script>
+    /**
+     * 以站酷项目为例
+     */
+    var obj=[
+        {
+            "img":"images/1.jpg",
+            "title":"《与妖记》part34灵感妖~35脱发妖",
+            "type":"动漫-中/长篇漫画",
+            "visited":"1298",
+            "message":"6",
+            "like":"54",
+            "author":"森雨文化",
+            "time":"9小时前"
+        },
+        {
+            "img":"images/2.jpg",
+            "title":"老北京胡同系列作品（二）",
+            "type":"纯艺术-水彩",
+            "visited":"6977",
+            "message":"48",
+            "like":"675",
+            "author":"艺伙黄有维水彩",
+            "time":"23小时前"
+        }
+    ]
+
+    for(var i in obj){
+        str+="<dl>"+
+                "<dt><img src=images/"+obj[i]+".jpg></dt>"+
+                "<dd>《与妖记》part34灵感妖~35脱发妖</dd>"+
+                "<dd>动漫-中/长篇漫画</dd>"+
+                "<ul>"+
+                    "<li>1298</li>"+
+                    "<li>6</li>"+
+                    "<li>54</li>"+
+                "</ul>"+
+                "<ul>"+
+                    "<li>森雨文化</li>"+
+                    "<li>9小时前</li>"+
+                "</ul>"+
+            "</dl>"
+    }
+
+
+</script>

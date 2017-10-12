@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script>
+/*
+	引用数据类型：object  function  new Array  new String new RegExp  new Date	
+ */ 
+//如何使用时间对象 
+//时间对象：获取或者设置
+
+//var d = new Date();//可以获取当前时间日期  获取当前时间对象
+
+//如果想要设置未来的时间 只需要在Date对象括号里面写上未来日期的时间即可
+//var d = new Date("2018-10-09 22:22:22")
+
+//如果想要设置回来过去的时间   用法和未来时间一样
+
+//var d = new Date("1995-11-11 11:11:11");
+
+//时间戳 getTime()  1970年1月1号凌晨距离现在的毫秒数
+//var d = new Date();
+//console.log(d.getTime())
+//var d1 = new Date("2017-11-11 00:00:00");
+//console.log(d1.getTime())
+
+
+//时间对象常用的API  以下这几种方式都是可以进行获取和设置的
+//getFullYear()获取到当前的年份   setFullYear();进行设置以后返回值是一个时间戳
+//var d = new Date();
+//console.log(d.getFullYear())
+
+//getMonth()  setMonth()   月份是从0开始的 所以使用的时候需要+1
+//console.log(d.getMonth())
+
+//getDate()  setDate()   天数
+//console.log(d.getDate())
+
+//时  getHours()  setHours()
+//console.log(d.getHours())
+
+//分 getMinutes() setMinutes()
+//console.log(d.getMinutes())
+
+
+//秒 getSeconds() setSeconds()
+//console.log(d.getSeconds())
+
+//星期  是只能获取不能设置  getDay()
+//console.log(d.getDay())
+
+
+
+//时间对象转换成字符串
+//2017-01-02  2017/01/02
+/*function date2String(d,sign){
+	if(sign==undefined){
+		sign="/"
+	}
+
+	return d.getFullYear()+sign+addzero((d.getMonth()+1))+sign+addzero(d.getDate())+" "+addzero(d.getHours())+":"+addzero(d.getMinutes())+":"+addzero(d.getSeconds());
+}
+
+function addzero(num){
+	var str = ""+num;
+	return str.length<2?"0"+str:str;
+}
+console.log(addzero(1))
+var d = new Date()
+var data = date2String(d)
+document.body.innerHTML = data;*/
+
+
+//如何用字符串转换成时间对象
+//var d = new Date("2017-01-01")  第一种方式
+//第二种方式  parse() 
+//两种方式都可以用来存放变量  
+//第一种方式可以存放时间字符串 也可以存放变量 也可存放时间戳
+//第二张方式不可以放时间戳
+var str = "2018-11-11"
+
+//console.log(d)
+var time = Date.parse(str)
+var d = new Date(time);
+
+
+
+
+
+
+
+
+</script>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //二维数组
+    //var qianfeng = ["H51","h52","h53"]
+    var qianfeng = [["常欢", "董琦"], ["王春晖", "陈亚强"], ["陈小春", "陈冠希"], ["金星", "陈翔"], ["蘑菇头", "妹大爷"]];
+    //需求把以上人名打印出来放在页面上
+    //console.log(qianfeng[0][1])
+    for (var i = 0; i < qianfeng.length; i++) {
+        for (var j = 0; j < qianfeng[i].length; j++) {
+            document.write(qianfeng[i][j])
+        }
+    }
+    console.log(qianfeng)
+
+    /*var lol = [[["盲僧","瞎子"]],[["奥巴驴","奥特曼"]],[["小怪兽","小可爱"]]];
+    for(var i=0;i<lol.length;i++){
+        for(var j=0;j<lol[i].length;j++){
+            for(var k=0;k<lol[i][j].length;k++){
+                document.write(lol[i][j][k])
+            }
+        }
+    }
+    console.log(lol)*/
+</script>

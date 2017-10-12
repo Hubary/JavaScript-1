@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script>
+	/*
+		什么是字符串？
+			在js中凡是用双引号或者单引号引起来的内容就是字符串
+
+		字符串创建的几种方式
+		var str = new String();
+		var str = String();
+		var str = '';	
+
+	 */
+	
+	//var str = new String("男人一定要活的骚气");
+	//var str = String("男人一定要活着骚气");
+	//var str = '男人一定要活着骚气'
+	//console.log(str.length)
+
+
+	//es5中字符串新增的方法有哪些
+	//indexOf() :输入值返回下标
+	//var str = ' 男人一定&要活着&骚气 ';
+	//console.log(str.indexOf("男"))
+	//console.log(str.lastIndexOf(""))
+	
+
+	//charAt():输入下标返回值
+	//console.log(str.charAt(1))
+	
+
+
+	//substring:
+	//当输入一个值得时候是截取的位置到结尾 
+	//当输入两个值得时候第一个值是截取的起始位置 第二个值是截取的结束位置但是不包括本身
+	//不支持负数
+	//substr
+	//当输入一个值得时候是截取的位置到结尾
+	//当输入两个值得时候第一个值是截取的起始位置 第二个值是截取的结束位置但是包括自己本身
+	//不支持负数
+	//slice
+	//当输入一个值得时候是截取的位置到结尾 
+	//当输入两个值得时候第一个值是截取的起始位置 第二个值是截取的结束位置但是不包括本身
+	//支持负数返回值是截取完剩下的字符
+	//console.log(str.substring(1,3)) 
+	//console.log(str.slice(1,-2))
+	//console.log(str.substr(1,3))
+	//console.log(str.split("&"))
+	//console.log(str)
+	//console.log(str.trim())
+	//
+	//
+	//
+	//正则
+	//replace:替换  是有一个返回值得 需要接受一下
+	//正则2个值  第一值是要替换的内容  第二个值是要替换的范围  g代表全局 i是忽略大小写
+	/*var str = "chen ya qiAng"
+	var reg = new RegExp("a","ig")
+	console.log(str.replace(reg,"**"))*/
+
+</script>

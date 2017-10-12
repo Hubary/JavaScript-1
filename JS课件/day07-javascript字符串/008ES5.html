@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script>
+"use strict"
+	/*
+		ES5:
+			ECMAscript第五次重大改革；
+		
+		1、严格模式
+		"use strict"
+		严格模式禁止出现变量没有经过var声明
+
+
+		js：脚本语言  ----容错性特别好
+
+		function fn(){
+			a = 10;
+		}
+		fn()
+		console.log(a)
+
+	 */
+	
+
+	/*
+		ES5新增的数组的API  E9+
+		你知道ES6新增了哪些方法
+		你知道ES5新增了哪些方法
+		数组去重不少于3种方式
+
+	 */
+
+	 //indexOf:返回数据第一次出现的下标  语法 对象.indexOf(val)   如果只存在那么返回相应的下标  如果不存在则返回-1;
+	 /*var arr = [1,2,3,4,5]
+	 console.log(arr.indexOf(9))*/
+
+	 //lastIndexOf：返回数据最后一次出现的下标
+	 /*var arr = [1,2,3,3,4,6,8,2];
+	 console.log(arr.lastIndexOf(2))*/
+
+	 //forEach  while  do while  for   for in 
+	 //语法：对象.forEach(function(val,index,array){})
+	 /*var arr = [1,2,3,4,5,6];
+	 arr.forEach(function(val,index,array){
+	 	var sum=0;
+	 	sum+=val;
+	 })*/
+
+	 //map 映射  集合
+	 //语法:对象.map(function(val,index,arrya){})
+	/*var arr = [1,2,3,4]
+	var newArr = arr.map(function(val){
+	 	return val*=1.3
+	 })
+	console.log(newArr)*/
+
+	//filter:过滤
+	//语法对象.filter(function(val,index,array){})
+	//filter 传入的是一个表达式
+	/*var arr = [1,2,3,4,5];
+	var newArr= arr.filter(function(val){
+		return val>3
+	})
+	console.log(newArr)*/
+
+	//reduce:各种累加 减 乘 除  取模
+	//对象.reduce(function(a,b){})
+	//返回值是一个结果
+	//传入的是一个表达式
+	var arr = [1,2,3,4,5];
+	/*for(var i=0;i<arr.length;i++){
+		var sum = 0;
+		sum+=arr[i]
+	}*/
+	var newArr = arr.reduce(function(a,b){
+		return a+b;
+	})
+	console.log(newArr)
+</script>

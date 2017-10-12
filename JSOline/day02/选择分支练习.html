@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选择分支练习</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0
+        }
+
+        #smile {
+            display: block;
+            width: 200px;
+            height: 80px;
+            font: 20px/40px "";
+            color: #fff;
+            background: #ff7700;
+            padding-top: 20px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        input {
+            display: inline-block;
+            width: 40px;
+            height: 30px;
+            font: 12px/24px "";
+            color: #444;
+            background: #9f9;
+            margin-left: 30px;
+        }
+
+    </style>
+</head>
+<body>
+    <span id="smile">呵呵一笑</span>
+    <input type="button" id="btn1" value="增大">
+    <input type="button" id="btn2" value="减小">
+</body>
+</html>
+<script>
+    document.write("<br/>");
+    document.write("----------第 1 题------------");
+    document.write("<br/>");
+    //    1、判断一个整数，属于哪个范围：大于0；小于0；等于0
+    var num1 = 9;
+    if (num1 > 0) {
+        document.write("num1 大于 0 ");
+    } else if (num1 == 0) {
+        document.write("num1 等于 0 ");
+    } else {
+        document.write("num1 小于 0 ");
+    }
+
+    document.write("<br/>");
+    document.write("----------第 2 题------------");
+    document.write("<br/>");
+    //    2、判断一个整数是偶数还是奇数，并输出判断结果
+    var num2 = 9;
+    if (num2 % 2 == 0) {
+        document.write("num2 是偶数");
+    } else {
+        document.write("num2 是奇数");
+    }
+
+    document.write("<br/>");
+    document.write("----------第 3 题------------");
+    document.write("<br/>");
+    //    3、字体放大时限制最大为32px，最小为12px
+    var a = 20;
+    btn1.onclick = function () {
+        a++;
+        if (a > 32) {
+            a = 32;
+        }
+        smile.style.fontSize = a + "px";
+    }
+    btn2.onclick = function () {
+        a--;
+        if (a < 12) {
+            a = 12;
+        }
+        smile.style.fontSize = a + "px";
+    }
+
+    document.write("<br/>");
+    document.write("----------第 5 题------------");
+    document.write("<br/>");
+    //    5、输入数字，显示星期几
+    var weekDay = 5;
+    if (weekDay == 1) {
+        document.write("黑色星期一");
+    } else if (weekDay == 2) {
+        document.write("喜闻乐见星期二");
+    } else if (weekDay == 3) {
+        document.write("又到星期三了");
+    } else if (weekDay == 4) {
+        document.write("哇塞,礼拜四了");
+    } else if (weekDay == 5) {
+        document.write("give me five!");
+    } else if (weekDay == 6) {
+        document.write("Have a nice date @_@");
+    } else {
+        document.write("休息一下");
+    }
+
+    document.write("<br/>");
+    document.write("----------第 6 题------------");
+    document.write("<br/>");
+    //    6、输入分数，判断成绩等级
+    var scole = 76;
+    if (scole >= 90) {
+        document.write("你真棒!");
+    } else if (scole >= 80) {
+        document.write("不错哦");
+    } else if (scole >= 70) {
+        document.write("还可以");
+    } else if (scole >= 60) {
+        document.write("勉勉强强");
+    } else {
+        document.write("报警了!")
+    }
+</script>

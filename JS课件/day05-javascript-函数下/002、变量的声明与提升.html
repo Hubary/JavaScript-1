@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script>
+
+	/*
+		js的预编译和执行
+
+		预编译：js在解析代码的时候会把变量和关键字函数提升到script最顶端，然后在去执行  var a放到script的最顶端  而赋值语句会在原始的位置等待赋值
+
+		函数的优先级要大于变量的优先级
+
+
+
+		var a = 10
+		
+		function add(){}
+	 */
+	
+/*
+
+	当在函数内部的时候js的预解析是怎么样进行执行的
+
+	局部变量是无法在全局进行访问的
+
+	将变量和函数提升到了父级的顶端
+ */
+
+
+/*
+ 当全局变量和局部变量的名字是一样的时候
+
+ 遵循一个原则  就近原则
+
+ */
+
+/*
+变量名和函数名一样的情况
+
+第一次优先输出  关键字函数   运行完函数后  函数就自动销毁
+
+第二次输出变量名
+
+ */
+
+console.log(test);
+var test = function(){
+    console.log(1);
+}
+function test(){
+    console.log(2);
+}
+console.log(test); 
+
+
+/*
+	如果函数名加括号  是调用    不加括号输入的是这个函数自身
+
+ */
+
+</script>

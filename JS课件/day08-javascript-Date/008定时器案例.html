@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin:0;padding:0;}
+		#pic{position: absolute;left:1200px;top:50%;}
+	</style>
+</head>
+<body>
+	<img src="jiangshi.gif" id="pic">
+</body>
+</html>
+<script>
+var timer = null;
+var speed = 1200;
+timer = setInterval(function(){
+	speed-=3;
+	pic.style.left=speed+'px'
+	if(speed<=20){
+		clearInterval(timer)
+	}
+},10)
+</script>

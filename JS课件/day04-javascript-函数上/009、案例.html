@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script>
+//编写一个函数，计算三个数字的大小，按从小到大的顺序输出。
+
+	function compare(a,b,c){
+		var temp;
+		var str;
+		if(a>b){
+		  	temp = a;
+		  	a = b;
+		  	b = temp;
+	  	}
+
+		if(b>c){
+	  		temp = b;
+	  		b = c;
+	  		c = temp;
+	  	}
+
+		if(a>b){
+		  	temp = a;
+		  	a = b;
+		  	b = temp;
+	  	}
+	  	str =''+a+b+c;
+	  	return str;
+	}
+
+	  
+//编写函数，判断一个字符串的内容是不是纯数字
+
+function isNumber(num){
+	num = num*1;
+	var bStop;
+	if(typeof num=="number"&&!isNaN(num)){
+		bStop=true;
+	}else{
+		bStop=false;
+	}
+	return bStop;
+}
+
+//编写一个函数，在页面上输出一个N行M列的表格，表格内容填充1~100的随机数字
+function createTab(n,m){
+	document.write("<table border='1'>");
+	for(var i=1;i<=n;i++){
+		document.write("<tr>");
+			for(var j=1;j<=m;j++){
+				document.write("<td>"+parseInt(1+Math.random()*100)+"</td>");
+			}
+		document.write("</tr>");
+	}
+
+	document.write("</table>");
+}
+
+</script>

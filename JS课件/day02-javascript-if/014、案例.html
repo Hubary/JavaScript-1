@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="text" id="txt">
+	<button id="btn">点击</button>
+</body>
+</html>
+<script>
+	//2016 02 11
+	btn.onclick = function(){
+		var Tval = txt.value;
+		var year = parseInt(Tval/10000);
+		var month = parseInt(Tval/100)%100;
+		var day = Tval%100;
+		var sea = 0;
+		//以上代码是把年月日分开
+		
+		if((year%4==0&&year%100!=0)||year%400==0){
+				sea = 29;
+		}else{
+			sea = 28;
+		}
+
+		//陈冲  陈翔
+		//计算天数
+		/*switch(month){
+			case 1:
+				console.log(day);
+				break;
+			case 2:
+				console.log(day+31);
+				break;
+			case 3:
+				console.log(day+31+sea);
+				break;
+			case 4:
+				console.log(day+31+sea+31);
+				break;
+			case 5:
+				console.log(day+31+sea+31+30);
+				break;
+			case 6:
+				console.log(day+31+sea+31+30+31);
+				break;
+			case 7:
+				console.log(day+31+sea+31+30+31+30);
+				break;
+			case 8:
+				console.log(day+31+sea+31+30+31+30+31);
+				break;
+			case 9:
+				console.log(day+31+sea+31+30+31+30+31+31);
+				break;
+			case 10:
+				console.log(day+31+sea+31+30+31+30+31+31+30);
+				break;
+			case 11:
+				console.log(day+31+sea+31+30+31+30+31+31+30+31);
+				break;
+			case 12:
+				console.log(day+31+sea+31+30+31+30+31+31+30+31+30);
+				break;
+		}*/
+
+		
+		switch (month) {
+			case 4:
+				day+=31;
+			case 3:
+				day+=sea;
+			case 2:
+				day+=31;
+			case 1:
+				console.log(day)
+			
+		}
+	}
+</script>

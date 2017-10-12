@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script>
+	/*
+		构造函数：主要作用是用来打包一类信息
+			构造函数的基本语法  必须通过关键字new 来创建一个构造函数
+
+			我们把属性用  构造函数名.属性=属性值
+	 */
+	
+		function Student(){}
+
+		var student1 = new Student();
+		student1.userName = "董旗";
+		student1.sex = "女";
+		student1.age = "38";
+		student1.aihao = "男";
+		student1.add=function(){
+			alert("其实我的性取向很正常");
+		}
+
+		var student2 = new Student();
+		student2.userName = "桑帅";
+		student2.sex = "女";
+		student2.age = "48";
+		student2.aihao = "男";
+		student2.add=function(){
+			alert("其实我很喜欢董旗");
+		}
+		
+
+		alert(student1.userName);
+</script>
