@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="text" id="row">
+	<input type="text" id="col">
+	<button id="btn">生成</button>
+
+</body>
+</html>
+<script src="../../pool.js"></script>
+<script>
+window.onload = function(){
+	var oRow = document.getElementById('row');
+	var oCol = document.getElementById('col');
+	var oBtn = document.getElementById('btn');
+	//当电机的时候
+	oBtn.onclick = function(){
+		
+			var r = oRow.value;
+			var l = oCol.value;
+			var tab = document.createElement('table');
+			tab.border=1;
+			document.body.appendChild(tab);
+			for(var i=0;i<r;i++){
+				var tr = document.createElement('tr');
+				for(var j=0;j<l;j++){
+					var td = document.createElement('td');
+					td.innerHTML=random1Num(0,100);
+					td.style.background = randomColor();
+					tr.appendChild(td)
+				}
+				var td1 = document.createElement('td');
+				var dele = document.createElement("button");
+				dele.innerHTML = "删除";
+				td1.appendChild(dele);
+				tr.appendChild(td1);
+				tab.appendChild(tr);
+			}
+			var oTab = document.getElementsByTagName('table')[0];
+			var oDele = oTab.getElementsByTagName('button');
+			for(var i=0;i<oDele.length;i++){
+				oDele[i].onclick = function(){
+					var tr = this.parentNode.parentNode;
+					tr.remove()
+				}
+			}
+	}
+
+
+	/*for(var i=0;i<oDele.length;i++){
+		console.log(oD)
+	}*/
+}
+</script>

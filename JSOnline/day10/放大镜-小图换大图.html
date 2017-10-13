@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>放大镜-淘宝详情页</title>
+    <style type="text/css">
+        .small {
+            margin: 0 10px;
+            border: 1px solid #fff;
+        }
+
+        .small:hover {
+            border-color: #000;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <img src="images/1-large.jpg" class="large" width="430" height="430">
+</div>
+<div>
+    <img src="images/1-small.jpg" class="small" data-url="images/1-large.jpg">
+    <img src="images/2-small.jpg" class="small" data-url="images/2-large.jpg">
+    <img src="images/3-small.jpg" class="small" data-url="images/3-large.jpg">
+    <img src="images/4-small.jpg" class="small" data-url="images/4-large.jpg">
+    <img src="images/5-small.jpg" class="small" data-url="images/5-large.jpg">
+</div>
+</body>
+</html>
+<script>
+    //获取 large img
+    var largeImg = document.querySelector(".large");
+    //获取 small img
+    var smallImg = document.querySelectorAll(".small");
+
+
+    //遍历
+    for (var i in smallImg) {
+        //给每个small img添加鼠标移入事件
+        smallImg[i].onmouseover = function () {//注意,只有事件触发时才会执行函数内部代码块
+            //获取小图的 data-url值,并赋值给 大图的 src
+            largeImg.src = this.getAttribute("data-url");//谁执行,this就表示谁
+        }
+    }
+
+    /**
+     * 利用 object的动态添加属性来取出相应的i值
+     * obj.key=value;
+     */
+    for (var i in smallImg) {
+        //取出i的值
+        smallImg[i].key = i;
+        //
+        smallImg[i].onmouseover = function () {
+            //this.key就表示触发事件时的i值
+            largeImg.src = smallImg[this.key].getAttribute("data-url");
+        }
+    }
+
+</script>

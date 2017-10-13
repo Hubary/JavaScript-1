@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul id="list">
+		A<li>1</li>
+		B<li>2</li>
+		C<li>3</li>
+		D<li>4</li>
+		E<li>5</li>
+		F<li>6</li>
+	</ul>
+</body>
+</html>
+<script>
+//节点的类型：文本节点   元素节点   属性节点
+//node三剑客：
+//   nodeType:判断节点类型
+//   nodeValue：获取或者设置文本节点   要想获取或者设置文本节点首先这个文本必须在文本节点之内
+//   nodeName：获取属性节点
+var oList = document.getElementById('list');
+var child = oList.childNodes;
+/*child[0].nodeValue="今天星期五";
+console.log(child[1].nodeValue);*/
+/*var arr = [];
+for(var i=0;i<child.length;i++){
+	if(child[i].nodeType==1){
+		arr.push(child[i])
+	}
+}*/
+
+
+//创建文本节点   createTextNode
+var txt = document.createTextNode("你好");
+oList.appendChild(txt)
+
+/*for(var i=0;i<arr.length;i++){
+	if(i%2==0){
+		arr[i].style.background="#000";
+	}else{
+		arr[i].style.background="red";
+	}
+}*/
+</script>

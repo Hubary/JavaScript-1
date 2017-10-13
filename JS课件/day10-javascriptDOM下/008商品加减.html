@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div>
+		<button class="minus">-</button>
+		<input type="text" value="1">
+		<button class="add">+</button>
+		<p>单价<span>90</span></p>
+		<p>小计:<span>99</span></p>
+	</div>
+	<div>
+		<button class="minus">-</button>
+		<input type="text" value="1">
+		<button class="add">+</button>
+		<p>单价<span>98</span></p>
+		<p>小计:<span>99</span></p>
+	</div>
+	<div>
+		<button class="minus">-</button>
+		<input type="text" value="1">
+		<button class="add">+</button>
+		<p>单价<span>9</span></p>
+		<p>小计:<span>99</span></p>
+	</div>
+</body>
+</html>
+<script>
+	var minus = document.querySelectorAll('.minus');
+	var add = document.querySelectorAll('.add');
+
+	for(var i=0;i<add.length;i++){
+		add[i].onclick = function(){
+			var num = this.previousElementSibling.value;
+				num++;
+			this.previousElementSibling.value = num;
+
+			var price = this.nextElementSibling.children[0].innerHTML;
+			
+			this.nextElementSibling.nextElementSibling.children[0].innerHTML = num*price;
+		}
+	}
+
+</script>

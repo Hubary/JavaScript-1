@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#box{width: 300px;height: 300px;background: red;}
+	</style>
+</head>
+<body>
+	<div id="box" data-num="img/img.png"></div>
+</body>
+</html>
+<script>
+	/*
+		封装：显示  隐藏
+
+	var oBox = document.getElementById('box')
+	function hide(ele){
+		ele.style.display="none";
+	}
+
+	function show(ele){
+		ele.style.display="block";
+	}
+	hide(oBox);
+	show(oBox)
+
+	*/
+
+
+/*
+	在H5中新增了一个新的属性  data- 
+	专门用来设置自定义属性
+
+	自定义属性是用来存储一些信息
+	人为添加上去的
+
+	data-:必须要的形式  自己要写的信息要在-后面  data-url="值";
+
+	obj = [
+			{
+				num:1
+				jiage:"100"
+				...
+				...
+				...
+			}
+		]
+ */
+
+
+//如何获取自定义属性  getAttribute()  语法 对象.getAttribute()  自定义属性
+var oBox = document.getElementById('box')
+//console.log(oBox.getAttribute("data-num"))
+
+
+//设置自定义属性   setAttribute()   语法 对象.setAttribute(自定义属性，属性值)
+//oBox.setAttribute("data-url","1")
+
+//删除自定义属性  removeAttribute() 语法： 对象.removeAttribute()  自定义属性
+
+//oBox.removeAttribute("data-url")
+
+
+/*封装获取设置定义属性*/
+
+function attr(ele,type,val){
+	if(arguments.length<2){return};
+
+	if(arguments.length==2){
+		return ele.getAttribute(type);
+	}
+	ele.setAttribute(type,val);
+}
+</script>

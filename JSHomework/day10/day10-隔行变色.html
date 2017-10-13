@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>day10-DOM作业之隔行变色</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            width: 500px;
+            margin: 50px auto;
+        }
+
+        ul li {
+            width: 100%;
+            height: 30px;
+            list-style: none;
+            margin: 10px auto;
+            text-align: center;
+            border-radius: 5px;
+            font: 16px/30px "";
+        }
+
+    </style>
+</head>
+<body>
+
+<ul id="list">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+
+</body>
+</html>
+<script src="../../Encapsulation/encap.js"></script>
+<script>
+    /**
+     *day10-隔行变色.html
+     *author:jessie-zly
+     *2017/10/13
+     *description:
+     */
+    window.onload = function () {
+
+        function colorChangeByLine() {
+            //获取ul
+            var ul = document.getElementById("list");
+            //获取所有子节点
+            var cnode = ul.childNodes;
+            //
+            var arr = [];
+            //遍历节点
+            for (var i in cnode) {
+                //判断是否为元素节点
+                if (cnode[i].nodeType == 1) {
+                    //如果是元素节点则添加进数组中
+                    arr.push(cnode[i]);
+                }
+            }
+
+            //给li设置背景
+            for (var i in arr) {
+                //隔行显示
+                if (i % 2 != 0) {
+                    //偶数行颜色
+                    arr[i].style.background = "#f99";
+                } else {
+                    //奇数行默认颜色
+                    arr[i].style.background = "#9f9";
+                    //输出文字
+                    arr[i].innerHTML = "隔行如隔山";
+                    //获取初始颜色
+                    thisColor = arr[i].style.background;
+                    //鼠标移入事件
+                    arr[i].onmouseover = function () {
+                        //改变颜色
+                        this.style.background = "#f70";
+                    }
+                    //鼠标移出事件
+                    arr[i].onmouseout = function () {
+                        //恢复默认颜色
+                        this.style.background = thisColor;
+                    }
+                }
+            }
+        }
+
+        //测试
+        colorChangeByLine();
+    }
+
+
+</script>

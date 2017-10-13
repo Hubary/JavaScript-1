@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+</html>
+<script>
+	/*
+		innerHTML、innerText和outerHTML、outerText的区别
+
+		innerHTML:可以在里面书写字符标签也会进行解析到页面上
+
+		innerText:可以在里面书写字符标签不会进行解析而是直接书写到了页面上
+
+		outerHTML:可以在里面书写字符  但是不能够书写标签
+
+		outerText:可以在里面书写字符  但是不能够书写标签
+	 */
+	
+	var oBox = document.getElementById('box');
+	//oBox.innerHTML="你好";
+	//oBox.innerHTML = "<p>再见</p>";
+	
+	//oBox.innerText = "你好";
+	//oBox.innerText = "<p>你好</p>"
+	
+	//oBox.outerHTML = "你好";
+	//oBox.outerHTML ="<p>再见</p>";
+	
+	//oBox.outerText = "你好";
+	//oBox.outerText = "<p>再见</p>"
+</script>

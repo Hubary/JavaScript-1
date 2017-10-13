@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#box{height: 300px;background: red;font-size: 60px;}
+	</style>
+</head>
+<body>
+	<div id="box" style="width:200px;"></div>
+
+</body>
+</html>
+<script>
+//元素的节点属性  
+//id:可以直接获取或使用  oBox.id="haha";
+//class:class不能够直接使用  如果要是想用的话  className   oBox.className="haha"
+//title  oBox.title="haha" 
+//tagName:获取元素的标签名   返回值是一个大写的字符串
+//var oBox = document.getElementById('box');
+//alert(oBox.tagName)
+var oBox = document.getElementById('box');
+//console.log(oBox.style.width)
+//console.log(oBox.style.height)
+
+//获取非行间样式   getComputedStyle
+// getComputedStyle(对象,)[]  第一个参数是对象  第二个参数是伪对象   一般情况下伪对象我们不写  而是直接写成false 第三个参数是想要获取的属性  在方括号里面写着
+//console.log(getComputedStyle(oBox,false)["height"])
+//iE8以下  currentStyle()
+//语法：对象.currentStyle[属性]
+//console.log(oBox.currentStyle["height"])
+
+/*function getStyle(ele,attr){
+	if(ele.currentStyle){
+		return ele.currentStyle[attr];
+	}else{
+		return getComputedStyle(ele,false)[attr]
+	}
+}*/
+
+
+</script>

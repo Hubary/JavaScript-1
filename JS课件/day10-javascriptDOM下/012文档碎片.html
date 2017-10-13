@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script>
+//思路 
+//当页面元素插入的时候页面会发生"重排"  大大耗费性能
+/*for(var i=0;i<100000000;i++){
+	var p = document.createElement('p');
+	p.innerHTML = "1";
+	document.body.appendChild(p);
+}*/
+//createDocumentFragment  创建文档碎片   IE和火狐里面最明显
+/* var df = document.createDocumentFragment('');
+ for(var i=0;i<100000;i++){
+ 	var p = document.createElement('p');
+ 	df.appendChild(p)
+ }
+ document.body.appendChild(df);*/
+
+
+ /*for(var i=0;i<100000;i++){
+ 	var str='<p>1</p>';
+ 	document.body.innerHTML+=str;
+ }*/
+ var str1 = '';
+ for(var i=0;i<100000;i++){
+ 	var str = "<p>1</p>";
+ 	str1+=str
+ }
+ document.body.innerHTML=str1;
+ //赵氏文档碎片法
+</script>

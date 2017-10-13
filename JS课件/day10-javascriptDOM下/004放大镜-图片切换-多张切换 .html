@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style type="text/css">
+        .small {
+            margin: 0 10px;
+            border: 1px solid #fff;
+        }
+
+        .small:hover {
+            border-color: #000;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <img src="images/1-large.jpg" class="middle" width="430" height="430">
+</div>
+<div>
+    <img src="images/1-small.jpg" class="small" data-url="images/1-large.jpg">
+    <img src="images/2-small.jpg" class="small" data-url="images/2-large.jpg">
+    <img src="images/3-small.jpg" class="small" data-url="images/3-large.jpg">
+    <img src="images/4-small.jpg" class="small" data-url="images/4-large.jpg">
+    <img src="images/5-small.jpg" class="small" data-url="images/5-large.jpg">
+</div>
+
+
+<script type="text/javascript">
+    //当程序出问题的时候 第一时间先测试一下数据有没有获取到  第二测试一下事件有没有执行  第三测试一下对象有没有获取到
+    var oMiddle = document.querySelector('.middle');
+    var aSmall = document.querySelectorAll('.small');
+
+    //给每一个小图添加移入事件
+    for (var i = 0; i < aSmall.length; i++) {
+        aSmall[i].onmouseover = function () {
+            //this  ===当前对象   我最帅
+            var url = this.getAttribute("data-url");
+            oMiddle.src = url;
+
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>购物车计算</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .shopping{
+            width: 500px;
+            margin: 10px  auto;
+            border: 1px solid #000000;
+            background: #f6f9fc;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .shopping>div{
+            width: 200px;
+            height: 50px;
+        }
+
+        .shopping>div button {
+            display: block;
+            width: 50px;
+            height: 30px;
+            margin-top: 10px;
+            font: 12px/30px "";
+            border: none;
+            background: #99ff99;
+            float: left;
+        }
+
+        .shopping>div input {
+            display: block;
+            width: 100px;
+            font: 12px/30px "";
+            margin-top: 10px;
+            text-align: center;
+            background: #f9f9f9;
+            border: none;
+            float: left;
+        }
+
+        .shopping>div:nth-of-type(2){
+            width: 100px;
+            margin-right: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .shopping>div p {
+            display: inline-block;
+            width: 100%;
+            font: 12px/20px "";
+            text-indent: 10px;
+            margin: 1px 0 0;
+            border: 1px solid #000000;
+        }
+
+        .shopping>div p span {
+            display: inline-block;
+            color: #ff0000;
+        }
+    </style>
+</head>
+<body>
+
+<div class="shopping">
+    <div>
+        <button class="reduce">-</button>
+        <input type="text" value="1">
+        <button class="add">+</button>
+    </div>
+    <div>
+        <p>单价:<span>90</span></p>
+        <p>小计:<span>90</span></p>
+    </div>
+</div>
+
+<div class="shopping">
+    <div>
+        <button class="reduce">-</button>
+        <input type="text" value="1">
+        <button class="add">+</button>
+    </div>
+    <div>
+        <p>单价:<span>110</span></p>
+        <p>小计:<span>110</span></p>
+    </div>
+</div>
+
+<div class="shopping">
+    <div>
+        <button class="reduce">-</button>
+        <input type="text" value="1">
+        <button class="add">+</button>
+    </div>
+    <div>
+        <p>单价:<span>88</span></p>
+        <p>小计:<span>88</span></p>
+    </div>
+</div>
+
+</body>
+</html>
+<script>
+    //获取所有 class为reduce的标签
+    var arrReduce = document.querySelectorAll(".reduce");
+    //获取所有class为add的标签
+    var arrAdd = document.querySelectorAll(".add");
+
+    /**
+     * 添加物品操作
+     */
+    for (var i = 0; i < arrAdd.length; i++) {
+        //给每个add添加点击事件
+        arrAdd[i].onclick = function () {
+            //获取单价
+            var price = this.parentNode.nextElementSibling.children[0].children[0].innerHTML;
+            //获取input的value值,即物品数量
+            var num = this.previousElementSibling.value;
+            //点击一次数量自增
+            num++;
+            //再将num赋值给input的value
+            this.previousElementSibling.value = num;
+            //在小计中输出总价
+            this.parentNode.nextElementSibling.children[1].children[0].innerHTML = price * num;
+        }
+    }
+
+    /**
+     * 删减物品操作
+     */
+    for (var i in arrReduce) {
+        arrReduce[i].onclick = function () {
+            var price = this.parentNode.nextElementSibling.children[0].children[0].innerHTML;
+            var num = this.nextElementSibling.value;
+            num--;
+            //判断num是否小于0
+            if (num <= 0) {
+                //如果num<=0,则默认num=0
+                num = 0;
+            }
+            this.nextElementSibling.value = num;
+            this.parentNode.nextElementSibling.children[1].children[0].innerHTML = price * num;
+        }
+    }
+
+</script>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul id="list">
+		<li>1</li>
+		<li>2</li>
+		<li id="san" class="san" title="san" data-url="img">3</li>
+		<li>4</li>
+		<li>5</li>
+	</ul>
+</body>
+</html>
+<script>
+//childNodes:获取所有子节点     文本  元素  属性
+//children:获取所有元素节点   返回值是数组
+var oList = document.getElementById('list');
+var oSan = document.getElementById('san')
+//var child = oList.children;
+
+
+//获取元素中第一个节点
+//firstChild  获取到第一个节点包括文本节点
+//firstElementChild  获取第一个元素节点
+//console.log(oList.firstChild)
+//console.log(oList.firstElementChild)
+
+
+
+//获取元素中最后一个节点
+//lastChild  获取到最后一个节点  包括文本节点
+//lastElementChild  获取到最后一个元素节点
+//console.log(oList.lastChild)
+//console.log(oList.lastElementChild)
+
+//获取父节点
+//parentNode
+//console.log(oSan.parentNode.parentNode.parentNode.parentNode)
+
+
+//获取前一个兄弟节点
+//previousSibling  前一个兄弟节点  包括文本
+//previousElementSibling  前一个元素兄弟节点
+//console.log(oSan.previousSibling);
+//console.log(oSan.previousElementSibling);
+
+
+//获取后一个兄弟节点
+//nextSibling  后一个兄弟节点  包括文本
+//nextElementSibling  后一个元素兄弟节点
+//console.log(oSan.nextSibling)
+//console.log(oSan.nextElementSibling)
+
+
+//或去根节点
+//ownerDocument   
+//console.log(oList.ownerDocument)
+
+
+
+//attributes  获取当前元素所以属性节点集合
+//console.log(oSan.attributes)
+
+/*function prevChild(ele) {
+	 return ele.previousElementSibling
+}*/
+
+
+
+</script>

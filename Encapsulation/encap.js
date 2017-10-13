@@ -91,7 +91,7 @@ function stringToNum(R,G,B) {
  * @param B 0-255
  * @returns {string}
  */
-function randomColorByRGB(R,G,B) {
+function randomColor() {
     R=randomNumM_N(0,255);
     G=randomNumM_N(0,255);
     B=randomNumM_N(0,255);

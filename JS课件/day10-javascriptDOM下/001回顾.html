@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script>
+	/*
+		js组成的三大部分
+			ECMA:一种规范
+
+			BOM：browser Object Model   浏览器对象模型   window
+
+			DOM:document   document 
+
+		window下的内置对象
+			location 
+				链接：location.href="地址"
+				location.reload()  如果加true就是清除缓存刷新
+
+				1、http协议：url的组成部分  http   域名  端口号  资源库   页面
+
+				2、浏览器的缓存：浏览器第一次加载的时候会把img  css  html  js加载到本地磁盘当中
+
+				3、垃圾回收机制
+
+				4、当输入www.baidu.com的时候发生了什么？
+					1、域名解析
+					2、找到相应的主机
+					3、TCP的三次握手
+					4、返回指定的index页面
+					5、解析入口文件
+					6、进行
+
+			history
+				history.go()  如果是-1  后退  如果是1前进  如果是0 刷新
+				history.back()  后退
+				history.forward()  前进
+
+			navigator
+
+				navigator.userAgent:输出浏览器所有的信息
+
+			window.onload:当页面上所有的资源加载完毕以后  img
+				一个页面上只能出一次
+
+			window.onscroll:
+				当滚动条发生改变的时候执行相应的代码块
+				高频率触发
+				可以出现多次
+
+			滚动距离
+			document.body.scrollTop||document.documentElement.scrollTop
+			可视区高度
+			document.documentElement.clientHeight
+			document.documentElement.clientWidth
+
+			
+			windowAPI
+				alert():阻塞   console.log    断点
+
+				confirm()   返回值确定是true   取消是false
+
+				输入框：prompt()  返回值  输入的字符串
+
+				open(url,'','宽  高  位置')
+
+				close :关闭  FF是有兼容性问题
+
+			定时器
+				setInterval()  第一个参数回调  第二个执行时间
+				clearInterval()
+			延时器
+				setTimeout()
+				clearTimeout()
+			区别：前者可以执行多次  后者只执行一次
+
+
+			DOM
+				增：document.createElement()标签名
+					父级元素.appendChild()
+				删：父级元素.removeChild()
+
+				查：
+					document.getElementById()
+					document.getElementsByTagName()
+					document.getElementsByClassName()
+					document.getElementByName()
+					ES5新增的
+					document.querySelector()
+					document.querySelectorAll()
+			
+			元素节点类型
+				childNodes:获取所有子节点
+					文本   元素    属性
+					3        1       2
+				筛选节点：nodeType
+ 
+
+
+			双飞翼布局-----弹性盒不兼容
+			rem---vw:浏览器的版本高的话
+			写死----px
+			外围元素---适配
+			内部元素----文字---px
+
+
+	 */
+</script>

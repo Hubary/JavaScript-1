@@ -24,29 +24,27 @@
             timer = setInterval(function () {
                 var oUL = document.getElementById("list");
                 var oList = document.createElement("li");
-
                 oUL.appendChild(oList);
-
-
-            }, 1000)
-
-
+            }, 1000);
         }
 
 
         //测试
         dynamicLi();
 
-        document.getElementById('btn').onclick=function () {
+        document.getElementById('btn').onclick = function () {
             clearInterval(timer);
-           var arrLi= document.getElementsByName("li");
-           for(var i in arrLi){
-               arrLi[i].style.width=100+"px";
-               arrLi[i].style.height=20+"px";
-               arrLi[i].style.background="#9f9";
-           }
+            var arrLi = document.getElementsByName("li");
+            for (var i in arrLi) {
+                arrLi[i].style.width = 100 + "px";
+                arrLi[i].style.height = 20 + "px";
+                arrLi[i].style.backgrounColor = "#FFCC80";
+            }
         }
 
+
+        document.getElementById("list").style.background = randomColor();
+//        document.getElementById("list").style.listStyle = "none";
     }
 
 

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin:0;padding:0;}
+		#content{width:200px;height: 100px;overflow:hidden;}
+		#content>div{width: 200px;height: 100px;background: #ccc;}
+		button{width: 80px;}
+		.active{background: red;}
+	</style>
+</head>
+<body>
+	<button class="active">1</button>
+	<button>2</button>
+	<button>3</button>
+	<div id="content">
+		<div>1111</div>
+		<div>2222</div>
+		<div>3333</div>
+	</div>
+</body>
+</html>
+<script>
+window.onload = function(){
+	var oBtn = document.getElementsByTagName('button');
+	var oCon = document.getElementById('content');
+	var aDiv = oCon.getElementsByTagName('div');
+
+	for(var i=0;i<oBtn.length;i++){
+		oBtn[i].index=i;
+		oBtn[i].onclick = function(){
+			for(var j=0;j<oBtn.length;j++){
+				oBtn[j].className='';
+				aDiv[j].style.display = "none";
+			}
+			this.className='active';
+			aDiv[this.index].style.display="block";
+		}
+	}
+}
+</script>
