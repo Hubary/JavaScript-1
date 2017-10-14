@@ -28,33 +28,51 @@
 </body>
 </html>
 <script>
-    //获取 large img
-    var largeImg = document.querySelector(".large");
-    //获取 small img
-    var smallImg = document.querySelectorAll(".small");
-
-
-    //遍历
-    for (var i in smallImg) {
-        //给每个small img添加鼠标移入事件
-        smallImg[i].onmouseover = function () {//注意,只有事件触发时才会执行函数内部代码块
-            //获取小图的 data-url值,并赋值给 大图的 src
-            largeImg.src = this.getAttribute("data-url");//谁执行,this就表示谁
-        }
-    }
-
     /**
-     * 利用 object的动态添加属性来取出相应的i值
-     * obj.key=value;
+     * 放大镜-小图换大图.html
+     * author: $jessie-zly$
+     * 2017/10/14
+     * description:
      */
-    for (var i in smallImg) {
-        //取出i的值
-        smallImg[i].key = i;
+
+    window.onload = function () {
         //
-        smallImg[i].onmouseover = function () {
-            //this.key就表示触发事件时的i值
-            largeImg.src = smallImg[this.key].getAttribute("data-url");
+        function scalePic() {
+
+
+            //获取 large img
+            var largeImg = document.querySelector(".large");
+            //获取 small img
+            var smallImg = document.querySelectorAll(".small");
+
+
+            //遍历
+            for (var i in smallImg) {
+                //给每个small img添加鼠标移入事件
+                smallImg[i].onmouseover = function () {//注意,只有事件触发时才会执行函数内部代码块
+                    //获取小图的 data-url值,并赋值给 大图的 src
+                    largeImg.src = this.getAttribute("data-url");//谁执行,this就表示谁
+                }
+            }
+
+            /**
+             * 利用 object的动态添加属性来取出相应的i值
+             * obj.key=value;
+             */
+            for (var i in smallImg) {
+                //取出i的值
+                smallImg[i].key = i;
+                //
+                smallImg[i].onmouseover = function () {
+                    //this.key就表示触发事件时的i值
+                    largeImg.src = smallImg[this.key].getAttribute("data-url");
+                }
+            }
         }
+
+        //
+        scalePic();
+
     }
 
 </script>

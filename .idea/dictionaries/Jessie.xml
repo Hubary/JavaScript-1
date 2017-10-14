@@ -1,7 +1,18 @@
 <component name="ProjectDictionaryState">
   <dictionary name="Jessie">
     <words>
+      <w>dblclick</w>
+      <w>onblur</w>
+      <w>onfocus</w>
+      <w>oninput</w>
+      <w>onkeydown</w>
+      <w>onkeypress</w>
+      <w>onkeyup</w>
       <w>onload</w>
+      <w>onmouseout</w>
+      <w>onmouseover</w>
+      <w>onmousewheel</w>
+      <w>onsubmit</w>
       <w>tcol</w>
     </words>
   </dictionary>

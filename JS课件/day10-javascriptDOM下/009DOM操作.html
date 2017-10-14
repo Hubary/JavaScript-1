@@ -1,62 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Document</title>
+    <meta charset="UTF-8">
+    <title>Document</title>
 </head>
 <body>
-	<!-- 
-		简易的留言板
-	<textarea name="" id="txt" cols="150" rows="10"></textarea>
-	<button id="btn">发送</button>
-	<ul id="list">
-	</ul> -->
+    <!--简易的留言板-->
+    <textarea name="" id="txt" cols="150" rows="10"></textarea>
+    <button id="btn">发送</button>
+    <ul id="list">
+    </ul>
 
-	<ul id="list"></ul>
+<!--<ul id="list"></ul>-->
 </body>
 </html>
 <script>
-	//创建  createElement()  标签
-	//appendChild:插入到末尾
-	//insertBefore()  第一个参数  要插入的元素  第二参数 插在谁之前
-	/*var oList = document.getElementById('list');
-	var oTxt = document.getElementById('txt');
-	var oBtn  = document.getElementById('btn')
-	btn.onclick = function(){
-		var val = oTxt.value;
-		var li = document.createElement('li');
-		li.innerHTML = val;
-		if(oList.children.length==0){
-			oList.appendChild(li)
-		}else{
-			oList.insertBefore(li,oList.children[0])
-		}
+    //创建  createElement()  标签
+    //appendChild:插入到末尾
+    //insertBefore()  第一个参数  要插入的元素  第二参数 插在谁之前
+    var oList = document.getElementById('list');
+    var oTxt = document.getElementById('txt');
+    var oBtn = document.getElementById('btn')
+    btn.onclick = function () {
+        var val = oTxt.value;
+        var li = document.createElement('li');
+        li.innerHTML = val;
+        if (oList.children.length == 0) {
+            oList.appendChild(li)
+        } else {
+            oList.insertBefore(li, oList.children[0])
+        }
 
-		oTxt.value='';
-	}*/
+        oTxt.value = '';
+    }
 
-//删除   removeChild() 里面的值是删除的子元素
-//var oList = document.getElementById('list');
-//oList.removeChild(oList.children[0])
-
-
-//删除自身  remove()
-//oList.remove()
+    //删除   removeChild() 里面的值是删除的子元素
+    //var oList = document.getElementById('list');
+    //oList.removeChild(oList.children[0])
 
 
-//cloneNode()  克隆   如果里面加了true以后就是把当前元素所的内容都克隆一遍
-//如果没有加true那么只克隆标签  
-//var ul = oList.cloneNode(true); 
-//console.log(ul)
+    //删除自身  remove()
+    //oList.remove()
 
 
+    //cloneNode()  克隆   如果里面加了true以后就是把当前元素所的内容都克隆一遍
+    //如果没有加true那么只克隆标签
+    //var ul = oList.cloneNode(true);
+    //console.log(ul)
 
-//替换  replaceChild()   语法：父元素.replaceChild()  第一个值是要替换成的内容  第二个值是要替换的内容
-/*var p = document.createElement('p');
-p.innerHTML="1";
-oList.replaceChild(p,oList.children[0])*/
 
-//判断当前元素是否有子元素 包含文本元素
-//hasChildNodes()  返回值是true或者false
-console.log(oList.hasChildNodes())
+    //替换  replaceChild()   语法：父元素.replaceChild()  第一个值是要替换成的内容  第二个值是要替换的内容
+    /*var p = document.createElement('p');
+    p.innerHTML="1";
+    oList.replaceChild(p,oList.children[0])*/
+
+    //判断当前元素是否有子元素 包含文本元素
+    //hasChildNodes()  返回值是true或者false
+    //console.log(oList.hasChildNodes())
 </script>
