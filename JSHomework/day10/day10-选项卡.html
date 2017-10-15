@@ -11,7 +11,6 @@
         }
 
         .container {
-
             width: 600px;
             height: 400px;
             border: 1px solid #b6b6b6;
@@ -20,7 +19,6 @@
         }
 
         .container ul li {
-
             list-style-type: none;
             width: 600px;
             height: 400px;
@@ -32,19 +30,15 @@
         }
 
         .container ul li.show {
-
             opacity: 1;
         }
 
         .container ul li img {
-
             width: 100%;
             height: 100%;
-
         }
 
         .btn {
-
             position: absolute;
             z-index: 100;
             width: 600px;
@@ -55,7 +49,6 @@
         }
 
         .btn span {
-
             width: 30px;
             height: 30px;
             display: block;
@@ -71,9 +64,7 @@
         }
 
         .btn span.active {
-
             background: red;
-
         }
 
     </style>
@@ -112,7 +103,47 @@
 </div>
 
 </body>
+</html>
 <script>
+   /**
+   * day10-选项卡.html
+   * author: jessie-zly
+   * 2017/10/15
+   * description:
+   */
+    window.onload=function () {
+        //
+        function clickToNext() {
+            //获取 li
+            var getOli=document.querySelectorAll("li");
+            //获取 span
+            var getOspan=document.querySelectorAll("span")
+            //遍历
+            for(var i in getOspan){
+                //获取 i
+                getOspan[i].key=i;
+                //点击事件
+                getOspan[i].onclick=function () {
+                    //再次遍历
+                    for(var j in getOspan){
+                        //清空所有 active
+                        getOspan[j].className="";
+                    }
+                    //遍历 li
+                    for(var k in getOli){
+                        //清空所有 show
+                        getOli[k].className="";
+                    }
+                    //显示 show
+                    getOli[this.key].className="show";
+                    //显示 active
+                    this.className="active";
+                }
+            }
+        }
+
+        //测试
+        clickToNext();
+    }
 
 </script>
-</html>
