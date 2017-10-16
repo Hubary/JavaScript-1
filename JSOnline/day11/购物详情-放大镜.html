@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>放大镜-购物详情页</title>
+    <style type="text/css">
+        .small {
+            margin: 0 10px;
+            border: 1px solid #fff;
+        }
+
+        .small:hover {
+            border-color: #000;
+        }
+        #filter{
+            width: 200px;
+            height: 200px;
+            background: #000000;
+            opacity: 0.5;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        #mid{
+            position: relative;
+            width: 400px;
+            height: 400px;
+        }
+        #max{
+            width: 400px;
+            height: 400px;
+            position: absolute;
+            left: 450px;
+            top: 0;
+            border: 1px solid #ccc;
+            overflow: hidden;
+        }
+        #max img{
+            width: 800px;
+            height: 800px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+<div id="max">
+    <img src="images/1-large.jpg" class="large">
+</div>
+<div id="mid">
+    <img src="images/1-large.jpg" class="middle" width="400" height="400">
+    <div id="filter"></div>
+</div>
+<div>
+    <img src="images/1-small.jpg" class="small" data-url="images/1-large.jpg">
+    <img src="images/2-small.jpg" class="small" data-url="images/2-large.jpg">
+    <img src="images/3-small.jpg" class="small" data-url="images/3-large.jpg">
+    <img src="images/4-small.jpg" class="small" data-url="images/4-large.jpg">
+    <img src="images/5-small.jpg" class="small" data-url="images/5-large.jpg">
+</div>
+</body>
+</html>
+<script>
+    //获取 middle img
+    var middleImg = document.querySelector(".middle");
+    //获取 small img
+    var smallImg = document.querySelectorAll(".small");
+
+
+    //遍历
+    for (var i in smallImg) {
+        //给每个small img添加鼠标移入事件
+        smallImg[i].onmouseover = function () {//注意,只有事件触发时才会执行函数内部代码块
+            //获取小图的 data-url值,并赋值给 大图的 src
+            middleImg.src = this.getAttribute("data-url");//谁执行,this就表示谁
+        }
+    }
+
+
+
+
+
+
+
+    /**
+     * 利用 object的动态添加属性来取出相应的i值
+     * obj.key=value;
+     */
+    for (var i in smallImg) {
+        //取出i的值
+        smallImg[i].key = i;
+        //
+        smallImg[i].onmouseover = function () {
+            //this.key就表示触发事件时的i值
+            middleImg.src = smallImg[this.key].getAttribute("data-url");
+        }
+    }
+
+</script>

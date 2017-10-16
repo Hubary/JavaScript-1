@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+/*
+	1、获取非行间样式
+		getComputedStyle(obj,false)[attr]
+
+		obj.currentStyle(attr)	
+
+
+		function getStyle(obj,attr){
+			if(obj.currentStyle){
+				return obj.currentStyle[attr]
+			}else{
+				getComputedStyle(obj,false)[attr]
+			}
+		}
+
+	2、如何设置自定义属性	
+
+		什么是自定义属性：本身元素没有的属性  人为手动添加上去的
+		自定义属性有什么作用：存储信息
+		一般情况下自定义属性的语法   data-
+
+
+		如何获取自定义属性 ：obj.getAttribute()   1各参数   自定义属性
+
+		如何设置自定义属性 :obj.setAttribute()    2个参数   在自定义属性   属性值
+
+		如何删除自定义属性:obj.removeAttribute()  1个参数   自定义属性
+
+
+	3、innerHTML  innerText   outerText   outerHTML
+		
+		innerHTML:可以设置文本  也可以解析标签
+
+		innerText:只可以设置文本
+	
+		outerText:只能设置文本
+
+		outerHTML: 以前的版本可以进行解析标签的   
+
+		outerHTML  和 innerText   :非w3c规范
+
+
+	4、节点类型
+
+		如何获取子节点   childNodes   obj.childNodes   文本  属性  元素
+
+		文本  3    属性   2   元素   1      nodeType
+
+		node三剑客：nodeType   nodeValue   nodeName
+
+	5、高级节点类型
+
+		如何获取子元素：  children   只获取元素节点
+
+		获取第一个子元素  
+			firstChild     
+			firstElementChild
+			区别：前者包括文本节点  后者指包括元素节点
+
+			lastChild
+			lastElementChild
+
+
+			parentNode:获取父元素
+
+
+			previousSibling:获取前一个兄弟节点
+			previousElementSibling	
+
+
+			nextSibling
+			nextElementSibling  获取后一个兄弟节点
+
+
+			ownerDoument:获取根节点
+
+			attributes
+
+
+	6、Dom操作
+		1、创建
+			createElment()
+		2、插入到最后
+			appendChild()
+		3、插到之前
+			insertBefore
+		4、删除
+			removeChild()  删除子元素
+			remove()
+		5、cloneNode()    不加true是只克隆标签   加true克隆里面所有的东西
+
+		6、替换
+			replaceChild()  新的元素    被替换的第几个元素
+
+	7、创建文本碎片
+		因为每次进行插入的时候dom都会发生重排 大大耗费了性能
+
+		解决方法：可以先将所有的元素放在一个盒子里面  最后将这个盒子插入到页面
+
+		1、createDocumentFragment()   创建好的标签
+
+		2、赵氏文档碎片法             字符串
+
+
+	
+
+ */
+
+
+
+</script>

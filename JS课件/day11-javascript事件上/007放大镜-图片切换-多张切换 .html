@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+        .small {
+            margin: 0 10px;
+            border: 1px solid #fff;
+        }
+
+        .small:hover {
+            border-color: #000;
+        }
+
+        #filter {
+            width: 200px;
+            height: 200px;
+            background: #000;
+            opacity: 0.4;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        #middle {
+            position: relative;
+            width: 400px;
+            height: 400px;
+        }
+
+        #max {
+            width: 400px;
+            height: 400px;
+            position: absolute;
+            left: 450px;
+            top: 0;
+            border: 1px solid #ccc;
+            overflow: hidden;
+        }
+
+        #max img {
+            width: 800px;
+            height: 800px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+<div id="max">
+    <img src="imgs/1-large.jpg" id="maxPic">
+</div>
+<div id="middle">
+    <img src="imgs/1-large.jpg" class="middlePic" width="400" height="400">
+    <div id="filter"></div>
+</div>
+<div>
+    <img src="imgs/1-small.jpg" class="small" data-url="imgs/1-large.jpg">
+    <img src="imgs/2-small.jpg" class="small" data-url="imgs/2-large.jpg">
+    <img src="imgs/3-small.jpg" class="small" data-url="imgs/3-large.jpg">
+    <img src="imgs/4-small.jpg" class="small" data-url="imgs/4-large.jpg">
+    <img src="imgs/5-small.jpg" class="small" data-url="imgs/5-large.jpg">
+</div>
+
+
+<script type="text/javascript">
+    //放大镜的比例   蒙版：中图：大图    1：2：4     尽量都是一个2倍的比例
+
+    //当程序出问题的时候 第一时间先测试一下数据有没有获取到  第二测试一下事件有没有执行  第三测试一下对象有没有获取到
+    var oMiddlePic = document.querySelector('.middlePic');
+    var aSmall = document.querySelectorAll('.small');
+    //
+    var oMiddle = document.getElementById('middle');
+    //
+    var oFilter = document.getElementById('filter')
+    //
+    var img = document.getElementById('maxPic');
+    //给每一个小图添加移入事件
+    for (var i = 0; i < aSmall.length; i++) {
+        aSmall[i].num = i;
+        aSmall[i].onmouseover = function () {
+            //this  ===当前对象   我最帅
+            var url = this.getAttribute("data-url");
+            oMiddlePic.src = url;
+            //console.log(this.num)
+
+        }
+    }
+
+
+    //中图上面有一个蒙版 半透明的  鼠标的位置永远在蒙版的中央
+    //事件是onmosemove
+
+    oMiddle.onmousemove = function (e) {
+        var e = e || event;
+        //蒙板相对中图的偏移量
+        var x = e.clientX - oMiddle.offsetLeft - oFilter.offsetWidth / 2;//x轴
+        var y = e.clientY - oMiddle.offsetTop - oFilter.offsetHeight / 2;//y轴
+
+        if (x < 0) {
+            x = 0;
+        }
+
+        if (x > oMiddle.offsetWidth - oFilter.offsetWidth) {
+            x = oMiddle.offsetWidth - oFilter.offsetWidth;
+        }
+
+
+        if (y < 0) {
+            y = 0;
+        }
+
+        if (y > oMiddle.offsetHeight - oFilter.offsetHeight) {
+            y = oMiddle.offsetHeight - oFilter.offsetHeight;
+        }
+
+        oFilter.style.left = x + 'px';
+        oFilter.style.top = y + 'px';
+
+
+        img.style.left = -x * 2 + 'px'
+        img.style.top = -y * 2 + 'px';
+
+    }
+
+</script>
+</body>
+</html>

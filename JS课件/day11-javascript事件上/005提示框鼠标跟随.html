@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			cursor: none;
+		}
+	</style>
+</head>
+<body style="height:3000px;">
+	<img src="chick.png" alt="" width="20" height="20">
+</body>
+</html>
+<script>
+//当鼠标移动的时候图片跟随我的鼠标移动
+var img = document.getElementsByTagName('img')[0];
+document.onmousemove = function(e){
+	var e = e||event;
+	var t = document.body.scrollTop||document.documentElement.scrollTop;
+	var x = e.clientX;
+	var y = e.clientY+t;
+	img.style.position="absolute";
+	img.style.left = x+'px';
+	img.style.top  =y+'px';
+}
+</script>

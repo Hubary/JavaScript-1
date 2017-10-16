@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin:0;padding:0;}
+		#content{width:400px;height: 400px;background: blue;margin-left:100px;}
+		#box{width:200px;height: 200px;background: red;padding:10px;left:100px;position: relative;margin-left:100px;}
+		#box1{width: 100px;height: 100px;background: green; padding: 10px;position: absolute;left:200px;}
+	</style>
+</head>
+<body>
+	<div id="content">
+		<div id="box">
+			<div id="box1"></div>
+		</div>
+	</div>
+</body>
+</html>
+<script>
+
+var oBox = document.getElementById('box');
+var oBox1 = document.getElementById("box1");
+//console.log(getComputedStyle(oBox,false)['width'])  元素本身的宽度  content
+
+//盒模型：
+//标准盒模型：offsetWidth   offsetHeight   得到的值是number
+//怪异盒模型：getStyle   获取得到的值是字符串
+//console.log(oBox.offsetHeight)
+
+/*var a = "123a";
+var b = "a123";
+console.log(parseInt(a))
+console.log(parseInt(b))*/
+
+
+
+//offsetLeft:相对于以定位的父元素的距离  如果父级以上没有定位元素  那么直接是根据页面的距离进行计算的  只算偏移的值
+//offsetTop：相对于以定位的父元素的距离
+//offsetParent:查找已定位的父元素
+/*console.log(oBox1.offsetLeft)
+console.log(oBox1.offsetParent)  null*/
+
+//console.log(document.body.offsetLeft)
+//left  top   right  botton  margin   都是偏移的距离
+
+function offset(ele){
+	var obj = {};
+	obj.l = ele.offsetLeft;
+	obj.t = ele.offsetTop;
+
+	while(ele.offsetParent){
+		var ele = ele.offsetParent;
+		obj.l+=ele.offsetLeft;
+		obj.t+=ele.offsetTop;
+	}
+	return obj;
+}
+
+var obj = offset(oBox1);
+/*console.log(oBox1.offsetLeft)*/
+/*console.log(oBox.offsetWidth)*/
+</script>

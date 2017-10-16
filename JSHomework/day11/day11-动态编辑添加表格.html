@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>day11-动态表格</title>
+    <style>
+        table {
+            border: 1px solid #000000;
+        }
+
+        td {
+            border: 1px solid #000000;
+            font: 12px/20px "";
+            padding: 3px 5px;
+        }
+    </style>
+</head>
+<body>
+    标题: <input type="text" value="" class="edit">
+    内容: <input type="text" value="" class="edit">
+    作者: <input type="text" value="" class="edit">
+    <button id="save">保存</button>
+</body>
+</html>
+<script src="../../Encapsulation/encap.js"></script>
+<script>
+    /**
+     *day11-动态编辑添加表格.html
+     *author:jessie-zly
+     *2017/10/16
+     *description:动态编辑添加表格
+     */
+    window.onload = function () {
+
+        //创建 table
+        creatTable();
+
+        /**
+         * 测试
+         */
+        //保存
+        document.getElementById("save").onclick = function () {
+            //编辑
+            dynamicTableEdit();
+            //删除
+            deleteRow();
+            //删除
+            //delRow();
+        }
+
+        /**
+         * 创建table
+         */
+        function creatTable() {
+            //创建table
+            var createTable = document.createElement("table");
+            //输出表格
+            document.body.appendChild(createTable)
+            //创建行
+            var createTrow = document.createElement("tr");
+            //遍历
+            for (var i = 0; i < 6; i++) {
+                //创建列
+                var createTcol = document.createElement("td");
+                //选择输出
+                switch (i) {
+                    case 0:
+                        createTcol.innerHTML = "ID";
+                        break;
+                    case 1:
+                        createTcol.innerHTML = "帖子名称";
+                        break;
+                    case 2:
+                        createTcol.innerHTML = "内容预览";
+                        break;
+                    case 3:
+                        createTcol.innerHTML = "发布时间";
+                        break;
+                    case 4:
+                        createTcol.innerHTML = "作者";
+                        break;
+                    case 5:
+                        createTcol.innerHTML = "操作";
+                        break;
+                    default:
+                        console.log("找不到相应的列");
+                }
+                //追加到tr中
+                createTrow.appendChild(createTcol);
+            }
+            //追加到table中
+            createTable.appendChild(createTrow);
+        }
+
+        /**
+         * 动态添加编辑
+         */
+        function dynamicTableEdit() {
+            //获取class 为 edit 的 input
+            var getOinput = document.querySelectorAll(".edit");
+            //获取table
+            var getOtable = document.querySelectorAll("table")[0];
+            //创建新行
+            var newRow = document.createElement("tr");
+            //
+            for (var i = 0; i < 6; i++) {
+                //新行中创建列
+                var newCol = document.createElement("td");
+                //选择输出
+                switch (i) {
+                    case 0:
+                        //创建列内的 input
+                        var newInputID = document.createElement("input");
+                        //value赋值
+                        newInputID.value = addPrefixZero(randomNumM_N(0, 99), 2);
+                        //追加到列
+                        newCol.appendChild(newInputID);
+                        break;
+                    case 1:
+                        //创建列内的 input
+                        var newInpuName = document.createElement("input");
+                        //
+                        newInpuName.value = getOinput[0].value;
+                        //追加到列
+                        newCol.appendChild(newInpuName);
+                        break;
+                    case 2:
+                        //创建列内的 input
+                        var newInpuCon = document.createElement("input");
+                        //
+                        newInpuCon.value = getOinput[1].value;
+                        //追加到列
+                        newCol.appendChild(newInpuCon);
+                        break;
+                    case 3:
+                        //创建列内的 input
+                        var newInpuDate = document.createElement("input");
+                        //
+                        newInpuDate.value = new Date().toLocaleString();
+                        //追加到列
+                        newCol.appendChild(newInpuDate);
+                        break;
+                    case 4:
+                        //创建列内的 input
+                        var newInpuAuthor = document.createElement("input");
+                        //
+                        newInpuAuthor.value = getOinput[2].value;
+                        //追加到列
+                        newCol.appendChild(newInpuAuthor);
+                        break;
+                    case 5:
+                        //创建列内的 button
+                        var newBtn1 = document.createElement("button");
+                        //
+                        newBtn1.innerHTML = "详细信息";
+                        //
+                        newCol.appendChild(newBtn1);
+                        //
+                        var newBtn2 = document.createElement("button");
+                        //添加class
+                        newBtn2.className = "del";
+                        //
+                        newBtn2.innerHTML = "删除";
+                        //
+                        newCol.appendChild(newBtn2);
+                        break;
+                    default:
+                        console.log("找不到相应的列");
+                }
+                //追加到tr中
+                newRow.appendChild(newCol);
+            }
+            //追加到table中
+            getOtable.appendChild(newRow);
+        }
+
+        /**
+         * 删除行
+         */
+        function deleteRow() {
+            //获取del
+            var getOdel = document.getElementsByClassName("del");
+            //遍历添加事件
+            for (var i in getOdel) {
+                //
+                getOdel[i].onclick = function () {
+                    //获取tr
+                    var getOrow = this.parentNode.parentNode;
+                    //删除自身
+                    getOrow.remove();
+                }
+            }
+        }
+
+        /**
+         * 删除行2
+         */
+        function delRow() {
+            var getOtable = document.getElementsByTagName("table")[0];//第一个table
+            var getOdel = getOtable.getElementsByClassName("del");//获取del
+            for (var i = 0; i < getOdel.length; i++) {
+                getOdel[i].onclick = function () {//点击事件
+                    var delParent = this.parentNode.parentNode;//获取tr
+                    delParent.remove();//移除自身
+                }
+            }
+        }
+
+    }
+</script>

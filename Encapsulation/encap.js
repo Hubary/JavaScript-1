@@ -2,7 +2,7 @@
  *encap.js
  *author:jessie-zly
  *2017/10/11
- *description: 用于封装常用方法,以供调用
+ *description: 本类库用于封装常用方法,以供调用
  */
 
 
@@ -21,9 +21,9 @@ function addPrefixZero(num, length) {
     if (str.length < length) {
         //num的长度不足指定位数时,进行前置补0
         return (Array(length).join("0") + num).slice(-length);
-    }else if(str.length = length){
+    } else if (str.length = length) {
         return str;
-    }else {
+    } else {
         //如果num的长度比指定位数还大,则提示输入有误
         return "神经病啊," + num + "不足" + length + "位???";
     }
@@ -53,21 +53,21 @@ function dateToString(date, devideSign, num) {
  * @param n 终止数字
  * @returns {Number}
  */
-function randomNumM_N(m,n) {
+function randomNumM_N(m, n) {
     //判断m,n是否为非负数
-    if(m<0||n<=0){
+    if (m < 0 || n <= 0) {
         //提示信息
         return "请重新输入m,n";
     }
     //判断m和n的关系
-    if(m>n){
+    if (m > n) {
         //如果m>n,则交换m和n的值
-        var temp=m;
-        m=n;
-        n=temp;
+        var temp = m;
+        m = n;
+        n = temp;
     }
     //返回值
-    return parseInt(m+Math.random()*(n-m+1));
+    return parseInt(m + Math.random() * (n - m + 1));
 }
 
 /**
@@ -77,11 +77,11 @@ function randomNumM_N(m,n) {
  * @param B 0-255
  * @returns {string}
  */
-function stringToNum(R,G,B) {
-    R=R.toString(16).length<2?"0"+R.toString(16):R.toString(16);
-    G=G.toString(16).length<2?"0"+G.toString(16):G.toString(16);
-    B=B.toString(16).length<2?"0"+B.toString(16):B.toString(16);
-    return R+G+B;
+function stringToNum(R, G, B) {
+    R = R.toString(16).length < 2 ? "0" + R.toString(16) : R.toString(16);
+    G = G.toString(16).length < 2 ? "0" + G.toString(16) : G.toString(16);
+    B = B.toString(16).length < 2 ? "0" + B.toString(16) : B.toString(16);
+    return R + G + B;
 }
 
 /**
@@ -92,9 +92,29 @@ function stringToNum(R,G,B) {
  * @returns {string}
  */
 function randomColor() {
-    R=randomNumM_N(0,255);
-    G=randomNumM_N(0,255);
-    B=randomNumM_N(0,255);
-    return "#"+stringToNum(R,G,B);
+    R = randomNumM_N(0, 255);
+    G = randomNumM_N(0, 255);
+    B = randomNumM_N(0, 255);
+    return "#" + stringToNum(R, G, B);
+}
+
+/**
+ * 功能: 获取元素偏移量
+ * @param element 元素对象
+ */
+function getOffset(element) {
+    //获取初始化偏移量值
+    obj.left = element.offsetLeft;//左偏移量
+    obj.top = element.offsetTop;//右偏移量
+    //逻辑判断
+    while (element.offsetParent) {//存在父级定位元素
+        //元素重置
+        var newElement = element.offsetParent;
+        //累加
+        obj.left += newElement.offsetLeft;
+        obj.top += newElement.offsetTop;
+    }
+    //返回对象
+    return obj;
 }
 
