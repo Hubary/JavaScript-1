@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin:0;padding: 0}
+		#list li{
+			width: 200px;
+			height: 100px;
+			border: 1px solid #ccc;
+			box-shadow: 2px 2px 2px #c2c2c2;
+			float: left;
+			margin: 10px;
+		}
+		#list li p{
+			line-height: 30px;
+			font-size: 20px;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<ul id="list">
+		<!-- <li>
+			<p>商品1</p>
+			<p>价格</p>
+			<p>好用</p>
+		</li> -->
+	</ul>
+</body>
+</html>
+<script>
+var oList = document.getElementById('list');
+oList.onclick = function(){
+	
+}
+var obj = [
+		{
+			       "name":"商品1",
+		            "price":"100",
+		            "url":"images/2.jpg",
+		            "tip":"好用1"
+		},
+		{
+		            "name":"商品2",
+		            "price":"100",
+		            "url":"images/3.jpg",
+
+		            "tip":"好用1"
+		}
+]
+
+var str = '';
+for(var i=0;i<obj.length;i++){
+	str+=`<li>
+			<p>${obj[i].name}</p>
+			<p>${obj[i].price}</p>
+			<p>${obj[i].tip}</p>
+		</li>`
+}
+
+oList.innerHTML = str;
+</script>

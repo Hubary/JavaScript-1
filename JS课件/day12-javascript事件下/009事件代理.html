@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul id="list">
+		<li class="b">盲僧</li>
+		<li>瞎子</li>
+		<li>李青</li>
+		<li>龙的传人</li>
+	</ul>
+</body>
+</html>
+<script>
+//什么叫做事件代理  事件委托
+//如果我现在想给每一个li加一个点击事件
+var oList = document.getElementById('list');
+var aLi = oList.getElementsByTagName('li');
+/*for(var i=0;i<aLi.length;i++){
+	aLi[i].onclick = function(){
+		alert(this.innerHTML)
+	}
+}
+
+var li = document.createElement('li');
+li.innerHTML = "誉王";
+oList.appendChild(li)*/
+
+
+//如果这个ul里面有1000个li那么我是不是要循环1000次给每一个li都加一个点击事件
+//2个问题？
+//1.如果子元素特别多那么需要循环多次给子元素添加点击事件
+//2。未来的元素和现在的元素没有办法同时添加一些事件
+
+
+//如何找到事件源
+//e.target  e.srcElement
+//tagName:获取到相应的标签名
+//
+//事件代理：
+//	原理：利用事件冒泡将子元素需要做的事情交给父元素去做然后在通过tagName找到相对的标签名然后在执行相应的代码
+//	
+//	
+//	好处：1、对未来元素能够添加一些事件
+//		  2、可以减少dom的操作  相应的提高性能
+oList.onclick = function(e){
+	var e = e||event;
+	if(e.target.tagName=="LI"){
+		console.log(e.target)
+	}
+}
+var li = document.createElement('li');
+li.innerHTML = "誉王";
+oList.appendChild(li)
+</script>

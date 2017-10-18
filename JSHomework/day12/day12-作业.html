@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>day12-作业</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            border: 1px solid #000;
+            font: 30px/100px "";
+            text-align: center;
+        }
+
+        button {
+            width: 50px;
+            height: 30px;
+            margin-top: 5px;
+            border: 1px solid #000;
+            font: 20px/30px "";
+        }
+    </style>
+</head>
+<body>
+<h3>闰年平年</h3>
+<input type="text" placeholder="请输入年份" value="">
+<h3>体重计</h3>
+<input type="text" placeholder="请输入身高" value="">
+<input type="text" placeholder="请输入体重" value="">
+
+<h3>临界值</h3>
+<input type="text" placeholder="请输入整数" value="">
+
+<h3>奇偶数</h3>
+<input type="text" placeholder="请输入整数" value="">
+
+<h3>第八题</h3>
+<div>呵呵</div>
+<button>大</button>
+<button>小</button>
+<h3>星期几</h3>
+<input type="text" placeholder="请输入数字" value="">
+
+<h3>分数等级</h3>
+<input type="text" placeholder="请输入分数" value="">
+
+<h3>天数</h3>
+<input type="text" placeholder="请输入数字日期" value="">
+</body>
+</html>
+<script>
+    /**
+     *day12-作业.html
+     *author:jessie-zly
+     *2017/10/17
+     *description:
+     */
+
+    window.onload = function () {
+        //获取所有input
+        var getOinput = document.querySelectorAll("input");
+
+        /**
+         * 4、输入年份，判断是否为闰年
+         */
+
+        function isLeapYear(year) {
+            return year % 400 == 0 ? "闰年" : (year % 100 != 0 && year % 4 == 0 ? "闰年" : "平年");
+        }
+
+        console.log(isLeapYear(Number(getOinput[0].value)));
+
+        /**
+         * 5、开发一款软件，根据公式（身高-108）*2=体重，可以有10斤左右的浮动。来观察测试者体重是否合
+         */
+        function isQualified(height, weight) {
+            return weight - 10 > (height - 108) * 2 ? "偏胖" : (weight + 10 < (height - 108) * 2 ? "偏瘦" : "合格");
+        }
+
+        console.log(isQualified(Number(getOinput[1].value), Number(getOinput[2].value)));
+
+        /**
+         * 6、判断一个整数，属于哪个范围：大于0；小于0；等于0
+         */
+
+        function zeroArea(num) {
+            return num == 0 ? 0 : (num > 0 ? "大于0" : "小于0");
+        }
+
+        console.log(zeroArea(getOinput[3].value));
+
+        /**
+         * 7、判断一个整数是偶数还是奇数，并输出判断结果
+         */
+
+        function isOddNum(num) {
+            return num % 2 == 0 ? "偶数" : "奇数";
+        }
+
+        console.log(isOddNum(getOinput[4].value));
+
+        /**
+         * 8、字体放大时限制最大为32px，最小为12px
+         */
+
+            //获取div
+        var getOdiv = document.querySelector("div");
+        //获取button
+        var getObtn = document.querySelectorAll("button");
+        //获取初始字体大小
+        var initFontSize = 20;
+        //增大
+        getObtn[0].onclick = function () {
+            //判断
+            initFontSize < 32 ? initFontSize++ : 32;
+            //输出
+            getOdiv.style.fontSize = initFontSize + "px";
+        }
+        //变小
+        getObtn[1].onclick = function () {
+            //判断
+            initFontSize > 12 ? initFontSize-- : 12;
+            getOdiv.style.fontSize = initFontSize + "px";
+        }
+
+        /**
+         * 9、输入数字，显示星期几
+         */
+
+        function showWeekday(num) {
+            return num == 1 ? "星期一" : (num == 2 ? "星期二" : (num == 3 ? "星期三" : (num == 4 ? "星期四" : num == 5 ? "星期五" : (num == 6 ? "星期六" : (num == 7 ? "星期七" : "没有,滚")))));
+        }
+
+        console.log(showWeekday(Number(getOinput[5].value)));
+
+        /**
+         * 10、输入分数，判断成绩等级
+         */
+        function leval(score) {
+            return score >= 90 ? "A" : (score >= 80 ? "B" : (score >= 70 ? "C" : (score >= 60 ? "D" : "E")));
+        }
+
+        console.log(leval(getOinput[6].value));
+
+        /**
+         * 11、根据一个数字日期，判断这个日期是这一年的第几天    例如： 20160211，计算后结果为42
+         */
+        function whichDay(num) {
+            var yearNum = num.substring(0, 4);//年
+            var monthNum = num.substring(4, 6) / 1;//月
+            var dayNum = num.substring(6, 8) / 1;//日
+            switch (monthNum) {
+                case 12:
+                    dayNum += 31;
+                case 11:
+                    dayNum += 30;
+                case 10:
+                    dayNum += 31;
+                case 9:
+                    dayNum += 30;
+                case 8:
+                    dayNum += 31;
+                case 7:
+                    dayNum += 31;
+                case 6:
+                    dayNum += 30;
+                case 5:
+                    dayNum += 31;
+                case 4:
+                    dayNum += 30;
+                case 3:
+                    dayNum += yearNum % 400 == 0 ? 29 : (yearNum % 100 != 0 && yearNum % 4 == 0 ? 29 : 28);
+                case 2:
+                    dayNum += 31;
+                case 1:
+                    dayNum;
+                    break;
+            }
+            return dayNum;
+        }
+
+        console.log(whichDay(getOinput[7].value));
+
+    }
+</script>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>键盘事件</title>
+    <style>
+        div{
+            font-size: 40px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="char">A</div>
+</body>
+</html>
+<script>
+    window.onload=function () {
+        //获取char
+        var getOchar=document.getElementById("char");
+        //键盘按下事件
+        document.onkeydown=function (e) {
+            //兼容
+            var et=e||event;
+            //获取初始值
+           var value= getOchar.innerHTML;
+           //判断
+            if(String.fromCharCode(et.keyCode)==value){
+                //相同则随机更换
+                getOchar.innerHTML=String.fromCharCode(parseInt(65+Math.random()*(91-65)));
+            }
+            //
+            //console.log(et.keyCode);
+        }
+
+
+    }
+</script>

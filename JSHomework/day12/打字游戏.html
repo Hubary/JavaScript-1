@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>打字游戏</title>
+    <style>
+        div {
+            position: absolute;
+            font-size: 60px;
+            font-weight: 900;
+        }
+    </style>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    window.onload = function () {
+
+        /**
+         * 生成字符
+         */
+        function catChar() {
+            //随机生成字符
+            setInterval(function () {
+                //创建div
+                var createDiv = document.createElement("div");
+                //初始化
+                createDiv.innerHTML = String.fromCharCode(parseInt(65 + Math.random() * (91 - 65)));
+                //定位
+                var left = parseInt(Math.random() * 800);
+                //样式
+                createDiv.style.left = left + "px";
+                //添加到body
+                document.body.appendChild(createDiv);
+                //top值
+                moveChar(createDiv);
+
+            }, 1000);
+
+            //键盘事件
+            document.onkeydown = function (e) {
+                //兼容
+                var et = e || event;
+                //获取所有div
+                var getOdiv = document.getElementsByTagName("div");
+                //遍历div
+                for (var i = 0; i < getOdiv.length; i++) {
+                    //
+                    if (getOdiv[i].innerHTML == String.fromCharCode(et.keyCode)) {
+                        //
+                        getOdiv[i].remove();
+                    }
+                }
+            }
+        }
+
+        /**
+         * 字符top值
+         */
+        function moveChar(ele) {
+            //初始化top
+            var top = 0;
+            //设定top
+            var timer = setInterval(function () {
+                //赋值
+                top += 2;
+                //样式
+                ele.style.top = top + "px";
+                //给定消失条件
+                if (top >= 400) {
+//                        ele.style.display="none";
+                    clearInterval(timer);
+                    //
+                    ele.remove();
+                }
+            }, 100);
+        }
+
+        //调用
+        catChar();
+    }
+</script>

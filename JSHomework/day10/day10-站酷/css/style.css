@@ -1,0 +1,420 @@
+.margin {
+    width: 1130px;
+    margin: 0 auto;
+}
+
+header {
+    height: 56px;
+    background: #ffd100;
+}
+
+header .top {
+    width: 1180px;
+    margin: 0 auto;
+}
+
+header .top > a {
+    display: block;
+    float: left;
+    margin-top: 20px;
+}
+
+header .top ul {
+    margin-left: 230px;
+    float: left;
+}
+
+header .top ul li {
+    float: left;
+    position: relative;
+}
+
+header .top ul li a {
+    display: block;
+    color: #282828;
+    font: 12px/56px "";
+    padding: 0 25px;
+}
+
+header .top ul li:nth-child(8) a {
+    margin-left: 70px;
+    padding: 0 20px;
+}
+
+header .top ul li:nth-child(9) a {
+    padding: 0 20px;
+}
+
+header .top ul li a:hover {
+    background: #282828;
+    color: #ffd100;
+}
+
+header .top .top_r {
+    float: right;
+}
+
+header .top .top_r a {
+    font: 12px/56px "";
+    color: #282828;
+    padding: 0 15px;
+}
+
+header .top ul li {
+    position: relative;
+}
+
+header .top ul li:nth-of-type(2):hover .hide {
+    display: block;
+}
+
+header .top ul li .hide {
+    width: 664px;
+    padding: 6px 0;
+    position: absolute;
+    top: 56px;
+    padding: 15px;
+    border-radius: 0 0 8px 8px;
+    background: #fff;
+    display: none;
+}
+
+header .top ul li .hide dd {
+    float: left;
+    padding: 0 35px;
+    background: url(../img/t7.png) no-repeat right;
+}
+
+header .top ul li .hide dd > a {
+    font: 12px/28px "";
+    padding: 0 15px;
+}
+
+header .top ul li .hide dd > a:hover {
+    background: #ffd100;
+    border-radius: 5px;
+    color: #000;
+}
+
+header .top ul li > div {
+    background: #fff;
+    position: absolute;
+    top: 56px;
+    border-radius: 0 0 8px 8px;
+    display: none;
+}
+
+header .top ul li > div a {
+    margin-top: 5px;
+    width: 154px;
+}
+
+header .top ul li > div a:hover {
+    background: #ffd100;
+    color: #000;
+}
+
+#banner {
+    height: 340px;
+    background: url(../img/banner.png) no-repeat center;
+}
+
+#link {
+    height: 270px;
+    background: url(../img/dong.gif) no-repeat right 200px;
+    background-size: 150px;
+}
+
+#link ul {
+    display: flex;
+    justify-content: space-between;
+}
+
+#link dl {
+    width: 330px;
+    margin: 44px auto;
+}
+
+#link dl dd {
+    float: left;
+}
+
+#link dl dd a {
+    display: block;
+    font: 16px/55px "";
+    color: #999;
+}
+
+#link dl dd a.te {
+    color: #282828;
+    border-bottom: 2px solid #444;
+}
+
+#link dl dd:nth-child(2) a {
+    margin: 0 60px;
+    padding: 0 5px;
+}
+
+#link dl dd a:hover {
+    color: #282828;
+    border-bottom: 2px solid #444;
+}
+
+#main {
+    background: #f4f4f4;
+    padding-bottom: 40px;
+    overflow: hidden;
+    border-top: 1px solid #eee;
+}
+
+#main dl {
+    width: 210px;
+    height: 310px;
+    background: #fff;
+    margin: 20px 15px 0 0;
+    float: left;
+}
+
+#main dl dt img {
+    width: 100%;
+}
+
+#main dl dd {
+    padding: 15px;
+}
+
+#main dl dd {
+    padding: 15px;
+    font: 16px/20px "";
+    color: #333;
+}
+
+#main dl dd > a {
+    display: block;
+    font: 12px/16px "";
+    color: #bbb;
+}
+
+#main dl ul {
+    width: 100%;
+    height: 40px;
+    border-bottom: 1px solid #ddd;
+}
+
+#main dl ul li {
+    float: left;
+    padding: 0 12px;
+    font: 14px/16px "";
+    color: #c7c7c7;
+}
+
+#main dl ul li i {
+    margin-right: 4px;
+}
+
+#main dl .bot {
+    display: flex;
+    height: 50px;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#main dl .bot img {
+    display: block;
+}
+
+#main dl .bot time {
+    color: #c7c7c7;
+}
+
+#huiD {
+    width: 50px;
+    height: 50px;
+    background: #ddd;
+    border-radius: 5px;
+    position: absolute;
+    top: 0;
+    right: 20px;
+    text-align: center;
+    display: none;
+}
+
+#huiD p {
+    font: 30px/50px "";
+    color: #fff;
+    cursor: pointer;
+}
+
+#huiD:hover p {
+    color: #ffd100;
+}
+
+footer {
+    height: 230px;
+    background: #282828;
+}
+
+footer .top {
+    padding: 60px 0 58px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #333;
+}
+
+footer .top .t-left dd {
+    float: left;
+    margin-right: 43px;
+    font: 12px/12px "";
+    color: #666;
+}
+
+footer .top .t-left dt {
+    float: left;
+    margin-right: 43px;
+    font: 12px/12px "";
+    color: #666;
+    text-indent: 24px;
+    position: relative;
+}
+
+footer .top .t-left dt i {
+    display: block;
+    width: 14px;
+    height: 23px;
+    background: url(../img/footer-mobile.png);
+    position: absolute;
+    top: -6px;
+}
+
+footer .top .t-left dt span {
+    width: 121px;
+    height: 131px;
+    background: url(../img/footer-mobile-code.png);
+    position: absolute;
+    top: -140px;
+    left: -20px;
+    display: none;
+}
+
+footer .top .t-left dt:hover {
+    cursor: pointer;
+}
+
+footer .top .t-left dt:hover span {
+    display: block;
+}
+
+footer .top .t-left dd a {
+    display: block;
+    color: #666;
+}
+
+footer .top .t-left dd:hover a {
+    color: #ccc;
+}
+
+footer .top .t-right {
+    margin-right: 5px;
+}
+
+footer .top .t-right dt {
+    float: left;
+    margin-right: 47px;
+    position: relative;
+}
+
+footer .top .t-right dt i {
+    display: block;
+    width: 21px;
+    height: 18px;
+    background: url(../img/wechat.png);
+    opacity: .3;
+}
+
+footer .top .t-right dt i span {
+    display: block;
+    width: 110px;
+    height: 110px;
+    position: absolute;
+    top: -130px;
+    left: -50px;
+    opacity: 0;
+}
+
+footer .top .t-right dt i span img {
+    width: 100%;
+    height: 100%;
+}
+
+footer .top .t-right dd {
+    float: left;
+}
+
+footer .top .t-right dd a {
+    display: block;
+    width: 20px;
+    height: 16px;
+}
+
+footer .top .t-right dd a i {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: url(../img/weibo.png);
+}
+
+footer .top .t-right dt:hover i {
+    opacity: 1;
+    cursor: pointer;
+}
+
+footer .top .t-right dt:hover span {
+    opacity: 1;
+}
+
+footer .bot {
+    padding: 25px 0 30px;
+}
+
+footer .bot .bot-t a {
+    display: block;
+    float: left;
+    font: 12px/12px "";
+    color: #666;
+}
+
+footer .bot .bot-t i {
+    display: block;
+    float: left;
+    width: 1px;
+    height: 12px;
+    color: #666;
+    margin: 0 30px;
+}
+
+footer .bot .bot-b {
+    margin-top: 20px;
+    font: 12px/12px "";
+    color: #666;
+}
+
+footer .bot .bot-b span {
+    float: left;
+}
+
+footer .bot .bot-b i {
+    display: block;
+    float: left;
+    width: 1px;
+    height: 12px;
+    color: #666;
+    margin: 0 30px;
+}
+
+footer .bot .bot-b p {
+    float: right;
+}
+
+footer .bot .bot-t a:hover {
+    color: #ccc;
+}

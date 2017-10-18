@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>day11-动态表格</title>
+    <style>
+        table {
+            border: 1px solid #000000;
+        }
+
+        td {
+            border: 1px solid #000000;
+            font: 12px/20px "";
+            padding: 3px 5px;
+        }
+    </style>
+</head>
+<body>
+标题: <input type="text" value="" class="edit">
+内容: <input type="text" value="" class="edit">
+作者: <input type="text" value="" class="edit">
+<button id="save">保存</button>
+
+<table id="list" border=1>
+    <tr>
+        <th>ID</th>
+        <th>帖子名称</th>
+        <th>内容预览</th>
+        <th>发布时间</th>
+        <th>作者</th>
+        <th>操作</th>
+    </tr>
+    <tr>
+        <td>25</td>
+        <td class="title">ABC</td>
+        <td>xxxxxxxx....</td>
+        <td>2016-04-15</td>
+        <td>YT</td>
+        <td name="option"><a name="detail" href="#">详细信息</a> <a class="delbtn" href="#">删除1</a></td>
+    </tr>
+    <tr>
+        <td>25</td>
+        <td class="title">ABC</td>
+        <td>xxxxxxxx....</td>
+        <td>2016-04-15</td>
+        <td>YT</td>
+        <td><a name="detail" href="#">详细信息</a> <a class="delbtn" href="#">删除2</a></td>
+    </tr>
+    <tr>
+        <td>25</td>
+        <td class="title">ABC</td>
+        <td>xxxxxxxx....</td>
+        <td>2016-04-15</td>
+        <td>YT</td>
+        <td><a name="detail" href="#">详细信息</a> <a class="delbtn" href="#">删除3</a></td>
+    </tr>
+    <tr>
+        <td>25</td>
+        <td class="title">ABC</td>
+        <td>xxxxxxxx....</td>
+        <td>2016-04-15</td>
+        <td>YT</td>
+        <td><a name="detail" href="#">详细信息</a> <a class="delbtn" href="#">删除4</a></td>
+    </tr>
+    <tr>
+        <td>25</td>
+        <td class="title">ABC</td>
+        <td>xxxxxxxx....</td>
+        <td>2016-04-15</td>
+        <td>YT</td>
+        <td><a name="detail" href="#">详细信息</a> <a class="delbtn" href="#">删除5</a></td>
+    </tr>
+    <tr>
+        <td>25</td>
+        <td class="title">ABC</td>
+        <td>xxxxxxxx....</td>
+        <td>2016-04-15</td>
+        <td>YT</td>
+        <td><a name="detail" href="#">详细信息</a> <a class="delbtn" href="#">删除6</a></td>
+    </tr>
+</table>
+</body>
+</html>
+<script src="../../Encapsulation/encap.js"></script>
+<script>
+    /**
+     *day12-动态编辑表格-事件代理.html
+     *author:jessie-zly
+     *2017/10/17
+     *description:
+     */
+    window.onload = function () {
+        //获取class 为 edit 的 input
+        var getOinput = document.querySelectorAll(".edit");
+        //获取table
+        var getOtable = document.getElementById("list")
+        //追加行
+        document.getElementById("save").onclick = function () {
+            //克隆行
+            var cloneRow = getOtable.children[0].children[1].cloneNode(true);
+            //获取列
+            var getCol = cloneRow.children;
+            //ID
+            getCol[0].innerHTML = addPrefixZero(randomNumM_N(0, 99), 2);
+            //标题
+            getCol[1].innerHTML = getOinput[0].value;
+            //内容
+            getCol[2].innerHTML = getOinput[1].value;
+            //时间
+            getCol[3].innerHTML = new Date().toLocaleString();
+            //作者
+            getCol[4].innerHTML = getOinput[2].value;
+            //追加到table
+            getOtable.appendChild(cloneRow)
+        }
+        //动态编辑
+        getOtable.onclick = function (e) {
+            //兼容
+            var et = e || event;
+            //兼容
+            var target = et.target || et.srcElement;
+            //删除事件
+            if (target.tagName == "A" && target.className == "delbtn") {
+                //删除行
+                target.parentNode.parentNode.remove();
+            }
+
+            //编辑事件
+            if (target.tagName == "TD") {
+                //创建input
+                var createInput = document.createElement("input");
+                //设置input类型
+                createInput.type = "text";
+                //初始化input值
+                createInput.value = target.innerHTML;
+                //替换text
+                target.replaceChild(createInput, target.firstChild);
+                //失焦事件
+                createInput.onblur = function () {
+                    //td输出
+                    this.parentNode.innerHTML = this.value;
+                }
+            }
+        }
+
+    }
+</script>

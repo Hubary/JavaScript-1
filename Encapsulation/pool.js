@@ -188,6 +188,82 @@ function date2String(d,sign){
 }
 //当数字不足两位的时候补0  应用于时间对象
 function addzero(num){
-    var str = ""+num;
-    return str.length<2?"0"+str:str;
+	var str = ""+num;
+	return str.length<2?"0"+str:str;
+}
+//获取id元素
+function $(id){
+	var id = id.slice(1,id.length)
+   return document.getElementById(id)
+}
+//获取非行间样式
+//ele:对象
+//attr:属性
+function getStyle(ele,attr){
+	if(ele.currentStyle){
+		return ele.currentStyle[attr];
+	}else{
+		return getComputedStyle(ele,false)[attr]
+	}
+}
+//隐藏
+function hide(ele){
+	ele.style.display="none";
+}
+//显示
+function show(ele){
+	ele.style.display="block";
+}
+//获取设置自定义属性
+function attr(ele,type,val){
+	if(arguments.length<2){return};
+
+	if(arguments.length==2){
+		return ele.getAttribute(type);
+	}
+
+	ele.setAttribute(type,val);
+}
+//获取到前一个兄弟节点(元素)
+function prevChild(ele) {
+	 return ele.previousElementSibling;
+}
+//获取当前元素距离页面的距离
+function offset(ele){
+	var obj = {};
+	obj.l = ele.offsetLeft;
+	obj.t = ele.offsetTop;
+
+	while(ele.offsetParent){
+		var ele = ele.offsetParent;
+		obj.l+=ele.offsetLeft;
+		obj.t+=ele.offsetTop;
+	}
+	return obj;
+}
+
+//阻止浏览器默认行为
+function prevent(e){
+	e.preventDefault?e.preventDefault():e.returnValue = false;
+}
+
+//事件监听
+//第一次参数:对象
+//第二个参数：事件类型
+//第三个参数：回调函数
+//第四个参数：是否捕获
+function attach(ele,type,fn,bool){
+	if(!bool){
+		bool=false;
+	}
+	if(ele.addEventListener){
+		ele.addEventListener(type,fn,bool)
+	}else{
+		ele.attachEvent("on"+type,fn)
+	}
+}
+
+//阻止事件冒泡
+function cancel(e){
+	e.stopPropagetion?e.stopPropagetion():e.cancelBubble = true;
 }

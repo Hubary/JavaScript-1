@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #big {
+            width: 300px;
+            height: 300px;
+            background: red
+        }
+
+        #small {
+            width: 100px;
+            height: 100px;
+            background: green;
+        }
+    </style>
+</head>
+<body>
+<div id="big">
+    <div id="small"></div>
+</div>
+</body>
+</html>
+<script>
+    //什么是事件流
+    /*当一个HTML元素触发一个预处理函数的时候，会在当前元素节点到根节点之间有一个传播过程 这个传播的过程类型于路径  这个路径所经过的所有元素节点都会接收到这个事件，这样的一个过程就叫做事件流
+    事件流分为2种：第一种叫做事件冒泡  第二种叫做事件捕获
+
+    */
+
+    //什么是事件冒泡
+    /*
+        解释：类似于一块石头丢到水里  气泡会从底部冒到顶部  这样的一个过程就是事件冒泡
+
+        通俗易懂的解释：子元素的事件冒泡到父元素身上  这样的一个过程就是事件冒泡
+
+
+        微软公司提出的事件冒泡
+     */
+
+
+    //事件捕获
+    /*
+        解释：假设你是捂裆派的一名弟子，在外游行的时候跟跟别人发生了冲突(假设是缥缈峰),那么缥缈峰的人肯定第一时间就会找到你所在的门派。然后在找到你的师父在找到你，
+　　然后跟你握手言和(纯属扯淡，现实中肯定打的你连你妈都不认识你)，这样的一个查找过程就是事件捕获
+
+
+        网景公司提出的事件捕获
+
+
+
+        如何阻止事件冒泡
+        IE 	cancelBubble = ture  阻止事件冒泡
+        谷歌火狐   stopPropagetion()  阻止事件冒泡
+     */
+
+    function cancel(e) {
+        e.stopPropagetion ? e.stopPropagetion() : e.cancelBubble = true;
+    }
+
+    var oBig = document.getElementById('big');
+    var oSmall = document.getElementById('small');
+
+    oBig.onclick = function (e) {
+        var e = e || event;
+        alert("oBig----冒泡");
+        cancel(e);
+    }
+    /*
+        oBig.addEventListener("click",function(){
+            alert("oBig------捕获")
+        },true)*/
+
+
+    /*
+        oSmall.addEventListener("click",function(){
+            alert("oSmall------捕获")
+        },true)
+    */
+    oSmall.onclick = function () {
+        alert("oSmall----冒泡")
+    }
+
+    document.body.onclick = function () {
+        alert("body----冒泡")
+    }
+
+    /*document.body.addEventListener("click",function(){
+        alert("body------捕获")
+    },true)*/
+
+    /*document.addEventListener("click",function(){
+        alert("document------捕获")
+    },true)
+*/
+    document.onclick = function () {
+        alert("document-----冒泡")
+    }
+
+
+    /*
+        事件冒泡传播的过程：事件源---父元素----。。。。。---body--document
+        事件捕获传播的过程：document---body--。。。。事件源
+        当事件冒泡遇到事件捕获的时候：先捕获后冒泡
+
+     */
+</script>

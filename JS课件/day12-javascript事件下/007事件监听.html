@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+</body>
+</html>
+<script>
+    /*
+
+     DOM 0级事件
+     oBox.onclick = function(){
+        alert(1)
+    }
+
+
+    缺陷：当我们给同一元素加同一个类型的事件，后面的事件会覆盖前面的事件
+
+
+
+
+    var oBox = document.getElementById('box');
+
+    oBox.onclick = function(){
+        alert(1)
+    }
+
+    oBox.onclick = function(){
+        alert("2")
+    }
+    */
+
+
+    //  DOM 2 级事件
+    //需求：解决同一个元素执行相同类型的事件后者会覆盖到前者的BUg
+    //addEventListener():它是一个方法：因此里面有3个参数   第一个参数是事件名称 --->事件名称不加on
+    //第二个参数是回调函数
+    //第三个参数是否捕获   true是捕获  false是冒泡(默认)
+    //执行顺序谁先书写谁先执行   队列
+    //
+    //
+    //
+    //IE里面的事件监听
+    //attachEvent
+    //也是一个方法：2个参数
+    //第一个参数：事件名称    需要加on
+    //第二个参数：回调函数
+    //
+    //
+    //执行顺序 先进去的后执行  后进行的先执行
+    //IE里面怎么没有第三个参数呢？难到不需要捕获吗？
+    var oBox = document.getElementById('box');
+    /*oBox.addEventListener("click",function(){
+        alert(1)
+    })
+    oBox.addEventListener("click",function(){
+        alert("2")
+    })*/
+    /*oBox.attachEvent("onclick",function(){
+        alert(1)
+    })
+    oBox.attachEvent("onclick",function(){
+        alert("2")
+    })*/
+
+    //对象 事件  回调函数  是否捕获
+
+    attach(oBox, "click", function () {
+        console.log(1)
+    }, true)
+    attach(oBox, "click", function () {
+        console.log(2)
+    }, true)
+
+    function attach(ele, type, fn, bool) {
+        if (!bool) {
+            bool = false;
+        }
+        if (ele.addEventListener) {
+            ele.addEventListener(type, fn, bool)
+        } else {
+            ele.attachEvent("on" + type, fn)
+        }
+    }
+
+    document.onclick = function (e) {
+
+        console.log(e)
+    }
+
+
+</script>

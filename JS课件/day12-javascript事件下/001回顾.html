@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#box{width: 200px;height: 200px;background: red;padding: 10px;position: relative;}
+		#box1{width: 100px;height: 200px;background: green;position: absolute;margin-left: 100px;}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<div id="box1"></div>
+	</div>
+</body>
+</html>
+<script>
+/*
+	 1、offset
+	 	offsetWdith
+	 	offsetHeight
+	 	getStyle:前两者的返回值是数字  前两者类似于标准盒模型的算法(content+padding+border)   后者返回值是字符串 类似于怪异盒模型  (content)
+
+	 	offsetLeft  距离已定位父元素的左边的偏移距离
+	 	offsetTop	距离已定位父元素的上边的偏移距离
+	 	offsetParent  查找已定位的父元素
+
+		var oBox1 = document.getElementById('box1');
+		console.log(oBox1.offsetLeft)
+
+
+
+	2、事件对象
+		事件：
+			鼠标：
+				onclick
+				dblclick
+				onmouseover
+				onmouseenter
+				onmouseout
+				onmouseleave   
+
+				onmousemove
+				onmousedown
+				onmouseup
+				onmousewheel
+
+			键盘事件
+				onkeydown
+				onkeyup
+				onkeypress
+
+			输入框事件
+
+				onfocus
+				onblur
+				onchange
+				oninput
+				onsubmit
+
+		对象：
+			什么是时候用对象？
+				当想要获取鼠标的一些信息或者键盘的信息等的时候需要用到事件对象
+
+			事件对象 
+
+				事件源    触发事件的元素 
+
+				事件类型  常用的一些事件 类似于onclick
+
+				事件对象  在预处理函数里面传一个参数e
+
+				事件预处理函数   等待执行的函数
+
+
+			事件对象的兼容性
+				var  e = e||event;
+
+			事件对象里面有什么?
+				button:  0 左键   1滚轮   2右键
+
+				坐标
+				以下所有东西IE9以下不兼容
+				clientX  clientY :可视区的坐标
+				offsetX  offsetY:  当前元素鼠标的坐标
+				pageX    pageY  ：页面的坐标 包含滚动条
+				screenX   screenY ：可视区距离当前设备的左边
+
+
+			放大镜
+				第一步：鼠标的位置是在蒙版的中央
+
+				第二部：让蒙版跟随鼠标移动
+
+				第三步：判断边界值
+					如果小于0的时候就让他等于0
+					如果坐标大于中图-蒙版的宽度的时候
+
+				第四部：坐标*大图与中的比例
+				     -l*maxpic,offsetWidth/middle.offsetWidth
+
+
+
+
+
+
+ */
+
+
+</script>

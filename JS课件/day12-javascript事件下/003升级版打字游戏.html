@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div{position: absolute; font-size: 60px;font-weight: 900;}
+	</style>
+</head>
+<body>
+	
+</body>
+</html>
+<script>
+//事件：onkeydown
+//当你漏掉某一个字符的时候  你需要把这个字符给删除掉  并且把它自带的定时器给关闭掉
+//
+//当你打出的字符跟页面上的某一个字符相等的时候  字符消失  定时器关闭
+setInterval(function(){
+	var div = document.createElement('div');
+	var code = String.fromCharCode(parseInt(65+Math.random()*(91-65)))
+	div.innerHTML = code;
+	var l = parseInt(Math.random()*1000)
+	div.style.left = l+'px';
+	document.body.appendChild(div)
+	move(div)
+},1000)
+
+
+function move(ele){
+	var t = 0;
+	var timer = setInterval(function(){
+			t+=2;
+			ele.style.top = t+'px';
+
+			if(t>500){
+				clearInterval(timer);
+				ele.remove()
+			}
+	},50)
+}
+
+//打字的执行的代码
+document.onkeydown = function(e){
+	var e = e||event;
+	var aDiv = document.getElementsByTagName('div');
+	for(var i=0;i<aDiv.length;i++){
+		if(aDiv[i].innerHTML == String.fromCharCode(e.keyCode)){
+				aDiv[i].remove()
+		}
+	}
+}
+</script>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div{
+			font-size: 60px;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<div id="char">A</div>
+</body>
+</html>
+<script>
+	/*
+		onkeydown
+		onkeyup
+		onkeypress
+
+
+		keyCode:按下的某一个键盘上的按钮 返回值是相对应的unicode值
+		keyCode||which
+
+	 */
+	/*var char = document.getElementById('char');
+	document.onkeydown = function(e){
+		var e = e||event;
+		var val = char.innerHTML
+		if(String.fromCharCode(e.keyCode)==val){
+			char.innerHTML = String.fromCharCode(parseInt(65+Math.random()*(91-65)))
+		}
+	}*/
+
+	document.onkeydown = function(e){
+		var e = e||event;
+		var code = e.keyCode||e.which
+		//console.log(e.keyCode)
+	}
+</script>

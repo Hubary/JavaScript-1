@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin:0;padding: 0}
+		ul,li{list-style: none;}
+		#list{width:80px;height: auto;border:1px solid #ccc;display: none;position: absolute;}
+		#list li{line-height: 30px;text-align: center;}
+	</style>
+</head>
+<body>
+	<ul id="list">
+		<li>首页</li>
+		<li>文档</li>
+		<li>接口</li>
+	</ul>
+
+</body>
+</html>
+<script>
+/*
+	浏览器默认事件
+		1、右键菜单
+		2、超链接跳转
+		3、图片拖拽
+
+
+	//如何来取消浏览器的默认事件
+	return false
+
+
+	//如何设置右键菜单
+	document.oncontextmenu
+
+	如何来组织浏览器的默认事件
+	return false;  
+
+	returnValue = false  阻止浏览器的默认事件
+
+	IE:preventDefault(); 是一个方法
+
+ */
+var oList = document.getElementById('list');
+ document.oncontextmenu = function(e){
+ 	 prevent(e);
+ 	var e = e||event;
+ 	oList.style.display = 'block';
+ 	oList.style.left = e.pageX+'px';
+ 	oList.style.top = e.pageY+'px';
+ 	
+ }
+
+
+ 	function prevent(e){
+ 		e.preventDefault?e.preventDefault():e.returnValue = false;
+ 	}
+
+</script>

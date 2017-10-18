@@ -118,3 +118,11 @@ function getOffset(element) {
     return obj;
 }
 
+/**
+ * 功能: 阻止浏览器默认事件
+ * @param e 事件对象
+ */
+function preBroDef(e) {
+    //三元判断
+    e.preventDefault ? e.preventDefault() : e.returnValue = false;
+}

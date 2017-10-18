@@ -2,9 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fdc77bb4-c65a-4774-96a6-a3ffde348ede" name="Default" comment="ssss">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/JSHomework/day10/day10-站酷/img/logo.png" afterPath="$PROJECT_DIR$/JSHomework/day10/day10-站酷/img/logo.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/1707知识点.html" afterPath="$PROJECT_DIR$/1707知识点.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Encapsulation/encap.js" afterPath="$PROJECT_DIR$/Encapsulation/encap.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Encapsulation/pool.js" afterPath="$PROJECT_DIR$/Encapsulation/pool.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/JSHomework/day10/day10-DOM作业.html" afterPath="$PROJECT_DIR$/JSHomework/day10/day10-DOM作业.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/JSHomework/day10/day10-站酷/index.html" afterPath="$PROJECT_DIR$/JSHomework/day10/day10-站酷/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/JSHomework/day11/day11-京东列表.html" afterPath="$PROJECT_DIR$/JSHomework/day11/day11-京东列表.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/JS课件/day11-javascript事件上/004事件对象.html" afterPath="$PROJECT_DIR$/JS课件/day11-javascript事件上/004事件对象.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -26,11 +31,12 @@
     <fileColor scope="Non-Project Files (Material Palenight)" color="2f2e43" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="CSS File" />
         <option value="HTML File" />
       </list>
     </option>
@@ -41,20 +47,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/JS课件/day08-javascript-Date/010计时器.html" />
-        <option value="$PROJECT_DIR$/JS课件/day08-javascript-Date/002数组作业.html" />
-        <option value="$PROJECT_DIR$/JSHomework/day07-数组和字符串作业.html" />
-        <option value="$PROJECT_DIR$/JSOline/day08/计时器练习.html" />
-        <option value="$PROJECT_DIR$/JSOline/day08/Date对象练习.html" />
-        <option value="$PROJECT_DIR$/Encapsulation/pool.js" />
-        <option value="$PROJECT_DIR$/JSOline/day08/sss.html" />
-        <option value="$PROJECT_DIR$/JSOline/day09/BOM练习.html" />
-        <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/JSHomework/day08-Date计时器作业.html" />
-        <option value="$PROJECT_DIR$/JSOline/day09/onload&amp;&amp;onScrollTop.html" />
-        <option value="$PROJECT_DIR$/JSHomework/day08-Date作业.html" />
-        <option value="$PROJECT_DIR$/JSHomework/day07/day07-数组和字符串作业.html" />
-        <option value="$PROJECT_DIR$/JSHomework/day09/day09-Bom/Dom作业.html" />
         <option value="$PROJECT_DIR$/JSOnline/day09/onload&amp;&amp;onScrollTop.html" />
         <option value="$PROJECT_DIR$/JSHomework/day09/作业.txt" />
         <option value="$PROJECT_DIR$/JSHomework/day08/day08-数码时钟.html" />
@@ -82,16 +74,30 @@
         <option value="$PROJECT_DIR$/JSHomework/day10/放大镜-小图换大图.html" />
         <option value="$PROJECT_DIR$/JSHomework/day10/选项卡.html" />
         <option value="$PROJECT_DIR$/JSHomework/day10/day10-选项卡.html" />
-        <option value="$PROJECT_DIR$/JSHomework/day10/day10-DOM作业.html" />
         <option value="$USER_HOME$/.zshrc" />
         <option value="$PROJECT_DIR$/JSHomework/day10/站酷/index.html" />
-        <option value="$PROJECT_DIR$/JSHomework/day10/day10-站酷/index.html" />
-        <option value="$PROJECT_DIR$/Encapsulation/encap.js" />
         <option value="$PROJECT_DIR$/JSHomework/day11/作业.txt" />
-        <option value="$PROJECT_DIR$/JSHomework/day11/day11-京东列表.html" />
         <option value="$PROJECT_DIR$/JSHomework/day11/day11-动态编辑添加表格.html" />
         <option value="$PROJECT_DIR$/JSOnline/day11/购物详情-放大镜.html" />
         <option value="$PROJECT_DIR$/JS课件/day11-javascript事件上/007放大镜-图片切换-多张切换 .html" />
+        <option value="$PROJECT_DIR$/JSOnline/day12/键盘事件.html" />
+        <option value="$PROJECT_DIR$/JS课件/day12-javascript事件下/008事件冒泡与捕获.html" />
+        <option value="$PROJECT_DIR$/JSHomework/day10/day10-站酷/css/style.css" />
+        <option value="$PROJECT_DIR$/JSHomework/day10/day10-站酷/index.html" />
+        <option value="$PROJECT_DIR$/JS课件/day12-javascript事件下/006自定义菜单.html" />
+        <option value="$PROJECT_DIR$/JS课件/day11-javascript事件上/004事件对象.html" />
+        <option value="$PROJECT_DIR$/JS课件/day12-javascript事件下/007事件监听.html" />
+        <option value="$PROJECT_DIR$/JSHomework/day12/day12作业.txt" />
+        <option value="$PROJECT_DIR$/JSOnline/day12/打字游戏.html" />
+        <option value="$PROJECT_DIR$/Encapsulation/encap.js" />
+        <option value="$PROJECT_DIR$/JSOnline/day12/鼠标右键菜单.html" />
+        <option value="$PROJECT_DIR$/JSHomework/day10/day10-DOM作业.html" />
+        <option value="$PROJECT_DIR$/JS课件/day12-javascript事件下/010、表格的既时编辑.html" />
+        <option value="$PROJECT_DIR$/JSHomework/day12/day12-动态编辑表格-事件代理.html" />
+        <option value="$PROJECT_DIR$/JSHomework/day12/day12-作业.html" />
+        <option value="$PROJECT_DIR$/JSHomework/day11/京东/京东商品列表页.html" />
+        <option value="$PROJECT_DIR$/JSHomework/day11/day11-京东列表.html" />
+        <option value="$PROJECT_DIR$/JSHomework/day11/css/style.css" />
       </list>
     </option>
   </component>
@@ -162,23 +168,23 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="JavaScript" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JavaScript" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="Scope">
         <subPane subId="Project Files">
           <expand>
             <path>
               <item name="Root" type="cbb8eebc:String" user="Root" />
               <item name="JavaScript" type="cbb8eebc:String" user="JavaScript" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="JavaScript" type="b2602c69:ProjectViewProjectNode" />
+              <item name="JavaScript" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -193,21 +199,22 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SearchEverywhereHistoryKey" value="bot&#9;null&#9;null&#10;{&#9;null&#9;null" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\JavaScript\JSOnline\day11" />
-      <recent name="$PROJECT_DIR$/JSHomework/day10" />
-      <recent name="E:\JavaScript\JSHomework\day10" />
-      <recent name="E:\JavaScript\JSHomework" />
-      <recent name="E:\JavaScript\JSOline\day07" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\JavaScript\JSHomework\day08" />
       <recent name="E:\JavaScript\JSHomework\day05" />
       <recent name="E:\JavaScript\JSHomework\day07" />
       <recent name="E:\JavaScript\JSHomework\day04" />
       <recent name="E:\JavaScript\JSHomework\day03" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\JavaScript\JSHomework\day12" />
+      <recent name="E:\JavaScript\JSHomework\day10\day10-站酷\img" />
+      <recent name="E:\JavaScript\JSOnline\day11" />
+      <recent name="$PROJECT_DIR$/JSHomework/day10" />
+      <recent name="E:\JavaScript\JSHomework\day10" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -289,11 +296,12 @@
       <workItem from="1508125854493" duration="3000" />
       <workItem from="1508125882268" duration="2019000" />
       <workItem from="1508152974550" duration="12256000" />
+      <workItem from="1508201049007" duration="25215000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="347762000" />
+    <option name="totallyTimeSpent" value="372977000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -307,9 +315,10 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1456" height="886" extended-state="6" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15444288" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15444288" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32668713" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39586645" sideWeight="0.45557123" order="10" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292517" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32744566" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2496474" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -322,7 +331,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292517" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -367,238 +375,11 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="42" />
+      <option name="time" value="43" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/JS课件/day09-javascriptBOM&amp;&amp;DOM/003版本jiance.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="9" lean-forward="true" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JS课件/day09-javascriptBOM&amp;&amp;DOM/002BOM.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-521">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JS课件/day09-javascriptBOM&amp;&amp;DOM/004window.onload&amp;&amp;onscroll.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="417">
-          <caret line="29" column="30" lean-forward="true" selection-start-line="29" selection-start-column="30" selection-end-line="29" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JS课件/day09-javascriptBOM&amp;&amp;DOM/005回到顶部.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="36" column="38" lean-forward="true" selection-start-line="36" selection-start-column="38" selection-end-line="36" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JS课件/day09-javascriptBOM&amp;&amp;DOM/006window里面常用的一些方法.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="474">
-          <caret line="43" column="9" lean-forward="true" selection-start-line="43" selection-start-column="9" selection-end-line="43" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JS课件/day09-javascriptBOM&amp;&amp;DOM/007定时器.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" column="9" lean-forward="true" selection-start-line="26" selection-start-column="9" selection-end-line="26" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JS课件/day09-javascriptBOM&amp;&amp;DOM/008进度条.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="8" lean-forward="true" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JS课件/day09-javascriptBOM&amp;&amp;DOM/009dom.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="474">
-          <caret line="82" column="9" lean-forward="true" selection-start-line="82" selection-start-column="9" selection-end-line="82" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JS课件/day09-javascriptBOM&amp;&amp;DOM/010元素类型.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="34" column="15" lean-forward="true" selection-start-line="34" selection-start-column="15" selection-end-line="34" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JS课件/day10-javascriptDOM下/001回顾.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-312">
-          <caret line="46" column="0" lean-forward="true" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JS课件/day10-javascriptDOM下/002获取非行间样式.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="31" column="22" lean-forward="true" selection-start-line="31" selection-start-column="22" selection-end-line="31" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JS课件/day10-javascriptDOM下/004放大镜-图片切换-多张切换 .html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-201">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JS课件/day10-javascriptDOM下/003自定义属性.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="429">
-          <caret line="72" column="5" lean-forward="true" selection-start-line="72" selection-start-column="5" selection-end-line="72" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JS课件/day10-javascriptDOM下/005innerHTML、innerText和outerHTML、outerText的区别.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="426">
-          <caret line="30" column="28" lean-forward="true" selection-start-line="30" selection-start-column="28" selection-end-line="30" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JS课件/day10-javascriptDOM下/008商品加减.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-216">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JS课件/day10-javascriptDOM下/006DOM节点.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-123">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JS课件/day10-javascriptDOM下/011选项卡.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-156">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JS课件/day10-javascriptDOM下/010day9案例.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JS课件/day10-javascriptDOM下/007高级属性节点.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="50" column="11" lean-forward="true" selection-start-line="50" selection-start-column="11" selection-end-line="50" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JS课件/day10-javascriptDOM下/012文档碎片.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="354">
-          <caret line="30" column="4" lean-forward="true" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JS课件/day10-javascriptDOM下/009DOM操作.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="28" column="14" lean-forward="true" selection-start-line="28" selection-start-column="14" selection-end-line="28" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JSHomework/day10/放大镜-小图换大图.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="530">
-          <caret line="36" column="0" lean-forward="true" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JSOnline/day08/sss.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" column="20" lean-forward="true" selection-start-line="26" selection-start-column="20" selection-end-line="26" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JSOnline/day06/数组遍历.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="7" lean-forward="true" selection-start-line="24" selection-start-column="7" selection-end-line="24" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JSHomework/day10/day10-聊天对话框.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-596">
-          <caret line="27" column="9" lean-forward="true" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JSHomework/day10/day10-隔行变色.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="49" column="23" lean-forward="true" selection-start-line="49" selection-start-column="23" selection-end-line="49" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JSHomework/day10/day10作业.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="6" lean-forward="true" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JSHomework/day10/day10-购物车计算页.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1792">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JSHomework/day10/day10-简易日历.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2375">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JSHomework/day10/day10-选项卡.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="23" lean-forward="true" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.zshrc" />
-    <entry file="file://$PROJECT_DIR$/JSHomework/day10/day10-DOM作业.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh" />
-    <entry file="file://$PROJECT_DIR$/JSHomework/day10/站酷/index.html" />
-    <entry file="file://$PROJECT_DIR$/JSOnline/day07/JSON练习.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="588">
-          <caret line="63" column="36" lean-forward="false" selection-start-line="63" selection-start-column="36" selection-end-line="63" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/JSHomework/day05/day05-国庆-计算器.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
@@ -606,14 +387,77 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/JSHomework/day10/day10-站酷/index.html" />
-    <entry file="file://$PROJECT_DIR$/Encapsulation/encap.js">
+    <entry file="file://$PROJECT_DIR$/JSHomework/day05/day05-国庆Calculator.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="554">
-          <caret line="120" column="0" lean-forward="true" selection-start-line="120" selection-start-column="0" selection-end-line="120" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
+        <state relative-caret-position="-1425">
+          <caret line="15" column="25" lean-forward="true" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JSOnline/day10/购物车计算页.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="129" column="14" lean-forward="true" selection-start-line="129" selection-start-column="14" selection-end-line="129" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JS课件/day11-javascript事件上/005提示框鼠标跟随.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JSHomework/day11/作业.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="2" lean-forward="true" selection-start-line="2" selection-start-column="2" selection-end-line="2" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JSOnline/day10/放大镜-小图换大图.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-282">
+          <caret line="15" column="7" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="59" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JS课件/day11-javascript事件上/002小热身.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-418">
+          <caret line="20" column="26" lean-forward="true" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JS课件/day11-javascript事件上/003offset.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-95">
+          <caret line="15" column="33" lean-forward="true" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JS课件/day11-javascript事件上/007放大镜-图片切换-多张切换 .html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1327">
+          <caret line="21" column="20" lean-forward="true" selection-start-line="20" selection-start-column="31" selection-end-line="21" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JSOnline/day11/购物详情-放大镜.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-422">
+          <caret line="22" column="9" lean-forward="true" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JS课件/day12-javascript事件下/003升级版打字游戏.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="421">
+          <caret line="30" column="14" lean-forward="true" selection-start-line="30" selection-start-column="14" selection-end-line="30" selection-end-column="14" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -622,31 +466,7 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/JSHomework/day05/day05-国庆Calculator.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1425">
-          <caret line="15" column="25" lean-forward="true" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JSOnline/day10/购物车计算页.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="129" column="14" lean-forward="true" selection-start-line="129" selection-start-column="14" selection-end-line="129" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JSHomework/day09/day09-动态生成表格.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="73" column="17" lean-forward="true" selection-start-line="73" selection-start-column="17" selection-end-line="73" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JS课件/day11-javascript事件上/005提示框鼠标跟随.html">
+    <entry file="file://$PROJECT_DIR$/JSHomework/day10/day10-站酷/css/index.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -654,71 +474,312 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/JSHomework/day11/作业.txt">
+    <entry file="file://$PROJECT_DIR$/JSHomework/day10/day10-站酷/css/public.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="2" lean-forward="true" selection-start-line="2" selection-start-column="2" selection-end-line="2" selection-end-column="42" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/JSHomework/day11/day11-京东列表.html">
+    <entry file="file://$PROJECT_DIR$/JSHomework/day10/day10-站酷/fonts/iconfont.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JSHomework/day10/day10-站酷/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1390">
+          <caret line="389" column="17" lean-forward="true" selection-start-line="389" selection-start-column="17" selection-end-line="389" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JSHomework/day10/day10-站酷/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="11" column="21" lean-forward="true" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JSOnline/day12/键盘事件.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="32" column="38" lean-forward="false" selection-start-line="32" selection-start-column="38" selection-end-line="32" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JS课件/day12-javascript事件下/002键盘事件.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="402">
+          <caret line="33" column="9" lean-forward="true" selection-start-line="33" selection-start-column="9" selection-end-line="33" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JS课件/day11-javascript事件上/004事件对象.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1770">
+          <caret line="99" column="0" lean-forward="true" selection-start-line="99" selection-start-column="0" selection-end-line="99" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JS课件/day12-javascript事件下/008事件冒泡与捕获.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="65" column="5" lean-forward="false" selection-start-line="65" selection-start-column="5" selection-end-line="65" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JS课件/day12-javascript事件下/004组合键.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="23" column="25" lean-forward="false" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JS课件/day12-javascript事件下/007事件监听.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="383">
+          <caret line="92" column="0" lean-forward="false" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JSHomework/day08/day08-数码时钟.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JSHomework/day08/day08-Date计时器作业.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="80" column="13" lean-forward="true" selection-start-line="80" selection-start-column="13" selection-end-line="80" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JSHomework/day08/day08-Date作业.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="229" column="0" lean-forward="true" selection-start-line="229" selection-start-column="0" selection-end-line="229" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JS课件/day12-javascript事件下/006自定义菜单.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="478">
+          <caret line="52" column="2" lean-forward="true" selection-start-line="52" selection-start-column="2" selection-end-line="52" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JSOnline/day12/鼠标右键菜单.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="63" column="0" lean-forward="true" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JSHomework/day12/打字游戏.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="17" column="8" lean-forward="true" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JSOnline/day12/打字游戏.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="20" column="11" lean-forward="false" selection-start-line="20" selection-start-column="11" selection-end-line="20" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JSHomework/day01/day01.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1163">
+          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JSHomework/day02/day02.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-947">
+          <caret line="194" column="6" lean-forward="true" selection-start-line="194" selection-start-column="6" selection-end-line="194" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JSHomework/day03/day03.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JS课件/day02-javascript-if/013、case穿透效果.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-950">
+          <caret line="19" column="35" lean-forward="true" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JSHomework/day12/鼠标右键菜单.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="63" column="0" lean-forward="true" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JSHomework/day09/day09-动态生成li.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JS课件/day02-javascript-if/014、案例.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-586">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JSHomework/day09/day09-动态生成表格.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="342">
-          <caret line="18" column="4" lean-forward="true" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="4" />
+          <caret line="30" column="16" lean-forward="true" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JSHomework/day09/day09-Bom&amp;Dom作业.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1422">
+          <caret line="16" column="15" lean-forward="true" selection-start-line="16" selection-start-column="15" selection-end-line="16" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JSHomework/day10/day10-DOM作业.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="54" column="13" lean-forward="true" selection-start-line="54" selection-start-column="13" selection-end-line="54" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JSHomework/day12/day12作业.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="20" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Encapsulation/pool.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4234">
+          <caret line="17" column="9" lean-forward="true" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/JSHomework/day11/day11-动态编辑添加表格.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="16" column="7" lean-forward="true" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
+        <state relative-caret-position="22">
+          <caret line="97" column="36" lean-forward="true" selection-start-line="97" selection-start-column="36" selection-end-line="97" selection-end-column="36" />
           <folding>
             <element signature="e#1107#2483#0" expanded="false" />
-            <element signature="e#2563#5736#0" expanded="false" />
             <element signature="e#5806#6217#0" expanded="false" />
             <element signature="e#6285#6711#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/JSOnline/day10/放大镜-小图换大图.html">
+    <entry file="file://$PROJECT_DIR$/Encapsulation/encap.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-282">
-          <caret line="15" column="7" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="59" selection-end-column="9" />
+        <state relative-caret-position="212">
+          <caret line="111" column="46" lean-forward="false" selection-start-line="111" selection-start-column="46" selection-end-line="111" selection-end-column="46" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JS课件/day12-javascript事件下/010、表格的既时编辑.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3">
+          <caret line="90" column="0" lean-forward="false" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/JSOnline/day11/购物详情-放大镜.html">
+    <entry file="file://$PROJECT_DIR$/JSHomework/day11/京东/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="63" column="8" lean-forward="true" selection-start-line="63" selection-start-column="8" selection-end-line="63" selection-end-column="8" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/JS课件/day11-javascript事件上/002小热身.html">
+    <entry file="file://$PROJECT_DIR$/JSHomework/day11/京东/京东商品列表页.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-418">
-          <caret line="20" column="26" lean-forward="true" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
+        <state relative-caret-position="364">
+          <caret line="472" column="0" lean-forward="false" selection-start-line="472" selection-start-column="0" selection-end-line="476" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/JS课件/day11-javascript事件上/007放大镜-图片切换-多张切换 .html">
+    <entry file="file://$PROJECT_DIR$/JSHomework/day11/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="112" column="9" lean-forward="true" selection-start-line="112" selection-start-column="9" selection-end-line="112" selection-end-column="9" />
+        <state relative-caret-position="-646">
+          <caret line="8" column="9" lean-forward="true" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/JS课件/day11-javascript事件上/003offset.html">
+    <entry file="file://$PROJECT_DIR$/JSHomework/day11/day11-京东列表.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-95">
-          <caret line="15" column="33" lean-forward="true" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
+        <state relative-caret-position="285">
+          <caret line="15" column="14" lean-forward="true" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JSHomework/day12/day12-作业.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="134" column="0" lean-forward="false" selection-start-line="134" selection-start-column="0" selection-end-line="134" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JSHomework/day12/day12-动态编辑表格-事件代理.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="10" column="12" lean-forward="true" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
           <folding />
         </state>
       </provider>

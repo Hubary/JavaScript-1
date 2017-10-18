@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>鼠标右键菜单</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0
+        }
+
+        ul, li {
+            list-style: none;
+        }
+
+        #list {
+            width: 80px;
+            height: auto;
+            border: 1px solid #ccc;
+            display: none;
+            position: absolute;
+        }
+
+        #list li {
+            line-height: 30px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<ul id="list">
+    <li>首页</li>
+    <li>文档</li>
+    <li>接口</li>
+</ul>
+</body>
+</html>
+<script src="../../Encapsulation/encap.js"></script>
+<script>
+
+    window.onload = function () {
+        //获取ul
+        var getOlist = document.getElementById("list");
+        //右键菜单事件
+        document.oncontextmenu = function (e) {
+            //兼容
+            var et = e || event;
+            //给定样式
+            getOlist.style.display = "block";
+            getOlist.style.left = et.clientX + "px";
+            getOlist.style.top = et.clientY + "px";
+            //阻止默认右键菜单弹出
+
+//            if (et.preventDefault) {
+//                et.preventDefault();
+//            } else {
+//                et.returnValue = false;
+//            }
+
+            et.returnValue = false;//Firefox不行,IE9也不行,但IE7 8 可以,Google也可以
+//            et.preventDefault();//Firefox和Google都可以,IE9以下不行
+            //调用
+//            preBroDef(et);
+
+        }
+
+
+    }
+</script>

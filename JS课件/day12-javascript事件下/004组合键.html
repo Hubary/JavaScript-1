@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script>
+	/*
+		ctrlKey、shiftKey、altKey
+
+		onkeydown: onkeypress
+		前者可以输出键盘上所有的字符  注意回车的code值是13  ctrl是17
+		后者只能输出数字+字母 空格 回车  注意回车+ctrl组合键是10
+		
+	 */
+	//功能   按住ctrl+回车才能够提交
+	document.onkeydown = function(e){
+		var e = e||event
+		var code = e.keyCode||e.which
+		console.log(code)
+		if(e.ctrlKey&&code==13){
+			alert(1)
+		}
+	}
+
+/*document.onkeypress = function(e){
+		var e = e||event
+		var code = e.keyCode||e.which
+		console.log(code)
+		if(code==10){
+			alert(1)
+		}
+	}*/
+
+</script>
