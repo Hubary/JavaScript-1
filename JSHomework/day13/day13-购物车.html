@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>简单购物车</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul, li {
+            list-style: none;
+        }
+
+        #list li {
+            width: 320px;
+            height: 480px;
+            box-shadow: 2px 2px 2px #ccc;
+            margin: 10px;
+            float: left;
+        }
+
+        #list li p {
+            line-height: 30px;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        #list li a {
+            float: right;
+            width: 120px;
+            height: 40px;
+            text-decoration: none;
+            text-align: center;
+            line-height: 40px;
+            color: #fff;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+<ul id="list">
+    <!--<li>
+        <img src="images/c.jpg">
+        <p>面包</p>
+        <p>￥6</p>
+        <a href="##">加入购物车</a>
+    </li> -->
+</ul>
+</body>
+</html>
+<script src="../../Encapsulation/encap.js"></script>
+<script>
+    var obj = [
+        {
+            "id": "01",
+            "title": "橘子",
+            "price": "￥6",
+            "images": "images/w4.jpg"
+        },
+        {
+            "id": "02",
+            "title": "甜心",
+            "price": "￥6",
+            "images": "images/w5.jpg"
+        },
+        {
+            "id": "03",
+            "title": "芒果",
+            "price": "￥6",
+            "images": "images/w6.jpg"
+        },
+        {
+            "id": "04",
+            "title": "西红柿",
+            "price": "￥6",
+            "images": "images/w8.jpg"
+        }
+
+    ]
+</script>
+<script>
+    window.onload = function () {
+        /**
+         *day13-购物车.html
+         *author:jessie-zly
+         *2017/10/18
+         *description:
+         */
+
+        function shopping() {
+            //
+            var str = "";
+            for (var i = 0; i < obj.length; i++) {
+                str += `<li>
+                <img src="${obj[i].images}">
+                    <p>${obj[i].title}</p>
+                    <p>${obj[i].price}</p>
+                    <a href="#">加入购物车</a>
+                    </li>`
+            }
+            document.getElementById("list").innerHTML = str;
+
+            //获取li
+            var getAli = list.getElementsByTagName("li");
+            //
+            for (var i in getAli) {
+                getAli[i].onclick = function (event) {
+                    //兼容
+                    var event = e || event;
+                    var target = event.target || event.srcElement;
+                    //判断目标元素是否为a标签
+                    if (target.tagName.toLowerCase() == "a") {
+                        //如果是a标签,则获取自定义属性对于的id
+                        var num = this.getAttribute("data-num");
+                        //设置cookie
+                        setCookie("init", num, 7);
+                    }
+                }
+            }
+
+        }
+
+
+        shopping();
+
+    }
+</script>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<label for="all">全选</label><input type="checkbox" id="all">
+	<input type="checkbox" class="odd">
+	<input type="checkbox" class="odd">
+	<input type="checkbox" class="odd">
+	<input type="checkbox" class="odd">
+	<input type="checkbox" class="odd">
+</body>
+</html>
+<script>
+//checked:返回值是true  和false
+var oAll = document.getElementById('all');
+var aOdd = document.querySelectorAll('.odd')
+oAll.onclick = function(){
+	if(this.checked){
+		for(var i=0;i<aOdd.length;i++){
+			aOdd[i].checked = 'checked'
+		}
+	}else {
+		for(var i=0;i<aOdd.length;i++){
+			aOdd[i].checked = ''
+		}
+	}
+}
+</script>

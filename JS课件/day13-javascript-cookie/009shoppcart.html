@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin:0;padding: 0;}
+		ul,li{list-style: none;}
+		#list {width: 800px;margin:20px auto;}
+		#list li{height: 60px;padding-top:20px;}
+		
+		#list li>img,#list li>p,#list li>a,#list li>input{float: left;}
+		.pirce{margin-left: 80px;}
+		#list li>img{width:40px;height:40px;}
+		#list li>a{line-height:20px;width: 20px;height: 20px;text-decoration: none;color: #fff;text-align: center;background: #c3c3c3;}
+		#list li>.del{width: 80px;margin-left: 80px;}
+	</style>
+</head>
+<body>
+	<ul id="list">
+		<!-- <li>
+			<img src="img/1.jpg">
+			<p class="title">面包</p>
+			<p class="pirce">6</p>
+			<a href="##">-</a>
+			<input type="text" value="1">
+			<a href="##">+</a>
+			<a href="##" class="del">删除</a>
+		</li> -->
+	</ul>
+</body>
+</html>
+<script src="../../Encapsulation/pool.js"></script>
+<script>
+var obj = [
+	{
+		"id": "01",
+		"title": "面包",
+		"price": "￥6",
+		"imgres": "img/1.jpg"
+	}, {
+		"id": "02",
+		"title": "酸奶",
+		"price": "￥35",
+		"imgres": "img/2.jpg"
+	},
+	{
+		"id": "03",
+		"title": "橙子",
+		"price": "￥6",
+		"imgres": "img/3.jpg"
+	}, {
+		"id": "04",
+		"title": "海之蓝",
+		"price": "￥35",
+		"imgres": "img/4.jpg"
+	},{
+		"id": "05",
+		"title": "腰果",
+		"price": "￥16",
+		"imgres": "img/5.jpg"
+	}, {
+		"id": "06",
+		"title": "纯牛奶",
+		"price": "￥45",
+		"imgres": "img/6.jpg"
+	},{
+		"id": "07",
+		"title": "大虾",
+		"price": "￥26",
+		"imgres": "img/7.jpg"
+	}, {
+		"id": "08",
+		"title": "猕猴桃",
+		"price": "￥15",
+		"imgres": "img/8.jpg"
+	},{
+		"id": "09",
+		"title": "牛奶",
+		"price": "￥66",
+		"imgres": "img/9.jpg"
+	}, {
+		"id": "10",
+		"title": "酸奶",
+		"price": "￥35",
+		"imgres": "img/10.jpg"
+	}]
+	var str = '';
+	var oList = document.getElementById('list')
+if(getCookie("init")){
+	var num = getCookie("init");
+	for(var i=0;i<obj.length;i++){
+		if(obj[i].id==num){
+
+		str+='<li data-num='+obj[i].id+'><img src='+obj[i].imgres+'><p class="title">'+obj[i].title+'</p><p class="pirce">'+obj[i].price+'</p><a href="##">-</a><input type="text" value="1"><a href="##">+</a><a href="##" class="del">删除</a></li>'
+		
+		}
+	}
+	oList.innerHTML = str;
+
+}
+</script>

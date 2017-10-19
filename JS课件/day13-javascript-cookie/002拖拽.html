@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin:0;padding: 0}
+		#box{width: 100px;height: 100px;background: red;position: absolute;left:0;top:0;}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+</html>
+<script>
+//拖拽的时候会经历那几个事件
+//onmousedown   onmousemove     onmouseup
+//
+//如果用了定位元素以后就尽量不要在去用margin相关的东西
+//
+//如何取消一个事件
+//对象.onclick = null;  
+var oBox = document.getElementById('box');
+
+oBox.onmousedown = function(e){
+	var e = e||event;
+	var disX = e.offsetX;
+	var disY = e.offsetY;
+	document.onmousemove = function(e){
+		var e = e||event;
+		var l = e.clientX - disX;
+		var t = e.clientY -disY;
+
+		oBox.style.left = l+'px';
+		oBox.style.top = t+'px';
+
+	}
+	document.onmouseup = function(){
+		document.onmousemove = null;
+	}
+}
+</script>

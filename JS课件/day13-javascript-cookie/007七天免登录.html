@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	用户名：<input type="text" id="userName">
+	密码：<input type="text" id="password">
+	<label>7天免登录</label><input type="checkbox" id="check">
+	<button id="btn">登录</button>
+</body>
+</html>
+<!--<script src="../../Encapsulation/pool.js"></script>-->
+<script src="../../Encapsulation/encap.js"></script>
+<script>
+window.onload = function(){
+	var user = document.getElementById('userName');
+	var pass = document.getElementById('password');
+	var check = document.getElementById('check');
+	var oBtn = document.getElementById('btn');
+
+	if(getCookie('userName')){
+		var u = getCookie('userName');
+		user.value = u;
+		check.checked = 'checked';
+	}
+
+	oBtn.onclick = function(){
+		var userVal = user.value;
+		var passVal = pass.value;
+
+		if(check.checked){
+			setCookie("userName",userVal,7)
+			setCookie("password",passVal,7)
+		}
+	}
+}
+</script>

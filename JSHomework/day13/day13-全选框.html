@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>day13-全选</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+<input type="checkbox" id="all">
+<label for="all">全选</label>
+<div>
+    <input type="checkbox" class="select">
+    <input type="checkbox" class="select">
+    <input type="checkbox" class="select">
+    <input type="checkbox" class="select">
+    <input type="checkbox" class="select">
+
+</div>
+</body>
+</html>
+<script>
+    window.onload = function () {
+        /**
+         *day13-全选框.html
+         *author:jessie-zly
+         *2017/10/18
+         *description:
+         */
+        function selectAllOrCancel() {
+            //获取all
+            var getAll = document.querySelector("#all");
+            console.log(getAll);
+//            var getAll = document.getElementById("all")
+            //获取select
+            var getAselect = document.querySelectorAll(".select");
+            console.log(getAselect);
+//            var getAselect = document.getElementsByClassName("select")
+            //all 点击事件
+            getAll.onclick = function () {
+                //判断checked
+                if (this.checked) {
+                    //遍历
+                    for (var i in getAselect) {
+                        //全选
+                        getAselect[i].checked = "checked";
+                    }
+                } else {
+                    //遍历
+                    for (var i in getAselect) {
+                        //全部取消
+                        getAselect[i].checked = "";
+                    }
+                }
+
+            }
+
+
+        }
+
+        //测试
+        selectAllOrCancel();
+
+    }
+</script>

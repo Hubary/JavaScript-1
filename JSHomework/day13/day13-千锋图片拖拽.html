@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>day13-图片拖拽</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #connect {
+            width: 400px;
+            /*height: 400px;*/
+            background-color: #FFFFFF;
+            border: 1px solid #000000;
+            position: absolute;
+            left: 100px;
+            top: 50px;
+        }
+
+        span {
+            display: block;
+            width: 100%;
+            font: 12px/30px "";
+            background: #9999ff;
+            text-align: left;
+        }
+
+        #content {
+            width: 100%;
+            height: 300px;
+        }
+
+        li {
+            list-style: none;
+            background: #99ff99;
+            margin: 5px 0;
+            padding: 5px;
+            text-align: right;
+        }
+
+        #blank {
+            height: 20px;
+            border: 1px solid #000;
+            background: #ccc;
+        }
+
+        #talk {
+            width: 100%;
+            height: 50px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #txt {
+            width: 300px;
+            height: 100%;
+            font: 12px/16px "";
+            border: none;
+        }
+
+        #btn {
+            width: 80px;
+            font: 14px/ 20px "";
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+<div id="connect">
+    <span id="move">千锋教育</span>
+    <ul id="content">
+
+    </ul>
+    <div id="blank"></div>
+    <div id="talk">
+        <input type="text" id="txt" value="">
+        <button id="btn">发送</button>
+    </div>
+</div>
+</body>
+</html>
+<script>
+    window.onload = function () {
+
+        /**
+         *day13-千锋图片拖拽.html
+         *author:jessie-zly
+         *2017/10/18
+         *description:
+         */
+
+            //获取connect和move
+        var getOconnect = document.getElementById("connect");
+        var getOmove = document.getElementById("move");
+
+        function pictureMove() {
+            //move按下
+            getOmove.onmousedown = function (e) {
+                var event = e || event;
+                var initToleft = event.offsetX;
+                var initToTop = event.offsetY;
+                //connect移动
+                getOconnect.onmousemove = function (e) {
+                    var event = e || event;
+                    var left = event.clientX - initToleft;
+                    var top = event.clientY - initToTop;
+                    //
+                    getOconnect.style.left = left + "px";
+                    getOconnect.style.top = top + "px";
+                }
+            }
+            //move抬起
+            getOmove.onmouseup = function () {
+                //清空connect
+                getOconnect.onmousemove = null;
+            }
+        }
+
+
+        function talkTo() {
+            //获取input和ul
+            var txt = document.getElementById("txt");
+            var content = document.getElementById("content");
+            //
+            document.getElementById("btn").onclick = function () {
+                //创建li
+                var li = document.createElement("li");
+                //输出显示
+                li.innerHTML = txt.value;
+                //判断
+                if (content.children.length == 0) {
+                    //
+                    content.appendChild(li);
+                } else {
+                    content.insertBefore(li, content[0])
+                }
+                //清空input
+                txt.value = "";
+            }
+        }
+
+        //test
+        pictureMove();
+        talkTo();
+    }
+</script>

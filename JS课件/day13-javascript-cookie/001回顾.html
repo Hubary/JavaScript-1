@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script>
+	/*
+		键盘事件
+			onkeydown
+			onkeyup
+			onkeypress
+
+		keyCode  ||  which  :获取键盘上面的ASCII
+
+		组合件 ：ctrlKey  altKey  shiftKey
+
+
+		onkeydown   onkeypress:区别
+		前者：可以输出键盘上所有的字符   13  17
+		后者：只能输出数字和字符 以及较少的字符  10
+
+		如何让字符转换成ASCII：字符.charCodeAt() 下标
+		如何让ASCII转换为字符：String.fromCharCode()
+
+		浏览器默认事件
+			右键菜单
+			图片拖拽
+			超链接
+			提交按钮
+
+		如何组织默认事件
+			e.returnValue = false
+			e.preventDefault()
+		如何定义右键菜单
+			document.oncontextmenu
+
+		DOM 0 级事件
+		缺陷：后面的事件会覆盖前面的事件
+
+		DOM 2 级事件
+			事件监听
+				addEventListener()
+				第一个参数：事件类型
+				第二个参数：回调函数
+				第三个参数：是否捕获  true捕获  false冒泡
+
+				attachEvent()
+				第一个参数：事件类型    必须加on
+				第二个参数：回调函数
+
+		事件流
+			当一个HTML节点触发一个预处理函数的时候，这个元素节点会到根节点有一个传播路径，这个路径所有经过的所有节点都会接受到这个事件类型，这样的一个传播过程就是事件流
+				事件流：
+					冒泡
+					捕获
+
+		事件冒泡：子元素的事件类型冒泡到父元素身上  子元素---父级元素......body-----document
+
+		事件捕获：通过父元素找到相应的子元素
+		document------body----父级元素----子元素
+
+		事件代理、事件委托
+			原理：利用事件冒泡原理  将子元素要触发的事件委托到父元素身上，这样的一个过程就是事件委托
+		如何找到事件源
+			e.target || e.srcElement
+
+		事件代理的好处？
+			可对未来元素绑定一个事件
+			减少DOM的一些操作  提高性能
+
+	 */
+</script>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>day13-7天免登陆</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            margin: 10px 20px;
+        }
+
+        input {
+            display: inline-block;
+        }
+
+        button {
+            padding: 5px 10px;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+<div id="login">
+    用户名: <input type="text" id="userName">
+    密码: <input type="text" id="passWord">
+</div>
+<div id="free">
+    <label>7天免登陆 <input type="checkbox" id="check"></label>
+    <button id="btn">登录</button>
+</div>
+
+</body>
+</html>
+<script src="../../Encapsulation/encap.js"></script>
+<script>
+    window.onload = function () {
+        /**
+         *day13-免登陆.html
+         *author:jessie-zly
+         *2017/10/18
+         *description:
+         */
+
+        function freeLogin() {
+            //
+            var userName = document.getElementById("userName");
+            var passWord = document.getElementById("passWord");
+            var check = document.getElementById("check");
+            var btn = document.getElementById("btn");
+            //判断cookie中是否存在相应的键
+            if (getCookie("userName")) {
+                //如果存在,则将cookie中相应的值赋值给userName
+                userName.value = getCookie("userName");
+                //选框选中
+                check.checked = "checked";
+            }
+            //
+            btn.onclick = function () {
+                //判断选框
+                if (check.checked) {
+                    //如果选框选中,则存储cookie
+                    setCookie("userName", userName.value, 7);
+                    setCookie("passWord", passWord.value, 7)
+                }
+            }
+
+        }
+
+        //test
+        freeLogin();
+    }
+</script>

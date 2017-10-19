@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin:0;padding: 0;}
+		ul,li{list-style: none;}
+		#list li{width: 200px;height: 300px;box-shadow: 2px 2px 2px #ccc;margin:10px;float: left;}
+		#list li p{line-height: 30px;text-align: center;font-size: 18px;}
+		#list li a{float: right;width: 120px;height: 40px;text-decoration: none;text-align: center;line-height: 40px;color: #fff;background: red;}
+	</style>
+</head>
+<body>
+	<ul id="list"></ul>
+</body>
+</html>
+<script src="pool.js"></script>
+<script>
+	var obj = [
+	{
+		"id": "01",
+		"title": "面包",
+		"price": "￥6",
+		"imgres": "img/1.jpg"
+	}, {
+		"id": "02",
+		"title": "酸奶",
+		"price": "￥35",
+		"imgres": "img/2.jpg"
+	},
+	{
+		"id": "03",
+		"title": "橙子",
+		"price": "￥6",
+		"imgres": "img/3.jpg"
+	}, {
+		"id": "04",
+		"title": "海之蓝",
+		"price": "￥35",
+		"imgres": "img/4.jpg"
+	},{
+		"id": "05",
+		"title": "腰果",
+		"price": "￥16",
+		"imgres": "img/5.jpg"
+	}, {
+		"id": "06",
+		"title": "纯牛奶",
+		"price": "￥45",
+		"imgres": "img/6.jpg"
+	},{
+		"id": "07",
+		"title": "大虾",
+		"price": "￥26",
+		"imgres": "img/7.jpg"
+	}, {
+		"id": "08",
+		"title": "猕猴桃",
+		"price": "￥15",
+		"imgres": "img/8.jpg"
+	},{
+		"id": "09",
+		"title": "牛奶",
+		"price": "￥66",
+		"imgres": "img/9.jpg"
+	}, {
+		"id": "10",
+		"title": "酸奶",
+		"price": "￥35",
+		"imgres": "img/10.jpg"
+	}]
+
+	var oList = document.getElementById('list');
+	var str = '';
+	for(var i=0;i<obj.length;i++){
+		str+='<li data-num='+obj[i].id+'><img src='+obj[i].imgres+'><p>'+obj[i].title+'</p><p>'+obj[i].price+'</p><a href="##">加入购物车</a></li>'
+	}
+	oList.innerHTML = str;
+	var obj2 = {};
+	var num = 1;
+
+	var aLi = oList.getElementsByTagName('li');
+	for(var i=0;i<aLi.length;i++){
+		aLi[i].onclick = function(e){
+			var e = e||event;
+			var target = e.target||e.srcElement;
+			if(target.tagName=="A"){
+				//先获取到当前商品的ID
+				var num1 = this.getAttribute('data-num');
+				//先判断这个商品是不是第一次点击
+				if(!obj2[num1]){
+					//如果是第一次点击那么我就给这个商品赋值为1
+					obj2[num1]=num;
+				}else{
+					//不是第一次点击的时候那么我先获取到这个商品被点击了几次
+					var n = obj2[num1];
+					//在他原有的基础上面++
+					n++;
+					//然后在赋值给他自身
+					obj2[num1]=n;
+				}
+				var str1 = JSON.stringify(obj2);
+				setCookie("init",str1,7)
+
+			}
+		}
+	}
+	//如何将对象转换成字符串
+	//JSON.stringify()
+	//如何将字符串转换为JSON对象
+	//JSON.parse()  AJAX里面会经常用到
+</script>

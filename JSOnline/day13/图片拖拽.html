@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片拖拽</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: #99ff99;
+            position: absolute;
+            left: 100px;
+            top: 50px;
+        }
+    </style>
+</head>
+<body>
+<div></div>
+
+</body>
+</html>
+<script>
+    window.onload = function () {
+        /**
+         *图片拖拽.html
+         *author:jessie-zly
+         *2017/10/18
+         *description:
+         */
+
+            //获取div
+        var getOdiv = document.querySelector("div");
+
+        //
+        function picMove() {
+            //鼠标按下事件
+            document.onmousedown = function (e) {
+                //兼容
+                var event = e || event;
+                //鼠标相对target的初始位置
+                var initToLeft = event.offsetX;//水平偏移量
+                var initToTop = event.offsetY;//垂直偏移量
+                //鼠标移动事件
+                document.onmousemove = function (e) {
+                    //兼容
+                    var event = e || event;
+                    //target实时位置
+                    var left = event.clientX - initToLeft;
+                    var top = event.clientY - initToTop;
+                    //样式
+                    getOdiv.style.left = left + "px";
+                    getOdiv.style.top = top + "px";
+                }
+            }
+            //鼠标抬起事件
+            document.onmouseup = function () {
+                //清空鼠标移动事件
+                document.onmousemove = null;
+            }
+        }
+
+        //test
+        picMove();
+    }
+</script>
