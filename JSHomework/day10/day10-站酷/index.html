@@ -19,14 +19,13 @@
                 <a href="#">发现</a>
                 <dl class="hide">
                     <dd><a href="#">平面</a></dd>
+                    <dd><a href="#">UI</a></dd>
+                    <dd><a href="#">网页</a></dd>
+                    <dd><a href="#">插画</a></dd>
                     <dd><a href="#">平面</a></dd>
-                    <dd><a href="#">平面</a></dd>
-                    <dd><a href="#">平面</a></dd>
-                    <dd><a href="#">平面</a></dd>
-                    <dd><a href="#">平面</a></dd>
-                    <dd><a href="#">平面</a></dd>
-                    <dd><a href="#">平面</a></dd>
-                    <dd><a href="#">平面</a></dd>
+                    <dd><a href="#">UI</a></dd>
+                    <dd><a href="#">网页</a></dd>
+                    <dd><a href="#">插画</a></dd>
                     <dd><a href="#">其他</a></dd>
                 </dl>
                 <div></div>
@@ -650,9 +649,29 @@
         }
 
         var str = '';
+
         for (var i = 0; i < obj.length; i++) {
-            str += "<dl><dt><img src=" + obj[i].img + "></dt><dd>" + obj[i].title + "<a href='#'>" + obj[i].type + "</a></dd><ul><li><i class='iconfont icon-yanjing'></i>" + obj[i].visits + "</li><li><i class='iconfont icon-pinglun'></i>" + obj[i].like + "</li><li><i class='iconfont icon-zan'></i>" + obj[i].zan + "</li></ul><div class='bot'><img src=" + obj[i].img2 + "><h3>" + obj[i].name + "</h3><time>" + obj[i].sjian + "</time></div></dl>"
+            str += `<dl>
+        <dt><img src="${obj[i].img}"/></dt>
+            <dd><a href="#">${obj[i].title}</a></dd>
+        <ul>
+        <li><i class="iconfont icon-yanjing"></i> ${obj[i].type}</li>
+        <li><i class="iconfont icon-pinglun"></i> ${obj[i].like}</li>
+        <li><i class="iconfont icon-zan"></i> ${obj[i].zan}</li>
+        </ul>
+        <div class="bot">
+            <img src="${obj[i].img2}"/>
+            <h3>${obj[i].name}</h3>
+            <time>${obj[i].sjian}</time>
+        </div>
+        </dl>`
         }
-        content.innerHTML = str;
+
+        /*          for (var i = 0; i < obj.length; i++) {
+                      str += "<dl><dt><img src=" + obj[i].img + "></dt><dd>" + obj[i].title + "<a href='#'>" + obj[i].type + "</a></dd><ul><li><i class='iconfont icon-yanjing'></i>" + obj[i].visits + "</li><li><i class='iconfont icon-pinglun'></i>" + obj[i].like + "</li><li><i class='iconfont icon-zan'></i>" + obj[i].zan + "</li></ul><div class='bot'><img src=" + obj[i].img2 + "><h3>" + obj[i].name + "</h3><time>" + obj[i].sjian + "</time></div></dl>"
+                  }*/
+
+        //页面输出
+        document.getElementById("content").innerHTML = str;
     }
 </script>

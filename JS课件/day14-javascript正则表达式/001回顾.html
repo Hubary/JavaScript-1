@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script>
+	/*
+		拖拽
+			onmousedown   onmousemove    onmouseup
+		1、第一步：获取到当前元素上的鼠标位置
+
+		2、第二步：获取鼠标在页面上的距离(应该加上滚动条的距离) 
+
+		3、第三步：计算元素的l值与 t值   
+
+		4、第四步：关闭onmousemove事件
+
+
+		通信协议：双方沟通的一种语言
+
+		IP协议：在同一个局域网内不能出现相同的IP  在同一网段内可以进行相互沟通等
+
+		TCP协议：
+			靠谱传输协议
+			打电话
+			LOL游戏
+
+		UDP协议
+			用户数据传输协议
+				发短信
+				发邮件
+
+		HTTP协议
+			超文本传输协议
+				url的组成部分：协议  域名  端口号   资源库   页面   ？用户请求的信息
+
+		cookie
+			会话跟踪技术   验证身份信息
+
+		cookie的特点：
+			大小限制  4K  
+
+			使用范围受限
+
+			有过期时间
+
+			只能存放字符串
+
+		document.cookie='键=值;path=/;expires='在当前时间上面加上时间
+
+		document.cookie
+
+		//因为cookie是一个特别重要的东西  如何你的文件里面有中文浏览器会自动进行加密
+
+		cookie的封装：
+			function setCookie(_name,_val,expires){
+				var d = new Date()
+				d.setDate(d.getDate()+expires);
+				document.cookie = _name+'='+_val+';expires='+d
+			}
+
+
+			function getCookie(_name){
+				var cookie = document.cookie;
+				var arr = cookie.split('; ');
+				for(var i=0;i<arr.length;i++){
+					var newArr = arr[i].split('=');
+					if(newArr[0]==_name){
+						return newArr[1]
+					}
+				}
+			}
+
+		如何将对象转换成字符串
+			JSON.stringify()
+		如何将字符串转换成json对象
+			JSON.parse()
+
+	 */
+</script>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<div class="a b c"></div>
+		<div class="ac bc a"></div>
+		<div class="ca bc"></div>
+	</div>
+</body>
+</html>
+<script>
+	/*
+		^:字符的开始位置
+		$:字符的结束位置
+		[]:集合
+		():一个整体
+		{}：范围  {n}确定的次数   {n,}至少n次  {n,m}：至少n次 最多m次
+		+：至少一次或者多次  {1,}
+		*:至少0次或者多次  {0,}
+		?:至少0次或者1次  {0,1}
+		\d：代表数字  [0-9]
+		\w:数字字母下划线
+		.:任意字符  
+		|:或
+		
+
+
+		\b:边界符  空格和字符之间有间距
+		str = 'zhao  ya  hua'
+		/\bzhao/.test()
+		处理一个兼容：document.getElmentsByClassName();
+		
+		字面量的创建方式  /\bstr\b/  var str = 'zhao' :错误示范
+		构造函数方式：new RegExp() 表达式   表达式的范围
+		var reg = new RegExp('\\b'+str+'\\b')
+													i  g
+		字面量要是书写一些特殊的字符的时候只需要用转移字符就可以了 \n \r
+		/\./
+		一般情况下\向左边倒的杠叫做转移字符  这个转义字符只能在字面量里面使用
+		而构造函数里面的是不能够直接使用转义字符的
+
+		字面量表达式不能够做变量与正则的拼接
+		而构造函数正则表达式可以做变量与正则的拼接
+
+		.:任意字符
+			/./.test()  不管传什么都是对的
+
+		\s:空格    检测字符串里面有没有空格
+			/^\s/.test()
+		var str = 'zhao ya hua';
+		var reg = /\s/g 
+		var a = str.match(reg)
+		str.replace(a[0],'*')
+
+		match:提取字符串中的某些字符
+		语法: 字符串.match()括号里面放的是正则表达式
+		返回值：
+			是一个数组
+				第一个值：获取到的元素
+				第二值：下标
+				第三个值：提取的字符串
+				第四个值：长度
+
+	g:全局
+		/\s/g.test()
+		var str = 'abcda';
+		str.replace(new RegExp('a','g'),'哈')
+
+		把空格干掉
+		var str = 'zhAo ya hua';
+		str.replace(/a/ig,'*')
+
+
+	高级扩展：
+		[^123]：如果在方括号里面加上^的话就是排除某一些东西
+		/[^123]/.test()
+
+		search:查找  也是属于字符串的一种方法因此   返回值想下标  如果没有找到就是-1
+			str.search():括号里面是正则表达式
+		var str = 'abcd'
+		str.search(/a/)
+
+
+		正则表示式的提取
+		match:是字符串的一种方法 因此语法是str.match() 正则表达式
+		exec:是正则表达式的一种方法  因此语法：  reg.exec()  里面是字符串
+		 var  str = 'abcd';
+		 /a/.exec(str)
+		 exec返回值：
+		 	第一个是字符串
+		 	第二个是：第一个正则里面的括号里面的东西
+		 	第三个是：第一个正则里面第二个括号里面的东西
+		 	下面依次类推
+
+
+
+
+
+	i:忽略大小写
+	 */
+	/*var aA = document.querySelectorAll('.a');
+	console.log(aA)*/
+	/*var aA = document.getElementsByClassName('a')
+	console.log(aA)*/
+
+	function getClassName(parent,aClass){
+		//获取到父元素底下所有的子元素
+		var aEle = parent.getElementsByTagName('*');
+		var arr = [];
+		//匹配传进来的这个字符是不是一个边界符
+		var reg = new RegExp('\\b'+aClass+'\\b');
+		for(var i=0;i<aEle.length;i++){
+			if(reg.test(aEle[i].className)){
+				arr.push(aEle[i])
+			}
+		}
+		return arr;
+	}
+	var oBox = document.getElementById('box');
+	var aClass = getClassName(oBox,'a');
+	console.log(aClass)
+
+
+	/*
+		/^-{1}((0{1}\.[1-9]+|(0{1}\.\d+[1-9]+0{0,}|0{1}\d+))|((([1-9]+\d+\.\d+|[1-9]+\d+\.)|[1-9]+\.?)|[1-9]+))$/.test('-10.90')
+		
+		
+	
+
+
+
+
+
+		/^-[0]*\d*\.?\d*[1-9]+0*/.test('')
+
+		^- 首先-号开头  
+		[0]* 0出现0次或者多次
+		\d* 数字出现0次或者多次
+		\.? 出现1次或者0
+		\d* 数字出现0次或者多次
+		[1-9]+ 出现1次或者多次
+		0 出现0次或者多次
+
+
+
+		^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}([0-9]|X)$/;
+	 */
+</script>

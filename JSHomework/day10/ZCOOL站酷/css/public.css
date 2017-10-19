@@ -1,0 +1,119 @@
+/**
+ * 设置默认样式
+ */
+body, ol, ul, h1, h2, h3, h4, h5, h6, p, th, td, dl, dd, form, fieldset, legend, input, textarea, select, figure {
+    margin: 0;
+    padding: 0;
+}
+/*设置所有默认字体样式*/
+body {
+    font: 12px "宋体";
+    /*子元素溢出时,强制换行*/
+    word-wrap: break-word;
+}
+/*设置 a 标签等默认样式*/
+a, u, s, del {
+    color: #666;
+    /*去除下划线*/
+    text-decoration: none
+}
+/*设置下列元素的默认边框为 0 */
+fieldset, a img, .bor0 {
+    border: 0;
+}
+/*设置 mark 标签的默认背景颜色*/
+mark {
+    background:none;
+}
+/*设置下列标签的默认字体样式*/
+i, em, b, th {
+    font-style: normal;
+    /*默认不加粗*/
+    font-weight: 100;
+}
+/*去除 li 的项目符号*/
+li {
+    list-style: none;
+}
+/*设置 img 垂直居中*/
+img {
+    vertical-align: middle;
+}
+/*合并 table 的边框*/
+table {
+    border-collapse: collapse;
+}
+
+
+/**
+ * 以下为设置需要给相应的元素添加 class 属性
+ *
+ */
+
+
+/**
+ * 设置首行缩进
+ */
+.ind2 {
+    text-indent: 2em;
+}
+/**
+ * 处理溢出隐藏
+ */
+/*给父元素设置 class="over"*/
+.over {
+    overflow: hidden;
+    text-overflow: ellipsis;/*文本溢出隐藏*/
+    white-space: nowrap;/*文本段落不换行*/
+}
+/**
+ * 处理图片居中
+ */
+/*给父元素设置 class="valign"*/
+.valign:after { /* after 表示在父元素的子元素后再设置一个子元素(即子元素的兄弟元素),*/
+    content: "";
+    width: 0;
+    /*与父元素高度一致*/
+    height: 100%;
+    display: inline-block;
+    vertical-align: middle;
+}
+/**
+ * 清除浮动
+ */
+/*给父元素设置 class="clear"*/
+.clear {
+    zoom: 1;/*兼容 IE*/
+}
+/*在子元素之前再增加一个子元素*/
+.clear:before {
+    content: "";/*设置子元素内容为空*/
+    display: table;
+}
+/*在子元素之后再增加一个子元素*/
+.clear:after {
+    content: "";
+    clear: both;/*清除浮动*/
+    display: block;
+}
+/**
+ * 弹性盒处理子元素水平垂直居中
+ */
+/*给父元素添加属性 class="ccenter"*/
+.ccenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/**
+ * 定位方式居中
+ */
+/*给子元素添加属性 class="ccenter2"*/
+.ccenter2 {
+    /*嫡系父元素要设置属性 position="relative"*/
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+}

@@ -1,0 +1,402 @@
+/**
+* margin
+* 设置 content 宽度
+*/
+body {
+    background-color: #f4f4f4;
+}
+
+.margin {
+    width: 1150px;
+    margin: 0 auto;
+}
+
+/**
+ * header
+ * @type {[type]}
+ */
+header {
+    height: 56px;
+    background: #ffd100;
+    padding: 0 73px;
+    display: flex;
+    justify-content: space-between;
+}
+
+header .logo {
+    display: block;
+    margin-top: 18px;
+}
+
+header .nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+header .nav li a {
+    display: block;
+    padding: 0 25px;
+    font: 12px/56px "";
+    color: #000;
+}
+
+header .nav li.active {
+    background: #282828;
+}
+
+header .nav li.active a {
+    color: #ffd100;
+}
+
+header .login {
+    margin-top: 22px;
+    display: flex;
+    justify-content: space-between;
+}
+
+header .login a {
+    display: block;
+    font: 12px/18px "";
+    color: #000;
+}
+
+header .login span {
+    display: block;
+    color: #444;
+    margin: 0 20px;
+}
+
+/**
+ * banner
+ * @type {[type]}
+ */
+#banner {
+    height: 350px;
+    background: url(../images/banner.jpg) no-repeat center;
+}
+
+/**
+ * link
+ * @type {[type]}
+ */
+#link {
+    height: 270px;
+    background: url(../images/cube.gif) no-repeat right 100px;
+    background-size: 150px;
+}
+
+#link ul {
+    display: flex;
+    justify-content: space-between;
+}
+
+#link ul li {
+    width: 210px;
+    height: 168px;
+}
+
+#link ul li img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+#link dl {
+    width: 330px;
+    margin: 44px auto;
+}
+
+#link dl dd {
+    float: left;
+}
+
+#link dl dd a {
+    display: block;
+    font: 16px/55px "";
+    color: #999;
+}
+
+#link dl dd a.te {
+    color: #282828;
+    border-bottom: 2px solid #444;
+}
+
+#link dl dd:nth-child(2) a {
+    margin: 0 60px;
+    padding: 0 5px;
+}
+
+#link dl dd a:hover {
+    color: #282828;
+    border-bottom: 2px solid #444;
+}
+
+/**
+ * main
+ * @type {[type]}
+ */
+#main {
+    background: #f4f4f4;
+    padding-bottom: 40px;
+    overflow: hidden;
+    border-top: 1px solid #eee;
+}
+
+#main dl {
+    width: 210px;
+    height: 310px;
+    background: #fff;
+    margin: 20px 20px 0 0;
+    float: left;
+}
+
+#main dl dt img {
+    width: 100%;
+}
+
+#main dl dd {
+    padding: 15px;
+}
+
+#main dl dd {
+    padding: 15px;
+    font: 16px/20px "";
+    color: #333;
+}
+
+#main dl dd > a {
+    display: block;
+    font: 12px/16px "";
+    color: #bbb;
+}
+
+#main dl ul {
+    width: 100%;
+    height: 40px;
+    border-bottom: 1px solid #ddd;
+}
+
+#main dl ul li {
+    float: left;
+    padding: 0 12px;
+    font: 14px/16px "";
+    color: #c7c7c7;
+}
+
+#main dl ul li i {
+    margin-right: 4px;
+}
+
+#main dl .bot {
+    display: flex;
+    height: 50px;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#main dl .bot img {
+    display: block;
+}
+
+#main dl .bot time {
+    color: #c7c7c7;
+}
+/**
+ * back
+ * @type {[type]}
+ */
+#back {
+    width: 50px;
+    height: 50px;
+    background: #ddd;
+    border-radius: 5px;
+    position: absolute;
+    top: 0;
+    right: 20px;
+    text-align: center;
+    display: none;
+}
+
+#back p {
+    font: 30px/50px "";
+    color: #fff;
+    cursor: pointer;
+}
+
+#back:hover p {
+    color: #ffd100;
+}
+
+/**
+ * footer
+ * @type {[type]}
+ */
+footer {
+    height: 230px;
+    background: #282828;
+}
+
+footer .top {
+    padding: 60px 0 58px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #333;
+}
+
+footer .top .t-left dd {
+    float: left;
+    margin-right: 43px;
+    font: 12px/12px "";
+    color: #666;
+}
+
+footer .top .t-left dt {
+    float: left;
+    margin-right: 43px;
+    font: 12px/12px "";
+    color: #666;
+    text-indent: 24px;
+    position: relative;
+}
+
+footer .top .t-left dt i {
+    display: block;
+    width: 14px;
+    height: 23px;
+    background: url(../images/footer-mobile.png);
+    position: absolute;
+    top: -6px;
+}
+
+footer .top .t-left dt span {
+    width: 121px;
+    height: 131px;
+    background: url(../images/footer-mobile-code.png);
+    position: absolute;
+    top: -140px;
+    left: -20px;
+    display: none;
+}
+
+footer .top .t-left dt:hover {
+    cursor: pointer;
+}
+
+footer .top .t-left dt:hover span {
+    display: block;
+}
+
+footer .top .t-left dd a {
+    display: block;
+    color: #666;
+}
+
+footer .top .t-left dd:hover a {
+    color: #ccc;
+}
+
+footer .top .t-right {
+    margin-right: 5px;
+}
+
+footer .top .t-right dt {
+    float: left;
+    margin-right: 47px;
+    position: relative;
+}
+
+footer .top .t-right dt i {
+    display: block;
+    width: 21px;
+    height: 18px;
+    background: url(../images/wechat.png);
+    opacity: .3;
+}
+
+footer .top .t-right dt i span {
+    display: block;
+    width: 110px;
+    height: 110px;
+    position: absolute;
+    top: -130px;
+    left: -50px;
+    opacity: 0;
+}
+
+footer .top .t-right dt i span img {
+    width: 100%;
+    height: 100%;
+}
+
+footer .top .t-right dd {
+    float: left;
+}
+
+footer .top .t-right dd a {
+    display: block;
+    width: 20px;
+    height: 16px;
+}
+
+footer .top .t-right dd a i {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: url(../images/weibo.png);
+}
+
+footer .top .t-right dt:hover i {
+    opacity: 1;
+    cursor: pointer;
+}
+
+footer .top .t-right dt:hover span {
+    opacity: 1;
+}
+
+footer .bot {
+    padding: 25px 0 30px;
+}
+
+footer .bot .bot-t a {
+    display: block;
+    float: left;
+    font: 12px/12px "";
+    color: #666;
+}
+
+footer .bot .bot-t i {
+    display: block;
+    float: left;
+    width: 1px;
+    height: 12px;
+    color: #666;
+    margin: 0 30px;
+}
+
+footer .bot .bot-b {
+    margin-top: 20px;
+    font: 12px/12px "";
+    color: #666;
+}
+
+footer .bot .bot-b span {
+    float: left;
+}
+
+footer .bot .bot-b i {
+    display: block;
+    float: left;
+    width: 1px;
+    height: 12px;
+    color: #666;
+    margin: 0 30px;
+}
+
+footer .bot .bot-b p {
+    float: right;
+}
+
+footer .bot .bot-t a:hover {
+    color: #ccc;
+}

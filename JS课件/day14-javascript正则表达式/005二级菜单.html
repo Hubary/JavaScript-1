@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin:0;padding: 0;}
+		ul,li{list-style: none;}
+		#nav{width:400px;height: 80px;margin:20px auto;}
+		#nav>li{float: left;border:1px solid #000;position: relative;}
+		#nav>li>a{width: 80px;padding: 0 8px;float: left;height: 40px;text-align: center;text-decoration: none;background: #ccc;line-height: 40px;}
+		#nav>li>ul{opacity: 0;height: 0;position: absolute;top:40px;}
+		#nav>li>.active{background: yellow;}
+		#nav>li>ul>li{width: 80px;padding: 0 8px;text-align: center;background: #ccc;line-height: 40px;}
+	</style>
+</head>
+<body>
+	<ul id="nav">
+		<li>
+			<a href="">首页</a>
+			<ul>
+				<li>首页1</li>
+				<li>首页1</li>
+				<li>首页1</li>
+			</ul>
+		</li>
+		<li>
+			<a href="">产品</a>
+			<ul>
+				<li>产品1</li>
+				<li>产品1</li>
+				<li>产品1</li>
+			</ul>
+		</li>
+		<li>
+			<a href="">web前端</a>
+			<ul>
+				<li>web前端1</li>
+				<li>web前端1</li>
+				<li>web前端1</li>
+			</ul>
+		</li>
+		<li>
+			<a href="">ui设计</a>
+			<ul>
+				<li>ui设计1</li>
+				<li>ui设计1</li>
+				<li>ui设计1</li>
+			</ul>
+		</li>
+	</ul>
+</body>
+</html>
+<script>
+var oNav = document.getElementById('nav');
+var aA = document.querySelectorAll('#nav>li>a');
+var aUl = document.querySelectorAll('#nav>li>ul');
+console.log(aA)
+for(var i=0;i<aA.length;i++){
+	aA[i].index = i
+	aA[i].onmouseover = function(){
+		for(var j=0;j<aUl.length;j++){
+			aUl[j].style.opacity ='0';
+			aUl[j].style.height = 0;
+			aA[j].className = '';
+		}
+		move(aUl[this.index])
+		aUl[this.index].style.height = 'auto';
+		this.className = 'active';
+	}
+}
+
+function move(obj){
+	var att = 0;
+	var timer = setInterval(function(){
+		att+=10;
+		if(att==100){
+			clearInterval(timer)
+		}
+		att/=100
+		obj.style.opacity=att;
+		
+		att*=100
+		console.log(att)
+	},300)
+}
+</script>
