@@ -662,18 +662,16 @@
                 //
                 getAli[i].onmouseout=function () {
                     //
-                    for(var j=0;j<getAdl.length;j++){
-                        //
-//                        getAli[i].className="none";
-                        //
+                    for(var j=0;j<getAli.length;j++){
+                        //处理 dl
                         getAdl[j].style.display="none";
+                        //处理 a 标签
                         getAa[j].className="";
                     }
-//                    getAli[this.key].className="active";
-//                    this.className="active";
+                    //
                     getAa[this.key].className="spe";
-//                    getAdl[this.key].style.display="none";
-
+                    //
+                    this.className="active";
                 }
             }
 

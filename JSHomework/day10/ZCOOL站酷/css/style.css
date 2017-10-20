@@ -37,16 +37,15 @@ header .nav li{
     text-align: center;
     width: 74px;
 }
-header .nav li a {
-    display: block;
-    /*padding: 0 25px;*/
-    width: 100%;
-    font: 12px/56px "";
-    color: #000;
-}
-
 header .nav li.active {
     background: #282828;
+}
+header .nav li a {
+display: block;
+/*padding: 0 25px;*/
+width: 100%;
+font: 12px/56px "";
+color: #000;
 }
 
 header .nav li a.spe {
