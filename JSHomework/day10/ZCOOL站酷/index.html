@@ -14,7 +14,8 @@
     <!-- nav -->
     <ul class="nav" id="list">
         <li class="active">
-            <a href="#">首页</a>
+            <a href="#" class="spe">首页</a>
+            <dl></dl>
         </li>
         <li>
             <a href="#">发现</a>
@@ -642,28 +643,40 @@
             for(var i=0;i<getAli.length;i++){
                 //获取i值
                 getAli[i].key=i;
-                //移入事件
+                //li移入事件
                 getAli[i].onmouseover=function () {
                     //
-                    for(var j=0;j<getAdl.length;j++){
-                        //
+                    for(var j=0;j<getAli.length;j++){
+                        //处理 dl
                         getAdl[j].style.display="none";
-                        getAa[j].className="none";
+                        //
+                        getAli[j].className="none";
                     }
-                    this.style.display="block";
-
+                    //显示 dl
+                    getAdl[this.key].style.display="block";
+                    //改变 a 标签字体
+                    getAa[this.key].className="spe";
+                    //改变 li 的 background
+                    this.className="active";
                 }
-                //移出事件
+                //
                 getAli[i].onmouseout=function () {
                     //
                     for(var j=0;j<getAdl.length;j++){
                         //
+//                        getAli[i].className="none";
+                        //
                         getAdl[j].style.display="none";
+                        getAa[j].className="";
                     }
-                    this.style.display="block";
+//                    getAli[this.key].className="active";
+//                    this.className="active";
+                    getAa[this.key].className="spe";
+//                    getAdl[this.key].style.display="none";
 
                 }
             }
+
         }
 
         /**
