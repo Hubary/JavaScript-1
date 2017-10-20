@@ -5,6 +5,20 @@
  *description: 本类库用于封装常用方法,以供调用
  */
 
+/**
+ *
+ * @param a
+ * @param b
+ */
+function change(a,b) {
+    var arr=[];
+    a= a+b;
+    b=a-b;
+    a=a-b;
+    arr.push(a);
+    arr.push(b);
+    return arr;
+}
 
 /**
  * 功能: 不足位数时前置补0
@@ -172,4 +186,19 @@ function getCookie(userName) {
 function removeCookie(userName,value) {
     //调用setCookie,提前过期时间,来实现删除功能
     setCookie(userName,value,-1);
+}
+
+/**
+ *
+ * @param arr
+ */
+function getNumOfArrEle(arr) {
+    var numArr=arr.reduce(function (allEle,ele) {
+        if(ele in allEle){
+            allEle[ele]++;
+        }else {
+            allEle[ele]=1;
+        }
+        return allEle;
+    },{})
 }

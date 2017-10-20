@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#box{width:100px;height: 100px;background: red;}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+</html>
+<script>
+'use strict'
+	/*
+		严格模式:
+			'use strict'
+
+		严格模式主要体现在哪
+
+			变量必须要用var 定义
+			function fn(){
+				a = 10;
+			}
+			fn()
+			console.log(a)
+
+
+			this的指向不允许在指向window---特殊的情况：定时器  还会把this指向window
+
+			在严格模式下不允许删除变量
+
+		严格模式的作用
+			增加了报错的场合
+			消除了代码的隐患
+			保证了代码的运行环境
+			提高了编译效率
+			为未来的新版本作了铺垫
+
+	 */
+
+
+//this:当前执行这个函数的对象     我最帅
+//this:指向发生改变的2种情况
+//1、定时器会改变this的指向
+//2、事件里面的函数会改变this的指向
+
+	//如何函数里面套函数的话 子函数的this指向会指向window
+function fn(){
+	console.log(this)
+}
+
+//fn()
+
+var oBox = document.getElementById('box');
+
+
+/*oBox.onclick = function(){
+	fn();
+	console.log(this)	
+}
+
+oBox.onclick = function fn(){
+	console.log(this)
+}*/
+
+/*oBox.onclick = function(){
+	fn();
+}
+*/
+
+
+
+var a = 10;   //美女    美女
+delete a;	 //我想娶你  我想娶你
+console.log(a) //娶不到  但是你过了下嘴瘾   娶不到  反而被别人抓起来了
+</script>

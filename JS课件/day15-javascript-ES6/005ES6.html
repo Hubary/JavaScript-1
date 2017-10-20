@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul id="list">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+	</ul>
+</body>
+</html>
+<script>
+	/*
+			ES6:  ECMASCRIPT:第6个版本
+
+		var：ES5之前定义变量 
+		let: ES6定义变量  
+			1、let定义的变量在块级作用之外是无法进行访问的
+			2、不会进行变量的声明提升  配合let使用
+			3、在作用域内变量不允许重复的进行定义  let
+			4、可以保留块级作用域里面的变量
+		const: ES6定义变量
+			定义常量  不可修改的量
+			1、不允许改变const里面的值
+			2、不会进行变量的声明提升  配合conts使用
+
+
+		什么是块级作用域
+			在js里面凡是用{}包裹起来的都是块级作用域  除对象以外
+			if(){}
+			for(){}
+			function(){}
+			switch(){}
+			do..while
+			while(){}
+			....
+
+
+			
+			function fn(){
+				var a;
+				console.log(a);
+				a = 10;
+				console.log(a)
+			}
+			fn()
+
+			function fn(){
+				console.log(a);
+				let a = 10;
+				console.log(a)
+			}
+			fn()
+		---------------------------------------------
+		function fn(){
+			var a = 10;
+			var a = 20;
+			console.log(a)
+		}
+		fn()
+
+		function fn(){
+			let a = 10;
+			let a = 20;
+			console.log(a)
+		}
+		fn()
+
+
+
+	//const a = 3.14;
+	//a = 3.1415926
+	//console.log(a)
+	
+	/*function fn(){
+		console.log(a)
+		const a = 10
+		console.log(a)
+	}
+	fn()
+
+			有什么作用
+			不会进行变量的声明提升  配合let使用
+			在作用域内变量不允许重复的进行定义  let
+	 */
+//	-----------------------------let---------------
+	//var a = 10;
+	/*let a = 10;
+	console.log(a)*/
+/*
+	for(let i=0;i<10;i++){
+		//console.log(i)
+	}
+	console.log(i)*/
+	/*for(var  i=0;i<10;i++){
+		
+	}
+	console.log(i)*/
+
+
+//-------------------------------let----------------------------
+	/*var oList = document.getElementById('list');
+	var aLi = oList.getElementsByTagName('li');
+	for(let i =0;i<aLi.length;i++){
+		aLi[i].onclick = function(){
+			console.log(i)
+		}
+	}
+*/
+	/*for(var i=0;i<aLi.length;i++){
+		aLi[i].onclick = function(){
+			console.log(i)
+		}
+	}*/
+
+
+</script>

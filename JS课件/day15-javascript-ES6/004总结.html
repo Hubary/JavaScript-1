@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script>
+	/*
+		严格模式
+			'use strict'
+
+		严格模式下js代码的体系
+			1、变量必须要用var定义
+
+			2、this的指向不可以指向window  定时器除外
+
+			3、不允许删除变量
+
+		什么是this？
+			当前对象指向函数的时候this的指向是当前对象
+		this指向方法改变的2种情况
+			1、事件下this会发生改变
+
+			2、定时器的时候this会发生改变
+
+
+		bind:
+			作用：绑定this的指向，让this不在随意改动
+			bind绑定的方式
+				因为bind是一个方法所以有() 括号里面写的是this要执行的对象
+			字面量绑定
+				--立即执行函数的绑定
+					(function(){
+						console.log(this)
+					}.bind(document))()
+			关键子函数的绑定方式
+				function fn(){
+					console.log(this)
+				}
+
+			对象.onclick = function(){
+				fn.bind(绑定的对象)()
+			}
+	 */
+</script>

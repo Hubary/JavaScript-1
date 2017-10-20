@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<!-- <li>
+		<img src="img/1.jpg">
+		<p class="title">面包</p>
+		<p class="pirce">6</p>
+		<a href="##">-</a>
+		<input type="text" value="1">
+		<a href="##">+</a>
+		<a href="##" class="del">删除</a>
+	</li> -->
+</body>
+</html>
+<script>
+	/*
+		ES6字符串模板   兼容性不太好
+
+		``:做字符串拼接
+		${}:做数据的拼接   {}里面是变量 
+		includes:查找字符串中是否存在某个字符   返回值是true  false
+		startsWith:查找字符串中首字符是否是相对应的字符
+		endsWith:查找尾字符中是否已相应的字符结尾
+		repeat:重复字符串; 参数是你重复的次数
+
+	 */
+	
+	/*str+='<li data-num='+obj[i].id+'><img src='+obj[i].imgres+'><p class="title">'+obj[i].title+'</p><p class="pirce">'+obj[i].price+'</p><a href="##">-</a><input type="text" value="1"><a href="##">+</a><a href="##" class="del">删除</a></li>'*/
+	/*var obj = {
+		'name':'陈翔',
+		'pirce':'$6.6',
+		'sex':'不详'
+	}
+	var str = `<li>
+		<img src="img/1.jpg">
+		<p class="title">${obj.name}</p>
+		<p class="pirce">${obj.pirce}</p>
+		<a href="##">-</a>
+		<input type="text" value="1">
+		<a href="##">+</a>
+		<a href="##" class="del">${obj.sex}</a>
+	</li>`;
+
+	document.body.innerHTML = str*/
+
+	/*var str = '你结婚的时候一定要给誉王说一声,我见过你所有的样子，唯独没有见过你穿婚纱的样子';
+
+	console.log(str.includes('誉王'))*/
+
+	//var str = '如你现男友和前男友都掉进水里,那么你介意不介意我做你男朋友';
+	//console.log(str.startsWith('你'))
+	
+
+	/*var str = '你结婚的时候一定要告诉我,我要薅着新郎的脖子告诉他，你是我18岁就开始的梦';
+
+	console.log(str.endsWith('的'));*/
+/*
+	var str = '宝贝，请打开你的窗户，看一下朕给你打下的江山';
+
+	console.log(str.repeat(3))*/
+
+		
+</script>

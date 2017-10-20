@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+</body>
+</html>
+<script>
+    /*
+        在严格模式下this的指向不允许指向window  但是唯独定时器可以
+
+        因为this的指向老是出现变化，跟一个墙头草差不多，因此我们可以改变这种状况
+
+        bind:绑定this的指向
+            因为this喜欢雨露均沾   但是我就想让this独宠我一人  因此我就拿出了bind
+            bind是一个函数所有有() 括号里面写的是要绑定的对象
+
+
+            字面量的绑定方式
+                var fn = function(){
+                    console.log(this)
+                }
+            bind使用的方法：当去调用这个函数的的时候去给这个函数绑定this的指向
+            在函数{}之外 或者在立即执行函数之外加bind都可以
+
+            fn.bind(document)()
+
+
+            如果在事件里面如何进行使用
+                对象.onclick = function(){
+                    fn.bind(document)()
+                }
+
+            关键字函数绑定this
+
+
+     */
+/*
+
+        setInterval(function(){
+            console.log(this)
+        }.bind(document),1000)
+*/
+
+
+
+    //函数在调用的时候才可以进行绑定
+
+    //外部绑定
+    /*
+        (function fn(){
+            console.log(this)
+        }).bind(document)()//this指向document
+        */
+
+
+    //内部绑定
+    (function fn() {
+        console.log(this);
+    }.bind(document.getElementById("box")))()//this指向oBox
+
+
+
+    /**
+     *
+     */
+
+    function fn() {
+        console.log(this)
+    }
+
+    var oBox = document.getElementById("box");
+    //
+    oBox.onclick = function () {
+        //
+        console.log(fn);//输出函数体
+        fn();//this指向window
+        fn.bind(document)();//this指向document
+        fn.bind(oBox)();//this指向oBox
+    }
+
+
+    /*	var oBox = document.getElementById('box')
+        oBox.onclick = function(){
+            fn.bind(oBox)()
+        }*/
+
+
+    var arr=[1,2,1,4,"1","1"];
+    console.log(new Set(arr));
+</script>
