@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script>
+	/*
+		=>:将function换成了=>  在箭头之间加一个() 括号里面是要传入的参数
+		
+
+
+	 */
+	
+
+	/*var fn = function(){
+		console.log(1)
+	}
+	fn()*/
+
+
+	/*var fn=(x)=>{
+		console.log(x)
+	}
+	fn(10)*/
+
+	var arr = [10,20,30,40,50];
+	/*arr.forEach(function(val,index,Array){
+		console.log(val)
+	})*/
+
+	/*arr.forEach((val)=>{
+		console.log(val)
+	})*/
+
+	/*var newArr = arr.map(function(val){
+		return val*=1.3
+	})*/
+	var newArr = arr.map((val)=>{
+		return val*=1.3
+	})
+	console.log(newArr)
+
+
+</script>

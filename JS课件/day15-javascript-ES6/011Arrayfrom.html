@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul id="list">
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+</body>
+</html>
+<script>
+	/*
+		Array.from:将伪数组/可以迭代的对象转换为数组
+
+	 */
+	
+	var oList = document.getElementById('list');
+	var aLi = Array.from(oList.getElementsByTagName('li'));
+	console.log(aLi instanceof Array)
+	for(var i in aLi){
+		aLi[i].style.background = 'red';
+	}
+</script>
