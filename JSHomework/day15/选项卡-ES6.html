@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选项卡-ES6</title>
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 600px;
+            height: 400px;
+            border: 1px solid #b6b6b6;
+            margin: 100px auto;
+            position: relative;
+        }
+
+        .container ul li {
+            list-style-type: none;
+            width: 600px;
+            height: 400px;
+            transition: 1s;
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+        }
+
+        .container ul li.show {
+            opacity: 1;
+        }
+
+        .container ul li img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .btn {
+            position: absolute;
+            z-index: 100;
+            width: 600px;
+            height: 30px;
+            display: flex;
+            bottom: 5%;
+            justify-content: center;
+        }
+
+        .btn span {
+            width: 30px;
+            height: 30px;
+            display: block;
+            border-radius: 50%;
+            background: #f99;
+            opacity: 0.8;
+
+        }
+
+        .btn i {
+            width: 20px;
+            height: 20px;
+        }
+
+        .btn span.active {
+            background: red;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <ul id="box">
+        <a href="#javascript">
+            <li class="show">
+                <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1487161953058&di=fc5f3f927a478b1a63f6316924bf7667&imgtype=0&src=http%3A%2F%2Fwww.wallcoo.com%2Fanimal%2FMX069_Pretty_Puppies_puppy_garden_adventure%2Fwallpapers%2F1280x1024%2FGarden_adventure_of_the_little_puppy_photos_pictures_puppy_MIL56003.jpg"
+                     alt="1111">
+            </li>
+        </a>
+        <a href="#javascript">
+            <li>
+                <img src="http://www.wallcoo.com/animal/Pet-Miniature-Schnauzer/wallpapers/1280x1024/Miniature-Schnauzer-puppy-photo-83448_wallcoo.com.jpg"
+                     alt="22222">
+            </li>
+        </a>
+        <a href="#javascript">
+            <li>
+                <img src="http://tupian.enterdesk.com/2012/0831/zyz/04/1345599339UDIPTP.jpg" alt="33333">
+            </li>
+        </a>
+    </ul>
+
+    <div class="btn" id="btn">
+        <span class="active"></span><i></i>
+        <span></span><i></i>
+        <span></span><i></i>
+    </div>
+
+</div>
+</body>
+</html>
+<script>
+    //    "use strict"
+    /**
+     * 选项卡-ES6.html
+     * author: jessie-zly
+     * 2017/10/20
+     * description: ES6 选项卡
+     */
+
+    window.onload = function () {
+        //
+        function tabSelect() {
+            //获取 li 和 span
+            var getAli = document.querySelectorAll("li");
+            var getAspan = document.querySelectorAll("span");
+            //遍历span
+            for (let i in getAspan) {
+                // span点击事件
+                getAspan[i].onclick = () => {
+                    //清空 span
+                    for (let j in getAspan) {
+                        getAspan[j].className = "";
+                    }
+                    //清空 li
+                    for (let k in getAli) {
+                        getAli[k].className = ""
+                    }
+                    //处理当前span 和 li
+                    getAli[i].className = "show";
+                    getAspan[i].className = "active";//当前 this 指向 window
+                }
+            }
+        }
+
+        //test
+        tabSelect();
+    }
+
+
+</script>

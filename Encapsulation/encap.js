@@ -6,11 +6,11 @@
  */
 
 /**
- *
- * @param a
- * @param b
+ * 功能: 交换两个数的值
+ * @param a 数1
+ * @param b 数2
  */
-function change(a,b) {
+function changeNum(a,b) {
     var arr=[];
     a= a+b;
     b=a-b;

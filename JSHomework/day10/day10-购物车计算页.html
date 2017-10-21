@@ -149,9 +149,9 @@
             var num = this.nextElementSibling.value;
             num--;
             //判断num是否小于0
-            if (num <= 0) {
+            if (num <= 1) {
                 //如果num<=0,则默认num=0
-                num = 0;
+                num = 1;
             }
             this.nextElementSibling.value = num;
             this.parentNode.nextElementSibling.children[1].children[0].innerHTML = price * num;

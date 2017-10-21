@@ -2,6 +2,7 @@
   <dictionary name="Jessie">
     <words>
       <w>dblclick</w>
+      <w>olist</w>
       <w>onblur</w>
       <w>onfocus</w>
       <w>oninput</w>
@@ -14,6 +15,7 @@
       <w>onmousewheel</w>
       <w>onsubmit</w>
       <w>tcol</w>
+      <w>tupian</w>
     </words>
   </dictionary>
 </component>
