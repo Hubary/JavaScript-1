@@ -110,46 +110,46 @@
 	/*var aA = document.getElementsByClassName('a')
 	console.log(aA)*/
 
-	function getClassName(parent,aClass){
-		//获取到父元素底下所有的子元素
-		var aEle = parent.getElementsByTagName('*');
-		var arr = [];
-		//匹配传进来的这个字符是不是一个边界符
-		var reg = new RegExp('\\b'+aClass+'\\b');
-		for(var i=0;i<aEle.length;i++){
-			if(reg.test(aEle[i].className)){
-				arr.push(aEle[i])
-			}
-		}
-		return arr;
-	}
-	var oBox = document.getElementById('box');
-	var aClass = getClassName(oBox,'a');
-	console.log(aClass)
+//	function getClassName(parent,aClass){
+//		//获取到父元素底下所有的子元素
+//		var aEle = parent.getElementsByTagName('*');
+//		var arr = [];
+//		//匹配传进来的这个字符是不是一个边界符
+//		var reg = new RegExp('\\b'+aClass+'\\b');
+//		for(var i=0;i<aEle.length;i++){
+//			if(reg.test(aEle[i].className)){
+//				arr.push(aEle[i])
+//			}
+//		}
+//		return arr;
+//	}
+//	var oBox = document.getElementById('box');
+//	var aClass = getClassName(oBox,'a');
+//	console.log(aClass)
+//
+//
+//
+//		/^-{1}((0{1}\.[1-9]+|(0{1}\.\d+[1-9]+0{0,}|0{1}\d+))|((([1-9]+\d+\.\d+|[1-9]+\d+\.)|[1-9]+\.?)|[1-9]+))$/.test('-10.90')
+//
+//
+//
+//
+//
+//
+//
+//
+//		/^-[0]*\d*\.?\d*[1-9]+0*/.test('')
+//
+//		^- 首先-号开头
+//		[0]* 0出现0次或者多次
+//		\d* 数字出现0次或者多次
+//		\.? 出现1次或者0
+//		\d* 数字出现0次或者多次
+//		[1-9]+ 出现1次或者多次
+//		0 出现0次或者多次
+//
+//
+//
+//		^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}([0-9]|X)$/;
 
-
-	/*
-		/^-{1}((0{1}\.[1-9]+|(0{1}\.\d+[1-9]+0{0,}|0{1}\d+))|((([1-9]+\d+\.\d+|[1-9]+\d+\.)|[1-9]+\.?)|[1-9]+))$/.test('-10.90')
-		
-		
-	
-
-
-
-
-
-		/^-[0]*\d*\.?\d*[1-9]+0*/.test('')
-
-		^- 首先-号开头  
-		[0]* 0出现0次或者多次
-		\d* 数字出现0次或者多次
-		\.? 出现1次或者0
-		\d* 数字出现0次或者多次
-		[1-9]+ 出现1次或者多次
-		0 出现0次或者多次
-
-
-
-		^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}([0-9]|X)$/;
-	 */
 </script>

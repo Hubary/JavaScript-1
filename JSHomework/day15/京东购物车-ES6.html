@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>京东购物车页</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #content {
+            width: 1100px;
+            margin: 50px auto;
+        }
+
+        #show {
+            box-sizing: border-box;
+            padding: 5px;
+            background: #eee;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #show dd {
+            margin-right: 100px;
+            font: 14px/20px "";
+        }
+
+        #list {
+            margin-top: 10px;
+        }
+
+        #list li {
+            height: 80px;
+            list-style: none;
+            overflow: hidden;
+            padding: 10px 0;
+            background: #FFF4E8;
+        }
+
+        #list li .select {
+            display: block;
+            float: left;
+            margin-top: 30px;
+            width: 15px;
+            margin-right: 5px;
+        }
+
+        #list li img {
+            display: block;
+            width: 80px;
+            height: 80px;
+            float: left;
+            margin-right: 10px;
+        }
+
+        #list li p {
+            margin-top: 20px;
+            display: block;
+            float: left;
+            width: 250px;
+            font: 14px/20px "";
+        }
+
+        #list li span {
+            display: block;
+            float: left;
+            color: #ff0000;
+            font: 700 14px/20px "";
+            margin: 30px -5px;
+            width: 100px;
+            text-align: center;
+        }
+
+        #list li > div {
+            float: left;
+            display: flex;
+            justify-content: flex-start;
+            margin: 20px 90px;
+        }
+
+        #list li > div > button {
+            width: 20px;
+            height: 20px;
+            margin: 5px 3px;
+        }
+
+        #list li > div > input {
+            width: 50px;
+            font: 14px/20px "";
+            text-align: center;
+            margin: 0 5px;
+        }
+
+        #list li .delete {
+            display: block;
+            float: left;
+            font: 14px/20px "";
+            margin: 30px 0 30px 110px;
+            border: none;
+            background: #FFF4E8;
+        }
+
+
+    </style>
+</head>
+<body>
+<div id="content">
+    <dl id="show">
+        <dd><input type="checkbox" id="all"><label for="all">全选</label></dd>
+        <dd>商品</dd>
+        <dd>单价</dd>
+        <dd>数量</dd>
+        <dd>小计</dd>
+        <dd>操作</dd>
+    </dl>
+    <ul id="list">
+        <!--<li>
+            <input type="checkbox" class="select">
+            <img src="images/m8.jpg" >
+            <p>Apple MacBook Pro 13.3英寸笔记本电脑 深空灰色（2017新款Core i5处理器/8GB</p>
+            <span>¥ 14488.00</span>
+            <div>
+                <button class="re">-</button>
+                <input type="text" value="1">
+                <button class="add">+</button>
+            </div>
+            <span>¥ 14488.00</span>
+            <button class="delete">删除</button>
+        </li>-->
+    </ul>
+</div>
+
+</body>
+</html>
+<script src="../../Encapsulation/encap.js"></script>
+<script>
+    let obj = [
+        {
+            "id": "01",
+            "img": "images/m1.jpg",
+            "desc": "Apple MacBook Pro 13.3英寸笔记本电脑 深空灰色（2017新款Core i7处理器/16GB",
+            "price": "¥ 14488.00",
+            "num": "1",
+            "totalPrice": "¥ 14488.00"
+        },
+        {
+            "id": "02",
+            "img": "images/m2.jpg",
+            "desc": "Apple MacBook Pro 13.3英寸笔记本电脑 深空灰色（2017新款Core i5处理器/16GB",
+            "price": "¥ 10288.00",
+            "num": "1",
+            "totalPrice": "¥ 10288.00"
+        },
+        {
+            "id": "03",
+            "img": "images/m3.jpg",
+            "desc": "Apple MacBook Pro 13.3英寸笔记本电脑 深空灰色（2017新款Core i5处理器/8GB",
+            "price": "¥ 9888.00",
+            "num": "1",
+            "totalPrice": "¥ 9888.00"
+        },
+        {
+            "id": "04",
+            "img": "images/m4.jpg",
+            "desc": "Apple MacBook Pro 13.3英寸笔记本电脑 深空灰色（2017新款Core i5处理器/8GB",
+            "price": "¥ 8688.00",
+            "num": "1",
+            "totalPrice": "¥ 8688.00"
+        },
+        {
+            "id": "05",
+            "img": "images/m5.jpg",
+            "desc": "Apple MacBook Pro 13.3英寸笔记本电脑 深空灰色（2017新款Core i7处理器/8GB",
+            "price": "¥ 12988.00",
+            "num": "1",
+            "totalPrice": "¥ 12988.00"
+        },
+        {
+            "id": "06",
+            "img": "images/m6.jpg",
+            "desc": "Apple MacBook Pro 13.3英寸笔记本电脑 深空灰色（2017新款Core i5处理器/8GB",
+            "price": "¥ 7688.00",
+            "num": "1",
+            "totalPrice": "¥ 7688.00"
+        },
+        {
+            "id": "07",
+            "img": "images/m7.jpg",
+            "desc": "Apple MacBook Pro 13.3英寸笔记本电脑 深空灰色（2017新款Core i5处理器/16GB",
+            "price": "¥ 8288.00",
+            "num": "1",
+            "totalPrice": "¥ 8288.00"
+        },
+        {
+            "id": "08",
+            "img": "images/m8.jpg",
+            "desc": "Apple MacBook Pro 13.3英寸笔记本电脑 深空灰色（2017新款Core i5处理器/8GB",
+            "price": "¥ 7288.00",
+            "num": "1",
+            "totalPrice": "¥ 8288.00"
+        }
+    ]
+</script>
+<script>
+    /**
+     * 京东购物车-ES6.html
+     * author: jessie-zly
+     * 2017/10/22
+     * description: 复杂版购物车页
+     */
+    window.onload = () => {
+
+        //
+        function shoppingCart() {
+            //
+            let getOlist = document.querySelector("#list");
+            //
+            if (getCookie("initID")) {
+                //获取 cookie
+                let cookie = getCookie("initID");
+                let jsonObj = JSON.parse(cookie);// 转换为 json 对象
+                let str = "";
+                //
+                for (let i in obj) {
+                    //
+                    for (let key in jsonObj) {
+                        //判断 obj 的 id 这个键对应的值与 jsonObj 的某个键是否相匹配
+                        if (obj[i].id == key) {
+                            //如果匹配,则key 对应的值就为数量
+                            obj[i].num = jsonObj[key];
+                            //处理 price
+                            obj[i].price = obj[i].price.substring((obj[i].price.indexOf(" ") + 1));
+                            //总价
+                            obj[i].totalPrice = parseFloat(obj[i].price * jsonObj[key]).toFixed(2);
+                            //
+                            str += `<li data-id="${obj[i].id}">
+                                        <input type="checkbox" class="select">
+                                        <img src="${obj[i].img}" >
+                                        <p>${obj[i].desc}</p>
+                                        <span>${obj[i].price}</span>
+                                        <div>
+                                            <button class="re">-</button>
+                                            <input type="text" value="${obj[i].num}">
+                                            <button class="add">+</button>
+                                        </div>
+                                        <span>${obj[i].totalPrice}</span>
+                                        <button class="delete">删除</button>
+                                    </li>`;
+                        }
+                    }
+
+
+                }
+                // 输出
+                getOlist.innerHTML = str;
+            }
+
+            /**
+             * 全选处理
+             */
+            let getAselect = document.querySelectorAll(".select");
+            let getAall = document.querySelector("#all");
+            //全选点击事件
+            getAall.onclick = () => {
+                //判断是否全选
+                if (getAall.checked) {
+                    //处理全选
+                    for (let i in getAselect) {
+                        getAselect[i].checked = "checked";
+                    }
+                } else {
+                    //处理全部取消
+                    for (let i in getAselect) {
+                        getAselect[i].checked = "";
+                    }
+                    getAall.checked = "";
+                }
+
+            }
+
+            /**
+             * 处理数量加减
+             */
+
+                //加
+            let getAdd = document.querySelectorAll(".add");
+            for (let i in getAdd) {
+                //
+                getAdd[i].onclick = () => {
+                    //获取数量
+                    let count = getAdd[i].previousElementSibling.value;
+                    //
+                    count++;
+                    //重新显示数量
+                    getAdd[i].previousElementSibling.value = count;
+                    //总价处理
+                    let price = getAdd[i].parentNode.previousElementSibling.innerHTML;
+                    price = price.substring(price.indexOf(" ") + 1);
+                    let total = parseFloat(price * count);
+                    //显示总价
+                    getAdd[i].parentNode.nextElementSibling.innerHTML = total.toFixed(2);
+                }
+            }
+            //减
+            let getAre = document.querySelectorAll(".re");
+            for (let i in getAre) {
+                //
+                getAre[i].onclick = () => {
+                    //
+                    let count = getAre[i].nextElementSibling.value;
+                    //
+                    count--;
+                    //
+                    if (count <= 1) {
+                        count = 1;
+                    }
+                    //重新显示数量
+                    getAre[i].nextElementSibling.value = count;
+                    //总价处理
+                    let price = getAre[i].parentNode.previousElementSibling.innerHTML;
+                    price = price.substring(price.indexOf(" ") + 1);
+                    let total = parseFloat(price * count);
+                    //显示总价
+                    getAre[i].parentNode.nextElementSibling.innerHTML = total.toFixed(2);
+                }
+            }
+
+            /**
+             * 删除操作
+             */
+
+            let getAdel = document.querySelectorAll(".delete");
+
+            //遍历方式处理
+//            for(let i in getAdel){
+//                getAdel[i].onclick=()=>{
+//                    getAdel[i].parentNode.remove;
+//                }
+//            }
+
+            //托管方式处理
+            for (let i in getAdel) {
+                getAdel[i].onclick = (event) => {
+                    event = event || window.event;
+                    let target = event.target || event.srcElement;
+                    if (target.tagName.toLowerCase() == "button" && target.className == "delete") {
+                        target.parentNode.remove();
+                    }
+                }
+            }
+        }
+
+        //test
+        shoppingCart();
+    }
+
+</script>

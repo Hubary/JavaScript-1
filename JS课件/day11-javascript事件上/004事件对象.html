@@ -1,138 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-	<style>
-		*{margin:0;padding:0;}
-		#box{width: 100px;height: 200px;background: red;margin-left: 100px;margin-top: 100px;}
-		.box1{width: 100px;height: 200px;background: green;}
-		.box2{width: 50px;height: 200px;background: #000;}
-		#box:hover~.box1 .box2{background: blue;}
-		#txt{left:200px;top: 100px;}
-	</style>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            width: 100px;
+            height: 200px;
+            background: red;
+            margin-left: 100px;
+            margin-top: 100px;
+        }
+
+        .box1 {
+            width: 100px;
+            height: 200px;
+            background: green;
+        }
+
+        .box2 {
+            width: 50px;
+            height: 200px;
+            background: #000;
+        }
+
+        #box:hover ~ .box1 .box2 {
+            background: blue;
+        }
+
+        #txt {
+            left: 200px;
+            top: 100px;
+        }
+    </style>
 </head>
 <body style="height:3000px;">
-	<div id="box"></div>
-	<textarea name="" id="txt" cols="80" rows="30"></textarea>
+<div id="box"></div>
+<textarea name="" id="txt" cols="80" rows="30"></textarea>
 </body>
 </html>
 <script>
-	/*
-		常见的事件哪些？
-			鼠标事件
-				onclick
-				dblclick
-				onmouseover:鼠标移入  
-				onmouseenter:鼠标移入   不会出现事件冒泡
-				onmouseout:鼠标移出
-				onmouseleave:鼠标移出   不会出现事件冒泡
-				onmousemove:鼠标移动
-				onmousedown:鼠标按下
-				onmouseup:鼠标抬起
-				onmousewheel:鼠标滚动
+    /*
+        常见的事件哪些？
+            鼠标事件
+                onclick
+                dblclick
+                onmouseover:鼠标移入
+                onmouseenter:鼠标移入   不会出现事件冒泡
+                onmouseout:鼠标移出
+                onmouseleave:鼠标移出   不会出现事件冒泡
+                onmousemove:鼠标移动
+                onmousedown:鼠标按下
+                onmouseup:鼠标抬起
+                onmousewheel:鼠标滚动
 
-			键盘事件
-				onkeydown
-				onkeyup
-				onkeypress
+            键盘事件
+                onkeydown
+                onkeyup
+                onkeypress
 
-			输入框事件
-				onfocus
-				onblur
-				onchange
-				oninput
-				onsubmit
+            输入框事件
+                onfocus
+                onblur
+                onchange
+                oninput
+                onsubmit
 
-		什么是一个事件？
-			在网页上用户的某种操作
+        什么是一个事件？
+            在网页上用户的某种操作
 
-		事件分为两部分
-			事件类型
-			事件预处理函数
+        事件分为两部分
+            事件类型
+            事件预处理函数
 
-			事件类型    预处理函数
-		obj.onclick  = function(){
-		
-		}
+            事件类型    预处理函数
+        obj.onclick  = function(){
 
-		
-
-		:target ------》有些效果没有办法完成
-		:hover ----->   有些效果无法完成
-		共同的特别：触发的范围有局限
-
-		项目规定：css能完成的事情 不允许用js去写
+        }
 
 
 
-		从前有一个老大window 手下有一个特能干的小伙子叫事件。给事件这个小伙子找了一个对象
-		但是这个对象害羞。你叫她她才出来，你不叫她她就不出来。事件的对象了解事件所以的信息 
+        :target ------》有些效果没有办法完成
+        :hover ----->   有些效果无法完成
+        共同的特别：触发的范围有局限
 
-		事件是隶属于window
-		事件的对象是属于事件的
-		只有事件叫她出来她才会出来
-		事件的对象都知道事件所有的信息
-
-
-		当往预处理函数里面传递第一个参数的时候这个参数就是一个对象
-
-
-		什么是一个事件对象？
-			当时间处理函数执行的时候，如果想要获取鼠标的信息  或者键盘的信息等的时候 我们就可以使用事件对象
+        项目规定：css能完成的事情 不允许用js去写
 
 
 
-			事件源：网页里面的一些元素
+        从前有一个老大window 手下有一个特能干的小伙子叫事件。给事件这个小伙子找了一个对象
+        但是这个对象害羞。你叫她她才出来，你不叫她她就不出来。事件的对象了解事件所以的信息
 
-			事件类型：onclick  
-
-			事件对象:获取事件里面的一些信息
-
-			事件预处理函数：需要执行的一段代码
-			
-			对象的兼容性问题：e  event
-			关于对象：在IE里面可以不用传形参  但是火狐 谷歌必须传 
-			iE里面这个对象的名字叫event  
+        事件是隶属于window
+        事件的对象是属于事件的
+        只有事件叫她出来她才会出来
+        事件的对象都知道事件所有的信息
 
 
+        当往预处理函数里面传递第一个参数的时候这个参数就是一个对象
 
 
-			了解事件对象
-				button:  e.button返回值：0代表左键  1代表滚轮   2代表右键
+        什么是一个事件对象？
+            当时间处理函数执行的时候，如果想要获取鼠标的信息  或者键盘的信息等的时候 我们就可以使用事件对象
 
-				坐标
-					clientX   clientY
-					offsetX   offsetY
-					pageX      pageY
-					screenX    screenY
 
-	 */
-	
-	 var oBox = document.getElementById('box');
-	 oBox.onclick = function(e){
-	 	var e = e||event;
-	 	console.log(e)
 
-	 }
+            事件源：网页里面的一些元素
+
+            事件类型：onclick
+
+            事件对象:获取事件里面的一些信息
+
+            事件预处理函数：需要执行的一段代码
+
+            对象的兼容性问题：e  event
+            关于对象：在IE里面可以不用传形参  但是火狐 谷歌必须传
+            iE里面这个对象的名字叫event
 
 
 
 
+            了解事件对象
+                button:  e.button返回值：0代表左键  1代表滚轮   2代表右键
 
-	 /*      
-	 	iE9以下不兼容:所有的都是IE9以下不兼容
-	 	
-		clientX   clientY:获取可视区的坐标  不算滚动条
-		offsetX   offsetY:获取当前元素鼠标的位置  跟可视区和滚动条没有半毛钱关系
-		pageX     pageY:获取当前页面的X轴和 y轴的一个位置   算滚动条的距离  iE9以下不兼容
-		screenX   screenY:可视区的窗口距离当前设备的一个距离  
-	 */
-	/*var oBox = document.getElementById('box');
-	var oTxt = document.getElementById('txt');
-	document.onclick = function(e){
-		/*txt.value = "pageX:"+e.clientX+"pageY:"+e.clientY*/
+                坐标
+                    clientX   clientY
+                    offsetX   offsetY
+                    pageX      pageY
+                    screenX    screenY
 
-		//console.log(e.screenX)
-	//}*/
+     */
+
+    var oBox = document.getElementById('box');
+    oBox.onclick = function (e) {
+        var e = e || event;
+        console.log(e)
+
+    }
+
+
+    /*
+        iE9以下不兼容:所有的都是IE9以下不兼容
+
+       clientX   clientY:获取可视区的坐标  不算滚动条
+       offsetX   offsetY:获取当前元素鼠标的位置  跟可视区和滚动条没有半毛钱关系
+       pageX     pageY:获取当前页面的X轴和 y轴的一个位置   算滚动条的距离  iE9以下不兼容
+       screenX   screenY:可视区的窗口距离当前设备的一个距离
+    */
+    /*var oBox = document.getElementById('box');
+    var oTxt = document.getElementById('txt');
+    document.onclick = function(e){
+        /*txt.value = "pageX:"+e.clientX+"pageY:"+e.clientY*/
+
+    //console.log(e.screenX)
+    //}*/
 </script>

@@ -18,7 +18,7 @@
         #list li {
             width: 240px;
             padding: 0 10px;
-            margin: 0 20px 20px 0;
+            margin: 10px;
             list-style: none;
             float: left;
         }
@@ -35,12 +35,14 @@
 
         #list li span {
             display: block;
+            margin: 5px 0;
             font: 14px/20px "";
             color: #f00;
         }
 
         #list li p {
             display: block;
+            margin: 5px 0;
             width: 100%;
             font: 12px/20px "";
         }
@@ -53,9 +55,10 @@
             text-decoration: none;
             width: 100px;
             text-align: center;
-            margin-bottom: 10px;
+            margin: 10px 0;
         }
-        #list li a.init{
+
+        #list li a.init {
             background: #FFF4E8;
         }
     </style>
@@ -149,12 +152,12 @@
      * 京东列表页-ES6.html
      * author: jessie-zly
      * 2017/10/21
-     * description: 复杂版
+     * description: 复杂版列表页
      */
 
-    window.onload = function () {
+    window.onload = () => {
         //
-        function shoppingCart() {
+        function shoppingList() {
             //
             let getOlist = document.querySelector("#list");
             let str = "";
@@ -167,10 +170,11 @@
                             <p>${obj[i].comment}</p>
                             <p>${obj[i].address}</p>
                             <a href="#">加入购物车</a>
-                        </li>`
+                        </li>`;
             }
             //页面输出
             getOlist.innerHTML = str;
+
 
             //商品添加数量信息
             let newObj = {}; //键==>id
@@ -178,6 +182,7 @@
             let num = 1;//初始化商品数量为1
             //获取 li
             let getArrLi = getOlist.querySelectorAll("#list>li");
+
             // 遍历
             for (let i in getArrLi) {
                 /**
@@ -189,9 +194,9 @@
                     event = event || window.event;
                     let target = event.target || event.srcElement;
                     //判断是否点击的为 a 标签
-                    if (target.targetName == "A") {
+                    if (target.tagName.toLowerCase() == "a") {//target.tagName== "A"也可以
                         //如果点击的为 a 标签,则先获取自定义属性对应json 中 id
-                        let id = this.getAttribute("data-id");
+                        let id = getArrLi[i].getAttribute("data-id");//箭头函数会改变 this 指向,所以不能用 this.getAttribute
                         // 判断商品添加数量的信息中是否有刚添加的商品
                         if (newObj[id]) {//键有对应的值,则newObj[id]返回 true
                             //如果有,则先获取原数量
@@ -208,6 +213,7 @@
                         let jsonStr = JSON.stringify(newObj);
                         //存入 cookie 中
                         setCookie("initID", jsonStr, 7);
+                        console.log(document.cookie);
                     }
                 }
 
@@ -227,19 +233,25 @@
 
             }
 
-
-            let getArra=document.querySelectorAll("a");
-            for(let i in getArra){
-                getArra[i].onclick=()=>{
-                    getArra[i].className="init";
+            //获取 a 标签
+            let getArra = document.querySelectorAll("a");
+            //遍历
+            for (let i in getArra) {
+                //移入事件
+                getArra[i].onmouseover = () => {
+                    getArra[i].className = "init";
                 }
-                getArra[i].className="";
+                //移出事件
+                getArra[i].onmouseout = () => {
+                    getArra[i].className = "";
+                }
+
             }
 
 
         }
 
         //test
-        shoppingCart();
+        shoppingList();
     }
 </script>
