@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选项卡</title>
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 600px;
+            height: 400px;
+            border: 1px solid #b6b6b6;
+            margin: 100px auto;
+            position: relative;
+        }
+
+        .container ul li {
+            list-style-type: none;
+            width: 600px;
+            height: 400px;
+            transition: 1s;
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+        }
+
+        .container ul li.show {
+            opacity: 1;
+        }
+
+        .container ul li img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .btn {
+            position: absolute;
+            z-index: 100;
+            width: 600px;
+            height: 30px;
+            display: flex;
+            bottom: 5%;
+            justify-content: center;
+        }
+
+        .btn span {
+            width: 30px;
+            height: 30px;
+            display: block;
+            border-radius: 50%;
+            background: #f99;
+            opacity: 0.8;
+
+        }
+
+        .btn i {
+            width: 20px;
+            height: 20px;
+        }
+
+        .btn span.active {
+            background: red;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <ul id="box">
+        <a href="#javascript">
+            <li class="show">
+                <img src="images/s1.jpg" alt="1111">
+            </li>
+        </a>
+        <a href="#javascript">
+            <li>
+                <img src="images/s2.jpg" alt="22222">
+            </li>
+        </a>
+        <a href="#javascript">
+            <li>
+                <img src="images/c1.jpg" alt="33333">
+            </li>
+        </a>
+    </ul>
+
+    <div class="btn" id="btn">
+        <span class="active"></span><i></i>
+        <span></span><i></i>
+        <span></span><i></i>
+    </div>
+</div>
+</body>
+</html>
+<script>
+    window.onload = () => {
+        /**
+         *day16-选项卡.html
+         *author:jessie-zly
+         *2017/10/23
+         *description:
+         */
+
+        function tabSelect() {
+            //
+            let getAli = document.querySelectorAll("li");
+            let getAspan = document.querySelectorAll("span");
+            //
+            for (let i in getAspan) {
+                //
+                getAspan[i].onclick = () => {
+                    //
+                    for (let j in getAspan) {
+                        getAspan[j].className = "";
+                    }
+                    //
+                    for (let j in getAli) {
+                        getAli[j].className = "";
+                    }
+                    //
+                    getAspan[i].className = "active";
+                    getAli[i].className = "show";
+                }
+            }
+        }
+
+        //
+        tabSelect();
+    }
+
+</script>

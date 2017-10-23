@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style>
+	div{width:100px;height: 100px;background: red;margin:10px;opacity: 0.3;}
+</style>
+<body>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div>周五就要考试了，加油！！！</div>
+</body>
+</html>
+<script>
+
+var aDiv = document.getElementsByTagName('div');
+aDiv[0].onclick = function(){
+	move(this,'opacity',100)
+}
+
+aDiv[1].onclick = function(){
+	move(this,'width',300)
+}
+
+aDiv[2].onclick = function(){
+	move(this,'height',300)
+}
+
+aDiv[3].onclick = function(){
+	move(this,'fontSize',60)
+}
+
+
+
+
+
+function getStyle(obj,attr){
+	if(obj.currentStyle){
+		return obj.currentStyle[attr]
+	}else{
+		return getComputedStyle(obj,false)[attr]
+	}
+}
+
+function move(obj,attr,iTarget){
+	clearInterval(obj.timer);
+	obj.timer=setInterval(function(){
+		var iCur = 0;
+		if(attr=='opacity'){
+			iCur = parseInt(parseFloat(getStyle(obj,attr))*100)
+		}else{
+			iCur = parseInt(getStyle(obj,attr))
+		}
+
+
+		//算速度
+		var speed = (iTarget-iCur)/8;
+		speed = speed>0?Math.ceil(speed):Math.floor(speed);
+
+		//判断
+		if(iCur==iTarget){
+			clearInterval(obj.timer)
+		}else{
+			if(attr=='opacity'){
+				obj.style.opacity = (iCur+speed)/100;
+				obj.style.filter = 'alpha(opacity:'+(iCur+speed)+')'
+			}else{
+				obj.style[attr]=iCur+speed+'px';
+			}
+		}
+	},30)
+}
+</script>

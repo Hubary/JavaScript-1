@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            width: 100px;
+            height: 100px;
+            background: #99ff99;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+</body>
+</html>
+<script>
+    let box = document.querySelector("#box");
+    let timer = null;
+    //兼容
+    let cw = document.body.clientWidth || document.documentElement.clientWidth;
+    let ch = document.body.clientHeight || document.documentElement.clientHeight;
+    //最大净偏移量
+    cw = cw - box.offsetWidth;
+    ch = ch - box.offsetWidth;
+
+    /**
+     * 移动
+     */
+    function move() {
+        clearInterval(timer);
+        //初始化偏移量
+        let left = 0;
+        let top = 0;
+        timer = setInterval(() => {
+            left += floatNum(5, 10);
+            top += floatNum((5 * (ch / cw)), 10);
+
+            //判断偏移量是否越界
+            if (box.offsetLeft >= cw || box.offsetTop >= ch) {
+                clearInterval(timer);
+                //
+                box.style.left = cw + "px";
+                box.style.top = ch + "px";
+            } else {
+                //
+                box.style.left = left + 'px';
+                box.style.top = top + 'px';
+            }
+        }, 10)
+
+    }
+
+    move();
+
+    function floatNum(f, digit) {
+        var m = Math.pow(10, digit);
+        return parseInt(f * m, 10) / m;
+    }
+
+</script>

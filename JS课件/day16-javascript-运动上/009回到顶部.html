@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin:0;padding: 0;}
+		#box{width:100px;height: 100px;background: red;position:absolute;right:0;}
+	</style>
+</head>
+<body style="height:3000px;">
+	<div id="box"></div>
+</body>
+</html>
+<script>
+var oBox = document.getElementById('box');
+var timer = null;
+var t = document.body.scrollTop||document.documentElement.scrollTop;
+oBox.style.top = t+document.documentElement.clientHeight/2-oBox.offsetHeight/2+'px';
+
+//如果有滚动条的时候我们需要实时获取滚动条的距离
+window.onscroll = function(){
+	var t = document.body.scrollTop||document.documentElement.scrollTop;
+	var target = t+document.documentElement.clientHeight/2-oBox.offsetHeight/2;
+
+		move(target)
+}
+
+
+function move(iTarget){
+	//第一步进来的时候先关闭上一个定时
+	clearInterval(timer);
+	//第二部在开启一个定时器
+	timer = setInterval(function(){
+		//进来以后第一步首先要获取速度  速度是由快到慢的一个过程
+		var speed = (iTarget-oBox.offsetTop)/8;
+		//速度取整 因为有除号肯定有小数，因此需要把小数干掉  
+		speed = speed>0?Math.ceil(speed):Math.floor(speed);	
+
+		//当起始点等于目标点的时候关闭定时器
+		if(oBox.offsetTop == iTarget){
+			clearInterval(timer)
+		}else{
+			//如何没有等于目标点的话那么就用自身的top+速度
+			oBox.style.top = oBox.offsetTop+speed+'px';
+		}
+	},30)
+}
+</script>

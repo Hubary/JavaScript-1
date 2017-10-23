@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin:0;padding: 0;}
+		#box{width: 100px;height: 100px;background: red;position: absolute;top: 40px;left:600px;}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+	<button id="btn">开始运动</button>
+	<div style="width:1px;height:300px;background:#000;position:absolute;left
+	:300px;top:0px;"></div>
+	<textarea name="" cols="80" rows="40" id="txt"></textarea>
+</body>
+</html>
+<script>
+/*
+	匀速运动：
+		0、匀速运动终止的条件：值>=目标值
+		1、不会停止：  需要加一个结束条件
+		2、速度会不断加快： 在掉定时器之前把当前定时器关闭
+		3、运动停止以后 元素还会继续运动：  把运动条件写在else里面
+
+		匀速运动：速度是定值   
+
+	缓冲运动：
+		速度有快得慢
+		速度的快慢跟什么有关？
+			距离有关
+				距离越大 速度越快
+				距离越小 速度越慢
+
+
+ */
+var oBox = document.getElementById('box');
+var oBtn = document.getElementById('btn');
+var oTxt = document.getElementById('txt');
+var timer = null;
+oBtn.onclick = function(){
+	move(300);
+}
+
+function move(iTarget){
+	clearInterval(timer);
+	timer = setInterval(function(){
+		//speed 必须由快到慢
+		var speed = (iTarget-oBox.offsetLeft)/20;
+		speed = speed>0?Math.ceil(speed):Math.floor(speed)
+		/*
+			300  0     /8    37.5
+			300  37.5  /8    32.8125
+
+		 */
+
+		if(oBox.offsetLeft==300){
+			clearInterval(timer)
+		}else{
+			oBox.style.left = oBox.offsetLeft+speed+'px';	
+			oTxt.value+= speed+"\n";
+		}
+	},30)
+}
+
+
+//缓存运动的终止条件
+//值===等于目标值
+//
+//
+//速度：不定值：  由快到慢
+</script>

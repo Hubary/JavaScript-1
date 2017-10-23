@@ -10,11 +10,11 @@
  * @param a 数1
  * @param b 数2
  */
-function changeNum(a,b) {
-    var arr=[];
-    a= a+b;
-    b=a-b;
-    a=a-b;
+function changeNum(a, b) {
+    var arr = [];
+    a = a + b;
+    b = a - b;
+    a = a - b;
     arr.push(a);
     arr.push(b);
     return arr;
@@ -183,22 +183,122 @@ function getCookie(userName) {
  * @param userName 想要删除的cookie的键
  * @param value 想要删除的cookie的值
  */
-function removeCookie(userName,value) {
+function removeCookie(userName, value) {
     //调用setCookie,提前过期时间,来实现删除功能
-    setCookie(userName,value,-1);
+    setCookie(userName, value, -1);
 }
 
 /**
- *
- * @param arr
+ * 功能: 统计数组中元素出现的个数,也可以进行去重
+ * @param arr 需要去重/统计的数组对象
  */
 function getNumOfArrEle(arr) {
-    var numArr=arr.reduce(function (allEle,ele) {
-        if(ele in allEle){
+    //
+    var obj = arr.reduce(function (allEle, ele) {
+        //判断数组元素是否在对象中出现
+        if (ele in allEle) {
             allEle[ele]++;
-        }else {
-            allEle[ele]=1;
+        } else {
+            allEle[ele] = 1;
         }
+        //返回处理过的对象
         return allEle;
-    },{})
+    }, {})
+    //返回处理过的数组对象
+    return obj;
 }
+
+/**
+ * 功能: 处理数字的小数问题,保留小数
+ * @param num 需要处理的数字
+ * @param digit 需要保留的位数
+ * @returns {number}
+ */
+function floatNum(num, digit) {
+    var m = Math.pow(10, digit);
+    return parseInt(f * m, 10) / m;
+}
+
+
+/**
+ * 功能: 获取非行间样式
+ * @param obj 获取样式的元素对象
+ * @param attr 获取的属性
+ * @returns {*}
+ */
+function getNotInlineStyle(obj,attr) {
+    //兼容IE
+    if(obj.currentStyle){
+        return obj.currentStyle[attr];
+    }else {
+        //兼容Firefox Chrome...
+        return getComputedStyle(obj,false)[attr];
+    }
+}
+
+
+//用户名判断 汉字/字母/数字/下划线/-
+function checkUserName(str) {
+    //正则表达式
+    let reg = /^[a-zA-Z0-9_\-(\u2E80-\u9FFF)+]{4,20}$/;
+    if (new RegExp(reg).test(str)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+//密码判断 字母/数字/下划线/-
+function checkPassword(str) {
+    let reg = /^[a-z0-9_-]{6,18}$/;
+    if (new RegExp(reg).test(str)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+//手机号判断
+function checkMobile(str) {
+    let reg = /^[1](3|4|5|7|8)[0-9]{9}$/;
+    if (new RegExp(reg).test(str)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+//4位随机验证码
+function identityCodeForFour() {
+    let arr = [];
+    //数字
+    for (let i = 48; i <= 57; i++) {
+        arr.push(i);
+    }
+    //大写字母
+    for (let i = 65; i <= 90; i++) {
+        arr.push(i);
+    }
+    //小写字母
+    for (let i = 97; i <= 122; i++) {
+        arr.push(i);
+    }
+    //随机生成
+    let idCode = [];
+    for (let i in arr) {
+        let index = Math.floor(Math.random() * 61);
+        let randomChar = String.fromCharCode(arr[index])
+        idCode.push(randomChar);
+    }
+    return idCode.join("");
+}
+
+//6位数字随机验证码
+function identityCodeForSix() {
+    let arr = [];
+    for (let i = 0; i <= 5; i++) {
+        arr[i] = Math.floor(Math.random() * 10);
+    }
+    return arr.join("");
+}
+

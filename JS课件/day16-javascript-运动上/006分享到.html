@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin:0;padding: 0;}
+		#box{width: 300px;height: 300px;position: absolute;top: 50%;margin-top: -150px;background: #9f9;left:0px;}
+		#box>.box1{width:20px;height: 100px;background: #ccc;position: absolute;left: 300px;top: 50%;margin-top: -50px;text-align: center;}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<div class="box1">分享到</div>
+	</div>
+</body>
+</html>
+<script>
+var oBox = document.getElementById('box');
+var oBox1 = document.querySelector('.box1');
+var timer = null;
+oBox1.onmouseover=oBox.onmouseover = function(){
+	move(0)
+}
+
+oBox1.onmouseout=oBox.onmouseout = function(){
+	
+	move1(-300)
+}
+
+
+function move(iTarget){
+	clearInterval(timer)
+	timer = setInterval(function(){
+		var speed = 5;
+		if(oBox.offsetLeft>=iTarget){
+			clearInterval(timer)
+		}else{
+			oBox.style.left = oBox.offsetLeft+speed+'px';
+		}
+
+	},30)
+}
+
+
+function move1(iTarget){
+	clearInterval(timer)
+	timer = setInterval(function(){
+		var speed = -5;
+		
+
+		if(oBox.offsetLeft<=iTarget){
+			clearInterval(timer)
+		}else{
+			oBox.style.left = oBox.offsetLeft+speed+'px';
+			//console.log(speed,oBox.offsetLeft+speed)
+		}
+
+	},30)
+}
+</script>

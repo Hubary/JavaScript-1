@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>完美运动框架</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            width: 100px;
+            height: 100px;
+            background: red;
+            opacity: 0.3;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+</body>
+</html>
+<script src="../../Encapsulation/encap.js"></script>
+<script>
+    window.onload = () => {
+        /**
+         *day16-完美运动框架.html
+         *author:jessie-zly
+         *2017/10/23
+         *description:
+         */
+
+
+        var oBox = document.getElementById('box');
+
+        oBox.onclick = function () {
+            console.log(this);
+            moveFramework(this, {"width": 50, "height": 150}, function () {
+                console.log(this);
+                moveFramework(oBox, {"opacity": 100})
+            })
+        }
+
+
+        function moveFramework(obj, json, fn) {
+            //
+            clearInterval(obj.timer);
+            //
+            obj.timer = setInterval(() => {
+                //
+                let mark = true;
+                //
+                for (let attr in json) {
+                    //
+                    let iCur = 0;
+                    //
+                    if (attr == "opacity") {
+                        iCur = parseInt(parseFloat(getNotInlineStyle(obj, attr)) * 100);
+                    } else {
+                        iCur = parseInt(getNotInlineStyle(obj, attr));
+                    }
+
+                    //
+                    let speed = (json[attr] - iCur) / 8;
+                    speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+                    //
+                    if (attr == "opacity") {
+                        obj.style.opacity = (iCur + speed) / 100;
+                        obj.style.filter = "alpha(" + (iCur + speed) + ")";
+                    } else {
+                        obj.style[attr] = (iCur + speed) + "px";
+                    }
+
+                    //
+                    if (iCur != json[attr]) {
+                        mark = false;
+                    }
+                }
+
+                if (mark) {
+                    clearInterval(timer);
+                    if (fn) {
+                        fn();
+                    }
+                }
+
+            }, 30)
+
+        }
+    }
+
+</script>

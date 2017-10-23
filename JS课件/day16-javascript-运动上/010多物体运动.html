@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style>
+	*{margin:0;padding: 0}
+	div{width:100px;height: 100px;background: red;margin:10px;}
+</style>
+<body>
+
+	<div></div>
+	<div></div>	
+	<div></div>	
+
+</body>
+</html>
+<script>
+var timer = null;
+var aDiv = document.getElementsByTagName('div');
+for(var i=0;i<aDiv.length;i++){
+	aDiv[i].onmouseover = function(){
+		 move(this,"width",300)
+	}
+}
+
+for(var i=0;i<aDiv.length;i++){
+	aDiv[i].onmouseout = function(){
+		 move(this,"width",100)
+	}
+}
+
+
+//200px   返回值是字符串
+function getStyle(obj,attr){
+	if(obj.currentStyle){
+		return obj.currentStyle[attr]
+	}else{
+		return getComputedStyle(obj,false)[attr]
+	}
+}
+
+function move(obj,attr,iTarget){
+	clearInterval(obj.timer);
+	obj.timer=setInterval(function(){
+		//第一步需要先获取当前元素样式的值
+		var iCur = parseInt(getStyle(obj,attr))
+
+		//第二部的时候我们需要获取速度
+		var speed = (iTarget-iCur)/8;
+		/*
+			300 - 0   /8 = 37.5
+			300 -37.5  /8 =32.8
+		 */
+		
+		speed = speed>0?Math.ceil(speed):Math.floor(speed);
+
+
+		//第三步
+		if(iCur==iTarget){
+			clearInterval(obj.timer)
+		}else{
+			obj.style[attr] = iCur+speed+'px';
+		}
+	},30)
+}
+</script>

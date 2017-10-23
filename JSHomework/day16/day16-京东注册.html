@@ -1,0 +1,192 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>京东注册+7天免登陆</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        ul{margin: 50px auto;width: 500px;font: 20px/30px "";}
+        ul li{list-style: none;margin: 10px 0;position: relative;border: 1px solid #ccc;padding: 5px;}
+        ul li label{display:inline-block;width: 150px;text-align: left;}
+        ul li input{width: 300px;text-indent: 10px;font: 20px/30px "";border: none;}
+        ul li button{background: #f2f2f2;padding: 0 3px;border: none;font: 14px/30px "";}
+        ul li #show{position: absolute;right: 0;width: 80px;text-align: center;}
+        ul li #cell{position: absolute;right: 0;width: 80px;text-align: center;}
+        ul li #sub{background: #EE2222;width: 100%;text-align: center;color: #fff;font: 20px/40px "";}
+    </style>
+</head>
+<body>
+
+<ul>
+    <li><label>用户名:</label><input type="text" placeholder="账户名"></li>
+    <li><label>设置密码:</label><input type="text" placeholder="密码"></li>
+    <li><label>确认密码:</label><input type="text" placeholder="确认密码"></li>
+    <li><label>常用手机:</label><input type="text" placeholder="常用手机"></li>
+    <li><label>验证码:</label><input type="text" placeholder="验证码"><button id="show">测试</button></li>
+    <li><label>手机验证码:</label><input type="text" placeholder="手机验证码"><button id="cell">获取验证码</button></li>
+    <li><button id="sub">立即注册</button></li>
+</ul>
+</body>
+</html>
+<script src="../../Encapsulation/encap.js"></script>
+<script>
+    window.onload=()=>{
+        /**
+         *day16-京东注册.html
+         *author:jessie-zly
+         *2017/10/23
+         *description:
+         */
+        
+        function register() {
+            //
+            let getAinput=document.querySelectorAll("input");
+
+            //验证用户名
+            let userName=null;
+            getAinput[0].value.onblur=()=>{
+                if(checkUserName(getAinput[0].value)){
+                    userName=getAinput[0].value;
+                }else {
+                    alert("用户名格式不正确!");
+                }
+            }
+            //验证密码
+            let password=null;
+            getAinput[1].value.onblur=()=>{
+                if(checkPassword(getAinput[1].value)){
+                    password=getAinput[1].value;
+                }else {
+                    alert("密码格式不正确!");
+                }
+            }
+            //验证确认密码
+            let ensurePassword=null;
+            getAinput[2].value.onblur=()=>{
+                if(getAinput[2].value==getAinput[1].value){
+                    ensurePassword=getAinput[3].value;
+                }else {
+                    alert("两次密码不一致!");
+                }
+            }
+            //验证手机
+            let phoneNum=null;
+            getAinput[3].onblur=()=>{
+                if(checkMobile(getAinput[3].value)){
+                    phoneNum=getAinput[3].value;
+                }else {
+                    alert("手机格式有误!");
+                }
+            }
+            //验证码
+            let getOshow=document.querySelector("#show");
+            let str4=null;
+            //显示验证码
+            getOshow.innerHTML=identityCodeForFour();
+            //验证
+            getAinput[4].onblur=()=>{
+                let val= getAinput[4].value;
+                if(str4!=val){
+                    alert("验证码有误!");
+                }
+            }
+
+            //手机验证码
+            let getOcell=document.querySelector("#cell");
+            let str6=null;
+            //随机验证码生成
+            getOcell.onclick=()=>{
+                str6=identityCodeForSix();
+            }
+            //验证
+            getAinput[5].onblur=()=>{
+                let val=getAinput[5].value;
+                if(str6!=val){
+                    alert("手机验证码有误!");
+                }
+            }
+
+            //提交注册
+            let getOsub=document.querySelector("#sub");
+            getOsub.onclick=()=>{
+                setCookie("userName",userName,7);
+                setCookie("password",password,7);
+            }
+        }
+
+        //
+        register();
+
+
+
+        //用户名判断 汉字/字母/数字/下划线/-
+        function checkUserName(str) {
+            //正则表达式
+            let reg=/^[a-zA-Z0-9_\-(\u2E80-\u9FFF)+]{4,20}$/;
+            if(new RegExp(reg).test(str)){
+                return true;
+            }else {
+                return false;
+            }
+        }
+
+        //密码判断 字母/数字/下划线/-
+        function checkPassword(str) {
+            let reg=/^[a-z0-9_-]{6,18}$/;
+            if(new RegExp(reg).test(str)){
+                return true;
+            }else {
+                return false;
+            }
+        }
+
+        //手机号判断
+        function checkMobile(str){
+            let reg =/^[1](3|4|5|7|8)[0-9]{9}$/;
+            if (new RegExp(reg).test(str)) {
+                return true;
+            }else{
+                return false;
+            }
+        }
+        //4位随机验证码
+        function identityCodeForFour() {
+            let arr=[];
+            //数字
+            for(let i=48;i<=57;i++){
+                arr.push(i);
+            }
+            //大写字母
+            for(let i=65;i<=90;i++){
+                arr.push(i);
+            }
+            //小写字母
+            for(let i=97;i<=122;i++){
+                arr.push(i);
+            }
+            //随机生成
+            let idCode=[];
+            for(let i in arr){
+                let index= Math.floor(Math.random() * 61);
+                let randomChar=String.fromCharCode(arr[index])
+                idCode.push(randomChar);
+            }
+            return idCode.join("");
+        }
+
+        //6位数字随机验证码
+        function identityCodeForSix() {
+            let arr = [];
+            for (let i = 0; i <= 5; i++) {
+                arr[i] = Math.floor(Math.random() * 10);
+            }
+            return arr.join("");
+        }
+
+
+
+
+
+
+    }
+</script>

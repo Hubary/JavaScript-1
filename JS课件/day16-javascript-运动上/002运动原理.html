@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style>
+	*{margin:0;padding: 0;}
+	#box{width: 100px;height: 100px;background: red;position: absolute;left: 0;top: 40px;}
+</style>
+<body>
+	<div id="box"></div>
+	<button id="btn">点击</button>
+</body>
+</html>
+<script>
+	/*
+		想让一个物体运动  这个物体肯定是一个定位
+
+		全局变量能少用就少用：
+			1、当全局变量过多的时候你的程序会变慢
+			2、词汇量的问题
+		
+	 */
+	
+	var oBox = document.getElementById('box');
+	var oBtn = document.getElementById('btn');
+	var timer = null;
+	
+	oBtn.onclick = function(){
+		clearInterval(timer)
+		move()
+	}
+
+	/*function move(){
+		timer = setInterval(function(){
+			//5  10  15  20 25 30 35   条件  到大400的时候停止
+			speed+=5;
+
+			if(speed>=400){
+				clearInterval(timer)
+			}else{
+				oBox.style.left = speed+'px';
+			}
+			
+		},30)
+	}*/
+
+	var speed = 0;
+	function move(){
+		timer = setInterval(function(){
+			//3 6 9 12
+			speed+=3;
+			if(oBox.offsetLeft>=400){
+				clearInterval(timer)
+			}else{
+				oBox.style.left = oBox.offsetLeft+speed+'px';
+			}
+			
+		},30)
+	}
+
+	/*
+		运动不会停止：加了一个终止条件   当条件成立的时候关闭定时器
+
+		速度会不断的加快：在开始的时候先关闭定时器
+
+		当运动停止的时候再次点击按钮的时候物体还会继续移动
+
+		当速度值不一定的时候运动可能不会停止 ：>=
+
+
+
+		匀速运动的终止条件:对象的某一个值  大于等于 目标值的时候原地停止
+
+	 */
+</script>

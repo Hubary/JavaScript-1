@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style>
+	*{margin:0;padding: 0;}
+	#box{width: 100px;height: 100px;background:red;position: absolute;left:200px;}
+</style>
+<body>
+	<div id="box"></div>
+</body>
+</html>
+<script>
+
+var timer = null;
+var oBox = document.getElementById('box');
+
+timer = setInterval(function(){
+	var speed = 0;
+	speed+=5;
+
+	if(oBox.offsetLeft>=500){
+		clearInterval(timer)
+	}else{
+		oBox.style.left = oBox.offsetLeft+speed+'px';
+	}
+
+},30)
+</script>

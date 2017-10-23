@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#pic{opacity: 0.3;filter:alpha(opacity:30);}
+	</style>
+</head>
+<body>
+	<img src="img.jpg" alt="" id="pic">
+</body>
+</html>
+<script>
+var img = document.getElementById('pic');
+var timer = null;
+img.onmouseover = function(){
+	move(100)
+}
+
+img.onmouseout = function(){
+	move1(30)
+}
+
+
+function move(iTarget){
+	clearInterval(timer);
+	var alpha = 0;
+	timer=setInterval(function(){
+		var speed = 5;
+
+		if(alpha>=iTarget){
+			clearInterval(timer)
+		}else{
+			alpha+=speed;
+			img.style.filter='alpha(opacity:'+alpha+')';
+			img.style.opacity=alpha/100;
+		}
+	},30)
+}
+
+function move1(iTarget){
+	clearInterval(timer);
+	var alpha = 100;
+	timer=setInterval(function(){
+		var speed =-5;
+
+		if(alpha<=iTarget){
+			clearInterval(timer)
+		}else{
+			alpha+=speed;
+			img.style.filter='alpha(opacity:'+alpha+')';
+			img.style.opacity=alpha/100;
+		}
+	},30)
+}
+</script>

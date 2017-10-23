@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style>
+	*{margin:0;padding: 0}
+	div{width:100px;height: 100px;background: red;margin:10px;opacity: 0.3;filter: alpha(opacity: 30)}
+</style>
+<body>
+
+	<div></div>
+	<textarea name="" id="txt" cols="30" rows="10"></textarea>
+
+</body>
+</html>
+<script>
+var aDiv = document.getElementsByTagName('div');
+var oTxt = document.getElementById('txt');
+
+
+
+aDiv[0].onmouseover = function(){
+	move(this,'opacity',100)
+}
+
+
+
+aDiv[0].onmouseout = function(){
+	move(this,'opacity',30)
+}
+
+
+
+
+function getStyle(obj,attr){
+	if(obj.currentStyle){
+		return obj.currentStyle[attr]
+	}else{
+		return getComputedStyle(obj,false)[attr]
+	}
+}
+
+function move(obj,attr,iTarget){
+	clearInterval(obj.timer);
+	obj.timer = setInterval(function(){
+		var iCur = parseInt(parseFloat(getStyle(obj,attr))*100);
+
+		var speed = (iTarget-iCur)/8;
+		speed = speed>0?Math.ceil(speed):Math.floor(speed);
+
+		if(iCur==iTarget){
+			clearInterval(obj.timer)
+		}else{
+			obj.style.opacity = (iCur+speed)/100;
+			obj.style.filter = 'alpha(opacity:'+(iCur+speed)+')';
+			oTxt.value = (iCur+speed)/100+'\n'
+		}
+	},30)
+}
+</script>

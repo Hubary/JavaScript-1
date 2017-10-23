@@ -28,20 +28,19 @@
     console.log(obj.name,obj.sex,obj.age)*/
 
 
-    var arr = ["1", "3", "1", "5", "2", "3", "6"];
-    var numArr = arr.reduce(function (allNames, name) {
-        if (name in allNames) {
-            allNames[name]++;
+    var arr1 = ["Alice", "Alice", "Bob", "Tiff", "Bruce", "Alice", "Bruce"];
+    var obj = arr1.reduce(function (allEle, ele) {
+        if (ele in allEle) {
+            allEle[ele]++;
         } else {
-            allNames[name] = 1;
+            allEle[ele] = 1;
         }
-        return allNames;
+        return allEle;
     }, {});
-    console.log(numArr);
+    console.log(obj);
 
 
-
-    var arr= ["Alice",'Alice','Alice','Alice', 'Bob', 'Tiff', 'Bruce', 'Alice'];
+    var arr = ["Alice", 'Alice', 'Alice', 'Alice', 'Bob',"Bob", 'Tiff', 'Bruce', 'Alice'];
     var countedNames = arr.reduce(function (allNames, name) {
         if (name in allNames) {
             allNames[name]++;
@@ -52,4 +51,29 @@
         return allNames;
     }, {});
     console.log(countedNames)
+
+
+    //test
+    function getNumOfArrEle(arr) {
+        var obj = arr.reduce(function (allEle, ele) {
+            if (ele in allEle) {
+                allEle[ele]++;
+            } else {
+                allEle[ele] = 1;
+            }
+            return allEle;
+        }, {})
+
+        console.log(obj);
+        //
+        return obj;
+    }
+
+    var a = getNumOfArrEle(arr)
+
+    for (var key in a) {
+        console.log(key, a[key])
+    }
+    console.log(a);
+
 </script>

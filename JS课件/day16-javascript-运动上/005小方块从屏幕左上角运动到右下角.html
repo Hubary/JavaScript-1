@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    #box {
+        width: 100px;
+        height: 100px;
+        background: red;
+        position: absolute;
+    }
+</style>
+<body>
+<div id="box"></div>
+</body>
+</html>
+<script>
+
+    var timer = null;
+    var oBox = document.getElementById('box');
+    var ch = document.body.clientHeight || document.documentElement.clientHeight;
+    var cw = document.body.clientWidth || document.documentElement.clientWidth;
+
+    ch = ch - oBox.offsetHeight;
+    cw = cw - oBox.offsetWidth;
+    move();
+
+    function move() {
+        var l = 0;
+        var t = 0;
+        timer = setInterval(function () {
+//            l += 5;
+//            t += 5 * (ch / cw);
+
+            l += floatNum(5, 10);
+            t += floatNum(5 * (ch / cw), 10);
+
+            //10 +5(10/3) =
+            //匀速运动  速度是一定的
+            if (l >= cw || t >= ch) {
+                clearInterval(timer)
+                /*oBox.style.left = cw+'px';
+                oBox.style.top = ch+'px';*/
+
+            } else {
+                oBox.style.left = l + 'px';
+                oBox.style.top = t + 'px';
+            }
+        }, 10)
+    }
+
+
+    function floatNum(f, digit) {
+        var m = Math.pow(10, digit);
+        return parseInt(f * m, 10) / m;
+    }
+
+    /*
+
+         500  300
+        cw   ch
+         5    5*(ch/cw)
+
+
+     */
+</script>
