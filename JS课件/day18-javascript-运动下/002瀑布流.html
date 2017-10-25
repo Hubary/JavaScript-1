@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>瀑布流</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #main {
+            width: 960px;
+            margin: 40px auto;
+            position: relative
+        }
+
+        #main > div {
+            width: 220px;
+            padding: 4px;
+            border: 1px solid #000;
+            box-shadow: 2px 2px 2px #ccc;
+        }
+
+        #main > div > img {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<div id="main">
+    <!-- <div>
+    <img src="img/1.jpg" alt="">
+    <p>亲爱的，请嫁给我好吗？你有车吗？，"暂时没有"，你有房吗？"暂时没有",你有存款吗？"暂时没有",那你有什么？"你见过狗喝水吗",好我愿意嫁给你！</p>
+    </div> -->
+</div>
+</body>
+</html>
+<script>
+    /*
+        布局问题？
+            用定位去布局
+
+        如果用css去做定位布局的话 要考虑许多个left  top：用js写解决
+
+        找到每一列最小的高度然后在添加下一个图片
+
+        4列    240   margin-right:10   padding:4  border:1   220px;
+     */
+    var str = '';
+    var oMain = document.getElementById('main');
+    for (var i = 1; i < 71; i++) {
+        str += `<div>
+		<img src="img/${i}.jpg" alt="">
+		<p>亲爱的，请嫁给我好吗？你有车吗？，"暂时没有"，你有房吗？"暂时没有",你有存款吗？"暂时没有",那你有什么？"你见过狗喝水吗",好我愿意嫁给你！</p>
+		</div>`
+    }
+
+    oMain.innerHTML = str;
+    window.onload = function () {
+        var aDiv = oMain.getElementsByTagName('div');
+        //先写一个数组  数组里面放的是每一列的高度
+        var iHeight = [0, 0, 0, 0];
+        //如果你需要定4列的话 那么就先定位4列  遍历4列
+        for (var i = 0; i < 4; i++) {
+            //你需要把每一列都设置成定位
+            aDiv[i].style.position = "absolute";
+            //每一列的left值是不同的  因此你要算出来每一列之间的距离 就是他们的left值
+            aDiv[i].style.left = i * aDiv[0].offsetWidth + i * 10 + 'px';
+            //刚开始的前4列的top值是相等的
+            aDiv[i].style.top = 0;
+            //更新iHeight里面的数据  因为下一次再遍历的时候我们需要找到最小高度
+            iHeight[i] = aDiv[i].offsetHeight;
+        }
+
+
+        //遍历剩余的div
+        for (var j = 4; j < aDiv.length; j++) {
+            //获取到最小的高度的下标
+            var index = getIndex();
+
+            //剩下的每一个div都是定位元素
+            aDiv[j].style.position = "absolute";
+            //每一个div要放的位置是最小高度的那一列  那一列的left值都是相等的
+            aDiv[j].style.left = index * aDiv[0].offsetWidth + index * 10 + 'px';
+            //每一个div的高度等于上一个div的高度加上10  10代表间距
+            aDiv[j].style.top = iHeight[index] + 10 + 'px';
+
+            //每次重排一个div 高度的数据就要重新更新一次  然后再次获取到最小的高度，然后在继续重排div
+            iHeight[index] = iHeight[index] + aDiv[j].offsetHeight + 10;
+        }
+
+
+        //找到最小高度的index
+        function getIndex() {
+            var min = iHeight[0];
+            var index = 0;
+            for (var i = 0; i < iHeight.length; i++) {
+                if (iHeight[i] < min) {
+                    min = iHeight[i];
+                    index = i;
+                }
+            }
+            return index;
+        }
+    }
+</script>

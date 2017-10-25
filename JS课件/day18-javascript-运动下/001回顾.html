@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script>
+/*
+	淡入淡出轮播图
+
+		关键：iNow   next   
+		选项卡：  next=this.index  iNow=next
+
+	简单轮播图
+
+
+		关键：  iNow   不能大于aLi.length-1
+
+	无缝轮播图
+
+		关键：
+			第一考虑左边   iNow如果等0的  我们需要让iNow=aLi.length-2
+						oUl.style.left =-iNow*aLi[0].offsetWith+'px' 
+
+			第二考虑右边
+
+				iNow如果等于length-1  我们需要让iNOW=1
+				oUL.style.left = 0;
+
+	弹性运动
+	
+		速度的一个取值： (目标值-初始值）/系列数
+
+		摩擦力：其实就是一个数乘以一个小于1的数 数字的大小就会慢慢变小
+
+	碰撞运动
+
+		重力：在定时器开始的时候给Y轴不断的加值
+
+		边界值的条件：
+			左右两边要判断是否出界    让x的速度乘以一个负值   方向就会变反
+			上下两边也要判断是否出界  让Y轴的速度乘以一个负值  方向就会变反  同时也需要在此次给X轴乘以一个小于1的数不是负值  这样就可以让X轴的速度不断的变小
+
+			最后为了判断X能够准备的不动   我们需要给X轴  Y轴  取一个绝对值判断是否小于1   如果小于1的话那么我们就让X  Y轴速度变成0  同时关闭定时器 
+ */
+</script>

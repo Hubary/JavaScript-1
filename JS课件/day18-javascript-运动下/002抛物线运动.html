@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin:0;padding: 0;}
+		#shopp{width:50px;height: 50px;background:#000;position: absolute;right: 0;top: 200px;}
+		.goods{width:15px;height: 15px;background: red;position: absolute;}
+	</style>
+</head>
+<body>
+	<div id="shopp"></div>
+</body>
+</html>
+<script>
+	var oShoop = document.getElementById('shopp');
+	var timer = null;
+	document.onclick = function(e){
+		var e = e||event;
+		var div = document.createElement('div');
+		var cw = document.documentElement.clientWidth;
+		div.className = 'goods';
+		div.style.left = e.clientX+'px';
+		div.style.top = e.clientY+'px';
+
+		document.body.appendChild(div)
+
+
+		/*
+			y = a*x*x+b*x
+
+			y=-0.001*x*x+b*x
+
+			y：y轴坐标
+
+			x: x轴坐标
+
+			a:开口方向
+
+			b:ab>0  Y右边   ab<0 Y左边
+
+
+			shopp(0,0)   (cw-50,200)
+						 (cw,ch)
+
+
+			y=-0.001*x*x+b*x
+		
+		 */
+		//小Div 在坐标轴左侧的偏移
+		var x = e.clientX-(cw-50);
+		var y = 200-e.clientY;
+		var b = (y+0.001*x*x)/x;
+		clearInterval(div.timer)
+		div.timer=setInterval(function(){
+			x+=10;
+			y=-0.001*x*x+b*x;
+			if(x>0){
+				clearInterval(div.timer)
+			}
+
+			div.style.left = (cw-50)+x+'px'
+			div.style.top = 200-y+'px';
+
+		},30)
+
+
+	}
+</script>

@@ -21,6 +21,243 @@ function changeNum(a, b) {
 }
 
 /**
+ * 功能: 生成m-n之间的随机整数
+ * @param m 起始数字
+ * @param n 终止数字
+ * @returns {Number}
+ */
+function randomNumM_N(m, n) {
+    //判断m,n是否为非负数
+    if (m < 0 || n <= 0) {
+        //提示信息
+        return "请重新输入m,n";
+    }
+    //判断m和n的关系
+    if (m > n) {
+        //如果m>n,则交换m和n的值
+        var temp = m;
+        m = n;
+        n = temp;
+    }
+    //返回值
+    return parseInt(m + Math.random() * (n - m + 1));
+}
+
+
+/**
+ * 功能: 处理数字的小数问题,保留小数
+ * @param num 需要处理的数字
+ * @param digit 需要保留的位数
+ * @returns {number}
+ */
+function floatNum(num, digit) {
+    var m = Math.pow(10, digit);
+    return parseInt(f * m, 10) / m;
+}
+
+/**
+ * 功能: 选择排序
+ * @param arr 排序数组
+ * @returns {*}
+ */
+function selectSort(arr) {
+    var temp;
+    for (var i = 0; i < arr.length - 1; i++) {
+        //二次遍历
+        for (var j = i + 1; j < arr.length; j++) {
+            //寻找最小数
+            if (arr[i] > arr[j]) {
+                temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+    }
+    return arr;
+}
+
+/**
+ * 功能: 冒泡排序
+ * @param arr 排序数组
+ * @returns {*}
+ */
+function bubbleSort(arr) {
+    var temp;
+    for (var i = 0; i < arr.length - 1; i++) {
+        //二次遍历,前后比较
+        for (var j = 0; j < arr.length - 1 - i; j++) {
+            //寻找最小数
+            if (arr[j] > arr[j + 1]) {
+                //交换
+                temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+
+            }
+        }
+    }
+    return arr;
+}
+
+/**
+ * 功能: 随机排序
+ * @param arr 排序数组
+ * @returns {*}
+ */
+function randomSort(arr) {
+    //
+    arr.sort(function () {
+        //正值排序,负值不变
+        return 0.5 - Math.random();
+    })
+    //
+    return arr;
+}
+
+/**
+ * 功能: 判断数组中是否有某个元素
+ * @param arr 待去重数组
+ * @param ele 判断元素
+ * @returns {boolean}
+ */
+function has(arr, ele) {
+    //遍历数组
+    for (var i in arr) {
+        //判断
+        if (arr[i] === ele) {
+            return true;
+        }
+    }
+    return false;
+}
+
+/**
+ * 功能: 去除数组中重复元素,与has()方法联动使用
+ * @param arr 待去重数组
+ * @returns {Array}
+ */
+function noRepeat_1(arr) {
+    //新数组对象
+    var newArr = [];
+    //遍历原数组R
+    for (var i in arr) {
+        //判断是否有重复元素
+        if (!has(newArr, arr[i])) {
+            //不重复则放入新数组
+            newArr.push(arr[i])
+        }
+    }
+    return newArr;
+}
+
+/**
+ * 功能: 数组去重
+ * @param arr 待去重数组
+ * @returns {Array}
+ */
+function noRepeat_2(arr) {
+    //声明新数组
+    var newArr = [];
+    //遍历原数组
+    for (var i = 0; i < arr.length; i++) {
+        //从i+1处遍历数组
+        for (var j = i + 1; j < arr.length; j++) {
+            //依次比较arr[i]和后面的值
+            if (arr[i] == arr[j]) {
+                //相同则删除后面那个值
+                delete arr[j];
+            }
+        }
+        //赋值新数组
+        newArr.push(arr[i]);
+    }
+    //返回新数组
+    return newArr;
+}
+
+/**
+ * 功能: 数组去重
+ * @param arr 待去重数组
+ * @returns {Array}
+ */
+function noRepeat_3(arr) {
+    //遍历数组
+    for (var i = 0; i < arr.length; i++) {
+        for (var j = i + 1; j < arr.length; j++) {
+            if (arr[i] == arr[j]) {
+                //相同则删除原数组arr[j],并且确保删除的个数为1
+                arr.splice(j, 1);
+                //
+                i -= 1;
+            }
+        }
+    }
+    //返回被splice后的数组
+    return arr;
+}
+
+/**
+ * 功能: 数组去重
+ * @param arr 待去重数组
+ * @returns {Array}
+ */
+function noRepeat_4(arr) {
+    //声明新数组
+    var newArr = [];
+    //遍历原数组
+    for (var i in arr) {
+        //判断新数组是否匹配arr[i]的值
+        if (newArr.indexOf(arr[i]) == -1) {
+            //新数组元素赋值
+            newArr.push(arr[i]);
+        }
+    }
+    //返回新数组
+    return newArr;
+}
+
+/**
+ * 功能: 统计数组中元素出现的个数,也可以进行去重
+ * @param arr 需要去重/统计的数组对象
+ */
+function getNumOfArrEle(arr) {
+    //
+    var obj = arr.reduce(function (allEle, ele) {
+        //判断数组元素是否在对象中出现
+        if (ele in allEle) {
+            allEle[ele]++;
+        } else {
+            allEle[ele] = 1;
+        }
+        //返回处理过的对象
+        return allEle;
+    }, {})
+    //返回处理过的数组对象
+    return obj;
+}
+
+/**
+ * 功能: 数组插入元素,并保持原顺序
+ * @param arr 数组
+ * @param ele
+ * @returns {Array}
+ */
+function sortAsArr(arr, ele) {
+    for (var i = 0; i < arr.length; i++) {
+        //判断是否超过最大值
+        if (arr[arr.length - 1] < ele) {
+            arr.push(ele);
+        } else if (arr[i] > ele) {
+            //插入数组中
+            arr.splice(i, 0, ele);
+            //跳出
+            break;
+        }
+    }
+    return arr
+}
+
+/**
  * 功能: 不足位数时前置补0
  * @param num 待补位的数
  * @param length 指定的位数
@@ -60,29 +297,6 @@ function dateToString(date, devideSign, num) {
     return date.getFullYear() + devideSign + addPrefixZero((date.getMonth() + 1), num) + devideSign + addPrefixZero(date.getDate(), num) + " " + addPrefixZero(date.getHours(), num) + ":" + addPrefixZero(date.getMinutes(), num) + ":" + addPrefixZero(date.getSeconds(), num);
 }
 
-
-/**
- * 功能: 生成m-n之间的随机整数
- * @param m 起始数字
- * @param n 终止数字
- * @returns {Number}
- */
-function randomNumM_N(m, n) {
-    //判断m,n是否为非负数
-    if (m < 0 || n <= 0) {
-        //提示信息
-        return "请重新输入m,n";
-    }
-    //判断m和n的关系
-    if (m > n) {
-        //如果m>n,则交换m和n的值
-        var temp = m;
-        m = n;
-        n = temp;
-    }
-    //返回值
-    return parseInt(m + Math.random() * (n - m + 1));
-}
 
 /**
  * 功能: 颜色值转换为16进制,不足前置补0
@@ -189,38 +403,6 @@ function removeCookie(userName, value) {
 }
 
 /**
- * 功能: 统计数组中元素出现的个数,也可以进行去重
- * @param arr 需要去重/统计的数组对象
- */
-function getNumOfArrEle(arr) {
-    //
-    var obj = arr.reduce(function (allEle, ele) {
-        //判断数组元素是否在对象中出现
-        if (ele in allEle) {
-            allEle[ele]++;
-        } else {
-            allEle[ele] = 1;
-        }
-        //返回处理过的对象
-        return allEle;
-    }, {})
-    //返回处理过的数组对象
-    return obj;
-}
-
-/**
- * 功能: 处理数字的小数问题,保留小数
- * @param num 需要处理的数字
- * @param digit 需要保留的位数
- * @returns {number}
- */
-function floatNum(num, digit) {
-    var m = Math.pow(10, digit);
-    return parseInt(f * m, 10) / m;
-}
-
-
-/**
  * 功能: 获取非行间样式
  * @param obj 获取样式的元素对象
  * @param attr 获取的属性
@@ -293,7 +475,10 @@ function identityCodeForFour() {
     return idCode.join("");
 }
 
-//6位数字随机验证码
+/**
+ * 功能: 6位随机验证码(数字、字母)
+ * @returns {string}
+ */
 function identityCodeForSix() {
     let arr = [];
     for (let i = 0; i <= 5; i++) {

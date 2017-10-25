@@ -3,8 +3,150 @@
 <head>
     <meta charset="UTF-8">
     <title>表格即时编辑</title>
+    <style>
+        table {
+            border: 1px solid #000000;
+        }
+
+        td {
+            border: 1px solid #000000;
+            font: 12px/20px "";
+            padding: 3px 5px;
+        }
+    </style>
 </head>
 <body>
+标题: <input type="text" value="" class="edit">
+内容: <input type="text" value="" class="edit">
+作者: <input type="text" value="" class="edit">
+<button id="save">保存</button>
 
+<table id="list" border=1>
+    <tr>
+        <th>ID</th>
+        <th>帖子名称</th>
+        <th>内容预览</th>
+        <th>发布时间</th>
+        <th>作者</th>
+        <th>操作</th>
+    </tr>
+    <tr>
+        <td>25</td>
+        <td class="title">ABC</td>
+        <td>xxxxxxxx....</td>
+        <td>2016-04-15</td>
+        <td>YT</td>
+        <td name="option"><a name="detail" href="#">详细信息</a> <a class="delbtn" href="#">删除1</a></td>
+    </tr>
+    <tr>
+        <td>25</td>
+        <td class="title">ABC</td>
+        <td>xxxxxxxx....</td>
+        <td>2016-04-15</td>
+        <td>YT</td>
+        <td><a name="detail" href="#">详细信息</a> <a class="delbtn" href="#">删除2</a></td>
+    </tr>
+    <tr>
+        <td>25</td>
+        <td class="title">ABC</td>
+        <td>xxxxxxxx....</td>
+        <td>2016-04-15</td>
+        <td>YT</td>
+        <td><a name="detail" href="#">详细信息</a> <a class="delbtn" href="#">删除3</a></td>
+    </tr>
+    <tr>
+        <td>25</td>
+        <td class="title">ABC</td>
+        <td>xxxxxxxx....</td>
+        <td>2016-04-15</td>
+        <td>YT</td>
+        <td><a name="detail" href="#">详细信息</a> <a class="delbtn" href="#">删除4</a></td>
+    </tr>
+    <tr>
+        <td>25</td>
+        <td class="title">ABC</td>
+        <td>xxxxxxxx....</td>
+        <td>2016-04-15</td>
+        <td>YT</td>
+        <td><a name="detail" href="#">详细信息</a> <a class="delbtn" href="#">删除5</a></td>
+    </tr>
+    <tr>
+        <td>25</td>
+        <td class="title">ABC</td>
+        <td>xxxxxxxx....</td>
+        <td>2016-04-15</td>
+        <td>YT</td>
+        <td><a name="detail" href="#">详细信息</a> <a class="delbtn" href="#">删除6</a></td>
+    </tr>
+</table>
 </body>
 </html>
+<script src="../../Encapsulation/encap.js"></script>
+<script>
+    window.onload = () => {
+        /**
+         *day16-表格即时编辑.html
+         *author:jessie-zly
+         *2017/10/23
+         *description:
+         */
+        function editTable() {
+            //获取
+            let getOsave = document.getElementById("save");//save
+            let getOtab = document.getElementById("list");//table
+            let getAinput = document.getElementsByClassName("edit");//input
+            //save时间
+            getOsave.onclick = () => {
+                //完全克隆第一行
+                let newRow = getOtab.children[0].children[1].cloneNode(true);//table.children[0]为tbody
+                //获取行中列
+                let getAcol = newRow.children;
+                //页面输出
+                getAcol[0].innerHTML = addPrefixZero(randomNumM_N(0, 99), 2);
+                getAcol[1].innerHTML = getAinput[0].value;
+                getAcol[2].innerHTML = getAinput[1].value;
+                getAcol[3].innerHTML = new Date().toLocaleString();
+                getAcol[4].innerHTML = getAinput[2].value;
+                //table插入行
+                getOtab.appendChild(newRow);
+            }
+            /**
+             * 事件绑定,进行动态处理table
+             */
+            getOtab.onclick = (event) => {
+                //兼容处理
+                event = event || window.event;
+                let target = event.target || event.srcElement;
+                /**
+                 * 编辑事件
+                 */
+                if (target.tagName.toLowerCase() == "td") {//判断target是否为列
+                    //创建input
+                    let newInput = document.createElement("input");
+                    newInput.type = "text";//设置input类型
+                    //将列中内容赋值给input
+                    newInput.value = target.innerHTML;
+                    //input替换target的文本节点
+                    target.replaceChild(newInput, target.firstChild);
+                    //失焦事件
+                    newInput.onblur = () => {
+                        //input值重新赋值给td
+                        target.innerHTML = newInput.value;
+                        //newInput.parentNode.innerHTML=newInput.value; 也可以
+                    }
+                }
+                /**
+                 * 删除事件
+                 */
+                if (target.tagName.toLowerCase() == "a" && target.className == "delbtn") {//判断是否为删除按钮
+                    target.parentNode.parentNode.remove();
+                }
+            }
+
+        }
+
+        //test
+        editTable();
+
+    }
+</script>
