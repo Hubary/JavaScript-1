@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>左右轮播</title>
+	<style>
+		*{margin:0;padding: 0;}
+		#banner{width:320px;height:480px;position:relative;margin:30px auto;overflow: hidden;box-shadow: 0 0 5px #000;}
+		#list{position: relative;}
+		#list>li{float: left;list-style: none;}
+		#circle{position: absolute;left:25%;bottom: 0;z-index: 10;height: 15px;}
+		#circle>a{float: left;margin:0 10px;width: 15px;height: 15px;border-radius: 50%;background: #ccc;}
+		#circle>.active{background: red;}
+		#direction>a{display: block;width: 80px;height: 40px;font-size: 20px;background:rgba(0,0,0,.6);text-align: center;line-height: 40px;color: #ffffff;text-decoration: none;position: absolute;top: 210px;}
+		#direction>a:nth-child(2){right: 0;}
+	</style>
+</head>
+<body>
+	<div id="banner">
+		<ul id="list">
+			<li><img src="images/w5.jpg"></li>
+			<li><img src="images/w6.jpg"></li>
+			<li><img src="images/w8.jpg"></li>
+			<li><img src="images/w3.jpg"></li>
+			<li><img src="images/w2.jpg"></li>
+		</ul>
+		<div id="circle">
+			<a href="##" class="active"></a>
+			<a href="##"></a>
+			<a href="##"></a>
+			<a href="##"></a>
+			<a href="##"></a>
+		</div>
+		<div id="direction">
+			<a href="##"><</a>
+			<a href="##">></a>
+		</div>
+	</div>
+</body>
+</html>
+<script src='../../Encapsulation/pool.js'></script>
+<script>
+	/*
+		原理：改变ul的left值
+
+		new Array   new Date  new String  new RegExp  new set  new Object  new Function new Image
+
+	 */
+	var oBanner = document.getElementById('banner');
+	var oUl = document.getElementById('list');
+	var aLi = oUl.getElementsByTagName('li')
+	var circle = document.getElementById('circle');
+	var aA = circle.getElementsByTagName('a');
+	var dir = document.querySelectorAll('#direction>a');
+	var timer = null;
+	var iNow = 0;
+	var next = 0;
+
+
+	//第一步进来就设置ul的宽度    li的个数 *li的宽度
+	oUl.style.width = aLi.length*aLi[0].offsetWidth+'px';
+
+
+
+	autoPlay()
+	function autoPlay(){
+		timer=setInterval(function(){
+
+			if(iNow>=aLi.length-1){
+				iNow=1;
+				oUl.style.left=0;
+			}else{
+				iNow++
+			}
+			toImg()
+		
+
+		},2000)
+	}
+
+
+	//轮播原理
+	function toImg(){
+		move(oUl,{'left':-iNow*aLi[0].offsetWidth})
+		for(var i=0;i<aA.length;i++){
+			aA[i].className='';
+		}
+		aA[iNow].className = 'active';
+	}
+
+</script>

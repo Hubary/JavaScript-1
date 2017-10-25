@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>放大镜-ES6</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #show {
+            width: 402px;
+            position: relative;
+        }
+
+        #large {
+            width: 400px;
+            height: 400px;
+            border: 1px solid #ccc;
+            position: absolute;
+            top: 0;
+            left: 453px;
+            overflow: hidden;
+            display: none;
+        }
+
+        #large img {
+            display: block;
+            width: 800px;
+            height: 800px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        #middle {
+            width: 400px;
+            height: 400px;
+            border: 1px solid #ccc;
+            position: relative
+        }
+
+        #middle img {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        #filter {
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: #000;
+            opacity: 0.4;
+            display: none;
+        }
+
+        #outter{
+            width: 100%;
+            height: 54px;
+            padding: 0 20px;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+        #small {
+            width: 800px;
+            height:54px;
+            margin: 10px 0;
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        #small li {
+            width: 54px;
+            height: 54px;
+            float: left;
+            list-style: none;
+            margin-right: 10px;
+            flex-wrap: nowrap;
+        }
+
+        #small li.active {
+            border: 1px solid #f00;
+        }
+
+        #small li img {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+        #outter{
+            position: relative;
+        }
+        #outter i{
+            display: block;
+            position: absolute;
+            width: 20px;
+            height: 54px;
+            text-align: center;
+            line-height: 54px;
+            background:rgba(0,0,0,0.5);
+        }
+        #outter i:nth-of-type(1){
+            left: 0;
+        }
+        #outter i:nth-of-type(2){
+            right: 0;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+<div id="show">
+    <!--大图-->
+    <div id="large"><img src="images/mac-7.jpg"></div>
+    <!--中图-->
+    <div id="middle">
+        <img src="images/mac-4.jpg">
+        <!--滤板-->
+        <div id="filter"></div>
+    </div>
+    <!--小图-->
+    <div id="outter">
+        <i class="pre"><</i>
+        <ul id="small">
+            <li><img src="images/mac-1.jpg" data-url-mid="images/mac-4.jpg" data-url-lar="images/mac-7.jpg"></li>
+            <li><img src="images/mac-2.jpg" data-url-mid="images/mac-5.jpg" data-url-lar="images/mac-8.jpg"></li>
+            <li><img src="images/mac-3.jpg" data-url-mid="images/mac-6.jpg" data-url-lar="images/mac-9.jpg"></li>
+            <li><img src="images/c1.jpg" data-url-mid="images/c1.jpg" data-url-lar="images/c1.jpg"></li>
+            <li><img src="images/g1.jpg" data-url-mid="images/g1.jpg" data-url-lar="images/g1.jpg"></li>
+            <li><img src="images/g2.jpg" data-url-mid="images/g2.jpg" data-url-lar="images/g2.jpg"></li>
+            <li><img src="images/g3.jpg" data-url-mid="images/g3.jpg" data-url-lar="images/g3.jpg"></li>
+            <li><img src="images/g4.jpg" data-url-mid="images/g4.jpg" data-url-lar="images/g4.jpg"></li>
+        </ul>
+        <i class="next">></i>
+    </div>
+</div>
+
+</body>
+</html>
+<script>
+    /**
+     * 放大镜-ES6.html
+     * author: jessie-zly
+     * 2017/10/21
+     * description:
+     */
+
+    window.onload = function () {
+        //
+        function magnifierPic() {
+            //获取 largeImg
+            var getLargeImg = document.querySelector("#large>img");
+            //获取 middleImg
+            var getMiddleImg = document.querySelector("#middle>img");
+            //获取 li
+            var getAli = document.querySelectorAll("#small>li");
+            //获取 smallImg
+            var getAsmallImg = document.querySelectorAll("#small>li>img");
+            // 处理 li
+            for (let i in getAli) {
+                //Li移入事件
+                getAli[i].onmouseover = () => {
+                    //清空 class
+                    for (let j in getAli) {
+                        getAli[j].className = "";
+                    }
+                    //
+                    this.className = "active";
+                    //更改 middle 的 src
+                    getMiddleImg.src = getAsmallImg[i].getAttribute("data-url-mid");
+                    //更改 large 的 src
+                    getLargeImg.src = getAsmallImg[i].getAttribute("data-url-lar");
+                }
+            }
+
+            //获取 filter
+            var getFilter = document.querySelector("#filter");
+            //获取 large
+            var getLarge = document.getElementById("large");
+            //获取middle
+            var getMiddle = document.getElementById("middle");
+            /**
+             * middle 移入事件
+             * @type {Element}
+             */
+            getMiddle.onmouseover = () => {
+                //显示 filter
+                getFilter.style.display = "block";
+                //显示 large
+                getLarge.style.display = "block";
+            }
+
+            /**
+             * middle 移动事件
+             * @param event
+             */
+            getMiddle.onmousemove = (event) => {
+                //兼容
+                event = event || window.event;
+                //获取 filter相对 middle的初始化位置
+                let getLeft = event.clientX - getMiddle.offsetLeft - getFilter.offsetWidth / 2;//水平方向
+                let getTop = event.clientY - getMiddle.offsetTop - getFilter.offsetHeight / 2;//垂直方向
+                //判断 filter 是否会越界
+                if (getLeft <= 0) {//左边界
+                    getLeft = 0;
+                }
+                if (getLeft >= getMiddle.offsetWidth - getFilter.offsetWidth) {//右边界
+                    getLeft = getMiddle.offsetWidth - getFilter.offsetWidth;
+                }
+                if (getTop <= 0) {//上边界
+                    getTop = 0;
+                }
+                if (getTop >= getMiddle.offsetHeight - getFilter.offsetHeight) {//下边界
+                    getTop = getMiddle.offsetHeight - getFilter.offsetHeight;
+                }
+                //给定filter样式
+                getFilter.style.left = getLeft + "px";
+                getFilter.style.top = getTop + "px";
+                // largeImg等比跟随
+                getLargeImg.style.left = -getLeft * 2 + "px";
+                getLargeImg.style.top = -getTop * 2 + "px";
+            }
+
+            /**
+             * middle 移出事件
+             */
+            getMiddle.onmouseout = () => {
+                //处理 filter
+                getFilter.style.display = "none";
+                //处理 large
+                getLarge.style.display = "none";
+            }
+        }
+
+        //test
+        magnifierPic();
+
+
+        //
+        let getOul=document.getElementById("small");
+        let getAi=document.querySelectorAll("i");
+        //
+        getOul.style.left=0;
+        //
+        getAi[0].onclick=()=>{
+            if(getOul.style.left<=0){
+                getOul.style.left=0;
+            }else {
+                getOul.style.left-=64+"px";
+            }
+        }
+        //
+        getAi[1].onclick=()=>{
+            if(getOul.style.left>=getAi[0].offsetWidth*getAi.length){
+                getOul.style.left=getAi[0].offsetWidth*getAi.length+"px";
+            }else {
+                getOul.style.left+=64+"px";
+            }
+        }
+    }
+</script>

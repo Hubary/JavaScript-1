@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>淡入淡出轮播</title>
+	<style>
+		*{margin:0;padding: 0;}
+		ul,li{list-style: none;}
+		#banner{width:320px;height:480px;position:relative;margin:30px auto;box-shadow: 0 0 5px #000;}
+		#list{position: relative;}
+		#list>li{position: absolute;opacity: 0;filter:alpha(opacity: 0)}
+		#list>li:first-child{opacity: 1;filter: alpha(opacity: 100)}
+		#circle{position: absolute;left:25%;bottom: 0;z-index: 10;height: 15px;}
+		#circle>a{float: left;margin:0 10px;width: 15px;height: 15px;border-radius: 50%;background: #ccc;}
+		#circle>.active{background: red;}
+		#direction>a{display: block;width: 80px;height: 40px;font-size: 20px;background:rgba(0,0,0,.6);text-align: center;line-height: 40px;color: #ffffff;text-decoration: none;position: absolute;top: 210px;}
+		#direction>a:nth-child(2){right: 0;}
+	</style>
+</head>
+<body>
+	<div id="banner">
+		<ul id="list">
+			<li><img src="images/w5.jpg"></li>
+			<li><img src="images/w6.jpg"></li>
+			<li><img src="images/w8.jpg"></li>
+			<li><img src="images/w3.jpg"></li>
+			<li><img src="images/w2.jpg"></li>
+		</ul>
+		<div id="circle">
+			<a href="##" class="active"></a>
+			<a href="##"></a>
+			<a href="##"></a>
+			<a href="##"></a>
+			<a href="##"></a>
+		</div>
+		<div id="direction">
+			<a href="##"><</a>
+			<a href="##">></a>
+		</div>
+	</div>
+</body>
+</html>
+<script src='../../Encapsulation/pool.js'></script>
+<script>
+	/*
+		分析：
+			1、第一张图透明度为0  第二种透明为100   第三种为100  第二张0  第四章为100  第三种为0
+
+			2、布局定位是用absolute
+
+			3、iNow  next
+
+	 */
+	var oBanner = document.getElementById('banner');
+	var oUl = document.getElementById('list');
+	var aLi = oUl.getElementsByTagName('li')
+	var circle = document.getElementById('circle');
+	var aA = circle.getElementsByTagName('a');
+	var dir = document.querySelectorAll('#direction>a');
+	var timer = null;
+	var iNow = 0;
+	var next = 0;
+
+	dir[0].onclick = function(){
+		if(next<=0){
+				next=aLi.length-1;
+			}else{
+				next--;
+			}
+			toImg();
+
+	}
+
+	dir[1].onclick = function(){
+		if(next>=aLi.length-1){
+				next=0;
+			}else{
+				next++;
+			}
+			toImg();
+	}
+
+	for(var i=0;i<aA.length;i++){
+		aA[i].index=i;
+		aA[i].onclick = function(){
+			for(var j=0;j<aA.length;j++){
+				aA[j].className='';
+				move(aLi[j],{'opacity':0})
+			}
+			aA[this.index].className = 'active';
+			move(aLi[this.index],{'opacity':100})
+		}
+	}
+
+	//移入停止
+	oBanner.onmouseover = function(){
+		clearInterval(timer)
+	}
+	//移除运动
+	oBanner.onmouseout = function(){
+		autoPlay()
+	}
+
+	//自动轮播
+	autoPlay()
+	function autoPlay(){
+		timer = setInterval(function(){
+			if(next>=aLi.length-1){
+				next=0;
+			}else{
+				next++;
+			}
+			toImg();
+		},1000)
+	}
+
+	//轮播原理
+	function toImg(){
+		move(aLi[iNow],{'opacity':0});
+		move(aLi[next],{'opacity':100});
+
+		for(var i=0;i<aA.length;i++){
+			aA[i].className = '';
+		}
+		aA[next].className = 'active';
+
+		iNow=next;
+	}
+
+</script>

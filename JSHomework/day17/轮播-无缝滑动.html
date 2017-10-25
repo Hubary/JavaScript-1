@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>滑动轮播</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #banner {
+            width: 480px;
+            height: 270px;
+            position: relative;
+            margin: 100px auto;
+            box-shadow: 0 0 5px #000;
+            overflow: hidden;
+        }
+
+        #list {
+            width: 1920px;
+            height: 270px;
+            position: absolute;
+        }
+
+        #list > li {
+            float: left;
+            width: 480px;
+            height: 270px;
+            list-style: none;
+        }
+
+        #list li img {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        #circle {
+            position: absolute;
+            left: 35%;
+            bottom: 0;
+            z-index: 10;
+            height: 15px;
+        }
+
+        #circle > a {
+            float: left;
+            margin: 0 10px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: #ccc;
+        }
+
+        #circle > .active {
+            background: red;
+        }
+
+        #direction > a {
+            display: block;
+            width: 80px;
+            height: 40px;
+            font-size: 20px;
+            background: rgba(0, 0, 0, .4);
+            text-align: center;
+            line-height: 40px;
+            color: #ffffff;
+            text-decoration: none;
+            position: absolute;
+            top: 115px;
+        }
+
+        #direction > a:nth-child(2) {
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+<div id="banner">
+    <ul id="list">
+        <li><img src="images/g1-1.jpg"></li>
+        <li><img src="images/g2-2.jpg"></li>
+        <li><img src="images/g3-3.jpg"></li>
+        <li><img src="images/g4-4.jpg"></li>
+    </ul>
+    <div id="circle">
+        <a href="#" class="active"></a>
+        <a href="#"></a>
+        <a href="#"></a>
+        <a href="#"></a>
+    </div>
+    <div id="direction">
+        <a href="#"><</a>
+        <a href="#">></a>
+    </div>
+</div>
+</body>
+</html>
+<script src="../../Encapsulation/encap.js"></script>
+<script>
+    window.onload = () => {
+        /**
+         *轮播-无缝滑动.html
+         *author:jessie-zly
+         *2017/10/24
+         *description:
+         */
+
+            //初始化下标
+        let inow = 0;
+        //定时器
+        let timer = null;
+
+        //获取
+        let getOul = document.getElementById("list");
+        let getAli = getOul.getElementsByTagName("li");
+        let getOcir = document.getElementById("circle");
+        let getAa = getOcir.getElementsByTagName("a");
+
+        /**
+         * 使用querySelector选择时,获取被clone后元素时会获取不到
+         */
+//        let getOul = document.querySelector("#list");
+//        let getAli = getOul.querySelectorAll("li");
+//        let getOcir = document.querySelector("#circle");
+//        let getAa = getOcir.querySelectorAll("a");
+
+        /**
+         * 克隆第一张图,并插入到最后
+         */
+        let li = getOul.children[0].cloneNode(true);
+        getOul.appendChild(li);
+        //重新定义ul宽度
+        getOul.style.width = getAli.length * getAli[0].offsetWidth + "px";
+
+        /**
+         * 轮播原理
+         */
+        function toImg() {
+            //ul动left
+            moveFramework(getOul, {"left": -inow * getAli[0].offsetWidth});
+            //处理circle中的a标签
+            for (let i in getAa) {
+                getAa[i].className = "";
+            }
+            //判断下标是否越界
+            getAa[inow == getAli.length - 1 ? 0 : inow].className = "active";
+        }
+
+        /**
+         * 自动轮播
+         */
+        function autoPlay() {
+            //
+            timer = setInterval(() => {
+                //判断下标是否越界
+                if (inow == getAli.length - 1) {
+                    inow = 1;
+                    //
+                    getOul.style.left = 0;
+                } else {
+                    inow++;
+                }
+                //
+                toImg();
+            }, 1500)
+        }
+
+        //
+        autoPlay();
+
+
+        /**
+         * banner事件
+         */
+        let getObanner = document.querySelector("#banner");
+        //移入
+        getObanner.onmouseover = () => {
+            clearInterval(timer);
+        }
+        //移出
+        getObanner.onmouseout = () => {
+            autoPlay();
+        }
+
+        /**
+         * circle点击事件
+         */
+        function clickToNext() {
+            //
+            for (let i in getAa) {
+                //点击事件
+                getAa[i].onclick = () => {
+                    //处理a标签
+                    for (let j = 0; j < getAa.length; j++) {
+                        getAa[j].className = "";
+                    }
+                    getAa[i].className = "active";
+                    //顺序轮播
+                    inow = i;
+                    //
+                    moveFramework(getOul, {"left": -i * getAli[0].offsetWidth})
+                }
+            }
+        }
+
+        //
+        clickToNext();
+        /**
+         * direction点击事件
+         */
+
+        let getOdir = document.querySelector("#direction");
+        let getAdir = getOdir.querySelectorAll("a");
+
+        //左边
+        getAdir[0].onclick = () => {
+            //判断下标是否越界
+            if (inow <= 0) {
+                inow = getAli.length - 2;
+                getOul.style.left = -(getAli.length - 1) * getAli[0].offsetWidth + "px";
+            } else {
+                inow--;
+            }
+            toImg();
+        }
+        //右边
+        getAdir[1].onclick = () => {
+            //判断下标是否越界
+            if (inow == getAli.length - 1) {
+                inow = 1;
+                getOul.style.left = 0;
+            } else {
+                inow++;
+            }
+            toImg();
+        }
+    }
+</script>

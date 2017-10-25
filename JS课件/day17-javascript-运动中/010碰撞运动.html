@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin:0;padding: 0}
+		#box{width: 100px;height: 100px;background: red;position: absolute;top: 30px;border-radius: 50%;box-shadow: 2px 2px 2px #000;}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+	<button id="btn">开始运动</button>
+	<div style="width:1px;height:300px;background:#000;position:absolute;left:300px;"></div>
+</body>
+</html>
+<script>
+	
+	var oBox = document.getElementById('box');
+	var oBtn = document.getElementById('btn');
+	var timer = null;
+	oBtn.onclick = function(){
+		move(300)
+	}
+
+
+	function move(){
+		var speedX = 10;
+		var speedY = 6;
+		timer=setInterval(function(){
+			//加重力
+			speedY+=2;
+
+			//获取l  和 t值然后跟边界值做比较
+			var l = oBox.offsetLeft+speedX;
+			var t = oBox.offsetTop+speedY;
+
+
+			//如果l要是大于可视区减去对象的宽度的时候我就让l等于 这个值同时改变他的方向
+			if(l>=document.documentElement.clientWidth-oBox.offsetWidth){
+				speedX*=-0.8;
+
+				l=document.documentElement.clientWidth-oBox.offsetWidth
+			}
+
+			if(l<=0){
+				speedX*=-0.8;
+				l=0;
+			}
+
+			if(t>=document.documentElement.clientHeight-oBox.offsetHeight){
+
+				speedY*=-0.8;
+				speedX*=0.8;//当小球碰到下面或者上面的边界的时候我就让小在原有的基础上在此成0.8这样就可以让小球的X速度慢慢的变小最后可能会变成0
+				t=document.documentElement.clientHeight-oBox.offsetHeight
+			}
+
+			if(t<=0){
+				speedY*=-0.8
+				speedX*=0.8;
+				t=0;
+			}
+
+
+			//因为定时器还在开着  所有我们为了避免BUG的产生所有取了一个speedX的绝对值要是小于1的时候就关闭定时器并且speedX值为0
+			if(Math.abs(speedX)<1){
+				speedX=0;
+				clearInterval(timer)
+			}
+
+
+			oBox.style.left = l+'px';
+			oBox.style.top = t+'px';
+		},30)
+	}
+
+</script>

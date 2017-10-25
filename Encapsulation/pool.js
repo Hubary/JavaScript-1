@@ -291,3 +291,58 @@ function getCookie(_name){
 function removeCookie(_name,_val){
 	setCookie(_name,_val,-1)
 }
+//获取className 无兼容性问题  
+//父级元素
+//class类名
+function getClassName(parent,aClass){
+	//获取到父元素底下所有的子元素
+	var aEle = parent.getElementsByTagName('*');
+	var arr = [];
+	//匹配传进来的这个字符是不是一个边界符
+	var reg = new RegExp('\\b'+aClass+'\\b');
+	for(var i=0;i<aEle.length;i++){
+		if(reg.test(aEle[i].className)){
+			arr.push(aEle[i])
+		}
+	}
+	return arr;
+}
+
+//完美运动框架
+function move(obj,json,fn){
+	clearInterval(obj.timer);
+	obj.timer = setInterval(function(){
+		var bStop = true;
+		for(var attr in json){
+			var iCur = 0;
+			if(attr=='opacity'){
+				iCur = parseInt(parseFloat(getStyle(obj,attr))*100)
+			}else{
+				iCur = parseInt(getStyle(obj,attr))
+			}
+
+			if(iCur!=json[attr]){
+				bStop=false;
+			}
+
+
+			var speed = (json[attr]-iCur)/8;
+			speed = speed>0?Math.ceil(speed):Math.floor(speed);
+
+			
+			if(attr=='opacity'){
+				obj.style.opacity = (iCur+speed)/100;
+				obj.style.filter = 'alpha(opacity:'+(iCur+speed)+')'
+			}else{
+				obj.style[attr]=iCur+speed+'px';
+			}
+		}
+
+		if(bStop){
+			clearInterval(obj.timer);
+			if(fn){
+				fn();
+			}
+		}
+	},30)
+}

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin:0;padding: 0;}
+		ul,li{list-style: none;}
+		#banner{width:320px;height:480px;position:relative;margin:30px auto;overflow: hidden}
+		#list{position: relative;}
+		#list>li{float: left;}
+		#circle{position: absolute;left:25%;bottom: 0;z-index: 10;height: 15px;}
+		#circle>a{float: left;margin:0 10px;width: 15px;height: 15px;border-radius: 50%;background: #ccc;}
+		#circle>.active{background: red;}
+		#direction>a{display: block;width: 80px;height: 40px;font-size: 20px;background:rgba(0,0,0,.6);text-align: center;line-height: 40px;color: #ffffff;text-decoration: none;position: absolute;top: 210px;}
+		#direction>a:nth-child(2){right: 0;}
+	</style>
+</head>
+<body>
+	<div id="banner">
+		<ul id="list">
+			<li><img src="images/w2.jpg"></li>
+			<li><img src="images/w7.jpg"></li>
+			<li><img src="images/w5.jpg"></li>
+			<li><img src="images/w3.jpg"></li>
+			<li><img src="images/w8.jpg"></li>
+		</ul>
+		<div id="circle">
+			<a href="##" class="active"></a>
+			<a href="##"></a>
+			<a href="##"></a>
+			<a href="##"></a>
+			<a href="##"></a>
+		</div>
+		<div id="direction">
+			<a href="##"><</a>
+			<a href="##">></a>
+		</div>
+	</div>
+</body>
+</html>
+<script src='../../Encapsulation/pool.js'></script>
+<script>
+	/*
+		原理：改变ul的left值
+
+		new Array   new Date  new String  new RegExp  new set  new Object  new Function new Image
+
+	 */
+	var oBanner = document.getElementById('banner');
+	var oUl = document.getElementById('list');
+	var aLi = oUl.getElementsByTagName('li')
+	var circle = document.getElementById('circle');
+	var dir = document.querySelectorAll('#direction>a');
+	console.log(dir)
+	var timer = null;
+	var iNow = 0;
+	//第一步先克隆一份第一张图
+	var li = oUl.children[0].cloneNode(true)
+	oUl.appendChild(li);
+	oUl.style.width = aLi.length*aLi[0].offsetWidth+'px';
+
+
+
+	dir[0].onclick = function(){
+		if(iNow<=0){
+				iNow=aLi.length-2;
+				oUl.style.left = (aLi.length-1)*-aLi[0].offsetWidth+'px';
+			}else{
+				iNow--;
+			}
+			toImg();
+
+	}
+
+	dir[1].onclick = function(){
+		if(iNow==aLi.length-1){
+				iNow=1;
+				oUl.style.left=0;
+			}else{
+				iNow++;
+			}
+			toImg();
+	}
+
+
+	//移入停止
+	oBanner.onmouseover = function(){
+		clearInterval(timer)
+	}
+	//移除运动
+	oBanner.onmouseout = function(){
+		autoPlay()
+	}
+
+
+	autoPlay()
+	function autoPlay(){
+		timer=setInterval(function(){
+			if(iNow==aLi.length-1){
+				iNow=1;
+				oUl.style.left=0;
+			}else{
+				iNow++
+			}
+			toImg()
+		},2000)
+	}
+
+	function toImg(){
+		move(oUl,{'left':-iNow*aLi[0].offsetWidth});
+		for(var i=0;i<aA.length;i++){
+			aA[i].className=''
+		}
+		aA[iNow==aLi.length-1?0:iNow].className='active';
+	}
+
+</script>

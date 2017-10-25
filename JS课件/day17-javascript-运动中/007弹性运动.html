@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin:0;padding: 0}
+		#box{width: 100px;height: 100px;background: red;position: absolute;top: 30px;}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+	<button id="btn">开始运动</button>
+</body>
+</html>
+<script>
+	/*
+		如何让小球先往前走然后在往后走
+
+		像钟表一样来回摆动
+	 */
+	var oBox = document.getElementById('box');
+	var oBtn = document.getElementById('btn');
+	var timer = null;
+	oBtn.onclick = function(){
+		move(300)
+	}
+
+	function move(iTarget){
+		var speed=0;
+		timer=setInterval(function(){
+			if(oBox.offsetLeft<=iTarget){
+				speed+=10
+			}else{
+				speed-=10
+			}
+
+			oBox.style.left=oBox.offsetLeft+speed+'px';
+		},30)
+	}
+</script>

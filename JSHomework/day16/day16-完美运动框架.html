@@ -43,19 +43,26 @@
         }
 
 
+        /**
+         * 功能: 运动框架
+         * @param obj 运动对象
+         * @param json json对象,属性-属性值集合
+         * @param fn 回调函数,obj对象运动结束后执行的动作
+         */
         function moveFramework(obj, json, fn) {
-            //
+            //关闭自身定时器,防止受到干扰
             clearInterval(obj.timer);
-            //
+            //运动开始
             obj.timer = setInterval(() => {
-                //
-                let mark = true;
-                //
+                //标记开关
+                let bstop = true;
+                //遍历json对象
                 for (let attr in json) {
-                    //
+                    //初始化运动起点
                     let iCur = 0;
-                    //
+                    //判断json中的属性是否为 opacity
                     if (attr == "opacity") {
+                        //如果属性为opacity,初始化起点
                         iCur = parseInt(parseFloat(getNotInlineStyle(obj, attr)) * 100);
                     } else {
                         iCur = parseInt(getNotInlineStyle(obj, attr));
@@ -74,12 +81,12 @@
 
                     //
                     if (iCur != json[attr]) {
-                        mark = false;
+                        bstop = false;
                     }
                 }
 
-                if (mark) {
-                    clearInterval(timer);
+                if (bstop) {
+                    clearInterval(obj.timer);
                     if (fn) {
                         fn();
                     }
