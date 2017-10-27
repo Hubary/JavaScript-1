@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script>
+//工厂函数   
+function student(names,age){
+	//原料
+	var obj = new Object();
+
+	//加工
+	obj.names = names;
+	obj.age = age;
+
+	obj.showName = function(){
+		alert(obj.names)
+	}
+
+
+	//c出厂
+	return obj
+}
+
+var p1 = student("誉王","20");
+var p2 = student("骚气","20");
+var p3 = student("春晖","20");
+var p4 = student("陈冲","20");
+
+p1.showName()
+p2.showName()
+</script>

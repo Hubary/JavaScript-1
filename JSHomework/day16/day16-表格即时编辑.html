@@ -90,11 +90,14 @@
          *2017/10/23
          *description:
          */
-        function editTable() {
+        editTable = () => {
             //获取
             let getOsave = document.getElementById("save");//save
             let getOtab = document.getElementById("list");//table
             let getAinput = document.getElementsByClassName("edit");//input
+            
+            console.log(getAinput);
+            
             //save时间
             getOsave.onclick = () => {
                 //完全克隆第一行

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin:0;padding: 0;}
+		ul,li{list-style: none;}
+		#banner{width:320px;height:480px;position:relative;margin:30px auto;}
+		#list{position: relative;}
+		#list>li{position: absolute;opacity: 0;filter:alpha(opacity: 0)}
+		#list>li:first-child{opacity: 1;filter: alpha(opacity: 100)}
+		#circle{position: absolute;left:25%;bottom: 0;z-index: 10;height: 15px;}
+		#circle>a{float: left;margin:0 10px;width: 15px;height: 15px;border-radius: 50%;background: #ccc;}
+		#circle>.active{background: red;}
+		#direction>a{display: block;width: 80px;height: 40px;font-size: 20px;background:rgba(0,0,0,.6);text-align: center;line-height: 40px;color: #ffffff;text-decoration: none;position: absolute;top: 210px;}
+		#direction>a:nth-child(2){right: 0;}
+	</style>
+</head>
+<body>
+	<div id="banner">
+		<ul id="list">
+			<li><img src="img1/w2.jpg"></li>
+			<li><img src="img1/w7.jpg"></li>
+			<li><img src="img1/w5.jpg"></li>
+			<li><img src="img1/w3.jpg"></li>
+			<li><img src="img1/w8.jpg"></li>
+		</ul>
+		<div id="circle">
+			<a href="##" class="active"></a>
+			<a href="##"></a>
+			<a href="##"></a>
+			<a href="##"></a>
+			<a href="##"></a>
+		</div>
+		<div id="direction">
+			<a href="##"><</a>
+			<a href="##">></a>
+		</div>
+	</div>
+</body>
+</html>
+<script src='../../pool.js'></script>
+<script>
+
+    new init();
+
+	function init(){
+
+		this.oUl = document.getElementById('list');
+		this.aLi = this.oUl.getElementsByTagName('li')
+		this.circle = document.getElementById('circle');
+		this.aA = this.circle.getElementsByTagName('a');
+		this.timer = null;
+		this.iNow = 0;
+		this.next = 0;
+		var _this=this;
+		setInterval(function(){
+			_this.autoPlay()
+		},2000)
+	}
+
+
+
+
+	
+	init.prototype.autoPlay=function(){
+		if(this.next>=this.aLi.length-1){
+			this.next=0;
+		}else{
+			this.next++;
+		}
+		this.toImg();
+	}
+
+	//轮播原理
+	init.prototype.toImg=function(){
+		move(this.aLi[this.iNow],{'opacity':0});
+		move(this.aLi[this.next],{'opacity':100});
+
+		for(var i=0;i<this.aA.length;i++){
+			this.aA[i].className = '';
+		}
+		this.aA[this.next].className = 'active';
+
+		this.iNow=this.next;
+	}
+
+</script>

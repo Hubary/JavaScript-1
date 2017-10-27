@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>瀑布流</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #main {
+            width: 960px;
+            margin: 40px auto;
+            position: relative
+        }
+
+        #main > div {
+            width: 220px;
+            padding: 4px;
+            border: 1px solid #000;
+            box-shadow: 2px 2px 2px #ccc;
+        }
+
+        #main > div > img {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<div id="main">
+    <!-- <div>
+    <img src="images/1.jpg">
+    <p>亲爱的，请嫁给我好吗？你有车吗？，"暂时没有"，你有房吗？"暂时没有",你有存款吗？"暂时没有",那你有什么？"你见过狗喝水吗",好我愿意嫁给你！</p>
+    </div> -->
+</div>
+</body>
+</html>
+<script>
+
+    //
+    let str = "";
+    for (let i = 1; i < 71; i++) {
+        str += `<div>
+                    <img src="images/${i}.jpg">
+                    <p>亲爱的，请嫁给我好吗？你有车吗？，"暂时没有"，你有房吗？"暂时没有",你有存款吗？"暂时没有",那你有什么？"你见过狗喝水吗",好我愿意嫁给你！</p>
+                </div>`;
+    }
+    let getOmain = document.getElementById("main");
+    getOmain.innerHTML = str;
+
+    //
+    window.onload = () => {
+
+        /**
+         *瀑布流.html
+         *author:jessie-zly
+         *2017/10/25
+         *description:
+         */
+
+        function waterfall() {
+            //初始化列高
+            let iHeight = [0, 0, 0, 0];
+            //获取
+            let getAdiv = getOmain.getElementsByTagName("div");
+            //生成第一列
+            for (let i = 0; i < 4; i++) {
+                //定位
+                getAdiv[i].style.position = "absolute";
+                //样式
+                getAdiv[i].style.left = i * getAdiv[0].offsetWidth + i * 10 + "px";
+                getAdiv[i].style.top = 0;
+                //列高调节
+                iHeight[i] = getAdiv[i].offsetHeight;
+
+            }
+
+            //遍历剩余数
+            for (let i = 4; i < getAdiv.length; i++) {
+                //获取最小列高的i值
+                let index = getIndexOfMin(iHeight);
+                //即时定位
+                getAdiv[i].style.position = "absolute";
+                //即时给定样式
+                getAdiv[i].style.left = index * getAdiv[0].offsetWidth + index * 10 + "px";
+                getAdiv[i].style.top = iHeight[index] + 10 + "px";
+                //列高调节
+                iHeight[index] = iHeight[index] + 10 + getAdiv[i].offsetHeight;
+            }
+        }
+
+        //获取最小值下标
+        function getIndexOfMin(arr) {
+            //初始化
+            let min = arr[0];
+            let index = 0;
+            //遍历
+            for (let i in arr) {
+                if (min > arr[i]) {
+                    min = arr[i];
+                    index = i;
+                }
+            }
+            return index;
+        }
+
+        waterfall();
+    }
+</script>

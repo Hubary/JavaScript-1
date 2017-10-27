@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script>
+	function student(name,age){
+		this.name = name;
+		this.age = age;
+
+		this.showName = function(){
+			alert(this.name)
+		}
+	}
+	var fn = new student("欲望",20);
+	var fn1 = new student("欲望",20);
+	console.log(fn.showName()===fn1.showName())
+	//console.log(new student('誉王',20))
+	//console.log()
+	//
+	/*
+		返回出来的基本数据类型如果是一样的话那么判断为true
+
+		调用的方法：函数   引用数据类型    一般情况下都是不想等的  false
+
+	 */
+</script>

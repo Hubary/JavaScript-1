@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script>
+	//问题  需要把new  给拿出来  为什么非要把new 放在外面？
+	/*function student(names,age){
+		console.log(this)
+	}
+	var fn = student();
+	var fn1 = new student();*/
+	//console.log(fn(),fn1())
+		/*
+		new 构造出来的函数 this会执行当前的一个对象  而普通函数的this是执行window
+		
+		通过构造函数构造出来的对象  系统内部直接帮你return 出去了this
+
+		 */
+	
+	
+
+	function student(name,age){
+		this.name = name;
+		this.age = age;
+
+		this.showName = function(){
+			alert(this.name)
+		}
+	}
+
+	console.log(new student('誉王',20))
+</script>

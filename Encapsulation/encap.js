@@ -58,7 +58,7 @@ function floatNum(num, digit) {
 /**
  * 功能: 选择排序
  * @param arr 排序数组
- * @returns {*}
+ * @returns {Array}
  */
 function selectSort(arr) {
     var temp;
@@ -79,7 +79,7 @@ function selectSort(arr) {
 /**
  * 功能: 冒泡排序
  * @param arr 排序数组
- * @returns {*}
+ * @returns {Array}
  */
 function bubbleSort(arr) {
     var temp;
@@ -102,7 +102,7 @@ function bubbleSort(arr) {
 /**
  * 功能: 随机排序
  * @param arr 排序数组
- * @returns {*}
+ * @returns {Array}
  */
 function randomSort(arr) {
     //
@@ -118,7 +118,7 @@ function randomSort(arr) {
  * 功能: 判断数组中是否有某个元素
  * @param arr 待去重数组
  * @param ele 判断元素
- * @returns {boolean}
+ * @returns {Boolean}
  */
 function has(arr, ele) {
     //遍历数组
@@ -132,7 +132,7 @@ function has(arr, ele) {
 }
 
 /**
- * 功能: 去除数组中重复元素,与has()方法联动使用
+ * 功能: 去除数组中重复元素,与has()方法联动使用,推荐使用
  * @param arr 待去重数组
  * @returns {Array}
  */
@@ -176,7 +176,7 @@ function noRepeat_2(arr) {
 }
 
 /**
- * 功能: 数组去重
+ * 功能: 数组去重,推荐使用
  * @param arr 待去重数组
  * @returns {Array}
  */
@@ -197,7 +197,7 @@ function noRepeat_3(arr) {
 }
 
 /**
- * 功能: 数组去重
+ * 功能: 数组去重,推荐使用
  * @param arr 待去重数组
  * @returns {Array}
  */
@@ -329,6 +329,7 @@ function randomColor() {
 /**
  * 功能: 获取元素偏移量
  * @param element 元素对象
+ * @returns {object}
  */
 function getOffset(element) {
     //获取初始化偏移量值
@@ -348,11 +349,11 @@ function getOffset(element) {
 
 /**
  * 功能: 阻止浏览器默认事件
- * @param e 事件对象
+ * @param event 事件对象
  */
-function preBroDef(e) {
+function preBroDef(event) {
     //三元判断
-    e.preventDefault ? e.preventDefault() : e.returnValue = false;
+    event.preventDefault ? event.preventDefault() : event.returnValue = false;
 }
 
 /**
@@ -361,7 +362,22 @@ function preBroDef(e) {
  * @param value cookie的值
  * @param expires 要求cookie的过期时间
  */
-function setCookie(userName, value, expires) {
+// function setCookie(userName, value, expires) {
+//     //获取cookie创建时间
+//     var date = new Date();
+//     //设置过期时间
+//     date.setDate(date.getDate() + expires)
+//     //信息输出
+//     document.cookie = userName + "=" + value + ";expires=" + date;
+// }
+
+/**
+ * 功能: 封装cookie,用于设置cookie键值,通常与getCookie()和removeCookie()同时调用
+ * @param userName cookie的键
+ * @param value cookie的值
+ * @param expires 要求cookie的过期时间
+ */
+setCookie = (userName, value, expires) => {
     //获取cookie创建时间
     var date = new Date();
     //设置过期时间
@@ -373,7 +389,7 @@ function setCookie(userName, value, expires) {
 /**
  * 功能: 封装cookie,用于获取cookie的键值,通常与setCookie()和removeCookie()同时调用
  * @param userName 想要获取cookie值对应的键
- * @returns {*}
+ * @returns {string}
  */
 function getCookie(userName) {
     //获取cookie

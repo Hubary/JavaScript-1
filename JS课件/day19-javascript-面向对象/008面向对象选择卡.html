@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin:0;padding: 0}
+		.active{background: red}
+		#content{width: 200px;height: 200px;overflow: hidden}
+		#content>div{width: 200px;height: 200px;background: #ccc;}
+	</style>
+</head>
+<body>
+	<button class="active">第一个</button>
+	<button>第二个</button>
+	<button>第三个</button>
+	<div id="content">
+		<div>这是第一个页面</div>
+		<div>这是第二个页面</div>
+		<div>这是第三个页面</div>
+	</div>
+</body>
+</html>
+<script>
+
+	new init()
+
+
+
+
+
+
+function init(){
+		 this.aBtn = document.getElementsByTagName('button');
+		 this.oContent = document.getElementById('content');
+		 this.aDiv = this.oContent.getElementsByTagName('div');
+		 var _this = this;
+	for(var i=0;i<this.aBtn.length;i++){
+		this.aBtn[i].index = i
+		this.aBtn[i].onclick =function(){
+			_this.setattr(this)
+		}
+	}
+}
+
+init.prototype.setattr=function(i){
+		for(var j=0;j<this.aBtn.length;j++){
+			this.aBtn[j].className ='';
+			this.aDiv[j].style.display = 'none'
+		}
+		this.aBtn[i.index].className = 'active';
+		this.aDiv[i.index].style.display = 'block';
+}
+</script>

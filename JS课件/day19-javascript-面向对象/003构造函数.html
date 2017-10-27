@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script>
+	/*
+		因为面向对象的开始是从一个new关键字开始的	
+
+		什么是构造函数：凡是以new 开头的都是构造函数
+
+		构造函数是干什么用的？  构造对象
+
+
+		var obj = new Object()
+		var obj = Object()
+		var obj = {};
+
+
+		对象有什么作用？
+			添加属性和方法
+	
+	 */
+	
+	/* var obj = {};
+	 var obj = new Object()
+
+	 var arr = new Array()
+	 console.log(typeof arr)
+	*/
+
+	/*function fn(){};
+
+	var fn = new fn();
+	//console.log(typeof fn)
+	fn.name = '10';
+	fn.age = 20;
+	fn.show = function(){
+		alert(fn.name*fn.age)
+	}
+	fn.show()*/
+
+
+	function student(){};
+	var student = new student();
+
+	student.name = "誉王";
+	student.age = "20";
+	student.show= function(){
+		alert(1)
+	}
+
+	var student1 = new student();
+
+	student1.name = "陈翔";
+	student1.age = "80";
+	student1.show= function(){
+		alert("2")
+	}
+</script>

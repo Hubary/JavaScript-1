@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin:0;padding: 0;}
+		#box{width: 100px;height: 100px;background: red;position: absolute;}
+		#box1{width: 100px;height: 100px;background:green;position: absolute;}
+		#box2{width: 100px;height: 100px;background: #000;position: absolute;}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+	<div id="box1"></div>
+	<div id="box2"></div>
+</body>
+</html>
+<script>
+
+new init('box');
+new init('box1');
+new init('box2');
+
+
+
+
+function init(obj){
+	this.ele = document.getElementById(obj)
+	var _this = this
+	this.ele.onmousedown = function(){
+		_this.down()
+	}
+}
+
+
+init.prototype.down=function(e){
+	var e = e||event;
+	this.disX = e.offsetX;
+	this.disY = e.offsetY;
+	var _this = this;
+	document.onmousemove =function(){
+		_this.move()
+	} 
+	document.onmouseup = function(){
+		_this.up()
+	}
+}
+
+
+ init.prototype.move=function(e){
+	var e = e||event;
+	this.ele.style.left = e.clientX-this.disX+'px';
+	this.ele.style.top = e.clientY-this.disY+'px';
+}
+init.prototype.up=function(){
+	document.onmousemove = null;
+	//document.onmouseup = null;
+}
+</script>
