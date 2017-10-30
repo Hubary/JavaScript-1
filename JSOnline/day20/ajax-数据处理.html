@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ajax数据请求</title>
+</head>
+<body>
+<input type="text" value="">
+<ul id="list">
+
+</ul>
+</body>
+</html>
+<script>
+    window.onload = () => {
+        //
+        let getOinput = document.querySelector("input");
+        let getOlist = document.querySelector("#list");
+        //
+        getOinput.oninput = () => {
+            //创建XMLHTTPRequest对象
+            let xhr = new XMLHttpRequest();
+            //
+            let kw = getOinput.value;
+            //
+            let url = "http://www.lefeng.com/api/neptune/search/suggestion/v2?keyword=" + kw + "&warehouse=VIP_BJ&notOauth=1";
+            //
+            xhr.open("get", url, true);
+            //
+            xhr.send(null);
+            //
+            xhr.onreadystatechange = () => {
+                //
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    //
+                    let jsonStr = xhr.responseText;
+                    //
+                    let jsonObj = JSON.parse(jsonStr);
+                    //
+                    for (let i in jsonObj.data) {
+                        //
+                        let createOli = document.createElement("li");
+                        //
+                        createOli.innerHTML = jsonObj.data[i].content;
+                        //
+                        getOlist.appendChild(createOli);
+                    }
+                }
+            }
+            getOlist.innerHTML = "";
+        }
+
+
+    }
+</script>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ajax-新闻数据处理</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        dl {
+            padding: 10px 0 0 10px;
+            width: 800px;
+        }
+
+        dt {
+            border: 1px solid #000;
+        }
+
+        span {
+            margin-left: 100px;
+            background: #99ff99;
+        }
+
+        dd {
+            border: 1px solid #000;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+<dl id="list">
+
+</dl>
+<button id="load-more">加载更多</button>
+
+</body>
+</html>
+<script>
+    window.onload = () => {
+        /**
+         *ajax-新闻数据处理.html
+         *author:jessie-zly
+         *2017/10/30
+         *description: 满足加载更多的需求
+         */
+            //
+        let getOdl = document.querySelector("#list");
+        let loadMore = document.querySelector("#load-more");
+        //纪录加载的最后一次的 lastCursor值
+        let lastCursor = 0;
+        //
+        let url = "https://api.readhub.me/topic?lastCursor=23246&pageSize=10";
+//        let url = "https://api.readhub.me/topic?lastCursor=" + lastCursor + "&pageSize=10";
+        //
+        getMore(url);
+
+        //创建XMLHttpRequest对象
+        let xhr = new XMLHttpRequest();
+        //开启
+        xhr.open("get", url, true);
+        //发送
+        xhr.send(null);
+        //
+        xhr.onreadystatechange = () => {
+            //
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                //获取json字符串
+                let jsonStr = xhr.responseText;
+                //转换为json对象
+                let jsonObj = JSON.parse(jsonStr);
+                //遍历json对象中data属性
+                for (let i in jsonObj.data) {
+                    //
+                    let createDt = document.createElement("dt");
+                    createDt.innerHTML = jsonObj.data[i].title;
+                    //
+                    let createDd = document.createElement("dd");
+                    createDd.innerHTML = jsonObj.data[i].summary;
+                    //追加
+                    getOdl.appendChild(createDt);
+                    getOdl.appendChild(createDd);
+                    //
+                    let createSpan = document.createElement("span");
+
+                    //处理时间
+                    let getTime = new Date().getTime();
+                    let createTime = jsonObj.data[i].createdAt;
+                    //转换成时间对象
+                    let d = new Date(createTime);
+                    //
+                    createSpan.innerHTML = parseInt((getTime - d.getTime()) / 1000 / 60 / 60) + "个小时前";
+                    //
+                    createDt.appendChild(createSpan);
+                }
+
+                //纪录最后一次的lastCursor
+                lastCursor = jsonObj.data[jsonObj.data.length - 1].order;
+            }
+        }
+
+        //
+        loadMore.onclick = () => {
+            //
+            let url = "https://api.readhub.me/topic?lastCursor=" + lastCursor + "&pageSize=10";
+            //
+            getMore(url);
+//            //创建XMLHttpRequest对象
+//            let xhr = new XMLHttpRequest();
+//            //开启
+//            xhr.open("get", url, true);
+//            //发送
+//            xhr.send(null);
+//            //
+//            xhr.onreadystatechange = () => {
+//                //
+//                if (xhr.readyState == 4 && xhr.status == 200) {
+//                    //获取json字符串
+//                    let jsonStr = xhr.responseText;
+//                    //转换为json对象
+//                    let jsonObj = JSON.parse(jsonStr);
+//                    //遍历json对象中data属性
+//                    for (let i in jsonObj.data) {
+//                        //
+//                        let createDt = document.createElement("dt");
+//                        createDt.innerHTML = jsonObj.data[i].title;
+//                        //
+//                        let createDd = document.createElement("dd");
+//                        createDd.innerHTML = jsonObj.data[i].summary;
+//                        //追加
+//                        getOdl.appendChild(createDt);
+//                        getOdl.appendChild(createDd);
+//                        //
+//                        let createSpan = document.createElement("span");
+//
+//                        //处理时间
+//                        let getTime = new Date().getTime();
+//                        let createTime = jsonObj.data[i].createdAt;
+//                        //转换成时间对象
+//                        let d = new Date(createTime);
+//                        //
+//                        createSpan.innerHTML = parseInt((getTime - d.getTime()) / 1000 / 60 / 60) + "个小时前";
+//                        //
+//                        createDt.appendChild(createSpan);
+//                    }
+//
+//                    //纪录最后一次的lastCursor
+//                    lastCursor = jsonObj.data[jsonObj.data.length - 1].order;
+//                }
+//            }
+        }
+
+
+        function getMore(url) {
+            //创建XMLHttpRequest对象
+            let xhr = new XMLHttpRequest();
+            //开启
+            xhr.open("get", url, true);
+            //发送
+            xhr.send(null);
+            //
+            xhr.onreadystatechange = () => {
+                //
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    //获取json字符串
+                    let jsonStr = xhr.responseText;
+                    //转换为json对象
+                    let jsonObj = JSON.parse(jsonStr);
+                    //遍历json对象中data属性
+                    for (let i in jsonObj.data) {
+                        //
+                        let createDt = document.createElement("dt");
+                        createDt.innerHTML = jsonObj.data[i].title;
+                        //
+                        let createDd = document.createElement("dd");
+                        createDd.innerHTML = jsonObj.data[i].summary;
+                        //追加
+                        getOdl.appendChild(createDt);
+                        getOdl.appendChild(createDd);
+                        //
+                        let createSpan = document.createElement("span");
+
+                        //处理时间
+                        let getTime = new Date().getTime();
+                        let createTime = jsonObj.data[i].createdAt;
+                        //转换成时间对象
+                        let d = new Date(createTime);
+                        //
+                        createSpan.innerHTML = parseInt((getTime - d.getTime()) / 1000 / 60 / 60) + "个小时前";
+                        //
+                        createDt.appendChild(createSpan);
+                    }
+
+                    //纪录最后一次的lastCursor
+                    lastCursor = jsonObj.data[jsonObj.data.length - 1].order;
+                }
+            }
+        }
+
+
+    }
+</script>
+<script>
+
+</script>
