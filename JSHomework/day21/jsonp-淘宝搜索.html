@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>淘宝搜索</title>
+    <style>
+        .active{
+            background: #99ff99;
+        }
+    </style>
+</head>
+<body>
+<input type="text" class="ipt">
+<ul class="list"></ul>
+</body>
+</html>
+<script>
+    /**
+     *jsonp-淘宝搜索.html
+     *author:jessie-zly
+     *2017/10/31
+     *description: jsonp处理
+     */
+    window.onload = () => {
+        //
+        let getOipt = document.querySelector(".ipt");
+        //输入框事件
+        getOipt.oninput = () => {
+            //获取输入框value
+            let searchVal = getOipt.value;
+            //创建script标签
+            let newScript = document.createElement("script");
+            //获取接口数据
+            newScript.src = "https://suggest.taobao.com/sug?code=utf-8&q=" + searchVal + "&_ksTS=1509440295971_755&callback=jsonp756&k=1&area=c2c&bucketid=3";
+            //
+            document.body.appendChild(newScript);
+            document.body.removeChild(newScript);
+
+        }
+
+    }
+
+
+</script>
+<script>
+    //
+    let getOul = document.querySelector(".list");
+
+    function jsonp756(res) {
+        console.log(res);
+        //
+//        str = "";
+//        for (let i in res.result) {
+//            str += `<li>${res.result[i][0]}</li>`;
+//        }
+//        getOul.innerHTML = str;
+
+        //清空ul
+        getOul.innerHTML="";
+        //
+        for (let i in res.result) {
+            let newLi = document.createElement("li");
+            newLi.innerHTML = res.result[i][0];
+            getOul.appendChild(newLi);
+        }
+        //
+        let getAli=document.querySelectorAll("li");
+        console.log(getAli);
+        //
+        for(let i in getAli){
+            //
+            getAli[i].onmouseover=()=>{
+                getAli[i].className="active";
+               //
+                let NUM=(i+1)+"";
+
+                switch (NUM){
+                    case res.magic[0].index:
+
+
+                        break;
+
+
+
+
+                }
+
+
+
+
+
+
+
+            }
+            getAli[i].onmouseout=()=>{
+                getAli[i].className="";
+            }
+
+        }
+
+
+    }
+
+</script>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ajax-同源请求百度信息</title>
+</head>
+<body>
+<input type="text">
+<ul id="list">
+
+</ul>
+</body>
+</html>
+<script src="../../Encapsulation/ajax.js"></script>
+<script>
+
+    window.onload = () => {
+        /**
+         *ajax-百度.html
+         *author:jessie-zly
+         *2017/10/31
+         *description: jsonp跨域请求
+         */
+
+            //
+        let getOipt = document.querySelector("input");
+
+        //
+        getOipt.oninput = () => {
+            //
+            let search = getOipt.value;
+            //
+            let newScript = document.createElement("script");
+            //获取接口数据
+            newScript.src = 'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=' + search + '&json=1&p=3&sid=24454_1439_21108_24879_20928&req=2&csor=1&cb=callback&_=1509434745108';
+
+            document.body.appendChild(newScript);
+            //即时删除生成的script,避免过度script数据
+            document.body.removeChild(newScript)
+
+        }
+
+
+    }
+    //
+    //    function callback(res) {
+    ////        console.log(res);
+    //        let arr = res.s.map(function (value) {
+    //            return `<li>${value}</li>`;
+    //        });
+    //
+    //        console.log(arr);
+    //        //
+    //        let getOul=document.querySelector("#list");
+    //        //
+    //        getOul.innerHTML=arr.join("");
+    //
+    //    }
+
+
+</script>
+<script>
+    /**
+     * 处理获得的json数据
+     * @param res
+     */
+    function callback(res) {
+        let arr = res.s.map(function (value) {
+            //以字符串形式处理数据
+            return `<li>${value}</li>`;
+        });
+        //
+        let getOul = document.querySelector("#list");
+        //
+        getOul.innerHTML = arr.join("");
+
+    }
+</script>

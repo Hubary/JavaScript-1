@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>京东评论数据处理</title>
+    <style>
+        #comments {
+            width: 1000px;
+        }
+
+        #comments li {
+            overflow: hidden;
+            margin: 20px 0;
+        }
+
+        #comments li .li-left {
+            width: 150px;
+            float: left;
+            padding-top: 20px;
+        }
+
+        #comments li .li-left .user-info {
+            height: 20px;
+        }
+
+        #comments li .li-left .user-info img {
+            height: 20px;
+            width: 20px;
+        }
+
+        #comments li .li-left .user-level {
+            font: 12px/16px "";
+            color: #666;
+        }
+
+        #comments li .li-right {
+            float: right;
+            width: 800px;
+        }
+
+        #comments li .li-right p{
+            color: #f00;
+        }
+
+        #comments li .li-right .content {
+            font: 14px/20px "";
+        }
+
+        #comments li .li-right .message {
+            font: 12px/20px "";
+            color: #666;
+        }
+
+        #comments li .li-right .message span {
+            margin-right: 20px;
+        }
+    </style>
+</head>
+<body>
+<ul id="comments">
+    <!--<li>
+        <div class="li-left">
+            <div class="user-info"><img src="" alt="" /><span></span></div>
+            <div class="user-level">京享值</div>
+        </div>
+        <div class="li-right">
+            <p></p>
+            <div class="content"></div>
+            <div class="message">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </li>-->
+</ul>
+</body>
+</html>
+<script>
+    window.onload = function () {
+        /**
+         *京东评论.html
+         *author:jessie-zly
+         *2017/10/31
+         *description:
+         */
+        let newScript = document.createElement("script");
+        newScript.src = 'https://club.jd.com/comment/productPageComments.action?callback=callBack&productId=5001213&score=0&sortType=5&page=0&pageSize=10&isShadowSku=0&fold=1'
+        //
+        document.body.appendChild(newScript);
+        document.body.removeChild(newScript);
+    }
+
+    function callBack(res) {
+        //
+        console.log(res);
+        //
+        let getOcom = document.getElementById("comments");
+//        let str = "★★★★★☆☆☆☆☆".slice(5 - rate, 10 - rate);
+        let str = "★★★★★☆☆☆☆☆".slice(5-4, 10-4);
+        //
+        for (let i in res.comments) {
+            let getOli = `<li>
+                            <div class="li-left">
+                                <div class="user-info"><img src="//${res.comments[i].userImageUrl}" alt="" /><span>${res.comments[i].nickname}</span></div>
+                                <div class="user-level">京享值${res.comments[i].userExpValue}</div>
+                            </div>
+                            <div class="li-right">
+                                <p>${str}</p>
+                                <div class="content">${res.comments[i].content}</div>
+                                <div class="comment-images"></div>
+                                <div class="message">
+                                    <span>${res.comments[i].productColor}</span>
+                                    <span>${res.comments[i].productSize}</span>
+                                    <span>${res.comments[i].productSales[0].saleValue}</span>
+                                    <span>${res.comments[i].referenceTime}</span>
+                                </div>
+                            </div>
+                        </li>`;
+            getOcom.innerHTML += getOli;
+            //
+            let images = document.getElementsByClassName("comment-images");
+            //
+            if (res.comments[i].images) {
+                for (let j in res.comments[i].images) {
+                    let img = `<img src="//${res.comments[i].images[j].imgUrl}" alt="" />`;
+                    //
+                    images[i].innerHTML += img;
+                }
+            }
+        }
+
+    }
+
+
+</script>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+
+		<script type="text/javascript">
+			
+			var a = 'AddsdASASS';
+			console.log(a.toLowerCase());
+			console.log(a.toUpperCase());
+			
+			var str = '你';
+			
+			var res  = encodeURIComponent(str);//编码
+			console.log(res);
+			
+			console.log(decodeURIComponent(res));//解码
+			
+			
+			
+			
+			
+			//异步操作，不能使用返回值，  回调函数，把函数当做参数
+
+			function ajax(obj) {
+
+				obj.url = encodeURIComponent(obj.url);
+
+				var xhr = new XMLHttpRequest();
+				
+				if(obj.type){
+					if(obj.type.toLowerCase() == 'get'){
+						xhr.open("GET", obj.url, true);
+						xhr.send(null);
+					}else{
+						//post 请求
+						xhr.open("POST", obj.url, true);
+						
+						//注意
+						xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded")
+						
+						//post 参数在 请求体里面
+						// last=111&pageSize=10
+						//xhr.send('last=111&pageSize=10')
+						//把 对象{pagesize:10,last:1000}转为字符串
+						var arr = [];
+						for(var key in obj.params){
+							console.log(key,obj.params[key]);
+							console.log(key+'='+obj.params[key])
+							arr.push(key+'='+encodeURIComponent(obj.params[key]));
+							
+						}
+						console.log(arr)
+						console.log(arr.join('&'))
+						
+						xhr.send(arr.join('&'));
+					}
+				}else{
+					//不存在 说明是 get请求
+					xhr.open("GET", obj.url, true);
+					xhr.send(null);
+				}
+				
+			
+				
+				
+				xhr.onreadystatechange = function() {
+					if(xhr.readyState == 4) {
+
+						if(xhr.status == 200) {
+							var res = JSON.parse(xhr.responseText);
+							//				console.log(obj);
+							if(obj.success){
+								obj.success(res);
+							}
+							
+						} else {
+							//请求失败
+							if(obj.error) {
+								obj.error(xhr.status);
+							}
+						}
+
+						//return obj;
+					}
+				}
+
+			}
+			var url = 'http://www.lefeng.com/ajax/handPickList?page=1';
+			var res = ajax({
+				type:'get',
+				url: url
+				succss:function(ress){
+					console.log(ress);
+				}
+			});
+			console.log(res); //undefined
+
+//			var url2 = 'http://www.lefeng.com/ajax/handPickList?page=2';
+//			ajax({
+//				type:"post",
+//				params:{
+//					last:1000,
+//					pageSize:10,
+//					sex:1,
+//					name:"男"
+//				},
+//				url: url2,
+//				success: function(res) {
+//					console.log(res);
+//				}
+//			});
+		</script>
+
+	</head>
+
+	<body>
+	</body>
+
+</html>

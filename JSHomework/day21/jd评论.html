@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #comments {
+            width: 1000px;
+        }
+
+        #comments li {
+            overflow: hidden;
+        }
+
+        #comments li .li-left {
+            width: 150px;
+            float: left;
+        }
+
+        #comments li .li-left .user-info {
+            height: 20px;
+        }
+
+        #comments li .li-left .user-info img {
+            height: 20px;
+            width: 20px;
+        }
+
+        #comments li .li-left .user-level {
+            font: 12px/16px "";
+            color: #666;
+        }
+
+        #comments li .li-right {
+            float: right;
+            width: 800px;
+        }
+
+        #comments li .li-right .content {
+            font: 14px/20px "";
+        }
+
+        #comments li .li-right .message {
+            font: 12px/20px "";
+            color: #666;
+        }
+
+        #comments li .li-right .message span {
+            margin-right: 20px;
+        }
+    </style>
+</head>
+<body>
+<ul id="comments">
+    <!--<li>
+        <div class="li-left">
+            <div class="user-info"><img src="" alt="" /><span></span></div>
+            <div class="user-level">京享值</div>
+        </div>
+        <div class="li-right">
+            <div class="content"></div>
+            <div class="message">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </li>-->
+</ul>
+</body>
+</html>
+<script>
+    window.onload = function () {
+        var sc = document.createElement("script");
+        var url = 'https://club.jd.com/comment/productPageComments.action?callback=callBack&productId=5001213&score=0&sortType=5&page=0&pageSize=10&isShadowSku=0&fold=1'
+        sc.src = url;
+        document.body.appendChild(sc);
+        document.body.removeChild(sc);
+    }
+
+    function callBack(res) {
+
+        var oComments = document.getElementById("comments");
+        //console.log(res);
+        for (var i = 0; i < res.comments.length; i++) {
+            var oLi = `<li>
+                                <div class="li-left">
+                                    <div class="user-info"><img src="//${res.comments[i].userImageUrl}" alt="" /><span>${res.comments[i].nickname}</span></div>
+                                    <div class="user-level">京享值${res.comments[i].userExpValue}</div>
+                                </div>
+                                <div class="li-right">
+                                    <div class="content">${res.comments[i].content}</div>
+                                    <div class="comment-images"></div>
+                                    <div class="message">
+                                        <span>${res.comments[i].productColor}</span>
+                                        <span>${res.comments[i].productSize}</span>
+                                        <span>${res.comments[i].productSales[0].saleValue}</span>
+                                        <span>${res.comments[i].referenceTime}</span>
+                                    </div>
+                                </div>
+                            </li>`;
+            oComments.innerHTML += oLi;
+            var images = document.getElementsByClassName("comment-images");
+            //console.log(res.comments[i].images);
+            if (res.comments[i].images) {
+                for (var j = 0; j < res.comments[i].images.length; j++) {
+                    var img = `<img src="//${res.comments[i].images[j].imgUrl}" alt="" />`;
+                    images[i].innerHTML += img;
+                }
+            }
+        }
+
+    }
+
+
+</script>
