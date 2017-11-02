@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>淘宝搜索</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        .ipt{margin: 50px 0 0 100px;}
+        .list{margin-left: 100px; width: 500px;position: relative;}
+        .list>li{list-style: none;width: 200px;}
+        .list>li:hover{background: #9f9;}
+        .list>li>span{}
+        .list>li>div{position: absolute;top: 0;left: 200px;display: none;border: 1px solid #ccc;height: 100%;}
+        .list>li>div>span{display: block;margin: 10px 0;background: #c2c2c2;width: 100px;text-align: center;}
+        .list>li>div>ul{width: 300px;height: 25px;margin-bottom: 5px;}
+        .list>li>div>ul>li{list-style: none;width: 94px;float: left;text-align: center;line-height: 25px;border: 1px solid #ccc;}
+        .list>li>div>ul>li:hover{background: #f99;}
+    </style>
+</head>
+<body>
+<input type="text" class="ipt">
+<ul class="list">
+   <!-- <li>
+        <span></span>
+        <div>
+            <span></span>
+            <ul>
+                <li></li>
+
+            </ul>
+        </div>
+    </li>-->
+</ul>
+</body>
+</html>
+<script>
+    /**
+     *jsonp-淘宝搜索.html
+     *author:jessie-zly
+     *2017/10/31
+     *description: jsonp处理
+     */
+    window.onload = () => {
+        //
+        let getOipt = document.querySelector(".ipt");
+        //输入框事件
+        getOipt.oninput = () => {
+            //获取输入框value
+            let searchVal = getOipt.value;
+            //创建script标签
+            let newScript = document.createElement("script");
+            //获取接口数据
+            newScript.src = "https://suggest.taobao.com/sug?code=utf-8&q=" + searchVal + "&_ksTS=1509440295971_755&callback=jsonp756&k=1&area=c2c&bucketid=3";
+            //
+            document.body.appendChild(newScript);
+            document.body.removeChild(newScript);
+        }
+    }
+
+</script>
+<script>
+    //
+    let getOul = document.querySelector(".list");
+
+    jsonp756 = (res) => {
+        console.log(res);
+        //
+//        str = "";
+//        for (let i in res.result) {
+//            str += `<li>${res.result[i][0]}</li>`;
+//        }
+//        getOul.innerHTML = str;
+
+        //清空ul
+        getOul.innerHTML = "";
+        //
+        let arr = res.result.map((value, index) => {
+            //二级菜单显示内容
+            let subMenuHtml = "";
+            //遍历
+            for (let i in res.magic) {
+                //判断一级菜单是否有二级菜单
+                if (index + 1 == res.magic[i].index) {
+                    //遍历二级菜单
+                    res.magic[i].data.forEach(function (subData) {
+                        //遍历二级菜单的子菜单
+                        let newArr = subData.map(function (subVal) {
+                            //每个子菜单形成一个li
+                            return `<li>${subVal.title}</li>`;
+                        });
+                        //二级菜单显示内容,由ul包裹
+                        subMenuHtml += `<ul>${newArr.join("")}</ul>`;
+                    });
+                }
+            }
+            //返回整个菜单字符串
+            return `<li>
+                        <span>${value[0]}</span>
+                        <div>
+                            <span>${value[0]}</span>
+                            ${subMenuHtml}
+                        </div>
+                    </li>`
+        });
+        //输出到一级菜单的ul中
+        getOul.innerHTML = arr.join("");
+        getOul.style.display="block";
+        //
+
+        //获取li
+        let getAli = document.querySelectorAll(".list>li");
+        //处理li事件
+        for (let i in getAli) {
+            //
+            getAli[i].onmouseover = () => {
+                if (getAli[i].querySelector("div").querySelector("ul")) {
+                    getAli[i].querySelector("div").style.display = "block";
+                }
+            }
+            //
+            getAli[i].onmouseout = () => {
+                getAli[i].querySelector("div").style.display = "none";
+            }
+        }
+
+    }
+
+</script>

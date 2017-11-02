@@ -38,7 +38,7 @@
             width: 800px;
         }
 
-        #comments li .li-right p{
+        #comments li .li-right p {
             color: #f00;
         }
 
@@ -86,7 +86,9 @@
          *description:
          */
         let newScript = document.createElement("script");
-        newScript.src = 'https://club.jd.com/comment/productPageComments.action?callback=callBack&productId=5001213&score=0&sortType=5&page=0&pageSize=10&isShadowSku=0&fold=1'
+//        newScript.src = 'https://club.jd.com/comment/productPageComments.action?callback=callBack&productId=5001213&score=0&sortType=5&page=0&pageSize=10&isShadowSku=0&fold=1';
+
+        newScript.src ="https://club.jd.com/comment/productPageComments.action?callback=callBack&productId=3888216&score=2&sortType=5&page=0&pageSize=10&isShadowSku=0&fold=1";
         //
         document.body.appendChild(newScript);
         document.body.removeChild(newScript);
@@ -98,7 +100,7 @@
         //
         let getOcom = document.getElementById("comments");
 //        let str = "★★★★★☆☆☆☆☆".slice(5 - rate, 10 - rate);
-        let str = "★★★★★☆☆☆☆☆".slice(5-4, 10-4);
+//        let str = "★★★★★☆☆☆☆☆".slice(5 - 4, 10 - 4);
         //
         for (let i in res.comments) {
             let getOli = `<li>
@@ -107,7 +109,8 @@
                                 <div class="user-level">京享值${res.comments[i].userExpValue}</div>
                             </div>
                             <div class="li-right">
-                                <p>${str}</p>
+
+                                <p>${"★★★★★☆☆☆☆☆".slice(5 - res.comments[i].score, 10 - res.comments[i].score)}</p>
                                 <div class="content">${res.comments[i].content}</div>
                                 <div class="comment-images"></div>
                                 <div class="message">

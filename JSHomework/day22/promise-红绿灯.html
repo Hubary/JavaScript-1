@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>promise红绿灯</title>
+</head>
+<body>
+<button>停止</button>
+</body>
+</html>
+<script>
+    /**
+     *promise-红绿灯.html
+     *author:jessie-zly
+     *2017/11/1
+     *description:
+     */
+
+    //题目  红灯三秒亮一次，绿灯两秒亮一次，黄灯一秒亮一次；
+    //如何让三个灯不断交替重复亮灯，三个亮灯函数已经存在：
+    // 3 红 -2 绿-1黄 - 3 红 -2 绿-1黄
+
+    function red() {
+        console.log('red - ', new Date().toLocaleString());
+    }
+
+    function green() {
+        console.log('green - ', new Date().toLocaleString());
+    }
+
+    function yellow() {
+        console.log('yellow - ', new Date().toLocaleString());
+    }
+
+
+    //
+    let p1 = new Promise((resolve, reject) => {
+        //
+        setTimeout(() => {
+            resolve();
+        }, 3000);
+    });
+    //
+    let p2 = new Promise((resolve, reject) => {
+        //
+        setTimeout(() => {
+            resolve();
+        }, 2000);
+    });
+    //
+    let p3 = new Promise((resolve, reject) => {
+        //
+        setTimeout(() => {
+            resolve();
+        }, 1000);
+    });
+
+    //
+    //    let p =new Promise.race([p1,p2,p3]);
+
+    let timer = setInterval(function () {
+        Promise.race([p1, p2, p3]).then(function () {
+            return new Promise(function (resolve, reject) {
+                resolve();
+                setTimeout(function () {
+                    red();
+                }, 3000);
+            });
+        }).then(function () {
+            return new Promise(function (resolve, reject) {
+                resolve();
+                setTimeout(function () {
+                    green();
+                }, 5000);
+            });
+        }).then(function () {
+            return new Promise(function (resolve, reject) {
+                resolve();
+                setTimeout(function () {
+                    yellow();
+                }, 6000);
+            });
+        });
+    }, 6000);
+
+    //
+    document.querySelector("button").onclick = function () {
+        clearInterval(timer);
+    }
+
+</script>

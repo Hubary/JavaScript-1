@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			
+			var p = new Promise(function(resolve,reject){
+				
+				setTimeout(function(){
+					var num = Math.random();
+					if(num > 0.5){
+						resolve();
+						console.log('1异步操作成功');
+					}else{
+						reject();
+						console.log('1异步操作失败');
+					}
+					//resolve();
+					//reject();
+				},1000)
+				
+			});
+			
+			p.then(function(){
+				console.log('成功的回调 调用');
+				
+				
+				return new Promise(function(){
+					setTimeout(function(){
+					var num = Math.random();
+					if(num > 0.5){
+						resolve();
+						console.log('2异步操作成功');
+					}else{
+						reject();
+						console.log('2异步操作失败');
+					}
+					//resolve();
+					//reject();
+				},1000)
+				});
+				
+				
+			},function(){
+				console.log('2失败的回调调用')
+			}).then(function(){
+				console.log('3 成功回调')
+			})
+			
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>京东评价信息数据处理</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        #list{width: 1200px;margin: 0 auto;}
+
+        li{list-style: none;display: flex;justify-content: space-between;margin-bottom: 10px;}
+        .left{width: 100px;padding-left: 50px;}
+        .left>img{display: inline-block;width: 20px;height: 20px;}
+        .left>span:nth-of-type(1){display: inline-block;margin-left: 10px;}
+        .left>span:nth-of-type(2){display: block;}
+
+        .right{width: 1000px;}
+        .right>p:nth-of-type(1){color: #f00;}
+        .right>div:nth-of-type(2){}
+        .right>div:nth-of-type(2)>span{display: inline-block;margin-right: 10px;}
+        .right>div:nth-of-type(2)>span:nth-of-type(5){display: inline-block;margin-left: 500px;}
+    </style>
+</head>
+<body>
+<ul id="list">
+    <!--<li>
+        &lt;!&ndash;处理头像+昵称+经验值&ndash;&gt;
+        <div class="left">
+            <img src="">
+            <span></span>
+            <span></span>
+        </div>
+        &lt;!&ndash;星级+处理评论内容+图片+信息&ndash;&gt;
+        <div class="right">
+            <p></p>
+            <p></p>
+            <div>
+                <img src="">
+            </div>
+            <div>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </li>-->
+</ul>
+
+</body>
+</html>
+<script>
+    window.onload = () => {
+        /**
+         *京东评论信息处理-v2.0.html
+         *author:jessie-zly
+         *2017/11/1
+         *description: 基于jsonp请求,进行京东评价数据的处理
+         */
+
+        let newScript = document.createElement("script");
+        newScript.src = "https://club.jd.com/comment/productPageComments.action?callback=callBack&productId=3888216&score=2&sortType=5&page=0&pageSize=10&isShadowSku=0&fold=1";
+        //
+        document.body.appendChild(newScript);
+        document.body.removeChild(newScript);
+        /**
+         * 回调函数处理数据
+         */
+
+            //
+        let getOul = document.querySelector("#list");
+        window.callBack = (res) => {
+            //
+            console.log(res);
+            console.log(res.comments);
+            //
+            let arr = res.comments.map((value) => {
+                //处理图片
+                let imagesHtml = "";
+                //判断是否有图片
+                if (value.images) {
+                    for (let i in value.images) {
+                        imagesHtml += `<img src="${value.images[i].imgUrl}">`;
+                    }
+                }
+                //
+                return `<li>
+                            <div class="left">
+                                <img src="//${value.userImageUrl}">
+                                <span>${value.nickname}</span>
+                                <span>京享值${value.userExpValue}</span>
+                            </div>
+                            <div class="right">
+                                <p>${"★★★★★☆☆☆☆☆".slice(5 - value.score, 10 - value.score)}</p>
+                                <p>${value.content}</p>
+                                <div>${imagesHtml}</div>
+                                <div>
+                                    <span>${value.productColor}</span>
+                                    <span>${value.productSize}</span>
+                                    <span>${value.productSales[0].saleValue}</span>
+                                    <span>${value.creationTime.slice(0, value.creationTime.length - 3)}</span>
+                                    <span>点赞${value.usefulVoteCount}</span>
+                                    <span>回复${value.replyCount}</span>
+                                </div>
+                            </div>
+                        </li>`
+            });
+            //
+            getOul.innerHTML = arr.join("");
+
+        }
+
+    }
+</script>

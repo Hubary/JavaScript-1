@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="ajax-promise.js" type="text/javascript" charset="utf-8"></script>
+		
+		<script type="text/javascript">
+			
+			var keyword = '美'
+			var url = 'http://www.lefeng.com/api/neptune/search/suggestion/v2?keyword=' + keyword + '&warehouse=VIP_BJ&notOauth=1'
+
+			ajax({url:url}).then(function(res){
+				console.log(1,res);
+				
+				var keyword = '面'
+				var url = 'http://www.lefeng.com/api/neptune/search/suggestion/v2?keyword=' + keyword + '&warehouse=VIP_BJ&notOauth=1'
+
+				return ajax({url:url});
+				
+			}).then(function(res){
+				console.log(2,res);
+				
+				
+				
+			}).catch(function(err){
+				console.log(err);
+			})
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
