@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		 <script type="text/javascript">
+		 	
+		 	
+		 	var arr1 = new Array(12,3,4,5,6,5);
+		 	var arr2 = new Array(2,4,2,2,3,23,23,4);
+		 	
+		 	
+		 	
+		 	arr1.push(1000);
+		 	console.log(arr1);
+		 	
+		 	
+		 	arr2.push(10000);
+		 	console.log(arr2);
+		 	
+		 	
+//		 	Array.prototype.push = function(){
+//		 		
+//		 	}
+		 	arr2.push(20000);
+		 	console.log(arr2);
+		 	
+		 	
+		 
+		 	
+		 	Array.prototype._max = function(){
+		 		console.log(this);//数组对象
+		 		
+		 		return Math.max.apply(null,this);
+		 		
+		 	}
+		 	
+		 	console.log(arr2._max());
+		 	console.log(arr1._max())
+		 	
+		 	
+		 	
+		 </script>
+		
+	</head>
+	<body>
+	</body>
+</html>

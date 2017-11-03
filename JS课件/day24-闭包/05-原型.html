@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			
+			function Dog(name,age){
+				this.name = name;
+				this.age = age;
+			}
+			
+			
+			Dog.prototype.color = 'yellow';
+			Dog.prototype.name = '单细胞';
+			
+			
+			var dog1 = new Dog('张三',18);
+			var dog2 = new Dog('李四',20);
+			
+			console.log(dog1 == dog2);
+			
+			
+			console.log(dog1.color);
+			console.log(dog2.color);
+			
+			console.log(dog1.name);//
+			console.log(dog2.name);
+			console.log(dog1);
+			
+			
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

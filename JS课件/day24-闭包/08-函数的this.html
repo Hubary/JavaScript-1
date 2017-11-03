@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<script type="text/javascript">
+			
+			function Box(){
+				
+				this.run = function(){
+					console.log(this);
+				}
+				
+			}
+			
+			
+			var d = new Box(); // this->box
+			d.run();
+			
+			var print = d.run;
+			window.print();// this->window 
+			
+			
+			
+		</script>
+		
+	</head>
+	<body>
+	</body>
+</html>

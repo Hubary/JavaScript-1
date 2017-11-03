@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+
+	</head>
+
+	<body>
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</body>
+
+	<script type="text/javascript">
+		function Dog(name, age) {
+
+			console.log(this, name, age);
+		}
+
+		var dog1 = new Dog('章撒', 18);
+
+		function Box() {}
+		var box1 = new Box();
+
+		Dog.call(box1, '李四', 20);
+
+		Dog.apply(box1, ['王五', 28]);
+
+		// 其他
+
+		console.log(Math.max(1, 2, 3, 4, 5, 2, 3, 23, 23, 23, 2, 32, 32, 43, 4534));
+
+		var arr = [1, 2, 3, 4, 5, 2, 3, 23, 23, 23, 2, 32, 32, 43, 4534];
+
+		console.log(Math.max.apply(null, arr));
+		console.log(Math.min.apply(null, arr));
+
+		// 伪数组
+		
+		var lis = document.getElementsByTagName('li');
+		console.log( lis instanceof Array)
+		
+		var lis2 = document.querySelectorAll('li');
+		console.log(lis2 instanceof Array);
+		console.log(lis2);
+
+		
+		//伪数组 不能使用真数组的 方法
+		//lis.map()
+		
+		
+		var obj = {0:'你好',1:"你也好",length:2};
+		console.log(obj);
+		
+		var arr = Array.from(obj);
+		console.log(arr instanceof Array);
+		
+		
+		
+		
+		
+		
+	</script>
+
+</html>

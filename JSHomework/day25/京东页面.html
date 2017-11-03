@@ -1,18 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>äº¬ä¸œé¡µé¢</title>
+    <meta charset="GB2312">
+    <title>¾©¶«Ò³Ãæ</title>
+    <style>
+        *{margin: 0;padding: 0;}
+
+        body{background: #f6f6f6;}
+
+        #container{width: 1190px;height: 480px;margin: 100px auto;display: flex;justify-content: space-between;}
+
+        #container .cate{position: relative;height: 480px;}
+        #container .cate .list{width: 190px;height: 448px;padding: 16px 0;background: #6e6568;}
+        #container .cate .list>li{font: 14px/28px "";padding-left: 12px;list-style: none;color: #fff;}
+        #container .cate .list>li>a{color: #fff;text-decoration: none;}
+        #container .cate .jsonInfo{position: absolute;left: 190px;width: 1000px;border: 1px solid #f7f7f7;background: #f7f7f7;box-sizing:border-box;box-shadow: 2px 0 5px rgba(0,0,0,.3);}
+
+        #container .slider{width: 790px;background: #f99;}
+
+        #container .login{width: 190px;background: #9f9;}
+
+    </style>
 </head>
 <body>
+    <div id="container">
+        <div class="cate">
+            <!--²Ëµ¥À¸-->
+            <ul class="list">
+                <!--<li></li>-->
+            </ul>
+            <!--½Ó¿ÚÊı¾İÏÔÊ¾-->
+            <div class="jsonInfo">
+
+            </div>
+        </div>
+        <!--ÂÖ²¥Í¼-->
+        <div class="slider">
+
+        </div>
+        <!--ÓÒ²àµÇÂ¼À¸-->
+        <div class="login">
+
+        </div>
+    </div>
 
 </body>
 </html>
 <script>
     /**
-     *äº¬ä¸œé¡µé¢.html
+     *¾©¶«Ò³Ãæ.html
      *author:jessie-zly
      *2017/11/1
-     *description: æœç´¢æ¡†+ä¾§æ èœå•+è½®æ’­å›¾
+     *description: ËÑË÷¿ò+²àÀ¸²Ëµ¥+ÂÖ²¥Í¼
      */
+
+    //²Ëµ¥À¸½Ó¿Ú
+    let url = "https://dc.3.cn/category/get?callback=getCategoryCallback";
+    //ÂÖ²¥Í¼½Ó¿Ú
+    let url2 = "https://f.3.cn/bi/focus_aggr/get?callback=jsonpCallbackFocus&pin=&uuid=1509504360218975710070&_=1509709318152";
+
+    window.onload=function () {
+        //
+        let newScript = document.createElement("script");
+        newScript.src = "https://dc.3.cn/category/get?callback=getCategoryCallback";
+        document.body.appendChild(newScript);
+        document.body.removeChild(newScript);
+        /**
+         * ´¦ÀíÊı¾İ
+         */
+        window.getCategoryCallback = function (res) {
+            console.log(res);
+            //
+            let list = document.querySelector(".list")
+            //±éÀúdata
+            for (let i in res.data) {
+                //±éÀúÊı×és
+                let cateName = res.data[i].s.map(function (value) {
+                    //·µ»Ø½ØÈ¡µÄ×Ö·û´®,²¢ÓÃa±êÇ©°ü¹ü
+                    return `<a href="#">${value.n.match(/\|(\S*)\|\|/)[1]}</a>`;
+//                    return `<a href="#">${value.n.match(/[^|]+/g)[1]}</a>`;
+                });
+                //ÅĞ¶Ï³¤¶ÈÊÇ·ñÎª1,ÊÇ1ÔòÖ±½Ó·µ»Ø×Ö·û´®,·ñÔòÒÔ'/'·Ö¸ô
+                let strCate = cateName.length == 1 ? cateName.join("") : cateName.join(" / ");
+                //Êä³öµ½ulÖĞ
+                list.innerHTML+=`<li>${strCate}</li>`;
+
+
+            }
+        }
+
+    }
+
 </script>
