@@ -5,6 +5,8 @@
       <w>aselect</w>
       <w>dblclick</w>
       <w>encap</w>
+      <w>inext</w>
+      <w>inow</w>
       <w>olist</w>
       <w>onblur</w>
       <w>onfocus</w>

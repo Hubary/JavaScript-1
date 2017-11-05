@@ -37,6 +37,7 @@
 
 </body>
 </html>
+<script src="../../Encapsulation/ajax.js"></script>
 <script>
     window.onload = () => {
         /**
@@ -55,7 +56,6 @@
 //        let url = "https://api.readhub.me/topic?lastCursor=" + lastCursor + "&pageSize=10";
         //
         getMore(url);
-
         //创建XMLHttpRequest对象
         let xhr = new XMLHttpRequest();
         //开启
@@ -151,7 +151,7 @@
 //            }
         }
 
-
+//
         function getMore(url) {
             //创建XMLHttpRequest对象
             let xhr = new XMLHttpRequest();

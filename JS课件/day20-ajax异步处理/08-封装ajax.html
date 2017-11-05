@@ -8,15 +8,15 @@
 		<script type="text/javascript">
 			
 			var a = 'AddsdASASS';
-			console.log(a.toLowerCase());
-			console.log(a.toUpperCase());
+//			console.log(a.toLowerCase());
+//			console.log(a.toUpperCase());
 			
 			var str = '你';
 			
 			var res  = encodeURIComponent(str);//编码
-			console.log(res);
-			
-			console.log(decodeURIComponent(res));//解码
+//			console.log(res);
+//
+//			console.log(decodeURIComponent(res));//解码
 			
 			
 			
@@ -52,8 +52,8 @@
 							arr.push(key+'='+encodeURIComponent(obj.params[key]));
 							
 						}
-						console.log(arr)
-						console.log(arr.join('&'))
+//						console.log(arr)
+//						console.log(arr.join('&'))
 						
 						xhr.send(arr.join('&'));
 					}
@@ -62,8 +62,6 @@
 					xhr.open("GET", obj.url, true);
 					xhr.send(null);
 				}
-				
-			
 				
 				
 				xhr.onreadystatechange = function() {
@@ -89,29 +87,29 @@
 
 			}
 			var url = 'http://www.lefeng.com/ajax/handPickList?page=1';
-			var res = ajax({
-				type:'get',
-				url: url
-				succss:function(ress){
-					console.log(ress);
-				}
-			});
-			console.log(res); //undefined
-
-//			var url2 = 'http://www.lefeng.com/ajax/handPickList?page=2';
-//			ajax({
-//				type:"post",
-//				params:{
-//					last:1000,
-//					pageSize:10,
-//					sex:1,
-//					name:"男"
-//				},
-//				url: url2,
-//				success: function(res) {
-//					console.log(res);
+//			var res = ajax({
+//				type:'get',
+//				url: url,
+//				success:function(ress){
+//					console.log(ress);
 //				}
 //			});
+//			console.log(res); //undefined
+
+			var url2 = 'http://www.lefeng.com/ajax/handPickList?page=2';
+			ajax({
+				type:"post",
+				params:{
+					last:1000,
+					pageSize:10,
+					sex:1,
+					name:"男"
+				},
+				url: url2,
+				success: function(res) {
+					console.log(res);
+				}
+			});
 		</script>
 
 	</head>

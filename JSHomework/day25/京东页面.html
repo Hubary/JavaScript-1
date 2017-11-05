@@ -3,6 +3,7 @@
 <head>
     <meta charset="GB2312">
     <title>京东页面</title>
+    <script src="moveFramework.js"></script>
     <style>
         *{margin: 0;padding: 0;}
 
@@ -11,12 +12,34 @@
         #container{width: 1190px;height: 480px;margin: 100px auto;display: flex;justify-content: space-between;}
 
         #container .cate{position: relative;height: 480px;}
-        #container .cate .list{width: 190px;height: 448px;padding: 16px 0;background: #6e6568;}
+        #container .cate .list{width: 190px;height: 448px;padding: 16px 0;background: #6e6568;z-index: 100;}
         #container .cate .list>li{font: 14px/28px "";padding-left: 12px;list-style: none;color: #fff;}
         #container .cate .list>li>a{color: #fff;text-decoration: none;}
-        #container .cate .jsonInfo{position: absolute;left: 190px;width: 1000px;border: 1px solid #f7f7f7;background: #f7f7f7;box-sizing:border-box;box-shadow: 2px 0 5px rgba(0,0,0,.3);}
+        #container .cate .list>li>a:hover{color: #f99;}
+        #container .cate .jsonInfo{position: absolute;top:0;left:190px;width: 1000px;min-height: 480px;border: 1px solid #f7f7f7;background: #f6f6f6;box-sizing:border-box;box-shadow: 2px 0 5px rgba(0,0,0,.3);display: none;z-index: 50;padding: 20px 0 10px}
+        #container .cate .jsonInfo .title{width: 100%;}
+        #container .cate .jsonInfo .title>li{list-style: none;padding-left: 20px;float: left;margin-right: 10px;}
+        #container .cate .jsonInfo .title>li>a{width: 80px;font: 12px/20px "";text-align: center;background: #6e6568;text-decoration: none;color: #fff;display: block;}
+        #container .cate .jsonInfo .category{width: 100%;display: flex;flex-direction: column;}
+        #container .cate .jsonInfo .category dl{display: flex;justify-content: flex-start;flex-wrap: wrap;width: 800px;}
+        #container .cate .jsonInfo .category dl a{display: block;text-decoration: none;color: #6e6568;font: 12px/36px "";}
+        #container .cate .jsonInfo .category dl>dt{width: 80px;text-align: right;margin-left: 20px;}
+        #container .cate .jsonInfo .category dl>dt>a{font-weight: 700;}
+        #container .cate .jsonInfo .category dl>dd{margin-left: 10px;}
 
-        #container .slider{width: 790px;background: #f99;}
+        #container .slider{width: 790px;height: 340px;position: relative;}
+        #container .slider .imageList{height: 100%;position: relative;}
+        #container .slider .imageList>li{list-style: none;position: absolute;top: 0;}
+        #container .slider .imageList>li>a{text-decoration: none;}
+        #container .slider .imageList>li>a>img{display: block;}
+
+        #container .slider .btn{position: absolute;display: block;font: 900 12px/40px "";color: #fff;width: 20px;text-align: center;background: rgba(0, 0, 0, .1);;top: 150px;cursor: pointer;}
+        #container .slider:hover .btn{background: rgba(0, 0, 0, .5);}
+        #container .slider .btn.pre{left: 0;}
+        #container .slider .btn.next{right: 0;}
+        #container .slider .menu{position: absolute;bottom: 0;left: 305px;width:180px;display: flex;justify-content: space-between;}
+        #container .slider .menu>a{display: block;width: 20px;height: 20px;border-radius: 50%;font: 12px/20px "";text-align: center;text-decoration: none;color: #fff;background: rgba(255, 255, 255, .4);}
+        #container .slider .menu>a.active{background: #f99;}
 
         #container .login{width: 190px;background: #9f9;}
 
@@ -31,12 +54,35 @@
             </ul>
             <!--接口数据显示-->
             <div class="jsonInfo">
+                <!--title-->
+                <ul class="title">
+                    <!--<li> 家电馆</li>-->
+                </ul>
+                <!--详细信息-->
+                <div class="category">
 
+                </div>
             </div>
         </div>
         <!--轮播图-->
         <div class="slider">
-
+            <!--图片-->
+            <ul class="imageList">
+                <!--<img src="" alt="">-->
+            </ul>
+            <!--左右按钮-->
+            <span class="btn pre">&lt;</span>
+            <span class="btn next">&gt;</span>
+            <!--底部按钮-->
+            <div class="menu">
+                <a href="#" class="active">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#">4</a>
+                <a href="#">5</a>
+                <a href="#">6</a>
+                <a href="#">7</a>
+            </div>
         </div>
         <!--右侧登录栏-->
         <div class="login">
@@ -54,12 +100,7 @@
      *description: 搜索框+侧栏菜单+轮播图
      */
 
-    //菜单栏接口
-    let url = "https://dc.3.cn/category/get?callback=getCategoryCallback";
-    //轮播图接口
-    let url2 = "https://f.3.cn/bi/focus_aggr/get?callback=jsonpCallbackFocus&pin=&uuid=1509504360218975710070&_=1509709318152";
-
-    window.onload=function () {
+    window.onload = function () {
         //
         let newScript = document.createElement("script");
         newScript.src = "https://dc.3.cn/category/get?callback=getCategoryCallback";
@@ -68,27 +109,211 @@
         /**
          * 处理数据
          */
-        window.getCategoryCallback = function (res) {
-            console.log(res);
             //
-            let list = document.querySelector(".list")
-            //遍历data
+        let list = document.querySelector(".list");//一级菜单
+        let jsonInfo = document.querySelector(".jsonInfo");//二级菜单
+        let title = jsonInfo.querySelector(".title");//二级菜单标题
+        let category = jsonInfo.querySelector(".category");//二级菜单分类标题
+        //遍历data
+        window.getCategoryCallback = function (res) {
+//            console.log(res);
             for (let i in res.data) {
-                //遍历数组s
+                /**
+                 * 处理一级菜单
+                 * @type {Array}
+                 */
                 let cateName = res.data[i].s.map(function (value) {
                     //返回截取的字符串,并用a标签包裹
                     return `<a href="#">${value.n.match(/\|(\S*)\|\|/)[1]}</a>`;
-//                    return `<a href="#">${value.n.match(/[^|]+/g)[1]}</a>`;
                 });
                 //判断长度是否为1,是1则直接返回字符串,否则以'/'分隔
                 let strCate = cateName.length == 1 ? cateName.join("") : cateName.join(" / ");
                 //输出到ul中
-                list.innerHTML+=`<li>${strCate}</li>`;
+                list.innerHTML += `<li>${strCate}</li>`;
+            }
 
-
+            //事件处理
+            let getAli = list.querySelectorAll(".list>li");
+            //处理 li 事件
+            for (let i in getAli) {
+                //移入
+                getAli[i].onmouseover = () => {
+                    //
+                    title.innerHTML = "";
+                    category.innerHTML = "";
+                    jsonInfo.style.display = "block";
+                    /**
+                     * 处理二级菜单的title
+                     * @type {Array}
+                     */
+                    let titleName = res.data[i].t.map(function (value) {
+                        return `<li><a href="#">${value.match(/\|(\S*)\|\|/)[1]}</a></li>`;
+                    });
+                    //
+                    title.innerHTML += `${titleName.join("")}`;
+                    /**
+                     * 处理二级菜单分类标题
+                     */
+                    let cateName = res.data[i].s.map(function (value) {
+                        // 处理dt
+                        let dtName = "";
+                        let dtdetail = value.s.map(function (val) {
+                            //
+                            dtName = val.n.match(/\|(\S*)\|\|/)[1];
+                            //处理dd
+                            let dd = val.s.map(function (ddval) {
+                                return `<dd><a href="#">${ddval.n.match(/\|(\S*)\|\|/)[1]}</a></dd>`;
+                            });
+                            return `<dl><dt><a href="#">${dtName}</a></dt>${dd.join("")}</dl>`;
+                        });
+                        return dtdetail;
+                    });
+                    //处理字符串
+                    let categoryHtml = cateName.map(function (value) {
+                        return `${value.join("")}`;
+                    });
+                    //
+                    category.innerHTML += `${categoryHtml.join("")}`;
+                }
+                //
+                let cate = document.querySelector(".cate");
+                cate.onmouseout = () => {
+                    jsonInfo.style.display = "none";
+                }
             }
         }
 
     }
+
+</script>
+<script src="../../Encapsulation/encap.js"></script>
+<script>
+    //
+    let newScript = document.createElement("script");
+    newScript.src = "https://f.3.cn/bi/focus_aggr/get?callback=jsonpCallbackFocus&pin=&uuid=1509504360218975710070&_=1509709318152";
+    document.body.appendChild(newScript);
+    document.body.removeChild(newScript);
+
+    window.jsonpCallbackFocus = function (res) {
+        console.log(res);
+        //存放 img 的 src
+        let arr = [];
+        //遍历 data
+        res.data.forEach(function (value) {
+            //映射data 的 value
+            let urlMap = value.map(function (val) {
+                //返回图片的url集合
+                return val.src;
+            });
+            // 选择val的src中的一个push到arr中
+            arr.push(urlMap[(~~(Math.random() * urlMap.length))]);
+        });
+        //映射到 img 中
+        let getAli = arr.map(function (value) {
+            //
+            return `<li><a href="#"><img src="https:${value}"/></a></li>`;
+        });
+        //获取imageList
+        let imageList = document.querySelector(".imageList");
+        // 输出 ul
+        imageList.innerHTML = `${getAli.join("")}`;
+
+
+        /**
+         * 处理轮播
+         */
+
+        let inow = 0;//当前 li 下标
+        let inext = 0;//下一个 li 下标
+        let timer = null;//定时器
+        //
+        let imageUl = document.querySelector(".imageList");//imagelist
+        let imageLi = imageUl.querySelectorAll("li");//imagelist->li
+        let aa = document.querySelectorAll(".menu>a");//menu->a
+        //轮播原理
+        function toPlay() {
+            //
+            moveFramework(imageLi[inow], {"opacity": 0});
+            moveFramework(imageLi[inext], {"opacity": 100});
+            //清空
+            for (let i in aa) {
+                aa[i].className = "";
+            }
+            //
+            aa[inext].className = "active";
+            //
+            inow = inext;
+        }
+
+        //自动播放
+        autoPlay = () => {
+            timer = setInterval(function () {
+                //
+                if (inext >= imageLi.length - 1) {
+                    inext = 0;
+                } else {
+                    inext++;
+                }
+                //
+                toPlay();
+            }, 2000);
+        }
+        //
+        autoPlay();
+
+        //处理 slider 移入移出
+        let slider = document.querySelector(".slider");
+        //移入
+        slider.onmouseover = () => {
+            clearInterval(timer);
+        }
+        //移出
+        slider.onmouseout = () => {
+            autoPlay();
+        }
+
+        //处理左右按钮点击事件
+        let pre = document.querySelector(".pre");
+        let next = document.querySelector(".next");
+        //左
+        pre.onclick = () => {
+            if (inext <= 0) {
+                inext = imageLi.length - 1;
+            } else {
+                inext--;
+            }
+            //
+            toPlay();
+        }
+        //右
+        next.onclick = () => {
+            if (inext >= imageLi.length - 1) {
+                inext = 0;
+            } else {
+                inext++;
+            }
+            //
+            toPlay();
+        }
+
+        //处理 menu
+        for (let i in aa) {
+            //
+            aa[i].onclick = () => {
+                //
+                for (let j = 0; j < aa.length; j++) {
+                    aa[j].className = "";
+                    moveFramework(imageLi[j], {"opacity": 0});
+                }
+                //
+                aa[i].className = "active";
+                inext = i;
+                inow = inext;
+                moveFramework(imageLi[i], {"opacity": 100});
+
+            }
+        }
+    }
+
 
 </script>

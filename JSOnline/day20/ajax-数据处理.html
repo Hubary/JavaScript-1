@@ -11,6 +11,7 @@
 </ul>
 </body>
 </html>
+<script src="../../Encapsulation/ajax.js"></script>
 <script>
     window.onload = () => {
         //
@@ -24,6 +25,15 @@
             let kw = getOinput.value;
             //
             let url = "http://www.lefeng.com/api/neptune/search/suggestion/v2?keyword=" + kw + "&warehouse=VIP_BJ&notOauth=1";
+
+//            ajax({
+//                url:url,
+//                success:function (res) {
+//                     console.log(res);
+//                }
+//            })
+
+
             //
             xhr.open("get", url, true);
             //
