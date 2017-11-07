@@ -1,5 +1,5 @@
 class Bullet extends Spirit {
-	constructor(x, y, width,options) {
+	constructor(x, y, width, options) {
 		//参数为 飞机的x y 坐标 和 宽度
 
 		console.log('创建了一个子弹');
@@ -27,6 +27,7 @@ class Bullet extends Spirit {
 	}
 	//子弹运动
 	run() {
+
 		//
 		var timer = setInterval(function() {
 
@@ -34,17 +35,39 @@ class Bullet extends Spirit {
 			this.ele.style.top = this.ele.offsetTop - 10 - this.options * 2 + "px";
 			//子弹超出屏幕 删除子弹
 
-			if(this.ele.offsetTop <= 0) {
+			if(this.ele.offsetTop <= -this.ele.offsetHeight) {
 				this.ele.remove();
-				
-//				var index = en.bullets.indexOf(this);
-//				console.log("子弹超出屏幕 删除子弹",index);
-//				en.bullets.splice(index,1);
-				
+				clearInterval(timer);
+
+				var index = en.bullets.indexOf(this);
+				console.log("子弹超出屏幕 删除子弹", index);
+				en.bullets.splice(index, 1);
 
 			}
 
-		}.bind(this), 50)
+		}.bind(this), 100);
+		this.timer = timer;
+
+	}
+
+	//子弹爆炸
+	boom() {
+		this.ele.className = 'bullet_die';
+		var that = this;
+		clearInterval(this.timer);
+		
+		var index = en.bullets.indexOf(this);
+		console.log("子弹超出屏幕 删除子弹", index);
+		en.bullets.splice(index, 1);
+		
+		setTimeout(function() {
+
+			this.ele.style.background = 'url(images/die2.png) no-repeat';
+			this.ele.remove();
+
+			
+
+		}.bind(this), 200)
 
 	}
 }

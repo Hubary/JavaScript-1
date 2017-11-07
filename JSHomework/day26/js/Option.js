@@ -2,7 +2,7 @@
  *Option.js
  *author:jessie-zly
  *2017/11/6
- *description: 本类用于实现本项目初始界面
+ *description: 本类用于实现本项目初始界面,并进行难度选择
  */
 
 class Option {

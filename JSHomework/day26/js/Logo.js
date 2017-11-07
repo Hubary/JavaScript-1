@@ -9,8 +9,8 @@ class Logo {
     //
     constructor() {
         //
-        this.ele=document.createElement("div");
-        this.ele.className="logo";
+        this.ele = document.createElement("div");
+        this.ele.className = "logo";
         //插入到页面
         document.body.appendChild(this.ele);
     }
@@ -18,8 +18,8 @@ class Logo {
     /**
      * 隐藏logo
      */
-    hide(){
-        this.ele.style.display="none";
+    hide() {
+        this.ele.style.display = "none";
     }
 
 

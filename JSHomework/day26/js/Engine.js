@@ -12,14 +12,14 @@ class Engine {
         //保存Engine中的this值
         // let _this = this;
         //
-        this.bulletArr=[];
-        this.enemyArr=[];
+        this.bulletArr = [];
+        this.enemyArr = [];
         //显示logo
         this.logo = new Logo();
         //
-        this.option = new Option((select)=> { // 箭头函数可以锁定this,强制指向宿主 Engine
+        this.option = new Option((select) => { // 箭头函数可以锁定this,强制指向宿主 Engine
             //
-            this.loading = new Loading(()=> {
+            this.loading = new Loading(() => {
                 //隐藏logo
                 this.logo.hide();
                 //

@@ -4,12 +4,15 @@ class Loading{
 		
 		this.ele = document.createElement('div');
 		this.ele.className = 'loading';
-		this.interval = 1000;
+		this.interval = 3000;
 		
 		document.body.appendChild(this.ele);
 		
+		var that = this;
+		
 		var i=1;
 		var timer =  setInterval(function(){
+			//this;  es5  window  ，  es6 undefined
 			i++;
 			if(i==4){
 				i=1;
@@ -18,6 +21,7 @@ class Loading{
 			
 			var url = `url(images/loading${i}.png) no-repeat`;
 			this.ele.style.background = url;
+			//that.ele.style = 
 			
 		}.bind(this),300);
 		

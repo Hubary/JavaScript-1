@@ -1,6 +1,6 @@
 class MyPlane extends Spirit {
 	constructor(options) {
-		super();
+		super();//继承 必须要先调用  父类的构造函数
 		console.log(this.ele);
 		
 		//记录游戏的难度
@@ -52,7 +52,7 @@ class MyPlane extends Spirit {
 			var tmp =  new Bullet(x,y,width,this.options);
 			en.bullets.push(tmp);
 			
-		}.bind(this),300);
+		}.bind(this),1000);
 		
 	}
 

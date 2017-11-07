@@ -8,7 +8,6 @@ class GameOptions{
 				<li value="3">比较困难</li>
 				<li value="4">简单</li>
 			</ul>`;
-
 		var body_main = document.getElementById('body_main');
 		body_main.innerHTML = html;
 		
