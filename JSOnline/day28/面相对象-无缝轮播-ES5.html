@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>面相对象-无缝轮播-ES5</title>
+    <!--引入css-->
+    <link rel="stylesheet" href="css/style.css">
+    <!--引入js-->
+    <script src="js/moveFramework.js"></script>
+    <script src="js/loopPicture.js"></script>
+
+</head>
+<body>
+<div class="banner banner-first">
+    <!--图片显示-->
+    <ul class="list">
+        <li><img src="images/g1-1.jpg"></li>
+        <li><img src="images/g2-2.jpg"></li>
+        <li><img src="images/g3-3.jpg"></li>
+        <li><img src="images/g4-4.jpg"></li>
+    </ul>
+    <!--底部按钮-->
+    <div class="tab">
+        <a href="#" class="active"></a>
+        <a href="#"></a>
+        <a href="#"></a>
+        <a href="#"></a>
+    </div>
+    <!--左右按钮-->
+    <div class="pre-next">
+        <a href="#" class="pre">&lt;</a>
+        <a href="#" class="next">&gt;</a>
+    </div>
+</div>
+
+
+</body>
+</html>
+<script>
+    /**
+     *轮播-无缝滑动.html
+     *author:jessie-zly
+     *2017/11/8
+     *description: 轮播插件--面相对象思想
+     */
+    window.onload = () => {
+        //
+        new LoopPicture(".banner-first");
+    }
+</script>

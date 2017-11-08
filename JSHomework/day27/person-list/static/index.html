@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>人员列表页面</title>
+
+</head>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript">
+
+    window.onload = function () {
+        //定义接口地址
+        let url = {
+            API_URL_ALL: '/api/all-persons',
+            API_URL_ADD: '/api/add-person',
+            API_URL_EDIT: '/api/edit-person',
+            API_URL_REMOVE: '/api/remove-person',
+        }
+
+//        let tab = document.getElementById('tab');
+        //测试接口
+        //查询
+        $.post(url.API_URL_ALL, function (res) {
+            console.log(res);
+            //
+            let person = res.data.map((value) => {
+                return `<tr myid="${value.id}">
+                            <td>${value.name}</td>
+                            <td>${value.age}</td>
+                            <td>${value.gender}</td>
+                            <td>${value.email}</td>
+                            <td><a href="##" class="del">删除</a></td>
+                        </tr>`;
+            });
+            //
+//            $.post(url.API_URL_REMOVE,{
+//                'id':myid
+//            },function(res){
+//                console.log(res)
+//                if(res.code == 200){
+//                    //删除页面元素
+//                    tr.remove();
+//                }
+//
+//            })
+            //
+            $("#tab").append(person.join(""));
+            //
+            $(".del").click(function () {
+                $(this).parent().parent().remove();
+            });
+
+            //事件代理方式
+//            $("#tab").click(function (event) {
+//                //
+//                event = event || window.event;
+//                let target = event.target || event.srcElement;
+//                //
+//                if (target.tagName.toLowerCase() == "a") {
+//                    $(this).parent().parent().remove();
+//                }
+//            });
+
+
+
+        });
+
+
+        var addBtn = document.getElementById('addbtn');
+        addBtn.onclick = function () {
+            var ipts = document.getElementsByTagName('input');
+            //添加
+            $.post(url.API_URL_ADD, {
+                "name": ipts[0].value,
+                "age": parseInt(ipts[2].value),
+                "gender": ipts[1].value,
+                "email": ipts[3].value
+            }, function (res) {
+                //
+                console.log(res);
+                //
+                if(res.code==200){
+                    //克隆tr并插入到tab
+                    $("tr:first").clone().appendTo("#tab");
+                    //
+
+                }
+
+
+            });
+        }
+
+
+    }
+
+    $(function () {
+
+
+    })
+</script>
+
+<body>
+<h1 class="logo">人员列表页面11111</h1>
+
+<input type="text"/>
+<input type="text"/>
+<input type="text"/>
+<input type="text"/>
+<input type="button" value='添加人员' id="addbtn"/>
+<table id="tab" border="" cellspacing="" cellpadding="">
+    <tr>
+        <th>姓名</th>
+        <th>性别</th>
+        <th>年龄</th>
+        <th>邮箱</th>
+    </tr>
+    <!--<tr><td>Data</td></tr>-->
+</table>
+
+</body>
+
+</html>

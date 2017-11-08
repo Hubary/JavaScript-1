@@ -1,3 +1,9 @@
+/**
+ *singleton.js
+ *author:jessie-zly
+ *2017/11/7
+ *description:
+ */
 function Singleton() {
     //
     if (!Singleton.instance) {
@@ -58,7 +64,7 @@ function Singleton() {
         console.log(cancelBtn);
 
         //取得按钮点击事件
-        confirmBtn.onclick=(event)=>{
+        confirmBtn.onclick = (event) => {
             //
             event = event || window.event;
             //
