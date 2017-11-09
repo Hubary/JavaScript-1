@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery-选项卡</title>
+    <script src="../../lib/jquery-1.11.3.min.js"></script>
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 480px;
+            height: 270px;
+            box-shadow: 0 0 5px #000;
+            margin: 200px auto;
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .container ul li {
+            list-style: none;
+            width: 480px;
+            height: 270px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            transition: 1s;
+        }
+
+        .container ul li.active {
+            opacity: 1;
+        }
+
+        .container ul li img {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        .btn {
+            width: 80px;
+            height: 20px;
+            display: flex;
+            justify-content: space-between;
+            position: absolute;
+            left: 200px;
+            bottom: 0;
+        }
+
+        .btn span {
+            width: 15px;
+            height: 15px;
+            display: block;
+            border-radius: 50%;
+            background: #f99;
+            opacity: 0.6;
+        }
+
+        .btn span.active {
+            background: red;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <ul class="box">
+        <li class="active"><img src="images/g1.jpg"></li>
+        <li><img src="images/g2.jpg"></li>
+        <li><img src="images/g3.jpg"></li>
+        <li><img src="images/g4.jpg"></li>
+    </ul>
+
+    <div class="btn">
+        <span class="active"></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+</body>
+</html>
+<script>
+    /**
+     *jQuery-选项卡.html
+     *author:jessie-zly
+     *2017/11/8
+     *description: jquery练习
+     */
+    $(function () {
+        // span 事件
+        $("span").click(function () {
+            // 处理 span
+            $("span").removeClass("active");
+            $(this).addClass("active");
+            // 处理 li
+            $("li").removeClass("active");
+            $("li").eq($(this).index()).addClass("active");
+        })
+    })
+
+</script>

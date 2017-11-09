@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery-手风琴效果</title>
+    <script src="../../lib/jquery-1.11.3.min.js"></script>
+    <style>
+        *{margin: 0;padding: 0;}
+        .container{width: 1400px;height: 260px;margin: 200px auto;}
+        .container>li{width: 200px;height: 100%;list-style: none;float: left;}
+        .container>li>p{display:block;width: 100%;height: 100%; background: rgba(0,0,0,.4);}
+        .container>li>p>span{display: block;font: 500 20px/24px "";color: #fff;width: 20px;text-align: center;margin: 0 auto;padding: 80px 0 0;}
+
+    </style>
+</head>
+<body>
+<ul class="container">
+    <li style="background: url(images/1.jpg) no-repeat center"><p><span>温泉酒店</span></p></li>
+    <li style="background: url(images/2.jpg) no-repeat center"><p><span>海岛酒店</span></p></li>
+    <!--<li style="background: url(images/3.jpg) no-repeat center"><p><span>海外温泉</span></p></li>-->
+    <li style="background: url(images/4.jpg) no-repeat center"><p><span>宗原专属</span></p></li>
+    <li style="background: url(images/5.jpg) no-repeat center"><p><span>基佬酒店</span></p></li>
+    <li style="background: url(images/6.jpg) no-repeat center"><p><span>屌丝宿舍</span></p></li>
+    <li style="background: url(images/7.jpg) no-repeat center"><p><span>坑爹专属</span></p></li>
+</ul>
+</body>
+</html>
+<script>
+    /**
+     *手风琴效果.html
+     *author:jessie-zly
+     *2017/11/9
+     *description: jQuery练习-手风琴效果
+     */
+
+    $(function () {
+        $("li").hover(function () {
+            $(this).find("p").css({display: 'none'}).end().stop().animate({
+                width: 400
+            }).siblings().stop().animate({
+                width: 160
+            })
+        }, function () {
+//            $(this).find("p").css({display:'block'});
+//            $("li").stop().animate({
+//                width:200
+//            });
+            $(this).find("p").css({display: 'block'}).end().parent(".container").find("li").stop().animate({
+                width: 200
+            });
+        });
+    })
+
+</script>
