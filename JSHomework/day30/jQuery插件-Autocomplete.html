@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery插件-Autocomplete</title>
+    <link rel="stylesheet" href="../../lib/jquery-ui/jquery-ui.min.css">
+    <script src="../../lib/jquery-1.11.3.min.js"></script>
+    <script src="../../lib/jquery-ui/jquery-ui.min.js"></script>
+</head>
+<body>
+<input type="text">
+</body>
+</html>
+<script>
+    /**
+     *jQuery插件-Autocomplete.html
+     *author:jessie-zly
+     *2017/11/10
+     *description: jQuery插件练习,自动提示/完成
+     */
+    $(function () {
+        const tags = [
+            "ActionScript",
+            "AppleScript",
+            "Asp",
+            "BASIC",
+            "C",
+            "C++",
+            "Clojure",
+            "COBOL",
+            "ColdFusion",
+            "Erlang",
+            "Fortran",
+            "Groovy",
+            "Haskell",
+            "Java",
+            "JavaScript",
+            "Lisp",
+            "Perl",
+            "PHP",
+            "Python",
+            "Ruby",
+            "Scala",
+            "Scheme"
+        ];
+        $("input").autocomplete({
+            //source 值对应 请求返回的值
+            source: tags
+        });
+    })
+</script>

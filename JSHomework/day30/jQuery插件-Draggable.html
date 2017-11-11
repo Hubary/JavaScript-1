@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery插件-Draggable</title>
+    <link rel="stylesheet" href="../../lib/jquery-ui/jquery-ui.min.css">
+    <script src="../../lib/jquery-1.11.3.min.js"></script>
+    <script src="../../lib/jquery-ui/jquery-ui.min.js"></script>
+</head>
+<body style="margin: 0;padding: 0;">
+
+<div style="width: 200px;height: 200px;border: 1px solid #000;margin: 100px auto;">
+    <span style="display: block;background: #f99;">可以拖动</span>
+    <p style="display: block;background: #cecece;">不可以拖动</p>
+</div>
+</body>
+</html>
+<script>
+    /**
+     *jQuery插件-Draggable.html
+     *author:jessie-zly
+     *2017/11/10
+     *description: 拖拽练习
+     */
+
+    $(function () {
+        // 无参数
+        // $("div").draggable(); // div 动,后代会跟随动
+        // $("span").draggable(); // span 标签动
+        // $("p").draggable(); // p 标签动
+
+        // 有参数
+        $("div").draggable({
+            'axis': 'x', // 限定拖动方向
+            'containter': 'parent', // 限定拖动范围(父元素内)
+            'cursor': 'move', // 限定鼠标样式
+            'handle': 'p', // 限定拖拽位置
+            'cancel': 'span',
+            'revert': true, // 还原位置
+            'helper': 'clone' // 生成元素助手
+        });
+
+    })
+
+
+</script>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery插件-Datepicker</title>
+    <link rel="stylesheet" href="../../lib/jquery-ui/jquery-ui.min.css">
+    <script src="../../lib/jquery-1.11.3.min.js"></script>
+    <script src="../../lib/jquery-ui/jquery-ui.min.js"></script>
+</head>
+<body>
+<label>起始日期选择: <input type="text"></label>
+<label>终止日期选择: <input type="text"></label>
+
+</body>
+</html>
+<script>
+    /**
+     *jQuery插件-Datepicker.html
+     *author:jessie-zly
+     *2017/11/10
+     *description: 日历插件练习
+     */
+    $(function () {
+        // 无参数
+        $("input:first").datepicker();
+        // 有参数
+
+        $("input:eq(1)").datepicker({
+            //
+            showButtonPanel:true, // 显示按钮
+            changeMonth: true, // 改变月份
+            changeYear: true // 改变年份
+        });
+    })
+</script>

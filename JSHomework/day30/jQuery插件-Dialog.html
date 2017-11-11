@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery插件-Dialog</title>
+    <link rel="stylesheet" href="../../lib/jquery-ui/jquery-ui.min.css">
+    <script src="../../lib/jquery-1.11.3.min.js"></script>
+    <script src="../../lib/jquery-ui/jquery-ui.min.js"></script>
+</head>
+<body>
+<div title="对话框标题">
+    <p style="border: 1px solid #ccc;text-indent: 20px;">对话框内容;可以移动;可以通过点击'x'来关闭;可以调整尺寸,设置样式</p>
+</div>
+
+<div title="模态对话框">
+    <p style="border: 1px solid #ccc;text-indent: 20px;">对话框内容</p>
+</div>
+
+
+</body>
+</html>
+<script>
+    /**
+     *jQuery插件-Dialog.html
+     *author:jessie-zly
+     *2017/11/10
+     *description: 对话框练习
+     */
+
+    $(function () {
+        //
+        $('div:first').dialog();
+        //
+        $(document).click(function () {
+            $('div:last').dialog({
+                //
+                height:200,
+                modal:true
+            });
+        });
+
+    })
+</script>
