@@ -43,15 +43,8 @@ var url ='https://f.3.cn/bi/focus8/get?callback=?&pin=&uuid=14931815996541893119
 
 		jdlb();
     });
-    
-    
-  
-    
-
-
 
 });
-
 
 
 function jdlb(){
@@ -119,8 +112,5 @@ function jdlb(){
 
             },2000)
         }
-
-
-
 
 }

@@ -21,8 +21,6 @@ function Lunbo(className) {
 	//         	ul.appendChild(lastLi);
 	var that = this;
 
-	
-
 
 	this.init();
 
