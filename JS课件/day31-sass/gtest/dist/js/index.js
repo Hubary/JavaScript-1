@@ -1,0 +1,1 @@
+"use strict";function max(n,o){return console.log(2),3}

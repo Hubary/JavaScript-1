@@ -1,0 +1,1 @@
+"use strict";function count(t,n){return t}

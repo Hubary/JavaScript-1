@@ -1,0 +1,1 @@
+"use strict";function _classCallCheck(n,o){if(!(n instanceof o))throw new TypeError("Cannot call a class as a function")}function lunbo(){console.log(22222111);return"年后"}function b(){console.log(1)}Lunbo();var Dog=function n(){_classCallCheck(this,n)},dog=new Dog;b();

@@ -1,0 +1,8 @@
+.box {
+  width: 100px;
+  color: yellow; }
+  .box .item {
+    color: red;
+    width: 200px; }
+
+/*# sourceMappingURL=index.css.map */
